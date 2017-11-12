@@ -1,0 +1,73 @@
+\documentclass[listof=totoc]{scrartcl}
+
+%% Language and font encodings
+\usepackage[english,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{eurosans}
+\usepackage{color}
+\usepackage{pdflscape}
+\usepackage{rotating}
+
+\usepackage{tocbibind}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\usepackage{listings}
+\newcommand{\includecode}[2][Java]{
+	\subsection{#2}
+	\lstinputlisting[caption=#2]{#2}
+	\pagebreak
+}
+\lstset{language=Java,
+	belowcaptionskip=1\baselineskip,
+	frame=single,                  % adds a frame around the code   
+	rulecolor=\color{black},
+	numbers=left,
+	numberstyle=\tiny,
+	captionpos=b,             % sets the caption-position to bottom    
+	showspaces=false,
+	showtabs=false,
+	breaklines=true,
+	showstringspaces=false,
+	breakatwhitespace=true,
+	commentstyle=\color{pgreen},
+	keywordstyle=\color{pblue},
+	stringstyle=\color{pred},
+	basicstyle=\ttfamily,
+	moredelim=[il][\textcolor{pgrey}]{$$},
+	moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
+	inputpath=listings
+}
+
+%% cite
+\usepackage[backend=biber]{biblatex}
+\addbibresource{Zotero.bib}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{todonotes}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{pdfpages}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\title{Exposé zur Masterarbeit ``Programmiersprachliche Konzepte von COBOL im Vergleich mit Java''}
+\author{Antonio Grieco}
+
+\newcommand{\includesection}[1]{\pagebreak\section{#1}\input{#1}}
