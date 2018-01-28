@@ -1,3 +1,10 @@
+% arara: pdflatex: { shell: on }
+% arara: biber
+% arara: pdflatex: { shell: on }
+% arara: pdflatex: { shell: on }
+% arara: clean: { files: [ Expose.aux, Expose.bbl, Expose.bcf, Expose.cod, Expose.blg, Expose.lof, Expose.lot, Expose.out, Expose.toc, Expose.log, Expose.lol, Expose.run.xml, _minted-Expose ] } 
+
+
 \input{Expose/Preamble}
 \begin{document}
 \counterwithin{listing}{section}
