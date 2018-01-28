@@ -22,7 +22,32 @@ Schleifen & \\\hline
 
 \pagebreak
 
-\subsection{COBOL Stufennummer 88}
+\subsection{Programmablauf}
+PROCEDURE DIVISION \& main-Methode
+
+\subsection{Scope}
+SENTENCE \& Statement
+
+\subsection{Variablendeklaration}
+DATA DIVISION \& Variablendeklaration
+
+\subsection{Datenstrukturen}
+
+\subsubsection{Felder}
+OCCURES \& Arrays
+
+\subsubsection{Java: List}
+
+\subsubsection{Java: Set}
+
+\subsubsection{Java: Map}
+
+\subsection{Auslagerung von Daten}
+COPY \& import
+
+\subsection{COBOL Stufennummer 66}
+
+\pagebreak \subsection{COBOL Stufennummer 88}
 Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weitere Besonderheit dar. Mit ihr ist es möglich einer Variable einen Wahrheitswert zuzuweisen, der von einem anderen Variablenwert abhängt. 
 
 \begin{listing}[H]
@@ -31,7 +56,7 @@ Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weite
   \label{88_cobol_listing}
 \end{listing} 
 
-\autoref{88_cobol_listing} zeigt die beispielhafte Verwendung der Stufennummer 88. Die Variable \mintinline{text}{VAR} kann dabei zweistellige numerische Werte enthalten. Liegt der Wert zwischen 0 und 9 (\mintinline{cobol}{VALUE 0 THRU 9}) so weist die Variable \mintinline{text}{ISLOWERTEN} einen den Wahrheitswert \mintinline{cobol}{TRUE} auf.
+\autoref{88_cobol_listing} zeigt die beispielhafte Verwendung der Stufennummer 88. Die Variable \mintinline{text}{VAR} kann dabei zweistellige numerische Werte enthalten. Liegt der Wert zwischen 0 und 9 (\mintinline{cobol}{VALUE 0 THRU 9}) so weist die Variable \mintinline{text}{ISLOWERTEN} den Wahrheitswert \mintinline{cobol}{TRUE} auf.
 
 Der so entstandene Wahrheitswert kann folglich immer dann verwendet werden, wenn getestet werden soll, ob die Variable \mintinline{text}{VAR} im Bereich zwischen 0 und 9 liegt.
 
