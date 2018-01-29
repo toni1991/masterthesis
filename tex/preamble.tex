@@ -1,4 +1,4 @@
-\documentclass[listof=totoc]{scrartcl}
+\documentclass[bibliography=totoc]{scrartcl}
 
 %% Language and font encodings
 \usepackage[english,ngerman]{babel}
@@ -12,7 +12,7 @@
 \usepackage{makecell}
 \usepackage[newfloat]{minted}
 \usepackage{chngcntr}
-%\usepackage{tocbibind}
+\usepackage{tocbibind}
 
 \definecolor{pblue}{rgb}{0.13,0.13,1}
 \definecolor{pgreen}{rgb}{0,0.5,0}
@@ -25,38 +25,13 @@
 \geometry{a4paper, top=30mm, left=30mm, right=30mm, bottom=30mm}
 
 \usepackage{listings}
-\newcommand{\includecode}[2][Java]{
-	\subsection{#2}
-	\lstinputlisting[caption=#2]{#2}
-	\pagebreak
-}
-\lstset{language=Java,
-	belowcaptionskip=1\baselineskip,
-	frame=single,                  % adds a frame around the code   
-	rulecolor=\color{black},
-	numbers=left,
-	numberstyle=\tiny,
-	captionpos=b,             % sets the caption-position to bottom    
-	showspaces=false,
-	showtabs=false,
-	breaklines=true,
-	showstringspaces=false,
-	breakatwhitespace=true,
-	commentstyle=\color{pgreen},
-	keywordstyle=\color{pblue},
-	stringstyle=\color{pred},
-	basicstyle=\ttfamily,
-	moredelim=[il][\textcolor{pgrey}]{$$},
-	moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
-	inputpath=listings
-}
 
 %% footnotes
 \setlength{\skip\footins}{.5cm}
 
 %% cite
 \usepackage[backend=biber]{biblatex}
-\addbibresource{Masterarbeit.bib}
+\addbibresource{bib/Masterarbeit.bib}
 
 %% Useful packages
 \usepackage{amsmath}
@@ -77,10 +52,6 @@
 \usepackage{enumitem}
 \usepackage{authoraftertitle}
 
-\makeatletter
-\newcommand*{\toccontents}{\@starttoc{toc}}
-\makeatother
-
 \title{Programmiersprachliche Konzepte von COBOL im Vergleich mit Java -- Eine praxisorientierte Einführung}
-\author{\vspace{-5ex}}
-\date{\vspace{-5ex}}
+\subject{Masterarbeit}
+\author{Antonio Grieco}
