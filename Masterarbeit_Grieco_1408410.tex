@@ -2,16 +2,124 @@
 % arara: biber
 % arara: pdflatex: { shell: on }
 % arara: pdflatex: { shell: on }
-% arara: clean: { files: [ Masterarbeit_Grieco_1408410.aux, Masterarbeit_Grieco_1408410.bbl, Masterarbeit_Grieco_1408410.bcf, Masterarbeit_Grieco_1408410.cod, Masterarbeit_Grieco_1408410.blg, Masterarbeit_Grieco_1408410.lof, Masterarbeit_Grieco_1408410.lot, Masterarbeit_Grieco_1408410.out, Masterarbeit_Grieco_1408410.toc, Masterarbeit_Grieco_1408410.log, Masterarbeit_Grieco_1408410.lol, Masterarbeit_Grieco_1408410.run.xml, _minted-Masterarbeit_Grieco_1408410 ] } 
+% arara: biber
+% arara: pdflatex: { shell: on }
+%% arara: clean: { files: [ Masterarbeit_Grieco_1408410.aux, Masterarbeit_Grieco_1408410.bbl, Masterarbeit_Grieco_1408410.bcf, Masterarbeit_Grieco_1408410.cod, Masterarbeit_Grieco_1408410.blg, Masterarbeit_Grieco_1408410.lof, Masterarbeit_Grieco_1408410.lot, Masterarbeit_Grieco_1408410.out, Masterarbeit_Grieco_1408410.toc, Masterarbeit_Grieco_1408410.log, Masterarbeit_Grieco_1408410.lol, Masterarbeit_Grieco_1408410.run.xml, _minted-Masterarbeit_Grieco_1408410 ] } 
 
-\input{tex/preamble}
+\documentclass[
+    12pt, % Schriftgröße
+    DIV10,
+    ngerman, % für Umlaute, Silbentrennung etc.
+    a4paper, % Papierformat
+    oneside, % einseitiges Dokument
+    titlepage, % es wird eine Titelseite verwendet
+    parskip=half, % Abstand zwischen Absätzen (halbe Zeile)
+    headings=normal, % Größe der Überschriften verkleinern
+    listof=totoc, % Verzeichnisse im Inhaltsverzeichnis aufführen
+    bibliography=totoc, % Literaturverzeichnis im Inhaltsverzeichnis aufführen
+    index=totoc, % Index im Inhaltsverzeichnis aufführen
+    captions=tableheading, % Beschriftung von Tabellen unterhalb ausgeben
+    final % Status des Dokuments (final/draft)
+]{scrreprt}
+
+% Weise compiler an, nicht bei Fehlern anzuhalten!
+%\nonstopmode
+
+% benötigte Packages -----------------------------------------------------------
+%   LaTeX-Packages, die benötigt werden, sind in die Datei Packages.tex
+%   "ausgelagert", um diese Vorlage möglichst übersichtlich zu halten.
+% ------------------------------------------------------------------------------
+\input{Praeambel/Packages}
+
+% Meta-Informationen -----------------------------------------------------------
+%   Informationen über das Dokument, wie z.B. Titel, Autor, Matrikelnr. etc
+%   werden in der Datei Meta.tex definiert und können danach global
+%   verwendet werden.
+% ------------------------------------------------------------------------------
+\input{Praeambel/Meta}
+
+% Kopf- und Fußzeilen, Seitenränder etc. ---------------------------------------
+\input{Praeambel/Seitenstil}
+
+% eigene Definitionen für Silbentrennung
+\input{Praeambel/Silbentrennung}
+
+% eigene LaTeX-Befehle
+\include{Praeambel/Befehle}
+
+% sonstige Präambel
+\include{Praeambel/Sonstiges}
+
+% Das eigentliche Dokument -----------------------------------------------------
+%   Der eigentliche Inhalt des Dokuments beginnt hier. Die einzelnen Seiten
+%   und Kapitel werden in eigene Dateien ausgelagert und hier nur inkludiert.
+% ------------------------------------------------------------------------------
+
 \begin{document}
-\counterwithin{listing}{section}
-\input{tex/firstPages}
-\clearpage
-\input{tex/einleitung}
-\clearpage
-\input{tex/main}
-\clearpage
-\input{tex/schluss}
+    % Listing Nummern je mit Kapitelnummer
+    %\counterwithin{listing}{section}
+
+    % Deckblatt ---------------------------------
+    \includepdf[pages=-]{Sonstiges/Deckblatt.pdf}
+
+    % Seitennummerierung: Römische Ziffern; Zurücksetzen auf 1
+    \pagenumbering{Roman}
+    \setcounter{page}{1}
+    
+    %\input{Sonstiges/Lizenzen}  % Lizenztexte
+    
+    % Ueberblick --------------------------------
+    \input{Ueberblick/Ueberblick}
+    
+%   \singlespacing{
+        \tableofcontents                    % Inhaltsverzeichnis
+        \listoffigures                      % Abbildungsverzeichnis
+        \lstlistoflistings                  % Quellcode-Listings
+        \listoftables                       % Tabellenverzeichnis
+        \input{Sonstiges/Abkuerzungen}      % Abkürzungsverzeichnis
+%   }
+    
+    % Zeilenabstand setzen
+    \onehalfspacing
+    
+    % Seitennummerierung: Speichern der Seitennumber in RomanSiteCounter; Arabische Ziffern; Zurücksetzen auf 1
+    \pagebreak
+    \newcounter{RomanSiteCounter}
+    \setcounter{RomanSiteCounter}{\value{page}}
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    
+    % Inhalt ------------------------------------
+        % Einleitung ----------------------------
+            \input{Einleitung/Einleitung}
+        % Stand der Technik ---------------------
+        %    \input{StandDerTechnik/StandDerTechnik}
+        % Wissenschaftliche Lücke ---------------
+        %    \input{AufgabenstellungUndAnforderung/AufgabenstellungUndAnforderung}
+        % Umsetzung -----------------------------
+        %    \input{Umsetzung/Umsetzung}
+        % Ergebnisse und Evaluation -------------
+        %    \input{ErgebnisseUndEvaluation/ErgebnisseUndEvaluation}
+        % Schluss -------------------------------
+        %    \input{Fazit/Fazit}
+    
+    % Seitennummerierung: Römische Ziffern; Zurücksetzen auf in RomanSiteCounter gespeicherten Wert.
+    \pagebreak
+    \pagenumbering{Roman}
+    \setcounter{page}{\value{RomanSiteCounter}}
+    
+    % Literatur ---------------------------------
+    \nocite{*}
+    \ohead{\textit{Literaturverzeichnis}}
+    \singlespacing
+    \bibliography{Sonstiges/Bibliothek}
+    \pagebreak
+    
+    % Eidesstattliche Erklärung -----------------
+    %\input{Sonstiges/EidesstattlicheErklaerung}
+    
+    % Anhänge -----------------------------------
+    \ohead{\textit{Anhang}}
+    %\input{Anhang/Anhang}
+    
 \end{document}

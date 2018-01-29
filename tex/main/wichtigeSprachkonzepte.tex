@@ -1,4 +1,4 @@
-\section{Vergleich wichtiger Sprachkonzepte}
+\chapter{Vergleich wichtiger Sprachkonzepte}
 
 \begin{table}[H]
 \centering
@@ -20,35 +20,35 @@ Schleifen & \\\hline
 \end{tabularx}
 \end{table}
 
-\pagebreak
+\clearpage
 
-\subsection{Programmablauf}
+\section{Programmablauf}
 PROCEDURE DIVISION \& main-Methode
 
-\subsection{Scope}
+\section{Scope}
 SENTENCE \& Statement
 
-\subsection{Variablendeklaration}
+\section{Variablendeklaration}
 DATA DIVISION \& Variablendeklaration
 
-\subsection{Datenstrukturen}
+\section{Datenstrukturen}
 
-\subsubsection{Felder}
+\subsection{Felder}
 OCCURES \& Arrays
 
-\subsubsection{Java: List}
+\subsection{Java List}
 
-\subsubsection{Java: Set}
+\subsection{Java Set}
 
-\subsubsection{Java: Map}
+\subsection{Java Map}
 
-\subsection{Auslagerung von Daten}
+\section{Auslagerung von Daten}
 COPY \& import
 
-\subsection{COBOL Stufennummer 66}
+\section{COBOL Stufennummer 66}
 
 \clearpage
-\subsection{COBOL Stufennummer 88}
+\section{COBOL Stufennummer 88}
 Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weitere Besonderheit dar. Mit ihr ist es möglich einer Variable einen Wahrheitswert zuzuweisen, der von einem anderen Variablenwert abhängt. 
 
 \begin{listing}[H]
@@ -69,7 +69,7 @@ VAR is over 10.
 VAR = 00
 \end{minted}
 
-\subsubsection*{Abbildung in Java}
+\subsection*{Abbildung in Java}
 Java besitzt kein Sprachkonstrukt, um die Funktionalität der Stufennummer 88 nachzubilden. Eine Möglichkeit gleiches Verhalten darzustellen bietet allerdings die Implementierung spezieller getter- und setter-Methoden. Dies soll \autoref{88_java_listing} veranschaulichen.
 
 \begin{listing}[H]

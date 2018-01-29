@@ -1,0 +1,49 @@
+% Workaround für lstlistoflistings --------------------------------
+\makeatletter
+\@ifundefined{float@listhead}{}{%
+    \renewcommand*{\lstlistoflistings}{%
+        \begingroup
+    	    \if@twocolumn
+                \@restonecoltrue\onecolumn
+            \else
+                \@restonecolfalse
+            \fi
+            \float@listhead{\lstlistlistingname}%
+            \setlength{\parskip}{\z@}%
+            \setlength{\parindent}{\z@}%
+            \setlength{\parfillskip}{\z@ \@plus 1fil}%
+            \@starttoc{lol}%
+            \if@restonecol\twocolumn\fi
+        \endgroup
+    }%
+}
+\makeatother
+
+% Nummerierungstiefe
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% Farben
+\definecolor{LightGray}{gray}{0.95}
+
+\lstdefinelanguage{QML} 
+{morekeywords={color,background,margin, visible, width, height, title, id, fill, text, anchors, centerIn, onClicked, host, onMessageReceived, Component.onCompleted, Component, onCompleted}, 
+	emph={ApplicationWindow, Rectangle, Button, QmlQmqtt},
+	sensitive=false, 
+	morecomment=[l]{//}, 
+	morecomment=[s]{/*}{*/},
+	morestring=[b]", 
+} 
+
+
+\lstdefinelanguage{json}  
+{
+	emph={:, \,},
+	sensitive=false, 
+	morecomment=[l]{//}, 
+	morecomment=[s]{/*}{*/},
+	morestring=[b]", 
+} 
+
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
