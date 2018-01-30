@@ -4,51 +4,19 @@
 % arara: pdflatex: { shell: on }
 % arara: biber
 % arara: pdflatex: { shell: on }
-%% arara: clean: { files: [ Masterarbeit_Grieco_1408410.aux, Masterarbeit_Grieco_1408410.bbl, Masterarbeit_Grieco_1408410.bcf, Masterarbeit_Grieco_1408410.cod, Masterarbeit_Grieco_1408410.blg, Masterarbeit_Grieco_1408410.lof, Masterarbeit_Grieco_1408410.lot, Masterarbeit_Grieco_1408410.out, Masterarbeit_Grieco_1408410.toc, Masterarbeit_Grieco_1408410.log, Masterarbeit_Grieco_1408410.lol, Masterarbeit_Grieco_1408410.run.xml, _minted-Masterarbeit_Grieco_1408410 ] } 
+% arara: pdflatex: { shell: on }
+% arara: clean: { files: [ Masterarbeit_Grieco_1408410.aux, Masterarbeit_Grieco_1408410.bbl, Masterarbeit_Grieco_1408410.bcf, Masterarbeit_Grieco_1408410.cod, Masterarbeit_Grieco_1408410.blg, Masterarbeit_Grieco_1408410.lof, Masterarbeit_Grieco_1408410.lot, Masterarbeit_Grieco_1408410.out, Masterarbeit_Grieco_1408410.toc, Masterarbeit_Grieco_1408410.log, Masterarbeit_Grieco_1408410.lol, Masterarbeit_Grieco_1408410.run.xml, _minted-Masterarbeit_Grieco_1408410 ] } 
 
-\documentclass[
-    12pt, % Schriftgröße
-    DIV10,
-    ngerman, % für Umlaute, Silbentrennung etc.
-    a4paper, % Papierformat
-    oneside, % einseitiges Dokument
-    titlepage, % es wird eine Titelseite verwendet
-    parskip=half, % Abstand zwischen Absätzen (halbe Zeile)
-    headings=normal, % Größe der Überschriften verkleinern
-    listof=totoc, % Verzeichnisse im Inhaltsverzeichnis aufführen
-    bibliography=totoc, % Literaturverzeichnis im Inhaltsverzeichnis aufführen
-    index=totoc, % Index im Inhaltsverzeichnis aufführen
-    captions=tableheading, % Beschriftung von Tabellen unterhalb ausgeben
-    final % Status des Dokuments (final/draft)
-]{scrreprt}
-
-% Weise compiler an, nicht bei Fehlern anzuhalten!
-%\nonstopmode
-
-% benötigte Packages -----------------------------------------------------------
-%   LaTeX-Packages, die benötigt werden, sind in die Datei Packages.tex
-%   "ausgelagert", um diese Vorlage möglichst übersichtlich zu halten.
 % ------------------------------------------------------------------------------
-\input{Praeambel/Packages}
-
-% Meta-Informationen -----------------------------------------------------------
-%   Informationen über das Dokument, wie z.B. Titel, Autor, Matrikelnr. etc
-%   werden in der Datei Meta.tex definiert und können danach global
-%   verwendet werden.
+% Formatvorlage f?r Masterarbeiten an der Ohm-Hochschule N?rnberg
 % ------------------------------------------------------------------------------
-\input{Praeambel/Meta}
+%   erstellt von Stefan Macke, 24.04.2009
+%   http://blog.stefan-macke.de
+% Dokumentenkopf ---------------------------------------------------------------
+%   Diese Vorlage basiert auf "scrreprt" aus dem koma-script.
+% ------------------------------------------------------------------------------
 
-% Kopf- und Fußzeilen, Seitenränder etc. ---------------------------------------
-\input{Praeambel/Seitenstil}
-
-% eigene Definitionen für Silbentrennung
-\input{Praeambel/Silbentrennung}
-
-% eigene LaTeX-Befehle
-\include{Praeambel/Befehle}
-
-% sonstige Präambel
-\include{Praeambel/Sonstiges}
+\input{Praeambel/Praeambel}
 
 % Das eigentliche Dokument -----------------------------------------------------
 %   Der eigentliche Inhalt des Dokuments beginnt hier. Die einzelnen Seiten
@@ -56,70 +24,64 @@
 % ------------------------------------------------------------------------------
 
 \begin{document}
-    % Listing Nummern je mit Kapitelnummer
-    %\counterwithin{listing}{section}
+	
+	% Deckblatt ---------------------------------
+	\maketitle
+	% \includepdf[pages=-]{Sonstiges/Deckblatt.pdf}
 
-    % Deckblatt ---------------------------------
-    \includepdf[pages=-]{Sonstiges/Deckblatt.pdf}
-
-    % Seitennummerierung: Römische Ziffern; Zurücksetzen auf 1
-    \pagenumbering{Roman}
-    \setcounter{page}{1}
-    
-    %\input{Sonstiges/Lizenzen}  % Lizenztexte
-    
-    % Ueberblick --------------------------------
-    \input{Ueberblick/Ueberblick}
-    
-%   \singlespacing{
-        \tableofcontents                    % Inhaltsverzeichnis
-        \listoffigures                      % Abbildungsverzeichnis
-        \lstlistoflistings                  % Quellcode-Listings
-        \listoftables                       % Tabellenverzeichnis
-        \input{Sonstiges/Abkuerzungen}      % Abkürzungsverzeichnis
-%   }
-    
-    % Zeilenabstand setzen
-    \onehalfspacing
-    
-    % Seitennummerierung: Speichern der Seitennumber in RomanSiteCounter; Arabische Ziffern; Zurücksetzen auf 1
-    \pagebreak
-    \newcounter{RomanSiteCounter}
-    \setcounter{RomanSiteCounter}{\value{page}}
-    \pagenumbering{arabic}
-    \setcounter{page}{1}
-    
-    % Inhalt ------------------------------------
-        % Einleitung ----------------------------
-            \input{Einleitung/Einleitung}
-        % Stand der Technik ---------------------
-        %    \input{StandDerTechnik/StandDerTechnik}
-        % Wissenschaftliche Lücke ---------------
-        %    \input{AufgabenstellungUndAnforderung/AufgabenstellungUndAnforderung}
-        % Umsetzung -----------------------------
-        %    \input{Umsetzung/Umsetzung}
-        % Ergebnisse und Evaluation -------------
-        %    \input{ErgebnisseUndEvaluation/ErgebnisseUndEvaluation}
-        % Schluss -------------------------------
-        %    \input{Fazit/Fazit}
-    
-    % Seitennummerierung: Römische Ziffern; Zurücksetzen auf in RomanSiteCounter gespeicherten Wert.
-    \pagebreak
-    \pagenumbering{Roman}
-    \setcounter{page}{\value{RomanSiteCounter}}
-    
-    % Literatur ---------------------------------
-    \nocite{*}
-    \ohead{\textit{Literaturverzeichnis}}
-    \singlespacing
-    \bibliography{Sonstiges/Bibliothek}
-    \pagebreak
-    
-    % Eidesstattliche Erklärung -----------------
-    %\input{Sonstiges/EidesstattlicheErklaerung}
-    
-    % Anhänge -----------------------------------
-    \ohead{\textit{Anhang}}
-    %\input{Anhang/Anhang}
-    
+	% Seitennummerierung: R?mische Ziffern; Zur?cksetzen auf 1
+	\pagenumbering{Roman}
+	\setcounter{page}{1}
+	
+	% Ueberblick --------------------------------
+	\input{Ueberblick/Ueberblick}
+	
+%	\singlespacing{
+		\clearpage \tableofcontents					% Inhaltsverzeichnis
+		\clearpage \listoffigures					% Abbildungsverzeichnis
+		\clearpage \lstlistoflistings				% Quellcode-Listings
+		\clearpage \listoftables					% Tabellenverzeichnis
+		\clearpage \input{Sonstiges/Abkuerzungen}	% Abk?rzungsverzeichnis
+%	}
+	
+	% Zeilenabstand setzen
+	\onehalfspacing
+	
+	% Seitennummerierung: Speichern der Seitennumber in RomanSiteCounter; Arabische Ziffern; Zur?cksetzen auf 1
+	\pagebreak
+	\newcounter{RomanSiteCounter}
+	\setcounter{RomanSiteCounter}{\value{page}}
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+	% Inhalt ------------------------------------
+		% Einleitung ----------------------------
+			\input{Einleitung/Einleitung}
+		% Methodik
+			\input{Methodik/Methodik}
+		% Konzeptuelle Herausforderungen -------------------------------
+			\input{KonzeptuelleHerausforderungen/KonzeptuelleHerausforderungen}
+		% Vergleich wichtiger Sprachkonzepte -------------------------------
+			\input{VergleichWichtigerSprachkonzepte/VergleichWichtigerSprachkonzepte}
+		% COBOL-Pattern in Java -------------------------------
+			\input{CobolPatternInJava/CobolPatternInJava}
+		% Schluss -------------------------------
+			\input{Fazit/Fazit}
+	
+	% Seitennummerierung: R?mische Ziffern; Zur?cksetzen auf in RomanSiteCounter gespeicherten Wert.
+	\pagebreak
+	\pagenumbering{Roman}
+	\setcounter{page}{\value{RomanSiteCounter}}
+	
+	% Literatur ---------------------------------
+	\nocite{*}
+	\ohead{\textit{Literaturverzeichnis}}
+	\singlespacing
+	\printbibliography
+	\pagebreak
+	
+	% Anh?ge -----------------------------------
+	\ohead{\textit{Anhang}}
+	\input{Anhang/Anhang}
+	
 \end{document}

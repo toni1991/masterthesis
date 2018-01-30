@@ -1,0 +1,47 @@
+\documentclass[
+    12pt, % Schriftgröße
+    DIV10,
+    ngerman, % für Umlaute, Silbentrennung etc.
+    a4paper, % Papierformat
+    oneside, % einseitiges Dokument
+    titlepage, % es wird eine Titelseite verwendet
+    parskip=half, % Abstand zwischen Absätzen (halbe Zeile)
+    headings=normal, % Größe der Überschriften verkleinern
+    listof=totoc, % Verzeichnisse im Inhaltsverzeichnis aufführen
+    bibliography=totoc, % Literaturverzeichnis im Inhaltsverzeichnis aufführen
+    index=totoc, % Index im Inhaltsverzeichnis aufführen
+    captions=tableheading, % Beschriftung von Tabellen unterhalb ausgeben
+    final % Status des Dokuments (final/draft)
+]{scrreprt}
+
+% Weise compiler an, nicht bei Fehlern anzuhalten!
+% \nonstopmode
+
+% Meta-Informationen -----------------------------------------------------------
+%   Informationen über das Dokument, wie z.B. Titel, Autor, Matrikelnr. etc
+%   werden in der Datei Meta.tex definiert und können danach global
+%   verwendet werden.
+% ------------------------------------------------------------------------------
+\input{Praeambel/Meta}
+
+% benötigte Packages -----------------------------------------------------------
+%   LaTeX-Packages, die benötigt werden, sind in die Datei Packages.tex
+%   "ausgelagert", um diese Vorlage möglichst übersichtlich zu halten.
+% ------------------------------------------------------------------------------
+\input{Praeambel/Packages}
+
+% Kopf- und Fußzeilen, Seitenränder etc. ---------------------------------------
+\input{Praeambel/Seitenstil}
+
+% eigene Definitionen für Silbentrennung
+\input{Praeambel/Silbentrennung}
+
+% eigene LaTeX-Befehle
+\include{Praeambel/Befehle}
+
+% sonstige Präambel
+\include{Praeambel/Sonstiges}
+
+\title{Programmiersprachliche Konzepte von COBOL im Vergleich mit Java -- Eine praxisorientierte Einführung}
+\subject{Masterarbeit}
+\author{Antonio Grieco}

@@ -62,6 +62,7 @@
 
 % zum Einbinden von Programmcode -----------------------------------------------
 \usepackage{listings}
+\usepackage[newfloat]{minted}
 \usepackage[dvipsnames]{xcolor}
 \definecolor{hellgrau}{rgb}{0.98,0.98,0.98}
 \definecolor{colKeys}{rgb}{0,0,0.9}
@@ -99,19 +100,37 @@
     bookmarks,
     bookmarksopen=true,
     colorlinks=true,
-    allcolors=black,
-   	backref,
+% diese Farbdefinitionen zeichnen Links im PDF farblich aus
+    linkcolor=black, % einfache interne Verknüpfungen
+    anchorcolor=black,% Ankertext
+    citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
+    filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
+    menucolor=black, % Acrobat-Menüpunkte
+    urlcolor=black, 
+% diese Farbdefinitionen sollten für den Druck verwendet werden (alles schwarz)
+    %linkcolor=black, % einfache interne Verknüpfungen
+    %anchorcolor=black, % Ankertext
+    %citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
+    %filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
+    %menucolor=black, % Acrobat-Menüpunkte
+    %urlcolor=black,
     plainpages=false, % zur korrekten Erstellung der Bookmarks
     pdfpagelabels, % zur korrekten Erstellung der Bookmarks
     hypertexnames=false, % zur korrekten Erstellung der Bookmarks
     linktoc=all, % Seitenzahlen und Text im Inhaltsverzeichnis verlinken
 ]{hyperref}
 
-% sorgt dafür, dass auch das Inhaltsverzeichnis im Inhaltsverzeichnis steht
-\usepackage{tocbibind}
+% Befehle, die Umlaute ausgeben, führen zu Fehlern, wenn sie hyperref als Optionen übergeben werden
+\hypersetup{
+    pdftitle={\mytitel},
+    pdfauthor={\myautor},
+    pdfcreator={\myautor},
+    pdfsubject={\mytitel},
+    pdfkeywords={\mytitel \myart \myautor}
+}
 
 %% Roman pagenumbers good aligned in toc
-%\usepackage{tocloft}
+\usepackage{tocloft}
 %\cftsetpnumwidth{2em}
 %\setlength\cftafterfigskip{10pt}
 %\renewcommand\cftchapafterpnum{\vskip10pt}
@@ -150,9 +169,7 @@
 % Stil der Zitate und der Bibliographie
 %\bibliographystyle{natdin}
 \usepackage[backend=biber]{biblatex}
-\addbibresource{Sonstiges/Bibliothek.bib}
-
-
+\addbibresource{Sonstiges/Literatur.bib}
 
 % Tikz libraries
 \usetikzlibrary{arrows.meta}

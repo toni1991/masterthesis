@@ -1,0 +1,31 @@
+\section{COBOL Stufennummer 88}
+Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weitere Besonderheit dar. Mit ihr ist es möglich einer Variable einen Wahrheitswert zuzuweisen, der von einem anderen Variablenwert abhängt. 
+
+\begin{listing}[H]
+  \inputminted[bgcolor=hellgrau,xleftmargin=20pt,linenos,fontsize=\footnotesize]{cobol}{Code/88_section.cbl.txt}
+  \caption{Beispiel für COBOL Stufennummer 88}
+  \label{88_cobol_listing}
+\end{listing} 
+
+\autoref{88_cobol_listing} zeigt die beispielhafte Verwendung der Stufennummer 88. Die Variable \mintinline{text}{VAR} kann dabei zweistellige numerische Werte enthalten. Liegt der Wert zwischen 0 und 9 (\mintinline{cobol}{VALUE 0 THRU 9}) so weist die Variable \mintinline{text}{ISLOWERTEN} den Wahrheitswert \mintinline{cobol}{TRUE} auf.
+
+Der so entstandene Wahrheitswert kann folglich immer dann verwendet werden, wenn getestet werden soll, ob die Variable \mintinline{text}{VAR} im Bereich zwischen 0 und 9 liegt.
+
+Zeile 18 des Programms zeigt einen weiteren Anwendungsfall der Stufennummer 88. So lässt sich der Wert der eigentlichen Variable setzen, indem der bedingten Variable der Wahrheitswerte \mintinline{cobol}{TRUE} zugewiesen wird.
+
+Die Ausgabe des Programms in \autoref{88_cobol_listing} wäre folgende:
+\begin{minted}[bgcolor=hellgrau,xleftmargin=20pt,fontsize=\footnotesize]{text}
+VAR is over 10.
+VAR = 00
+\end{minted}
+
+\subsection*{Abbildung in Java}
+Java besitzt kein Sprachkonstrukt, um die Funktionalität der Stufennummer 88 nachzubilden. Eine Möglichkeit gleiches Verhalten darzustellen bietet allerdings die Implementierung spezieller getter- und setter-Methoden. Dies soll \autoref{88_java_listing} veranschaulichen.
+
+\begin{listing}[H]
+  \inputminted[bgcolor=hellgrau,xleftmargin=20pt,linenos,fontsize=\footnotesize]{java}{Code/88_section.java.txt}
+  \caption{COBOL Stufennummer 88 in Java}
+  \label{88_java_listing}
+\end{listing} 
+
+Die Methoden \mintinline{text}{getISLOWERTEN} bezieht sich dabei nicht auf eine Variable sondern gibt einen Wahrheitswert in Abhängigkeit des Variablenwertes zurück. \mintinline{text}{setISLOWERTEN} setzt diesen Variablenwert wenn der Wahrheitswert \mintinline{java}{true} ist. Diese Einschränkung in \mintinline{text}{setISLOWERTEN} wurde hinzugefügt, um das Verhalten der meisten COBOL-Compiler nachzubilden, welche nur das Setzen des Wertes \mintinline{cobol}{TRUE} erlauben.
