@@ -60,15 +60,29 @@
 \usepackage{floatflt}
 \usepackage{float}
 
-% zum Einbinden von Programmcode -----------------------------------------------
-\usepackage{listings}
-\usepackage[newfloat]{minted}
+% Abstand der float caption
+\usepackage[skip=5pt]{caption} % example skip set to 2pt
+
+% ensure floats do not go into the next section.
+\usepackage[section]{placeins}
+
+% Farben
 \usepackage[dvipsnames]{xcolor}
-\definecolor{hellgrau}{rgb}{0.98,0.98,0.98}
+\definecolor{hellgrau}{rgb}{0.93,0.93,0.93}
 \definecolor{colKeys}{rgb}{0,0,0.9}
 \definecolor{colIdentifier}{rgb}{0,0,0}
 \definecolor{colComments}{rgb}{0.6,0,0}
 \definecolor{colString}{rgb}{0,0.7,0}
+
+% zum Einbinden von Programmcode -----------------------------------------------
+\usepackage{listings}
+\usepackage[newfloat]{minted}
+\setminted{
+    bgcolor=hellgrau,
+    xleftmargin=20pt,
+    linenos=true,
+    fontsize=\footnotesize
+}
 \lstset{
     float=hbp,
     basicstyle=\ttfamily\color{black}\small\smaller,
@@ -143,7 +157,9 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{ragged2e}
-\usepackage{lscape}
+
+% seiten rotieren
+\usepackage{pdflscape}
 
 % Spaltendefinition rechtsbündig mit definierter Breite ------------------------
 \newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}}
