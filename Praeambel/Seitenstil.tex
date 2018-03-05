@@ -1,13 +1,13 @@
 % Zeilenabstand 1,5 Zeilen -----------------------------------------------------
 \onehalfspacing
 
-% Seitenr‰nder -----------------------------------------------------------------
+% Seitenr√§nder -----------------------------------------------------------------
 \setlength{\topskip}{\ht\strutbox} % behebt Warnung von geometry
 \geometry{paper=a4paper,left=30mm,right=25mm,top=25mm,bottom=20mm,footskip=12mm}
 
-% Kopf- und Fuﬂzeilen ----------------------------------------------------------
+% Kopf- und Fu√üzeilen ----------------------------------------------------------
 \pagestyle{scrheadings}
-% Kopf- und Fuﬂzeile auch auf Kapitelanfangsseiten
+% Kopf- und Fu√üzeile auch auf Kapitelanfangsseiten
 \renewcommand*{\chapterpagestyle}{scrheadings} 
 % Schriftform der Kopfzeile
 \renewcommand{\headfont}{\normalfont}
@@ -17,12 +17,13 @@
 \ihead{}
 \chead{}
 \ohead{\textit{\headmark}}
-%\setlength{\headheight}{21mm} % Hˆhe der Kopfzeile
-% \setheadwidth[0pt]{textwithmarginpar} % Kopfzeile ¸ber den Text hinaus verbreitern
+\setlength{\headheight}{1.1\baselineskip}
+%\setlength{\headheight}{21mm} % H√∂he der Kopfzeile
+% \setheadwidth[0pt]{textwithmarginpar} % Kopfzeile √ºber den Text hinaus verbreitern
 \setheadsepline[text]{0.4pt} % Trennlinie unter Kopfzeile
-% \setfootsepline[text]{0.4pt} % Trennlinie ¸ber Fuﬂzeile
+% \setfootsepline[text]{0.4pt} % Trennlinie √ºber Fu√üzeile
 
-% Fuﬂzeile
+% Fu√üzeile
 \ifoot{}
 \cfoot{\pagemark}
 \ofoot{}
@@ -41,5 +42,5 @@
 \lstset{numbers=left, numberstyle=\tiny, numbersep=5pt, breaklines=true}
 \lstset{emph={square}, emphstyle=\color{red}, emph={[2]root,base}, emphstyle={[2]\color{blue}}}
 
-% Fuﬂnoten fortlaufend durchnummerieren
+% Fu√ünoten fortlaufend durchnummerieren
 \counterwithout{footnote}{chapter}

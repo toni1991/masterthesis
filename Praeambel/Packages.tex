@@ -4,14 +4,14 @@
 \usepackage[
     automark, % Kapitelangaben in Kopfzeile automatisch erstellen
     headsepline, % Trennlinie unter Kopfzeile
-    ilines % Trennlinie linksbündig ausrichten
+    ilines % Trennlinie linksbÃ¼ndig ausrichten
 ]{scrpage2}
 
 % Anpassung an Landessprache ---------------------------------------------------
 \usepackage[ngerman]{babel}
 
 % Umlaute ----------------------------------------------------------------------
-%   Umlaute/Sonderzeichen wie äüöß direkt im Quelltext verwenden (CodePage).
+%   Umlaute/Sonderzeichen wie Ã¤Ã¼Ã¶ÃŸ direkt im Quelltext verwenden (CodePage).
 %   Erlaubt automatische Trennung von Worten mit Umlauten.
 % ------------------------------------------------------------------------------
 \usepackage[utf8]{inputenc}
@@ -20,21 +20,21 @@
 
 % Schrift ----------------------------------------------------------------------
 \usepackage{lmodern} % bessere Fonts
-\usepackage{relsize} % Schriftgröße relativ festlegen
+\usepackage{relsize} % SchriftgrÃ¶ÃŸe relativ festlegen
 
 % Grafiken ---------------------------------------------------------------------
-% Einbinden von JPG-Grafiken ermöglichen
+% Einbinden von JPG-Grafiken ermÃ¶glichen
 \usepackage[dvips,final]{graphicx}
 % hier liegen die Bilder des Dokuments
 \graphicspath{{Bilder/}}
 
-% Befehle aus AMSTeX für mathematische Symbole z.B. \boldsymbol \mathbb --------
+% Befehle aus AMSTeX fÃ¼r mathematische Symbole z.B. \boldsymbol \mathbb --------
 \usepackage{amsmath,amsfonts}
 
-% für Index-Ausgabe mit \printindex --------------------------------------------
+% fÃ¼r Index-Ausgabe mit \printindex --------------------------------------------
 \usepackage{makeidx}
 
-% Einfache Definition der Zeilenabstände und Seitenränder etc. -----------------
+% Einfache Definition der ZeilenabstÃ¤nde und SeitenrÃ¤nder etc. -----------------
 \usepackage{setspace}
 \usepackage{geometry}
 
@@ -42,21 +42,21 @@
 %   Symbolverzeichnisse bequem erstellen. Beruht auf MakeIndex:
 %     makeindex.exe %Name%.nlo -s nomencl.ist -o %Name%.nls
 %   erzeugt dann das Verzeichnis. Dieser Befehl kann z.B. im TeXnicCenter
-%   als Postprozessor eingetragen werden, damit er nicht ständig manuell
-%   ausgeführt werden muss.
+%   als Postprozessor eingetragen werden, damit er nicht stÃ¤ndig manuell
+%   ausgefÃ¼hrt werden muss.
 %   Die Definitionen sind ausgegliedert in die Datei "Glossar.tex".
 % ------------------------------------------------------------------------------
 % \usepackage[intoc]{nomencl}
 % \let\abbrev\nomenclature
-% \renewcommand{\nomname}{Abkürzungsverzeichnis}
+% \renewcommand{\nomname}{AbkÃ¼rzungsverzeichnis}
 % \setlength{\nomlabelwidth}{.25\hsize}
 % \renewcommand{\nomlabel}[1]{#1 \dotfill}
 % \setlength{\nomitemsep}{-\parsep}
 
-% Abkürzungsverzeichnis
-\usepackage[printonlyused]{acronym} %Abkürzungsverzeichnis erstellen, Langtext als Fußnote, Auflistung nur bei Verwendung
+% AbkÃ¼rzungsverzeichnis
+\usepackage[printonlyused]{acronym} %AbkÃ¼rzungsverzeichnis erstellen, Langtext als FuÃŸnote, Auflistung nur bei Verwendung
 
-% zum Umfließen von Bildern ----------------------------------------------------
+% zum UmflieÃŸen von Bildern ----------------------------------------------------
 \usepackage{floatflt}
 \usepackage{float}
 
@@ -77,12 +77,14 @@
 % zum Einbinden von Programmcode -----------------------------------------------
 \usepackage{listings}
 \usepackage[newfloat]{minted}
+
 \setminted{
     bgcolor=hellgrau,
     xleftmargin=20pt,
     linenos=true,
     fontsize=\footnotesize
 }
+
 \lstset{
     float=hbp,
     basicstyle=\ttfamily\color{black}\small\smaller,
@@ -115,18 +117,18 @@
     bookmarksopen=true,
     colorlinks=true,
 % diese Farbdefinitionen zeichnen Links im PDF farblich aus
-    linkcolor=black, % einfache interne Verknüpfungen
+    linkcolor=black, % einfache interne VerknÃ¼pfungen
     anchorcolor=black,% Ankertext
-    citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
-    filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
-    menucolor=black, % Acrobat-Menüpunkte
+    citecolor=black, % Verweise auf LiteraturverzeichniseintrÃ¤ge im Text
+    filecolor=black, % VerknÃ¼pfungen, die lokale Dateien Ã¶ffnen
+    menucolor=black, % Acrobat-MenÃ¼punkte
     urlcolor=black, 
-% diese Farbdefinitionen sollten für den Druck verwendet werden (alles schwarz)
-    %linkcolor=black, % einfache interne Verknüpfungen
+% diese Farbdefinitionen sollten fÃ¼r den Druck verwendet werden (alles schwarz)
+    %linkcolor=black, % einfache interne VerknÃ¼pfungen
     %anchorcolor=black, % Ankertext
-    %citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
-    %filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
-    %menucolor=black, % Acrobat-Menüpunkte
+    %citecolor=black, % Verweise auf LiteraturverzeichniseintrÃ¤ge im Text
+    %filecolor=black, % VerknÃ¼pfungen, die lokale Dateien Ã¶ffnen
+    %menucolor=black, % Acrobat-MenÃ¼punkte
     %urlcolor=black,
     plainpages=false, % zur korrekten Erstellung der Bookmarks
     pdfpagelabels, % zur korrekten Erstellung der Bookmarks
@@ -134,7 +136,7 @@
     linktoc=all, % Seitenzahlen und Text im Inhaltsverzeichnis verlinken
 ]{hyperref}
 
-% Befehle, die Umlaute ausgeben, führen zu Fehlern, wenn sie hyperref als Optionen übergeben werden
+% Befehle, die Umlaute ausgeben, fÃ¼hren zu Fehlern, wenn sie hyperref als Optionen Ã¼bergeben werden
 \hypersetup{
     pdftitle={\mytitel},
     pdfauthor={\myautor},
@@ -150,10 +152,10 @@
 %\renewcommand\cftchapafterpnum{\vskip10pt}
 %\renewcommand\cftsecafterpnum{\vskip15pt}
 
-% fortlaufendes Durchnummerieren der Fußnoten ----------------------------------
+% fortlaufendes Durchnummerieren der FuÃŸnoten ----------------------------------
 \usepackage{chngcntr}
 
-% für lange Tabellen -----------------------------------------------------------
+% fÃ¼r lange Tabellen -----------------------------------------------------------
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{ragged2e}
@@ -161,19 +163,19 @@
 % seiten rotieren
 \usepackage{pdflscape}
 
-% Spaltendefinition rechtsbündig mit definierter Breite ------------------------
+% Spaltendefinition rechtsbÃ¼ndig mit definierter Breite ------------------------
 \newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}}
 
-% Formatierung von Listen ändern -----------------------------------------------
+% Formatierung von Listen Ã¤ndern -----------------------------------------------
 \usepackage{paralist}
 
-% bei der Definition eigener Befehle benötigt
+% bei der Definition eigener Befehle benÃ¶tigt
 \usepackage{ifthen}
 
 % definiert u.a. die Befehle \todo und \listoftodos
 \usepackage{todonotes}
 
-% sorgt dafür, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
+% sorgt dafÃ¼r, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
 \usepackage{xspace}
 
 % einbinden anderer PDF Dateien (Deckblatt etc.)
@@ -206,3 +208,6 @@
 % subfigures
 \usepackage{subfig}
 \usepackage{floatflt}
+
+% Quotes in babel language
+\usepackage{csquotes}
