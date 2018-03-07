@@ -2,7 +2,7 @@
 Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weitere Besonderheit in COBOL dar. Mit ihr ist es möglich einer Variable einen Wahrheitswert zuzuweisen, der von einem anderen Variablenwert abhängt. Es entsteht eine sogenannte benannte Begingung.
 
 \begin{listing}[H]
-  \inputminted{cobol}{Code/88_section.cbl.txt}
+  \inputminted{cobol}{Code/88_section.cbl}
   \caption{Beispiel für COBOL Stufennummer 88}
   \label{88_cobol_listing}
 \end{listing} 
@@ -22,7 +22,7 @@ VAR = 00
 Dieses Verhalten wird oftmals ausgenutzt um Variablen mit bestimmten Werten zu belegen. Dieses Verhalten beschreibt \autoref{88_cobol_value_set_listing}.
 
 \begin{listing}[H]
-  \inputminted{cobol}{Code/88_section_value_set.cbl.txt}
+  \inputminted{cobol}{Code/88_section_value_set.cbl}
   \caption{Setzen von Werten mithilfe benannter Bedingungen}
   \label{88_cobol_value_set_listing}
 \end{listing} 
@@ -31,7 +31,7 @@ Dieses Verhalten wird oftmals ausgenutzt um Variablen mit bestimmten Werten zu b
 Java besitzt kein Sprachkonstrukt, um die Funktionalität der Stufennummer 88 direkt nachzubilden. Eine Möglichkeit gleiches Verhalten darzustellen bietet allerdings die Implementierung spezieller getter- und setter-Methoden. Dies soll \autoref{88_java_listing} veranschaulichen.
 
 \begin{listing}[H]
-  \inputminted{java}{Code/88_section.java.txt}
+  \inputminted{java}{Code/88_section.java}
   \caption{COBOL Stufennummer 88 in Java}
   \label{88_java_listing}
 \end{listing} 
@@ -39,7 +39,7 @@ Java besitzt kein Sprachkonstrukt, um die Funktionalität der Stufennummer 88 di
 Die Methode \mintinline{text}{getISLOWERTEN} bezieht sich dabei nicht auf eine Variable sondern gibt einen Wahrheitswert in Abhängigkeit des Variablenwertes zurück. \mintinline{text}{setISLOWERTEN} setzt diesen Variablenwert wenn der Wahrheitswert \mintinline{java}{true} ist. Diese Einschränkung in \mintinline{text}{setIS-} \mintinline{text}{LOWERTEN} wurde hinzugefügt, um das Verhalten der meisten COBOL-Compiler nachzubilden, welche nur das Setzen des Wertes \mintinline{cobol}{TRUE} erlauben.
 
 \begin{listing}[H]
-  \inputminted{java}{Code/88_section_value_set.java.txt}
+  \inputminted{java}{Code/88_section_value_set.java}
   \caption{Setzen eines konstanten Wertes mit benannter Variable in Java}
   \label{88_java_value_set_listing}
 \end{listing} 
@@ -47,7 +47,7 @@ Die Methode \mintinline{text}{getISLOWERTEN} bezieht sich dabei nicht auf eine V
 Der Anwendungsfall, dass eine benannte Bedingung in COBOL verwendet wird um bestimmte Werte zu setzen, lässt sich in Java in verschiedenen Weisen abbilden. \autoref{88_java_value_set_listing} zeigt die wohl einfachste dieser Möglichkeiten.
 
 \begin{listing}[H]
-  \inputminted{java}{Code/88_section_value_set2.java.txt}
+  \inputminted{java}{Code/88_section_value_set2.java}
   \caption{Exakte Abbildung des Setzens einer benannten Bedingung in Java}
   \label{88_java_value_set_listing2}
 \end{listing} 
