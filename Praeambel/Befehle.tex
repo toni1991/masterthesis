@@ -50,5 +50,12 @@
 %\newcommand{\citeVgl}[1]{\cite[vgl.][]{#1}}w
 
 %Minted
-\newcommand{\mintedcobol}[3]{\inputminted[bgcolor=hellgrau,fontsize=\footnotesize]{cobolfree}{#1}\captionof{listing}{#2\label{#3}}}
-\newcommand{\mintedjava}[3]{\inputminted[bgcolor=hellgrau,fontsize=\footnotesize]{java}{#1}\captionof{listing}{#2 \label{#3}}}
+\newcommand{\mintedCobolWithOutput}[4]{
+    \inputminted[bgcolor=hellgrau,fontsize=\footnotesize]{cobolfree}{#1}#4\captionof{listing}{#2 \label{#3}}
+}
+\newcommand{\mintedCobol}[3]{\mintedCobolWithOutput{#1}{#2}{#3}{}}
+
+\newcommand{\mindetJavaWithOutput}[4]{
+    \inputminted[bgcolor=hellgrau,fontsize=\footnotesize]{java}{#1}#4\captionof{listing}{#2 \label{#3}}
+}
+\newcommand{\mintedJava}[3]{\mindetJavaWithOutput{#1}{#2}{#3}{}}

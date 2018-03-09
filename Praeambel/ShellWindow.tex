@@ -1,0 +1,27 @@
+\usepackage[minted]{tcolorbox}
+\tcbuselibrary{skins}
+\definecolor{topbar}{RGB}{220,220,220}
+\definecolor{main}{RGB}{30,30,30}
+\definecolor{quit}{RGB}{248,73,73}
+\definecolor{min}{RGB}{252,182,37}
+\definecolor{max}{RGB}{41,198,52}
+\colorlet{offwhite}{white!96!black}
+\newtcblisting{shellwindow}{%
+  listing engine=minted, 
+  minted language=text, 
+  title={\strut}, 
+  listing only, 
+  enhanced, 
+  colbacktitle=topbar, 
+  boxrule=0cm,
+  left=2mm,
+  width=\textwidth,
+  frame hidden, 
+  colback=main, 
+  coltext=offwhite, 
+  overlay={
+    \fill [fill=quit] ([xshift=3mm]title.west) circle (1mm);
+    \fill [fill=min] ([xshift=6mm]title.west) circle (1mm);
+    \fill [fill=max] ([xshift=9mm]title.west) circle (1mm);
+  }%
+}
