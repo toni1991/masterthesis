@@ -1,24 +1,28 @@
-public class MySystem {
+public class MyCalendar {
 
-    enum Status {
-        STARTED, SHUTTING_DOWN, HALTED
-    }
-
-    public boolean isReady(Status status)
+    public void printMonthDays(int month)
     {
-        boolean isReady;
-        switch(status){
-            case STARTED: 
-                isReady =  true;
+        switch(month){
+            case 1: case 3:
+            case 5: case 7:
+            case 8: case 10:
+            case 12:
+                System.out.println("This Month has 31 days.");
                 break;
 
-            case SHUTTING_DOWN:
-            case HALTED:
+            case 2:
+                System.out.println("This Month has either 28 or 29 days.");
+                break;
+                
+            case 4: case 5:
+            case 9: case 11:
+                System.out.println("This Month has 30 days.");
+                break;
+
+
             default:
-                isReady = false;
+                System.out.println("Month is not valid");
                 break;
         }
-
-        return isReady;
     }
 }

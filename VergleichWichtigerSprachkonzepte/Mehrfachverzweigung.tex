@@ -1,26 +1,26 @@
 \section{Mehrfachverzweigungen}
-Ein wichtiges Konstrukt um den Programmfluß eines Programms zu steuern sind Mehrfachverzweigungen. Obwohl sowohl Java als auch COBOL Mehrfachverzweigungen bieten, sind diese doch leicht unterschiedlich zu verwenden. Im Folgenden sollen verschiedene Verwendungsmöglichkeiten der jeweiligen Konstrukte dargestellt werden.
+Ein wichtiges Konstrukt um den Programmfluß eines Programms zu steuern sind Mehrfachverzweigungen. Obwohl sowohl Java als auch COBOL Mehrfachverzweigungen bieten, sind diese doch leicht unterschiedlich zu verwenden. Im Folgenden sollen verschiedene Verwendungsmöglichkeiten der jeweiligen Konstrukte dargestellt werden.\\
 
 In Java bildet das \mintinline{java}{switch}-\mintinline{java}{case}-Konstrukt eine Mehrfachverzweigung ab. \autoref{switch_case_java} zeigt dabei die wichtigsten Verwendungsmöglickeiten.
 
-\begin{listing}[H]
-  \inputminted{java}{Code/switch_case.java}
-  \caption{Mehrfachverzweigungen in Java}
-  \label{switch_case_java}
-\end{listing} 
+\mintedjava{Code/switch_case.java}{Mehrfachverzweigungen in Java}{switch_case_java}
 
-Zum einen ist zu beachten, dass Werte nur mit Literalen und Konstanten verglichen werden können. Ein Vergleich einer Variablen mit einer weiteren ist hierbei nicht zulässig, solange diese nicht als \mintinline{java}{final} deklariert ist. Auch der Vergleich auf bestimmte Wertebreiche ist nicht zulässig. 
+Zum einen ist zu beachten, dass Werte nur mit Literalen und Konstanten verglichen werden können. Ein Vergleich einer Variablen mit einer weiteren ist hierbei nicht zulässig, solange diese nicht als \mintinline{java}{final} deklariert ist. Auch der Vergleich auf bestimmte Wertebreiche oder nicht-primitive Datentypen ist nicht zulässig (Seit Java 7 sind vergleiche mit String-Literalen möglich).\\
 
-Jedoch ist ein gewolltes \quotes{Durchfallen} möglich um bei verschiedenen Werten die gleichen Programmzweige zu durchlaufen. Dabei Spielt das Schlüsselwort \mintinline{java}{break} eine entscheidende Rolle. Wird kein \mintinline{java}{break} am Ende einer \mintinline{java}{case}-Anweisung verwendet, so wird automatisch in den ausführbaren Block der darauffolgenden \mintinline{java}{case}-Anweisung gesprungen. Dies zeigt sich in den Zeilen 15 und 16 von \autoref{switch_case_java}. Die Verwedung der \mintinline{java}{break}-Anweisung wird hingegen in Zeile 13 genutzt um den \mintinline{java}{switch}-Block zu verlassen. 
+Jedoch ist ein gewolltes \quotes{Durchfallen} möglich um bei verschiedenen Werten die gleichen Programmzweige zu durchlaufen. Dabei Spielt das Schlüsselwort \mintinline{java}{break} eine entscheidende Rolle. Wird kein \mintinline{java}{break} am Ende einer \mintinline{java}{case}-Anweisung verwendet, so wird automatisch in den ausführbaren Block der darauffolgenden \mintinline{java}{case}-Anweisung gesprungen. Dies zeigt sich in den Zeilen 6--9 und 17f. von \autoref{switch_case_java}. Die Verwedung der \mintinline{java}{break}-Anweisung wird hingegen in den Zeilen 11, 15 und 20 genutzt um den \mintinline{java}{switch}-Block zu verlassen.\\ 
 
-Das Fehlen eines \mintinline{java}{break} kann in der Praxis schnell zu unerwünschtem und unerklärlichem Verhalten führen. Deshalb folgt in der Regel jedem \mintinline{java}{case} ein \mintinline{java}{break}. 
+Das Fehlen eines \mintinline{java}{break} kann in der Praxis schnell zu unerwünschtem und unerklärlichem Verhalten führen. Deshalb folgt in der Regel jedem \mintinline{java}{case} ein \mintinline{java}{break}. \\
 
-Das Pendant in COBOL stellt das Schlüsselwort \mintinline{cobol}{EVALUATE} dar. Wenngleich es den gleichen Sinn wie das \mintinline{java}{switch}-\mintinline{java}{case}-Konstrukt in Java erfüllen soll, ist es vielseitiger einsetzbar wie die folgenden Beispiele illustrieren sollen.
+Das Pendant in COBOL stellt das Schlüsselwort \mintinline{cobolfree}{EVALUATE} dar. Wenngleich es den gleichen Sinn wie das \mintinline{java}{switch}-\mintinline{java}{case}-Konstrukt in Java erfüllen soll, ist es vielseitiger einsetzbar wie die folgenden Beispiele illustrieren sollen. \autoref{switch_case_cobol1} und \autoref{switch_case_cobol2} sind hierbei semantisch gleich, obwohl das \mintinline{cobolfree}{EVALUATE}-Konstrukt jeweils leicht anders verwendet wird.\\
 
-\begin{listing}[H]
-  \inputminted{cobol}{Code/switch_case.cbl}
-  \caption{Mehrfachverzweigungen in COBOL}
-  \label{switch_case_cobol1}
-\end{listing} 
+Das folgende \autoref{switch_case_cobol1} zeigt die Verwendungsmöglichkeit, die dem \mintinline{java}{switch}-\mintinline{java}{case}-Konstrukt in Java am nächsten kommt. Nach dem \mintinline{cobolfree}{EVALUATE}-Schlüsselwort werden Variablennamen angegeben, deren Werte anschließend in einer \mintinline{cobolfree}{WHEN}-Bedingung betrachtet werden sollen.\\
 
-\autoref{switch_case_cobol1} beinhaltet dabei einige gängige Verwendungen der \mintinline{cobol}{EVALUATE}-Klausel.
+\mintedcobol{Code/switch_case1.cbl}{Mehrfachverzweigungen in COBOL (Version 1)}{switch_case_cobol1}
+
+Beiden Versionen (\autoref{switch_case_cobol1} und \autoref{switch_case_cobol2}) sind auch einige Dinge gemein, die sich von der Mehrfachverzweigung in Java unterscheiden.\\
+
+Als erstes ist zu erwähnen, dass jeweils zwei Bedingungen getestet werden. Dies geschieht mithilfe des \mintinline{cobolfree}{ALSO}-Schlüsselworts. Während in Java lediglich die Evaluation einer einzelnen Bedingung möglich ist, erlaubt COBOL an dieser Stelle die Überprüfung beliebig vieler Kritierien.
+
+Des weiteren können 
+
+\mintedcobol{Code/switch_case2.cbl}{Mehrfachverzweigungen in COBOL (Version 2)}{switch_case_cobol2}

@@ -9,23 +9,24 @@
            01 SEX PIC X(1).
               88 IS-MALE VALUE "M".
               88 IS-FEMALE VALUE "F".
+           01 DISPLAY-MESSAGE PIC X(30) VALUE SPACES.
                 
        PROCEDURE DIVISION.
        MAIN.
            ACCEPT AGE.
-           ACCEPT SEX.
+           ACCEPT SEX.           
            EVALUATE TRUE ALSO TRUE
                 WHEN IS-UNDERAGE ALSO IS-MALE
-                    DISPLAY "Underage boy"
+                    MOVE "Underage boy" TO DISPLAY-MESSAGE
                 WHEN AGE < 18 ALSO SEX = "F"
-                    DISPLAY "Underage girl"
+                    MOVE "Underage girl" TO DISPLAY-MESSAGE
                 WHEN IS-ADULT ALSO IS-MALE
-                    DISPLAY "Adult man"
+                    MOVE "Adult man" TO DISPLAY-MESSAGE
                 WHEN AGE >= 18 ALSO SEX = "F"
-                    DISPLAY "Adult woman"
+                    MOVE "Adult woman" TO DISPLAY-MESSAGE
                 WHEN OTHER
-                    DISPLAY "Unknown age or gender."
+                    MOVE "Unknown age or gender." TO DISPLAY-MESSAGE
            END-EVALUATE.
+           DISPLAY DISPLAY-MESSAGE.
            STOP RUN.
-
        END PROGRAM SWTICH-CASE-EVALUATE.

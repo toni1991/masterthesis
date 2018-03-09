@@ -3,7 +3,8 @@
 
 % Seitenränder -----------------------------------------------------------------
 \setlength{\topskip}{\ht\strutbox} % behebt Warnung von geometry
-\geometry{paper=a4paper,left=30mm,right=25mm,top=25mm,bottom=20mm,footskip=12mm}
+%\setlength{\bottomskip}{\ht\strutbox} % behebt Warnung von geometry
+\geometry{paper=a4paper,left=30mm,right=25mm,top=25mm,bottom=25mm}
 
 % Kopf- und Fußzeilen ----------------------------------------------------------
 \pagestyle{scrheadings}
@@ -11,10 +12,10 @@
 \renewcommand*{\chapterpagestyle}{scrheadings} 
 % Schriftform der Kopfzeile
 \renewcommand{\headfont}{\normalfont}
+\renewcommand{\footfont}{\normalfont}
 
 % Kopfzeile
-% \ihead{\large{\textsc{\titel}}\\ \small{\untertitel}}
-\ihead{}
+%\ihead{\mytitel}
 \chead{}
 \ohead{\textit{\headmark}}
 \setlength{\headheight}{1.1\baselineskip}
@@ -27,6 +28,7 @@
 \ifoot{}
 \cfoot{\pagemark}
 \ofoot{}
+\setlength{\footheight}{1.1\baselineskip}
 
 % sonstige typographische Einstellungen ----------------------------------------
 
