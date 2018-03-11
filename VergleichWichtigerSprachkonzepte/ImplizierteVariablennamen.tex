@@ -1,1 +1,39 @@
 \section{Implizierte Variablennamen}
+
+Dieser Abschnitt behandelt einen Fehler, der typischerweise zu Beginn in der Softwareentwicklung beobachtet werden kann. \autoref{if_variable_error_java} zeigt wie Anfänger häufig versuchen logische Ausdrücke zu konstruieren. Dies entspricht dem intuitiven Gedanken \quotes{Wenn Variable X größer 0 und kleiner 5 ist, dann \dots} oder der mathematischen Definition \quotes{$0 < X < 5$}.
+
+\mintedJava{Code/IfVariableError.java}{Keine implizierten Variablennamen in logischen Ausdrücken in Java}{if_variable_error_java}
+
+Versucht man \autoref{if_variable_error_java} zu kompilieren treten einige Fehler auf:
+
+\begin{shellwindow}
+$ javac -Xmaxerrs 3 IfVariableError.java 
+IfVariableError.java:4: error: > expected
+        if (System.currentTimeMillis() > 0 && < Long.MAX_VALUE) {
+                                                              ^
+IfVariableError.java:4: error: ')' expected
+        if (System.currentTimeMillis() > 0 && < Long.MAX_VALUE) {
+                                                               ^
+IfVariableError.java:8: error: illegal start of type
+        if (0 < System.currentTimeMillis() < Long.MAX_VALUE) {
+        ^
+3 errors
+\end{shellwindow}
+
+In Java können nur vollständige Logische Ausdrücke mit logischen Operatoren verknüpft werden. Zum anderen kann innerhalb eines logischen Ausdrucks lediglich maximal einmal ein Vergleichsoperator verwendet werden. \autoref{if_variable_no_error_java} demonstriert eine funktionsfähige Implementierung des vorhergehenden Beispiels.
+
+\mintedJava{Code/IfVariableNoError.java}{Verwendung von Variablennamen in logischen Ausdrücken in Java}{if_variable_no_error_java}
+
+Dieser Code kann fehlerfrei kompiliert und ausgeführt werden:
+
+\begin{shellwindow}
+$ javac IfVariableNoError.java 
+$ java IfVariableNoError
+We get here everytime!
+\end{shellwindow}
+
+In COBOL hingegen ist das Schreiben von logischen Ausdrücken mit implizierten Variablennamen möglich.
+
+\mintedCobol{Code/implicit_variable_names.cbl}{Implizierte Variablennamen in COBOL}{implicit_names_cobol}
+
+\autoref{implicit_names_cobol} stellt in Zeile 11 die Verwendung von implizierten Variablennamen in COBOL dar, die im Gegensatz zu Java möglich ist.
