@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. ARRAYS.
+       
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+           01 ARRAY-ELEMENT PIC 9(2) OCCURS 10 TIMES.
+                       
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           ACCEPT ARRAY-ELEMENT(5).
+           DISPLAY ARRAY-ELEMENT(5).
+           STOP RUN.
+            
+       END PROGRAM ARRAYS.
+
