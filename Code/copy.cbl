@@ -3,7 +3,9 @@
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-           COPY COPYBOOK.
+           COPY COPYBOOK
+              REPLACING ERR-MSG            BY MSG
+                        "Error 1 occured"  BY "First error occured!".
 
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.

@@ -222,3 +222,8 @@ TSWLatexianTemp*
 *-tags.tex
 
 .fuse*
+
+# ltx2any
+.ltx2anyignore*
+*.log.md
+*_tmp/

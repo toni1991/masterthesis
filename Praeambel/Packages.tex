@@ -33,6 +33,9 @@
 
 % für Index-Ausgabe mit \printindex --------------------------------------------
 \usepackage{makeidx}
+\makeindex
+\AtBeginDocument{\renewcommand\indexname{Stichwortverzeichnis}}
+%\addcontentsline{toc}{chapter}{Stichwortverzeichnis}
 
 % Einfache Definition der Zeilenabstände und Seitenränder etc. -----------------
 \usepackage{setspace}
@@ -111,40 +114,6 @@
 \g@addto@macro{\UrlBreaks}{\UrlOrds}
 \makeatother
 
-% PDF-Optionen -----------------------------------------------------------------
-\usepackage[
-    bookmarks,
-    bookmarksopen=true,
-    colorlinks=true,
-% diese Farbdefinitionen zeichnen Links im PDF farblich aus
-    linkcolor=black, % einfache interne Verknüpfungen
-    anchorcolor=black,% Ankertext
-    citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
-    filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
-    menucolor=black, % Acrobat-Menüpunkte
-    urlcolor=black, 
-% diese Farbdefinitionen sollten für den Druck verwendet werden (alles schwarz)
-    %linkcolor=black, % einfache interne Verknüpfungen
-    %anchorcolor=black, % Ankertext
-    %citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
-    %filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
-    %menucolor=black, % Acrobat-Menüpunkte
-    %urlcolor=black,
-    plainpages=false, % zur korrekten Erstellung der Bookmarks
-    pdfpagelabels, % zur korrekten Erstellung der Bookmarks
-    hypertexnames=false, % zur korrekten Erstellung der Bookmarks
-    linktoc=all, % Seitenzahlen und Text im Inhaltsverzeichnis verlinken
-]{hyperref}
-
-% Befehle, die Umlaute ausgeben, führen zu Fehlern, wenn sie hyperref als Optionen übergeben werden
-\hypersetup{
-    pdftitle={\mytitel},
-    pdfauthor={\myautor},
-    pdfcreator={\myautor},
-    pdfsubject={\mytitel},
-    pdfkeywords={\mytitel \myart \myautor}
-}
-
 %% Roman pagenumbers good aligned in toc
 %\usepackage{tocloft}
 %\cftsetpnumwidth{2em}
@@ -211,3 +180,38 @@
 
 % Quotes in babel language
 \usepackage{csquotes}
+
+
+% PDF-Optionen -----------------------------------------------------------------
+\usepackage[
+    bookmarks,
+    bookmarksopen=true,
+    colorlinks=true,
+% diese Farbdefinitionen zeichnen Links im PDF farblich aus
+    linkcolor=black, % einfache interne Verknüpfungen
+    anchorcolor=black,% Ankertext
+    citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
+    filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
+    menucolor=black, % Acrobat-Menüpunkte
+    urlcolor=black, 
+% diese Farbdefinitionen sollten für den Druck verwendet werden (alles schwarz)
+    %linkcolor=black, % einfache interne Verknüpfungen
+    %anchorcolor=black, % Ankertext
+    %citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
+    %filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
+    %menucolor=black, % Acrobat-Menüpunkte
+    %urlcolor=black,
+    plainpages=false, % zur korrekten Erstellung der Bookmarks
+    pdfpagelabels, % zur korrekten Erstellung der Bookmarks
+    hypertexnames=true, % zur korrekten Erstellung der Bookmarks
+    linktoc=all, % Seitenzahlen und Text im Inhaltsverzeichnis verlinken
+]{hyperref}
+
+% Befehle, die Umlaute ausgeben, führen zu Fehlern, wenn sie hyperref als Optionen übergeben werden
+\hypersetup{
+    pdftitle={\mytitel},
+    pdfauthor={\myautor},
+    pdfcreator={\myautor},
+    pdfsubject={\mytitel},
+    pdfkeywords={\mytitel \myart \myautor}
+}
