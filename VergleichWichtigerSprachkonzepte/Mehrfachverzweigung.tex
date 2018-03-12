@@ -3,7 +3,7 @@ Ein wichtiges Konstrukt um den Programmfluß eines Programms zu steuern sind Meh
 
 In Java bildet das \mintinline{java}{switch}-\mintinline{java}{case}-Konstrukt eine Mehrfachverzweigung ab. \autoref{switch_case_java} zeigt dabei die wichtigsten Verwendungsmöglickeiten.
 
-\mintedJava{Code/switch_case.java}{Mehrfachverzweigungen in Java}{switch_case_java}
+\mintedJava{switch_case.java}{Mehrfachverzweigungen in Java}{switch_case_java}
 
 Zum einen ist zu beachten, dass Werte nur mit Literalen und Konstanten verglichen werden können. Ein Vergleich einer Variablen mit einer weiteren ist hierbei nicht zulässig, solange diese nicht als \mintinline{java}{final} deklariert ist. Auch der Vergleich auf bestimmte Wertebreiche oder nicht-primitive Datentypen ist nicht zulässig (Seit Java 7 sind vergleiche mit String-Literalen möglich).\\
 
@@ -19,13 +19,13 @@ Auch hier sieht man in den Zeilen 14, 17, 20, 23 ein gewolltes \quotes{Durchfall
 
 Der \mintinline{cobolfree}{OTHER}-Zweig entspricht in COBOL dem aus Java bekannten \mintinline{java}{default}. Dieser Zweig wird ausgeführt wenn die Kriterien keines anderen zutreffen.
 
-\mintedCobol{Code/switch_case1.cbl}{Mehrfachverzweigungen in COBOL mit ALSO}{switch_case_cobol1}
+\mintedCobol{switch_case1.cbl}{Mehrfachverzweigungen in COBOL mit ALSO}{switch_case_cobol1}
 
 Die erste Besonderheit, die \autoref{switch_case_cobol1} illustrieren soll ist das Testen von jeweils zwei Bedingungen. Dies geschieht mithilfe des \mintinline{cobolfree}{ALSO}-Schlüsselworts. Während in Java lediglich die Evaluation einer einzelnen Bedingung möglich ist, erlaubt COBOL an dieser Stelle die Überprüfung beliebig vieler Kritierien.\\
 
 Eine weitere Eigenheit zeigt sich in der Auswertung der Variable \mintinline{text}{AGE}. Hierbei werden im Beispiel Wertebereiche angegeben in denen die Variable liegen kann. Auch das ist in Java so nicht möglich, da wie bereits erwähnt nur mit Literale und Konstanten verglichen werden kann.
 
-\mintedCobol{Code/switch_case2.cbl}{Mehrfachverzweigungen in COBOL als EVALUATE TRUE}{switch_case_cobol2}
+\mintedCobol{switch_case2.cbl}{Mehrfachverzweigungen in COBOL als EVALUATE TRUE}{switch_case_cobol2}
 
 \autoref{switch_case_cobol2} stellt weitere Unterschiede zu Mehrfachverzweigungen in Java dar. So ist diese \mintinline{cobolfree}{EVALUATE TRUE}-Variante (auch als \mintinline{cobolfree}{EVALUATE FALSE} möglich) mit geschachtelten \mintinline{java}{if}-Abfragen in Java zu vergleichen. Jede Bedingung hinter dem \mintinline{cobolfree}{WHEN}-Schlüsselwort entspricht hierbei einem vollständigen logischen Ausdruck. Daher ist es möglich wie in Zeile 16 gezeigt, Rechenoperationen durchzuführen oder logische Operatoren wie in diesem Fall das \mintinline{cobolfree}{OR} zu verwenden. \\
 

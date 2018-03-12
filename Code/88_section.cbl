@@ -3,21 +3,21 @@
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-           01 VAR PIC 9(2) VALUE 20.
-               88 ISLOWERTEN VALUE 0 THRU 9.
+           01 AGE PIC 9(2) VALUE 13.
+               88 ISUNDERAGE VALUE 0 THRU 17.
+               88 ISADULT VALUE 18 THRU 99.
 
        PROCEDURE DIVISION.
        MAIN.
-           IF ISLOWERTEN
-           THEN
-               DISPLAY 'VAR is lower 10.'
+           IF ISUNDERAGE THEN
+               DISPLAY 'Person is underage (AGE = 'AGE')'
            ELSE
-               DISPLAY 'VAR is over 10.'
+               DISPLAY 'Person is adult'
            END-IF.
-           
-           SET ISLOWERTEN TO TRUE.
-           
-           DISPLAY 'VAR = ' VAR.
+
+           SET ISADULT TO TRUE       
+       
+           DISPLAY 'AGE = ' AGE.
                
            STOP RUN.
            

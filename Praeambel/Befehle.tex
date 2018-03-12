@@ -52,12 +52,10 @@
 \newcommand{\till}[2]{#1 -- #2}
 
 %Minted
-\newcommand{\mintedCobolWithOutput}[4]{
-    \inputminted[bgcolor=hellgrau,fontsize=\footnotesize]{cobolfree}{#1}#4\captionof{listing}{#2 \label{#3}}
-}
-\newcommand{\mintedCobol}[3]{\mintedCobolWithOutput{#1}{#2}{#3}{}}
-
-\newcommand{\mindetJavaWithOutput}[4]{
-    \inputminted[bgcolor=hellgrau,fontsize=\footnotesize]{java}{#1}#4\captionof{listing}{#2 \label{#3}}
-}
-\newcommand{\mintedJava}[3]{\mindetJavaWithOutput{#1}{#2}{#3}{}}
+\newcommand{\cobol}[1]{\inputminted[bgcolor=hellgrau,fontsize=\footnotesize]{cobolfree}{Code/#1}}
+\newcommand{\java}[1]{\inputminted[bgcolor=hellgrau,fontsize=\footnotesize]{java}{Code/#1}}
+\newcommand{\mintedCaption}[2]{\captionof{listing}{#1\label{#2}}}
+\newcommand{\mintedCobolWithOutput}[4]{\cobol{#1}#4\mintedCaption{#2}{#3}}
+\newcommand{\mintedCobol}[3]{\cobol{#1}\mintedCaption{#2}{#3}}
+\newcommand{\mintedJavaWithOutput}[4]{\java{#1}#4\mintedCaption{#2}{#3}}
+\newcommand{\mintedJava}[3]{\java{#1}\mintedCaption{#2}{#3}}

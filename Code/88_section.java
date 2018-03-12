@@ -1,25 +1,45 @@
-public class Level88
-{
-    private int VAR;
+public class EightyEight{
     
-    public Level88() {
-        this.VAR = 10;
+    public static void main(String[] args) {
+        AgeCheck ageCheck = new AgeCheck();
+        printAgeInformation(ageCheck);
+        ageCheck.setAge(18);
+        printAgeInformation(ageCheck);
+    }
+
+    public static void printAgeInformation(AgeCheck ageCheck)
+    {
+        System.out.println(
+            String.format(
+                "Age %s is %s!", 
+                ageCheck.getAge(), 
+                ageCheck.isAdult() ? "adult":"underage"
+            )
+        );
     }
     
-    public void setVAR(int value) {
-        VAR = value;
-    }
-    
-    public int getVAR() {
-        return VAR;
-    }
-    
-    public void setISLOWERTEN(boolean value) {
-        if(value)
-            setVAR(0);
-    }
-    
-    public boolean getISLOWERTEN() {
-        return (0 <= value && value <= 9);
+    static class AgeCheck
+    {
+        private int age;
+        
+        public AgeCheck() {
+            age = 13;
+        }
+        
+        public void setAge(int newAge) {
+            age = newAge;
+        }
+        
+        public int getAge() {
+            return age;
+        }
+        
+        public boolean isUnderage() {
+            return (0 <= age && age <= 17);
+        }
+        
+        public boolean isAdult() {
+            return (age >= 18);
+        }          
     }
 }

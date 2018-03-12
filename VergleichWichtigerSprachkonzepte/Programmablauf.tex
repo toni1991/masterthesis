@@ -1,2 +1,19 @@
 \section{Programmablauf}
-PROCEDURE DIVISION \& main-Methode
+Ein Punkt in dem sich COBOL und Java sehr stark unterscheiden ist der Programmablauf. Während Java einen definierten Einstiegspunkt in ein Programm hat (\mintinline{java}{main}-Methode) wird ein COBOL-Programm stets sequenziell von oben nach unten abgearbeitet und durchlaufen. Diese Abarbeitung beginnt am Anfang der \mintinline{cobolfree}{PROCEDURE DIVISION}.
+
+\java{MainMethod.java}
+\sepCodeAndOutput
+\begin{shellwindow}
+$ javac MainMethod.java 
+$ java MainMethod
+Running main method!
+Running other method!
+Continue main method!
+\end{shellwindow}
+\mintedCaption{Java main-Methode}{javaMainMethod}
+
+rekursion
+
+unterprogramme
+
+funktionen / perform
