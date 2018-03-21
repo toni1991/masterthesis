@@ -1,4 +1,4 @@
-\section{Programmablauf}
+\section{Programmablauf und Kontrollfluß}
 Durch die in \autoref{sec:functionsAndReturnValues} erläuterten Unterschiede ergeben sich auch im Programmablauf Diskrepanzen. Während Java einen definierten Einstiegspunkt in ein Programm hat (\mintinline{java}{main}-Methode) wird ein COBOL-Programm stets sequenziell von oben nach unten abgearbeitet und durchlaufen. Diese Abarbeitung beginnt am Anfang der \mintinline{cobolfree}{PROCEDURE DIVISION}.\\
 
 \subsection*{Programmablauf in Java}
@@ -15,6 +15,36 @@ Continue main method!
 \mintedCaption{Java main-Methode}{javaMainMethod}
 
 \autoref{javaMainMethod} demonstriert einen sehr simplen Programmablauf in Java. Wie bereits erwähnt ist der Startpunkt eines jeden Java-Programms die \mintinline{java}{main}-Methode. Von dieser aus können weitere Methoden aufgerufen werden und sobald das Ende dieser Methode erreicht ist terminiert das Programm. Im vorliegenden Beispiel wird also nach einer Ausgabe in \mintinline{java}{main}, die Funktion \mintinline{java}{otherMethod} aufgerufen, bevor der Ablauf wieder in der \mintinline{java}{main}-Methode fortgesetzt wird. Daran soll folgendes Verhalten deutlich werden: Endet eine aufgerufene Funktion wie geplant -- d.h. ohne eine \mintinline{java}{Exception} \todo{reference exception section} -- wird stets mit der nächsten Anweisung nach dem Funktionsaufruf fortgefahren.\\
+
+Weitere Schlüsselwörter die den Kontrollfluß steuern können sind außerdem \mintinline{java}{break}, \mintinline{java}{continue} und \mintinline{java}{goto}. Zu beachten ist dabei, dass das \mintinline{java}{goto}-Schlüsselwort zwar im Sprachstandard noch definiert ist, jedoch in keiner gängigen JVM implementiert ist. Die Verwendung führt zu Fehlern beim Kompilieren. In \autoref{javaBreakContinue} finden sich beispielhafte Verwendungen der beiden anderen Schlüsselwörter.
+
+\java{BreakContinueExample.java}
+\sepCodeAndOutputCheck
+\begin{shellwindow}
+$ javac BreakContinueExample.java 
+$ java BreakContinueExample
+== break example == 
+(0)(1)
+== continue example == 
+(0)(1)(2)(8)(9)
+\end{shellwindow}
+\mintedCaption{Beispiele für die Verwendung von break und continue in Java}{javaBreakContinue}
+
+Ein einfaches \mintinline{java}{break} sorgt wie gezeigt dafür, dass die direkt umfassende Schleife verlassen wird. Auch ein simples \mintinline{java}{continue} hat Auswirkungen auf die direkt beinhaltende Schleife. So sorgt es dafür, dass der aktuelle Schleifendurchlauf abgebrochen und mit dem nächsten fortgefahren wird. \autoref{mehrfachverzweigungen} zeigt eine weitere Verwendung des \mintinline{java}{break}-Statements.
+
+\java{BreakContinueLabelExample.java}
+\sepCodeAndOutputCheck
+\begin{shellwindow}
+$ javac BreakContinueLabelExample.java 
+$ java BreakContinueLabelExample
+== break label example == 
+(0 0)(0 1)(0 2)
+== continue label example == 
+(0 0)(0 1)(0 2)(1 0)(1 1)(1 2)(2 0)(2 1)(2 2)
+\end{shellwindow}
+\mintedCaption{Verwendung von break und continue mit Label in Java}{javaBreakContinueLabel}
+
+Deutlich unübrlicher -- jedoch nicht weniger relevanter -- ist der Gebrauch eines Labels in Java. Dieses Label kann in der Verbindung mit einer \mintinline{java}{break}- oder \mintinline{java}{continue}-Anweisung genutzt werden, um mehrere umfassende Schleifen verlassen bzw. um mit dem nächsten Schleifendurchlauf einer weiter außen befindlichen Schleife fortgefahren zu werden. Die Anweisung betrifft dabei die Schleife, welche das Label trägt. Dies zeigt \autoref{javaBreakContinueLabel}.
 
 \subsection*{Programmablauf in COBOL}
 
@@ -53,3 +83,5 @@ Calling paragraph:
 \mintedCaption{Programmablaufunterschiede in COBOL mit Sections und Paragraphs}{paragraphSecionControlFlowCobol}
 
 Wird mittels \mintinline{cobolfree}{PERFORM} eine \mintinline{cobolfree}{SECTION} aufgerufen, so werden alle Paragraphs innerhalb dieser \mintinline{cobolfree}{SECTION} der Reihe nach ausgeführt. Ruft man jedoch einen Paragraph auf, so wird nur dieser Paragraph ausgeführt. Eine weitere Möglichkeit ist die Kombination des \mintinline{cobolfree}{PERFORM} mit dem \mintinline{cobolfree}{THRU}-Schlüsselwort. Hierbei werden alle Paragraphs zwischen zwei festgelegten Paragraphs ausgeführt. Der Kontrollfluss geht bei jeder Variante stets an das Statement nach dem \mintinline{cobolfree}{PERFORM}. \todo{EXIT-Statement?}\\
+
+Um Verwirrungen vorzubeugen und lesbaren Code zu erhalten sollten alle Paragraphs stets Teil einer \mintinline{cobolfree}{SECTION} sein. Der letzte Paragraph einer \mintinline{cobolfree}{SECTION} sollte dabei immer ein \mintinline{cobolfree}{EXIT}-Paragraph sein, also nur das Schlüsselwort \mintinline{cobolfree}{EXIT} beinhalten. So ist das Ende einer \mintinline{cobolfree}{SECTION} klar erkennbar. Dieses Vorgehen wurde auch von \citeauthor{richards_enhancing_1984} bereits \citeyear{richards_enhancing_1984} als best-practice beschrieben  \cite{richards_enhancing_1984}.
