@@ -1,18 +1,21 @@
 \section{Konventionen}
 Im folgenden Abschnitt sollen bestimmte Konventionen dargestellt werden, die in COBOL bzw. Java gelten.
 
-\subsection{Groß- und Kleinschreibung}
+\subsection*{Groß- und Kleinschreibung}
 Bei der Programmierung behilft man sich oftmals der Groß- und Kleinschreibung, um ein höheres Maß an Struktur und Lesbarkeit des Codes zu erreichen. 
 
 Wichtig ist hierbei vorneweg zu beachten, dass Java \quotes{case-sensitive} ist, also zwischen Groß- und Kleinbuchstaben unterscheidet, während COBOL \quotes{case-insensitive} ist, also -- außer in Strings -- keinen Unterschied macht.
 
 In Java ist es üblich Methodennamen und veränderbare Variablen mit einem kleinen Buchstaben beginnend zu benennen. Besteht der Name aus mehreren Wörtern so wird dieser im \quotes{camel-case} geschrieben. Das heißt, dass stets Großbuchstaben für den Beginn eines neuen Wortes verwendet werden. Beispiele hierfür wären \mintinline{java}{getAdditionalData()} oder \mintinline{java}{int currentAmountOfMoney}. Klassennamen werden in dem selben Muster geschrieben, beginnen jedoch mit einem Großbuchstaben: \mintinline{java}{ToolBox}. Zu guter letzt sollten konstante Variablen und Werte innerhalb eines Aufzählungstyps durchgehend aus Großbuchstaben bestehen, wobei einzelne Wörter mit einem Unterstrich voneinander getrennt werden (\mintinline{java}{final int MULIPLY_FACTOR = 2}). \todo{COBOL}
 
-\subsection{Affixe}
+\subsection*{Affixe}
 Ein weiteres wichtiges Werkzeug bei der Strukturierung von Programmcode ist das Versehen mit Affixen (Prä- oder Suffixen).
 
-In Java ist es hierbei nicht ratsam Affixe zu verwenden. Da diese jedoch in einigen bestehende Codebasen Verwendung finden, werden an dieser stelle die üblichsten behandelt.
+In Java ist es hierbei nicht ratsam Affixe zu verwenden. Da diese jedoch in einigen bestehende Codebasen Verwendung finden, werden an dieser Stelle die üblichsten behandelt.
 
-Oftmals werden Interfaces in Java mit einem vorangestellten \quotes{I} gekennzeichnet. Diese Konvention sorgt jedoch dafür, dass Implementierungen eines Interfaces namentlich nicht immer klar abgegrenzt und definiert sind. Wird beispielsweise ein Interface \mintinline{java}{IOutput} definiert so könnten valide Implementierungen \mintinline{java}{ConsoleOutput} oder \mintinline{java}{PrinterOutput} sein. Jedoch erlaubt dies namentlich auch die Implementierung \mintinline{java}{Output}, bei der nicht ausreichend klar ist was der Zweck dieser Klasse ist.
+Oftmals werden Interfaces in Java mit einem vorangestellten \quotes{I} gekennzeichnet. Diese Konvention sorgt jedoch dafür, dass Implementierungen eines Interfaces namentlich nicht immer klar abgegrenzt und definiert sind. Wird beispielsweise ein Interface \mintinline{java}{IOutput} definiert so könnten valide Implementierungen \mintinline{java}{ConsoleOutput} oder \\\mintinline{java}{PrinterOutput} sein. Jedoch erlaubt dies namentlich auch die Interface-Implementierung namens \mintinline{java}{Output}, bei der nicht ausreichend klar ist was der Zweck dieser Klasse ist.
 
 Ein weiterer Codingstil der gelegentlich angewendet wird ist das Nutzen von \quotes{m} und \quotes{s} als Präfix von Variablen. Diese sollen kennzeichnen, dass eine Variable entweder Instanzvariable (\textbf{m}ember) oder statisch (\textbf{s}tatic) ist. Durch die Verwendung von modernen IDEs, die beide farblich unterschiedlich darstellen, und des Schlüsselwortes \mintinline{java}{this}, welches exakt für Referenzen auf Instanzvariablen gedacht ist, werden Variablen jedoch bereits ausreichend gekennzeichnet, sodass der Code durch die Verwendung dieser Präfixe unnötigerweise schwerer lesbar gemacht wird.
+
+
+\todo{Ein Statement pro zeile, einrückung}

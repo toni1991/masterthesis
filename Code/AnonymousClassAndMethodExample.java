@@ -1,30 +1,20 @@
 package de.masterthesis;
 
+import java.util.function.IntConsumer;
 import java.util.stream.IntStream;
 
 public class AnonymousClassAndMethodExample {
 
     public static void main(String[] args) {
-        anonymousMethodExample();
-        anonymousClassExample();
-    }
-
-    private static void anonymousMethodExample() {
-        IntStream.range(0, 10)
-            .forEach((int number) -> System.out.println(number));
-    }
-
-    private static void anonymousClassExample() {
-        Outputter ageOutputter = new Outputter() {
+        IntStream.range(0, 10).forEach(new IntConsumer() {
             @Override
-            public void outputData(Object data) {
-                System.out.println("Your are " + data + "years old!");
+            public void accept(int value) {
+                System.out.print(value + " ");
             }
-        };
+        });
+        System.out.println();
+        IntStream.range(0, 10).forEach(value -> {
+            System.out.print(value + " ");
+        });
     }
-
-    interface Outputter {
-        void outputData(Object data);
-    }
-
 }
