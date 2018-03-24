@@ -14,11 +14,8 @@
            ELSE
                DISPLAY 'Person is adult'
            END-IF.
-
            SET ISADULT TO TRUE       
-       
            DISPLAY 'AGE = ' AGE.
-               
            STOP RUN.
            
        END PROGRAM EIGHTYEIGHT.

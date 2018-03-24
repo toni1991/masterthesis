@@ -11,7 +11,6 @@
            DISPLAY SPACE.
            DISPLAY "Calling paragraph:".
            PERFORM FIRST-TEST-PARAGRAPH.
-           
            STOP RUN.
        
        TEST-SECTION SECTION.
