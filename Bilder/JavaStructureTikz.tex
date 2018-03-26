@@ -1,17 +1,26 @@
 \todo[inline]{Diagramm}
 
 \begin{figure}[H]
-\centering
-\begin{tikzpicture}
+    \centering
+    \begin{tikzpicture}[node distance=0cm]
 
-\node (packageRect) [rectangle, draw, rounded corners, ultra thick, draw=black, fill=orange, fill opacity=0.2, draw opacity=1, text opacity=1, anchor=south, minimum width=100mm, minimum height=100mm] at (0mm,0mm) {};
-\node[above] (packageRect.center) {Package};
+        \node (packageRect) [inner sep=0pt, rectangle, draw, rounded corners, ultra thick, draw=black, fill=javaPackage!40!white, minimum width=.95\textwidth, minimum height=.5\textwidth] at (0,0) {};
+        \node[below = of packageRect.north] () {Package};
 
-\node (classRect) [rectangle, draw, rounded corners, ultra thick, draw=black, fill=blue, fill opacity=0.2, draw opacity=1, text opacity=1, anchor=south, minimum width=90mm, minimum height=90mm] at (5mm,0mm) {};
-\node[above] (classRect.center) {Klasse};
+        \node (classRect) [inner sep=0pt, rectangle, draw, rounded corners, ultra thick, draw=black, fill=javaClass!40!white, minimum width=.85\textwidth, minimum height=.4\textwidth] at (0,0) {};
+        \node[below = of classRect.north] () {Klasse};
 
-\end{tikzpicture}
-\caption{Strukturelle Bestandteile eines Java-Programms}
-\label{javaStructureDiagram}
+        \node (methodRect) [inner sep=0pt, rectangle, draw, rounded corners, ultra thick, draw=black, fill=javaMethod!40!white, minimum width=.35\textwidth, minimum height=.3\textwidth] at (.3\textwidth,0) {};
+        \node[below = of methodRect.north] () {Methode};
+
+        \node (statementRect) [inner sep=0pt, rectangle, draw, rounded corners, ultra thick, draw=black, fill=javaStatement!40!white, minimum width=.25\textwidth, minimum height=.2\textwidth] at (.3\textwidth,0) {};
+        \node[below = of statementRect.north] () {Statement};
+
+        \node (anonClass) [pattern=north west lines, pattern color=black, inner sep=0pt, rectangle, draw, rounded corners, ultra thick, draw=black, fill=javaClass!40!white, minimum width=.25\textwidth, minimum height=.2\textwidth] at (.3\textwidth,0) {};
+        \node[below = of anonClass.north] () {Annonyme Klasse};
+
+    \end{tikzpicture}
+    \caption{Strukturelle Bestandteile eines Java-Programms}
+    \label{javaStructureDiagram}
 \end{figure}
 

@@ -5,7 +5,7 @@
     automark, % Kapitelangaben in Kopfzeile automatisch erstellen
     headsepline, % Trennlinie unter Kopfzeile
     ilines % Trennlinie linksbündig ausrichten
-]{scrpage2}
+]{scrlayer-scrpage}
 
 % Anpassung an Landessprache ---------------------------------------------------
 \usepackage[ngerman,showlanguages]{babel}
@@ -77,6 +77,12 @@
 \definecolor{colIdentifier}{rgb}{0,0,0}
 \definecolor{colComments}{rgb}{0.6,0,0}
 \definecolor{colString}{rgb}{0,0.7,0}
+
+% Farben für Java Diagram
+\definecolor{javaPackage}{rgb}{0,0.6,0}
+\definecolor{javaClass}{rgb}{0,0.7,0.7}
+\definecolor{javaMethod}{rgb}{0.7,0,0}
+\definecolor{javaStatement}{rgb}{0.7,0,0.7}
 
 % zum Einbinden von Programmcode -----------------------------------------------
 \usepackage{listings}
@@ -159,8 +165,9 @@
 \addbibresource{Sonstiges/Literatur.bib}
 
 % Tikz libraries
-\usetikzlibrary{arrows.meta}
-\usetikzlibrary{intersections}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{tikz-uml}
 
 % Spalten
 \usepackage{multicol}

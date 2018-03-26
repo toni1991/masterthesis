@@ -2,7 +2,7 @@
 Neben den in \autoref{lists} beschriebenen Listen bieten Sets in der Programmierung eine weitere häufig genutzte Datenstruktur. Die zwei wesentlichen Unterschiede im Gegensatz zu Listen sind, zum einen eine fehlende Ordnung der Elemente und die Eigenschaft, dass ein und das selbe Element nur genau einmal innerhalb eines Sets vorkommen darf. Das Set entspricht somit weitestgehend der mathematischen Definition einer Menge.\\
 
 \subsection*{Sets in Java}
-Wie für Listen bietet Java auch für Sets das \mintline{java}{Set}-Interface. Die wohl am häufigsten genutzte Implementierung dieses Interfaces stellt die \mintline{java}{HashSet}-Klasse dar, welche die \mintline{java}{hashCode}-Methode eines Objektes nutzt um es pseudo-eindeutig identifizierbar zu machen.\\
+Wie für Listen bietet Java auch für Sets das \mintinline{java}{Set}-Interface. Die wohl am häufigsten genutzte Implementierung dieses Interfaces stellt die \mintinline{java}{HashSet}-Klasse dar, welche die \mintinline{java}{hashCode}-Methode eines Objektes nutzt um es pseudo-eindeutig identifizierbar zu machen.\\
 
 \java{HashSetExample.java}
 \begin{shellwindow}
@@ -14,6 +14,16 @@ Wie für Listen bietet Java auch für Sets das \mintline{java}{Set}-Interface. D
 In \autoref{javaHashSet} soll gezeigt werden, dass das Einfügen von Elementen, welche bereits im Set enthalten sind keine Auswirkungen hat. Die Eigenschaft, dass ein Set ungeordnet ist, lässt sich leider nicht zeigen, da Java die Werte bei der gezeigten Ausgabe ordnet. Dieses Verhalten tritt auch auf, wenn die Werte in umgekehrter Reihenfolge dem Set hinzugefügt werden, was jedoch in keinem Fall bedeutet, dass es sich beim Set um eine stets sortierte Liste handelt, auch wenn es den Eindruck vermittelt!\\
 
 \subsection*{Sets in COBOL}
-Auch an dieser Stelle kann analog zu Listen gesagt werden, dass eine Implementierung von Sets in COBOL nicht ohne weiteres möglich ist. Die Einschränkung der Größe der Datenstruktur bestünde auch hier. Verändert man das Beispiel von \autoref{cobolList} allerdings wie nachfolgend gezeigt, so entsteht eine Implementierung von Sets, welche zwar funktionell nicht vergleichbar mit den Java-Klassen ist, jedoch die wichtigen Konzepte wiederspiegelt.
+Auch an dieser Stelle kann analog zu Listen gesagt werden, dass eine Implementierung von Sets in COBOL nicht ohne weiteres möglich ist. Die Einschränkung der Größe der Datenstruktur bestünde auch hier. 
 
-\todo{COBOL-Beispiel-Implementierung}
+\cobol{Set.cbl}
+\begin{shellwindow}
+ SIZE: 000
+002, SIZE: 001
+002,004, SIZE: 002
+002,004, SIZE: 002
+002, SIZE: 001
+\end{shellwindow}
+\mintedCaption{Einfache Set Implementierung in COBOL}{cobolSet}
+
+\autoref{cobolSet} greift jedoch beispielhaft die Kernaspekte von Sets auf und zeigt eine mögliche Implementierung in COBOL. Wie auch in \autoref{cobolSet} sind nur Einfüge- und Löschoperationen realisiert.
