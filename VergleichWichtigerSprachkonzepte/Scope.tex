@@ -20,11 +20,11 @@ Die nächstkleinere Einheit eines Java-Programms stellen Klassen dar. Hierbei ha
 
 Teil dieser Klassen können wiederum Methoden, Variablendeklarationen und weitere Klassen sein. Diese können jeweils statisch oder auch einer Instanz zugeordnet sein. Auch dabei handelt es sich um ein gängiges Konzept der objektorientierten Softwareentwicklung. Hierzu sei an dieser stelle lediglich erwähnt, dass statische Methoden, Variablen und Klassen Teil der Klasse sind und kein konkret instanziiertes Objekt benötigen während nicht-statische Komponenten stets ein konkretes Objekt einer Klasse benötigen.\\
 
-Diese weiteren Klassen haben strukturell die selben Eigenschaften wie die umgebende Klasse, außer, dass sie nicht in einer Datei gespeichert sein müssen deren Name dem Klassennamen entspricht.\\
+Diese weiteren Klassen haben strukturell die selben Eigenschaften wie die umgebende Klasse, außer, dass sie nicht in einer Datei gespeichert sein müssen bzw. können deren Name dem Klassennamen entspricht.\\
 
 \input{Bilder/JavaStructureTikz}
 
-Methoden wiederum bestehen aus einzelnen Statements. Zu erwähnen ist, dass Variablendeklarationen auch ein Statement darstellen, jedoch sind als Teil einer Klasse keine anderen Statements als Variablendeklarationen gültig, weshalb auch an dieser Stelle diese Unterscheidung getroffen wird. Ein Statement muss stets mit einem Semikolon abgeschlossen werden. Statements die aus Variablendeklarationen, Zuweisungen oder Methodenaufrufen bestehen, müssen stets mit einem Semikolon beendet werden. \\
+Methoden wiederum bestehen aus einzelnen Statements. Zu erwähnen ist, dass Variablendeklarationen auch ein Statement darstellen, jedoch sind, als Teil einer Klasse, keine anderen Statements als Variablendeklarationen gültig, weshalb auch an dieser Stelle diese Unterscheidung getroffen wird. Statements die aus Variablendeklarationen, Zuweisungen oder Methodenaufrufen bestehen, müssen im Gegensatz zu Block-Statements, wie z.B. \mintinline{java}{if}-Statements, stets mit einem Semikolon beendet werden. \\
 
 \mintedJava{AnonymousClassAndMethodExample.java}{Anonyme Klassen und Funktion in Java}{anonymousJava}
 
@@ -34,7 +34,27 @@ Die letzten strukturellen Elemente sind anonyme Klassen und Funktionen, auch Lam
 
 \subsection*{COBOL}
 
+{
+\begin{wrapfigure}{l}{0.5\textwidth}
+\centering
+%\includegraphics[width=0.25\textwidth]{Bilder/Zeitplan.PNG}
+\input{Bilder/CobolStructureTikz}
+\caption{Strukturelle Bestandteile eines COBOL-Programms\label{cobolStructureDiagram}}
+\end{wrapfigure}
+
+Nebenstehende \autoref{cobolStructureDiagram} zeigt die strukturellen Bestandteile eines COBOL-Programms. 
+
+Dabei gibt es folgende vier fest definierte \mintinline{cobolfree}{DIVISION}s:
+\begin{itemize}
+    \item \mintinline{cobolfree}{IDENTIFICATION DIVISION}
+    \item \mintinline{cobolfree}{ENVIRONMENT DIVISION}
+    \item \mintinline{cobolfree}{DATA DIVISION}
+    \item \mintinline{cobolfree}{PROCEDURE DIVISION}
+\end{itemize}
+
+
 u.a. SENTENCE u. PARAGRAPH \& Statement und \{\}-Scope
 
-
 -> DIVISIONS, SECTIONS, paragraphs, sentences, and statements, point
+
+}
