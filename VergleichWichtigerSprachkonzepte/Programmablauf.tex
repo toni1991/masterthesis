@@ -50,7 +50,9 @@ Deutlich unüblicher -- jedoch nicht weniger relevanter -- ist der Gebrauch eine
 
 In COBOL gestaltet sich der Programmablauf gänzlich anders. Das Programm wird stets von oben nach unten durchlaufen. Wobei dieser lineare Ablauf z.B. durch die Verwendung von \mintinline{cobolfree}{PERFORM}-, \mintinline{cobolfree}{CALL}-, \mintinline{cobolfree}{GO TO}- oder \mintinline{cobolfree}{NEXT STATEMENT} \todo{NEXT STATEMENT erklären}-Anweisungen verändert werden kann. An dieser Stelle sei ausdrücklich erwähnt, dass die Verwendung des \mintinline{cobolfree}{GO TO}\index{GO TO}-Befehls unter allen Umständen unerlassen werden sollte, da ansonsten sehr schwer verständlicher und wartbarer Code entsteht! Leider findet man sich in der Praxis oftmals mit Code konfrontiert, der \mintinline{cobolfree}{GO TO}-Befehle zur Steuerung des Ablaufs verwendet.\\
 
-Die Ausführung eines COBOL-Programms endet beim Erreichen einer \mintinline{cobolfree}{STOP RUN}-Anweisung oder mit dem Ende des Programms (\mintinline{cobolfree}{END PROGRAM}). Ein Unterprogramm gibt hingegen mit \mintinline{cobolfree}{GOBACK} die Kontrolle zurück an das aufrufende Programm.\\
+Die Ausführung eines COBOL-Programms endet beim Erreichen einer \mintinline{cobolfree}{STOP RUN}-Anweisung oder mit dem Ende des Programms (\mintinline{cobolfree}{END PROGRAM}). \\
+
+Ein Unterprogramm wird mit \mintinline{cobolfree}{CALL} aufgerufen und gibt hingegen mit \mintinline{cobolfree}{GOBACK} die Kontrolle zurück an das aufrufende Programm.\\
 
 \cobol{simpleControlFlow.cbl}
 \sepCodeAndOutputCheck

@@ -33,5 +33,3 @@ Rekursive \mintinline{cobolfree}{PERFORM}-Aufrufe sind zwar syntaktisch möglich
 \mintedCobol{recursion.cbl}{Rekursion in COBOL}{recursionCobol}
 
 \autoref{recursionCobol} enthält analog zu gezeigtem Java-Beispiel auch ein Programm, welches Rekursiv die Fakultät einer Zahl errechnet und ausgibt. Wichtig ist hierbei vorallem die \mintinline{cobolfree}{RECURSIVE} Definition hinter dem Programmnamen in Zeile 2. Die \mintinline{cobolfree}{WORKING-STORAGE SECTION} enthält dabei Variablen, welche von jeder Instanz des rekursiv aufgerufenen Programms gemeinsam genutz werden. In \mintinline{cobolfree}{LOCAL-STORAGE SECTION} finden sich Variablen, deren Gültigkeitsbereich sich auf die aktuelle Aufrufinstanz beschränken.
-
-\todo{Unterprogramme wo hin?}
