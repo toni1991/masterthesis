@@ -1,24 +1,25 @@
             IDENTIFICATION DIVISION.
-            PROGRAM-ID. FACTORIAL RECURSIVE.
-            ENVIRONMENT DIVISION.
-            CONFIGURATION SECTION.
-               SOURCE-COMPUTER. IBM-ISERIES.
-               OBJECT-COMPUTER. IBM-ISERIES.
+            PROGRAM-ID. FACULTY RECURSIVE.
+            
             DATA DIVISION.
             WORKING-STORAGE SECTION.
-            01 NUMB PIC 9(4) VALUE 5.
-            01 FACT PIC 9(8) VALUE 0.
+               01 WS-NUMBER PIC 9(4) VALUE 5.
+               01 WS-PRODUCT PIC 9(4) VALUE 0.
             LOCAL-STORAGE SECTION.
-            01 NUM PIC 9(4).
+               01 LS-NUMBER PIC 9(4).
+               
             PROCEDURE DIVISION.
-                MOVE NUMB TO NUM.
-                IF NUMB = 0
-                    MOVE 1 TO FACT
+                IF WS-NUMBER = 0
+                    MOVE 1 TO WS-PRODUCT
                 ELSE
-                    SUBTRACT 1 FROM NUMB
-                    CALL "FACTORIAL"
-                    MULTIPLY NUM BY FACT
+                    MOVE WS-NUMBER TO LS-NUMBER
+                    COMPUTE WS-NUMBER = WS-NUMBER - 1
+                    CALL "FACULTY"
+                    COMPUTE WS-PRODUCT = LS-NUMBER * WS-PRODUCT
                 END-IF.
-                DISPLAY NUM "! = " FACT.
+                IF LS-NUMBER = 5
+                   DISPLAY WS-PRODUCT
+                END-IF.
                 GOBACK.
-            END PROGRAM FACTORIAL.
+                    
+            END PROGRAM FACULTY.

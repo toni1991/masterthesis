@@ -1,4 +1,4 @@
-\section{Programmablauf und Kontrollfluß}
+\section{Programmablauf und Kontrollfluß}\label{programmablauf}
 Durch die in \autoref{sec:functionsAndReturnValues} erläuterten Unterschiede ergeben sich auch im Programmablauf Diskrepanzen. Während Java einen definierten Einstiegspunkt in ein Programm hat (\mintinline{java}{main}-Methode) wird ein COBOL-Programm stets sequenziell von oben nach unten abgearbeitet und durchlaufen. Diese Abarbeitung beginnt am Anfang der \mintinline{cobolfree}{PROCEDURE DIVISION}.\\
 
 \subsection*{Programmablauf in Java}
@@ -48,7 +48,9 @@ Deutlich unüblicher -- jedoch nicht weniger relevanter -- ist der Gebrauch eine
 
 \subsection*{Programmablauf in COBOL}
 
-In COBOL gestaltet sich der Programmablauf gänzlich anders. Das Programm wird stets von oben nach unten durchlaufen. Wobei dieser lineare Ablauf durch die Verwendung von \mintinline{cobolfree}{PERFORM}-, \mintinline{cobolfree}{CALL}- und \mintinline{cobolfree}{GO TO}-Anweisungen verändert werden kann. An dieser Stelle sei ausdrücklich erwähnt, dass die Verwendung des \mintinline{cobolfree}{GO TO}\index{GO TO}-Befehls unter allen Umständen unerlassen werden sollte, da ansonsten sehr schwer verständlicher und wartbarer Code entsteht! Die Ausführung eines COBOL-Programms endet beim Erreichen einer \mintinline{cobolfree}{STOP RUN}-Anweisung oder mit dem Ende des Programms (\mintinline{cobolfree}{END PROGRAM}).\\
+In COBOL gestaltet sich der Programmablauf gänzlich anders. Das Programm wird stets von oben nach unten durchlaufen. Wobei dieser lineare Ablauf z.B. durch die Verwendung von \mintinline{cobolfree}{PERFORM}-, \mintinline{cobolfree}{CALL}-, \mintinline{cobolfree}{GO TO}- oder \mintinline{cobolfree}{NEXT STATEMENT}-Anweisungen verändert werden kann. An dieser Stelle sei ausdrücklich erwähnt, dass die Verwendung des \mintinline{cobolfree}{GO TO}\index{GO TO}-Befehls unter allen Umständen unerlassen werden sollte, da ansonsten sehr schwer verständlicher und wartbarer Code entsteht! Leider findet man sich in der Praxis oftmals mit Code konfrontiert, der \mintinline{cobolfree}{GO TO}-Befehle zur Steuerung des Ablaufs verwendet.
+
+Die Ausführung eines COBOL-Programms endet beim Erreichen einer \mintinline{cobolfree}{STOP RUN}-Anweisung oder mit dem Ende des Programms (\mintinline{cobolfree}{END PROGRAM}). Ein Unterprogramm gibt hingegen mit \mintinline{cobolfree}{GOBACK} die Kontrolle zurück an das aufrufende Programm.\\
 
 \cobol{simpleControlFlow.cbl}
 \sepCodeAndOutputCheck

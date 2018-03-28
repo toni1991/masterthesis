@@ -1,2 +1,30 @@
-\section{Variablen Deklaration und Datentypen} \label{variables}
-DATA DIVISION \& Variablendeklaration
+\section{Deklaration von Variablen und Datentypen} \label{variables}
+Eine wichtige Eigenschaft von Programmiersprachen ist die Verwendungsmöglichkeit von Variablen. Je nach Programmiersprache haben diese Variablen unterschiedliche Eigenschaften und werden verschieden deklariert, initialisiert bzw. definiert. Dieser Abschnitt soll die Unterschiede dabei zwischen COBOL und Java herausarbeiten.\\
+
+\subsection*{Variablen in Java}
+Eine Variable in Java hat stets einen bestimmten Datentypen. Dies können primitive Datentypen wie z.B. \mintinline{java}{int} oder \mintinline{java}{double}, aber auch komplexe Objekttypen sein.\\
+
+\mintedJava{VariableExample.java}{Variablendeklarationen in Java}{variablesJava}
+
+Dabei werden in \autoref{variablesJava} einige Konzepte deutlich gemacht:\\
+\begin{itemize}
+ \item Variablen können wie in \autoref{sec:scope} sowohl als Teil einer Klasse als auch lokal innerhalb einer Methode deklariert werden. 
+ \item Die Deklaration erfolg nach dem Muster \quotes{<Datentyp> <Variablenname>}.
+ \item Die Initialisierung einer Variable erfolgt durch das zuweisen eines Wertes.
+ \item Komplexe Objekttypen können den Wert \mintinline{java}{null} haben. Das bedeutet, die Variable, die in diesem Fall eine Referenz auf einen Speicherbereich darstellt, ist leer. Hier gilt es zu beachten, dass primitive Datentypen nicht \mintinline{java}{null} sein können.
+ \item Instanzen eines Objekttypen werden durch das Schlüsselwort \mintinline{java}{new} und den Aufruf eines Konstruktors erzeugt. Primitive Datentypen haben keine Konstruktoren.
+\end{itemize}
+
+Die Deklarierung einer Variable eines bestimmten Datentyps sorgt dafür, dass ausreichend Speicherplatz für diese reserviert wird. Die Stelle der Deklaration im Code ist dabei frei wählbar und muss lediglich vor der ersten Verwendung stehen.\\
+
+\subsection*{Variablen in COBOL}
+Die Deklaration von Variablen unterscheidet sich in COBOL stark von der in Java. Neben der Eigenschaft, dass Variablen nur innerhalb der \mintinline{cobolfree}{DATA DIVISION} deklariert werden können, ist in COBOL nicht die Definition eines Datentyps nötig sondern die Festlegung einer Repräsentation. \\
+
+Dies sorgt dafür, dass bereits an der Stelle der Variablendeklaration festgelegt werden muss, wie diese Daten im folgenden Programm dargestellt werden. Das Schlüsselwort dafür ist die \mintinline{cobolfree}{PICTURE}- oder kurz \mintinline{cobolfree}{PIC}-Anweisung.\\
+
+
+
+DATA DIVISION \& Variablendeklaration \& NULL REDEFINES(typsicherheit)\\
+
+
+Zum Abschluss dieses Abschnitts sei erwähnt, dass der Speicherplatz von Variablen weder in COBOL noch in Java händisch freigegeben werden. In Java sorgt der \textit{garbage collector} dafür, dass Speicherbereich, der nicht mehr verwendet wird wieder freigegeben wird. In COBOL geschieht dies mit dem Ende eines Programms.\\
