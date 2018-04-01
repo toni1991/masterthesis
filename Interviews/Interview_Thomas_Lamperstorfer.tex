@@ -1,1 +1,51 @@
 \section{Thomas Lamperstorfer}
+
+\thomas{
+    Also was du wissen solltest, bevor du in die COBOL-Welt hinaus gehst ist, wie man ein COBOL-Programm startet. Man hat einen virtuellen Host und dieser kann Jobs aufrufen. Diese Jobs sind quasi die Art wie ein großes COBOL strukturiert wird. Diese Sprache in der das definiert wird nennt sich JCL. Und in JCL gliedert das ganze wiederum in kleineren JCLs. Das heißt man hat da die Möglichkeit sehr strukturiert zu entwickeln. In JCL macht man alles mit Steps. Diese wiederum rufen dann die eigentlichen COBOL-Programme auf. So funktioniert das. Und abhängig von dem was ein Programm zurückgibt wird ein anderes ausgeführt. Es ist typischerweise also nicht einen einzelnen Einstiegspunkt ab dem ein Programm durchläuft sonder eine schrittweise Verarbeitung. Für einen Job hat man also Conditions die entscheiden ob er ausgeführt wird und man hat Dateidefinitionen für Ein- und Ausgabedateien. Das heißt nach einem Step ist der Speicher immer leer. Das ganze nennt sich EVA-Prinzip. Eingabe-Verarbeitung-Ausgabe. So hangelt man sich praktisch durch. Eine Programmausgabe bei uns hat manchmal so 20.000 Zeilen also das wird dann auch lange.
+    \\
+    Im Log sieht man dann die ganzen Ausgaben und sieht die Steps die ausgeführt wurden. Dann hat man noch ein SYSPRINT mit dem man etwas ausgeben kann und ein SYSOUT mit denen im Programm etwas ausgegeben werden kann. DISPLAYs sind nämlich auch die Art wie ein COBOL-Programm gedebuggt wird.
+}
+
+\toni{Du hast gesagt, dass Jobs abhängig der Ausgabe des vorherigen ausgeführt werden. Meinst du dann Dateien die ausgegeben werden oder Rückgabewerte? Wie muss ich mir das vorstellen?}
+
+\thomas{Du kannst in COBOL wie in Java oder C etwas aus der Main-Methode zurückliefern.}
+
+\toni{Könntest du mir erklären wie das funktioniert? Ich habe das bisher in COBOL noch nicht gesehen.}
+
+\thomas{
+Man wird in eine Variable pushen. Welche das ist, ist eine gute Frage. Die können das auf jeden Fall zurückgeben. Lass uns mal nachschauen. Hier steht im pseudo-COBOL ein RETURNING, damit wird das gemacht. 
+}
+
+\toni{Also ihr entwickelt nicht direkt COBOL sondern in einem pseudo-Dialekt?}
+
+\thomas{
+Doch. Das was du hier siehst ist nur ein Wrapper um C\#-Code aufzurufen.
+\\
+ist keine Magie, aber am Anfang geht es wenn man sich hinsetzt und es durchdenkt.
+\\
+ermeldungen in COBOL sind eigentlich nicht vorhanden. Wenn etwas abstürzt dann bekommt man mit Glück noch einen komischen Condition-Code. Wenn etwas crasht muss man sich also an die Stelle rantasten, weil man keinen Stacktrace oder ähnliches hat. 
+\\
+Übersetzen: Was wir gemacht haben ist die Eingabe, die in COBOL typischerweise an Lochkarten orientiert ist. Das heißt man hat 80-Zeichen-Sätze. Ausgaben sind typischerweise Dateien. Es gibt auch dieses CICS-Zeug, damit kenn ich mich aber nicht aus. Man kann mit COBOL auch Masken machen. Wenn du in Möbelhäusern so Schwarze Masken siehst in denen man sich mit Tab durchklickt dann ist das oft COBOL. Ausgaben sind in der Regel Text, da Datenbanken damals nicht existiert haben. 
+\\
+wir hier als erstes Übersetzt haben war der Eingabeteil. Hier war ein Problem die Genauigkeit der Daten. Man hat zum Beispiel oft die explizite Prüfung auf SPACE oder NUMERIC, weil es ab und zu nicht der Fall ist, dass man nicht so genau zwischen SPACE, einer 0 oder einem tatsächlichen Wert unterscheidet. Review-Anmerkungen sind einfach oft: ``Hast du dir überlegt, was passiert wenn dieses Feld wirklich leer ist?'' Also wird es bei leer einfach übersprungen oder nicht und wie geh ich damit um. Also ich kann in COBOL ja ein Datenfeld haben das leer ist, was heißen kann, dass die Daten nicht gekommen sind oder dass das Feld nicht initialisiert wurde. In Java hat man einfach eine Variable die einen Wert hat. Was man hier teilweise hat ist, dass einfach SPACE im Zahlenfeld drinsteht. Was dann irgendwie eine Art null ist. Aber ein ``Es-wurde-berührt-null''. Später wird dann geschaut ``Wenn es berührt wurde aber immer noch leer ist, dann mach etwas anderes.''. Eine Sache bei der man also genau hinschauen muss ist, was sind die genauen Werte. Was langweilig ist, ist der normale Wertebereich der gültigen Werte. Wichtig ist was mit ungültigen Werten passiert oder wenn ein Feld nicht initialisiert wird oder die Verarbeitung beginn, das Feld schon berührt ist, aber immer noch keinen gültigen Zustand hat. Einfach wie bilde ich sowas ab? In COBOL kannst zu grundsätzlich erstmal alles in Felder hineinschreiben. Hier ist eine Beispielvariable. Diese ist als PIC X definiert, also als Character. Als Kommentar steht da, X=Ja Init=SPACE. An einer anderen Stelle wird aber überprüft, ob in der Variable 1 oder 9 steht, was laut Kommentar keine gültigen Werte sind. Das heißt man hat die Variable in einem ungültigen Zustand und muss nun alle Wege durchgehen, um zu sehen ob die Variable in einen gültigen Zustand gebracht wird. Da haben wir auf jeden Fall viele Probleme. 
+\\
+anderes großes Problem ist, dass die Programme sehr groß sind. Dieses hier hat zum Beispiel 16.000 LOC. Überall in diesem Programm werden Indizes verwendet. Um zu wissen was darin steht muss man jedoch den Überblick haben, woher man gerade kommt. Das ist in den meisten Fällen straight-forward. Manchmal ist das jedoch nicht so und dann muss man wirklich genau hinsehen um Fehler zu finden. Allgemein muss man man also einfach mit globalen Variablen in jedem Ausführungsstrang aufpassen, dass Variablen wirklich so gesetzt sind, wie man denk, dass sie es sein sollten. Und alte Systeme haben viele Bugs. Da muss man dann im Kopf alle Ausführungsstränge durchdenken und sich überlegen wo was geschieht. Die Systeme sind einfach 50 Jahre als und wurden ständig gewartet. Selbst wenn es mal gut war, wurde es 47 Jahre gewartet und irgendwelche Sachen commitet, hauptsache es geht. Dazu kommt, dass bestimmt auch mal Leute neu waren oder z.B. Zeitdruck war. Dementsprechend sind die Systeme voller Bugs. 
+\\
+Noch ein Punkt der fies ist: Wenn du auf einem neuen System arbeitest, hast du referenzielle Integrität und Datenbanken. In COBOL hast du meistens Textdateien. Das heißt es gibt keine Checks ob das was referenziert wird tatsächlich da ist. Das kann sich auch in der Zwischenzeit geändert haben. Damit muss man insbesondere in Fehlerfällen klarkommen. Man hat ein Batchsystem, das 100.000 Berechnungen durchführt und darf nicht einfach crashen. Also wie macht man sinnvoll weiter? Da muss man sich dann einfach überlegen. 
+\\
+Alte Systeme haben eine Duplikationsrate von ca. 60\%. Wir haben da schon Tools die Variablennamen austauschen, aber wenn man zwei Programmteile nebeneinander legt sieht man diese permanente Wiederholung. Der Grund dafür ist einfach: Früher konnte man zwar auf den Host zum entwickeln, aber Ausführen und Testen war teuer. Das heißt wenn man wusste, dass Code funktioniert, hat man diesen kopiert und ein bisschen angepasst, sodass man möglichst wenig testen und wenig an den Host musst. Wenn man das verstanden hat weiß man auch wieso so viele Klone drin sind. 
+\\
+Was sehr wichtig ist, einmal alles zu verstehen. Wenn man mit Halbverständnis anfängt Code zu schreiben, dann bekommt man es nicht mehr hin. 
+}
+
+\toni{Wieso nimmt man da jetzt nicht Teile heraus und lagert diese in eigene Unterprogramme aus?}
+
+\thomas{
+    Ein Refactoring ist einfach immer mit Risiko verbunden und man hat in COBOL keine Unit-Tests. Man hat Eingaben und Ausgaben. Das heißt man muss immer das gesamte System testen und ein Testlauf dauert ein paar Minuten. Außerdem gibt es nur einen Host, wenn man glück hat vielleicht zwei. Das heißt man muss auch schauen, dass man die Zeit bekommt irgendwas zu testen. Bei Java schreibt man ein paar Unit-Tests und dann passts schon. In COBOL ist das ganz anders. Das behindert natürlich massiv das Thema Refactoring. Das wird zwar schon immer wieder gemacht, aber das ist dann eigentlich eher ein eigenes Projekt. Es ist nicht so, dass einfach mal schnell Sachen die ähnlich aussehen schnell refactored werden. Einfach weil man keine kleinen Teile absichern kann. Man müsste sich von dem großen Test alles heraussuchen, was die kleinen Teile abdeckt. Das ist anstrengend. Es ist einfach viel viel mehr Aufwand in COBOL etwas zu testen. Deshalb muss man auch sehr viel sauberer arbeiten. Das ist auf jeden Fall ein großer Unterschied. Und wir übersetzen hier 600.000 redundanzfreie LOC. Da sind also alle Klone schon raus. 
+    \\
+    Das Datenmodell in COBOL ist noch erwähnenswert. Es gibt COBOL-Dateien und COPYs. In den COPYs sind sozusagen Datenstrukturen definiert, die man immer wieder einbinden kann. Und man kann in COBOL REDEFINES machen und dabei den Datentyp ändern. Das ist allerdings so ein bisschen wie in JavaScript. Typsicher ist etwas anderes. So sind in COBOL-Daten definiert.
+    \\
+    Was auch noch öfter daneben geht ist sind Zugriffe auf Arrays. Man hat einen Max-Pointer, der dafür sorgt, dass man nicht zu weit schreibt und einen Use-Pointer, der das aktuelle Element angibt. Dabei kann man natürlich jede Menge Fehler machen, wenn der Arrayindex nicht gepflegt wird. Die Idee ist quasi, dass es immer wächst und wieder kleiner wird. Es kann aber auch sein, dass da Löcher drin sind. Bei diesen Tabellen ist also immer die Frage was steht da genau drin. 
+    \\
+    Es gibt tatsächlich sehr wenig Befehle. Was es noch gibt ist das MOVE CORESPONDING. Dadurch das das Datenmodell in COBOL ein Baum ist, lässt sich damit alles kopieren was einen bestimmten Namen hat. Das ist ab und zu sehr praktisch aber natürlich ultimativ hacky, funktioniert auch bei Tabellen nicht und ist sehr fehleranfällig. 
+}
