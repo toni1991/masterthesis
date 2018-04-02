@@ -1,4 +1,4 @@
-\section{Benannte Bedingungen}
+\subsection{Benannte Bedingungen}
 Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weitere Besonderheit in COBOL dar. Mit ihr ist es möglich einer Variable einen Wahrheitswert zuzuweisen, der von einem anderen Variablenwert abhängt. Es entsteht eine sogenannte benannte Bedingung.\\
 
 \autoref{88_cobol_listing} zeigt die Verwendung der Stufennummer 88. Die Variable \mintinline{text}{AGE} kann dabei zweistellige numerische Werte enthalten die einem beispielhaften Alter entsprechen, welches zu Beginn mit 13 vorbelegt wird. Liegt der Wert zwischen 0 und 17 (\mintinline{cobolfree}{VALUE 0 THRU 17}) so weisen die Variablen \mintinline{text}{ISUNDERAGE} den Wahrheitswert \mintinline{cobolfree}{TRUE} und \mintinline{text}{ISADULT} den Wahrheitswert \mintinline{cobolfree}{FALSE} auf.\\
@@ -20,7 +20,7 @@ Dieses Verhalten wird oftmals ausgenutzt um Variablen mit bestimmten Werten zu b
 
 \mintedCobol{88_section_value_set.cbl}{Setzen von Werten mithilfe benannter Bedingungen}{88_cobol_value_set_listing}
 
-\subsection*{Abbildung in Java}
+\subsubsection*{Abbildung in Java}
 Java besitzt kein Sprachkonstrukt, um die Funktionalität der Stufennummer 88 direkt nachzubilden. Eine Möglichkeit gleiches Verhalten darzustellen bietet allerdings die Implementierung spezieller Methoden. Dies soll \autoref{88_java_listing} veranschaulichen.\\
 
 \mintedJava{88_section.java}{Bedingte Werte in Java}{88_java_listing}
