@@ -18,7 +18,7 @@ Dabei werden in \autoref{variablesJava} einige Konzepte deutlich gemacht:\\
 Die Deklarierung einer Variable eines bestimmten Datentyps sorgt dafür, dass ausreichend Speicherplatz für diese reserviert wird. Die Stelle der Deklaration im Code ist dabei frei wählbar und muss lediglich vor der ersten Verwendung stehen.\\
 
 \subsection*{Variablen in COBOL}
-Die Deklaration von Variablen unterscheidet sich in COBOL stark von der in Java. Neben der Eigenschaft, dass Variablen nur innerhalb der \mintinline{cobolfree}{DATA DIVISION} deklariert werden können, ist in COBOL nicht die Definition eines Datentyps möglich sondern die Festlegung einer Repräsentation. \\
+Die Deklaration von Variablen unterscheidet sich in COBOL stark von der in Java. Neben der Eigenschaft, dass Variablen nur innerhalb der \mintinline{cobolfree}{DATA DIVISION} deklariert werden können, ist in COBOL die Definition eines Datentyps gleichzeitig auch die Festlegung der Ausgabe-Repräsentation dieser Variable. \\
 
 Dies sorgt dafür, dass bereits an der Stelle der Variablendeklaration festgelegt werden muss, wie diese Daten im folgenden Programm dargestellt werden. Das Schlüsselwort dafür ist die \mintinline{cobolfree}{PICTURE}- oder kurz \mintinline{cobolfree}{PIC}-Anweisung.\\
 
@@ -45,7 +45,7 @@ Die Initialisierung einer Variable erfolgt durch die \mintinline{cobolfree}{VALU
 
 Durch die Definition der Repräsentation findet man in der Praxis oft Variablen, die auf den selben Speicherbereich wie eine andere Verweisen, jedoch die dort enthaltenen Daten anders darstellen bzw. interpretieren. Dies geschieht wie im Beispiel gezeigt mithilfe des Schlüsselworts \mintinline{cobolfree}{REDEFINES}.\\
 
-Typsicherheit ist in COBOL nicht ausreichend gewährleistet. So kann eine Variable mit \mintinline{cobolfree}{REDEFINES} oder eine Variable, welche die eigentliche gruppiert, den Speicherbereich einer anderen mit, unter Umständen völlig \quotes{falschen}, Werten befüllen. Auch sind uninitialisierte Variablen teilweise mit falschen Datentypen vorbelegt. So kann z.B. eine numerische Variable anfangs voll mit Leerzeichen sein.\\
+Typsicherheit ist in COBOL nicht ausreichend gewährleistet. So kann eine Variable mit \mintinline{cobolfree}{REDEFINES} oder eine Variable, welche die eigentliche gruppiert, den Speicherbereich einer anderen mit, unter Umständen ungültigen, Werten befüllen. Auch sind uninitialisierte Variablen teilweise mit falschen Datentypen vorbelegt. \\
 
 Weitere mögliche Bestandteile dieser Deklaration werden an den entsprechenden Stellen dieser Arbeit erläutert.\\
 
