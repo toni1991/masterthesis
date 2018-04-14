@@ -1,30 +1,24 @@
 \section{Externe Deklaration von Daten} 
 \index{COPY} \index{import} \index{COBOL Copybook}
+Sowohl zur Wiederverwendbarkeit, als auch zur Erreichung einer gewissen Typsicherheit ist es in vielen Programmiersprachen möglich Datenstrukturen extern in einer eigenen Datei zu deklarieren und an verschiedenen Stellen wieder zu verwenden. Dies ist auch in COBOL und Java möglich, wenngleich sich die Ansätze stark unterscheiden. In Java ist diese Deklaration ein entscheidendes Konzept und so muss jede Klasse in einer eigenen Datei angelegt werden. In COBOL bietet dieses Konzept lediglich einen gewissen komfortableren Umgang mit Datendeklarationen, ist jedoch nicht zwingend notwendig.
 
-Sowohl zur Wiederverwendbarkeit, als auch zur Erreichung einer gewissen Typsicherheit ist es in vielen Programmiersprachen möglich Datenstrukturen extern in einer eigenen Datei zu deklarieren und an verschiedenen Stellen wieder zu verwenden. Dies ist auch in COBOL und Java möglich, wenngleich sich die Ansätze stark unterscheiden. In Java ist diese Deklaration ein entscheidendes Konzept und so muss jede Klasse in einer eigenen Datei angelegt werden. In COBOL bietet dieses Konzept lediglich einen gewissen komfortableren Umgang mit Datendeklarationen, ist jedoch nicht zwingend notwendig.\\
-
-In Java werden Klassen in sogenannten Packages organisiert. Um auf Klassen aus einem anderen Package zuzugreifen, ist ein Importieren der betreffenden Klasse notwendig. Dies geschieht wie in \autoref{importJava} mihilfe des \mintinline{java}{import}-Statements.\\
+In Java werden Klassen in sogenannten Packages organisiert. Um auf Klassen aus einem anderen Package zuzugreifen, ist ein Importieren der betreffenden Klasse notwendig. Dies geschieht wie in \autoref{importJava} mihilfe des \mintinline{java}{import}-Statements.
 
 \mintedJava{Import.java}{Import in Java}{importJava}
+Das Interface \mintinline{text}{MySystem} nutzt dabei die Klasse \mintinline{text}{MySystemPart} aus dem Package \mintinline{text}{com.secondpackage}. Bei der Verwendung einer Klasse aus dem selben Package ist kein zusätzliches \mintinline{java}{import}-Statement notwendig. Das Importieren geschieht dabei implizit über das Setzen des Packagenamens wie in Zeile 1 gezeigt.
 
-Das Interface \mintinline{text}{MySystem} nutzt dabei die Klasse \mintinline{text}{MySystemPart} aus dem Package \mintinline{text}{com.secondpackage}. Bei der Verwendung einer Klasse aus dem selben Package ist kein zusätzliches \mintinline{java}{import}-Statement notwendig. Das Importieren geschieht dabei implizit über das Setzen des Packagenamens wie in Zeile 1 gezeigt.\\
-
-COBOL bietet zur externen Deklaration von Daten das \mintinline{cobol}{COPY}-Schlüsselwort. Hiermit wird der Inhalt einer anderen Datei, eines sogennanten \textit{COBOL-Copybook}, durch den Compiler an die Stelle des \mintinline{cobol}{COPY} kopiert. Das Verhalten ist also stark mit der Präprozessoranweisung \mintinline{c}{#include} in den Programmiersprachen C und C++ zu vergleichen.\\
+COBOL bietet zur externen Deklaration von Daten das \mintinline{cobol}{COPY}-Schlüsselwort. Hiermit wird der Inhalt einer anderen Datei, eines sogennanten \textit{COBOL-Copybook}, durch den Compiler an die Stelle des \mintinline{cobol}{COPY} kopiert. Das Verhalten ist also stark mit der Präprozessoranweisung \mintinline{c}{#include} in den Programmiersprachen C und C++ zu vergleichen.
 
 \mintedCobol{COPYBOOK.cpy}{COBOL-Copybook Datei (COPYBOOK.cpy)}{copyFileCobol}
-
 \mintedCobol{copy.cbl}{Nutzung eines COBOL-Copybook}{copyCobol}
+\autoref{copyFileCobol} zeigt den Inhalt des Copybooks. Hier werden die Datenstrukturen definiert, die fortan an anderer Stelle genutzt werden sollen. In \autoref{copyCobol} Zeile 6 wird das COBOL-Copybook in die \mintinline{cobolfree}{WORKING-STORAGE SECTION} kopiert, sodass die deklarierten Daten fortan im Programm genutzt werden können.
 
-\autoref{copyFileCobol} zeigt den Inhalt des Copybooks. Hier werden die Datenstrukturen definiert, die fortan an anderer Stelle genutzt werden sollen. In \autoref{copyCobol} Zeile 6 wird das COBOL-Copybook in die \mintinline{cobolfree}{WORKING-STORAGE SECTION} kopiert, sodass die deklarierten Daten fortan im Programm genutzt werden können.\\
+In diesem speziellen Fall wird zusätzlich Gebrauch der Schlüsselwörter \mintinline{cobolfree}{REPLACING} und \mintinline{cobolfree}{BY} gemacht. Dieses kann dazu verwendet werden, um Variablennamen oder Strings im dem Copybook auszutauschen.
 
-In diesem speziellen Fall wird zusätzlich Gebrauch der Schlüsselwörter \mintinline{cobolfree}{REPLACING} und \mintinline{cobolfree}{BY} gemacht. Dieses kann dazu verwendet werden, um Variablennamen oder Strings im dem Copybook auszutauschen.\\
+Am Rande sei hier auch die Nutzung eines \mintinline{cobolfree}{FILLER}\index{FILLER} erwähnt. Hierbei handelt es sich um eine Variable, die nicht direkt verwendet werden kann, da sie keinen Namen hat. Wie im Beispiel sind FILLER oftmals Teile von größeren Strukturen.
 
-Am Rande sei hier auch die Nutzung eines \mintinline{cobolfree}{FILLER}\index{FILLER} erwähnt. Hierbei handelt es sich um eine Variable, die nicht direkt verwendet werden kann, da sie keinen Namen hat. Wie im Beispiel sind FILLER oftmals Teile von größeren Strukturen.\\
-
-Das Einbinden eines Copybooks ist jedoch auch innerhalb der \mintinline{cobolfree}{PROCEDURE DIVISION} möglich wie \autoref{copyInCode} und \autoref{copyFileInCode} darstellt.\\
+Das Einbinden eines Copybooks ist jedoch auch innerhalb der \mintinline{cobolfree}{PROCEDURE DIVISION} möglich wie \autoref{copyInCode} und \autoref{copyFileInCode} darstellt.
 
 \mintedCobol{COPYBOOK-EVALUATE.cpy}{COBOL-Copybook Datei (COPYBOOK-EVALUATE.cpy)}{copyFileInCode}
-
 \mintedCobol{copyEvaluate.cbl}{Nutzung von COPYBOOK-EVALUATE.cpy}{copyInCode}
-
-Somit wird es möglich Code der wiederverwendet werden soll auszulagern und an verschiedenen Stellen zu nutzen.\\
+Somit wird es möglich Code der wiederverwendet werden soll auszulagern und an verschiedenen Stellen zu nutzen.

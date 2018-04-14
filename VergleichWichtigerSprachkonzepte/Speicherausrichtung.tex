@@ -1,11 +1,8 @@
 \subsection{Speicherausrichtung}
 Dieser Abschnitt soll einen kurzen Abriss über die COBOL Stufennummer \textit{77} geben. Mit der Stufennummer 77 deklarierte Daten haben folgende beiden Eigenschaften:
-
 \begin{itemize}
     \item Die Variable kann nicht weiter untergruppiert werden.
     \item Die Variable wird an festen Grenzen des Speichers ausgerichtet.
 \end{itemize}
-
 Während die erste erwähnte Eigenschaft wenig Bewandnis in der Praxis hat, war es früher nötig Variablen für bestimmte Instruktionen an festen Speichergrenzen auszurichten. Üblicherweise mussten die Adressen dieser Grenzen je nach Compiler ganzzahlig durch 4 bzw. 8 teilbar sein. Dieses Verhalten ist heutzutage jedoch nicht mehr nötig. Dies und die Tatsache, dass durch dieses forcierte Speicherausrichtung Speicherbereiche zwischen Daten mit Stufennummer 77 ungenutz, aber jedoch reserviert bleiben, führen dazu, dass diese Stufennummer nicht mehr genutzt werden sollte.
-
 In Java gibt es kein vergleichbares Konzept, da die Speicherbelegung gänzlich abstrahiert ist und dem Entwickler nicht ermöglicht wird direkten Einfluss darauf zu nehmen.

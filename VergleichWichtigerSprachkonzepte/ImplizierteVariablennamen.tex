@@ -1,6 +1,5 @@
 \subsection{Implizierte Variablennamen}
-
-Dieser Abschnitt behandelt einen Fehler, der typischerweise zu Beginn in der Softwareentwicklung beobachtet werden kann. \autoref{ifVariableErrorJava} zeigt wie Anfänger häufig versuchen logische Ausdrücke zu konstruieren. Dies entspricht dem intuitiven Gedanken \quotes{Wenn Variable X größer 0 und kleiner 5 ist, dann \dots} oder der mathematischen Definition \quotes{$0 < X < 5$}.\\
+Dieser Abschnitt behandelt einen Fehler, der typischerweise zu Beginn in der Softwareentwicklung beobachtet werden kann. \autoref{ifVariableErrorJava} zeigt wie Anfänger häufig versuchen logische Ausdrücke zu konstruieren. Dies entspricht dem intuitiven Gedanken \quotes{Wenn Variable X größer 0 und kleiner 5 ist, dann \dots} oder der mathematischen Definition \quotes{$0 < X < 5$}.
 
 \java{IfVariableError.java}
 \sepCodeAndOutputCheck
@@ -18,8 +17,7 @@ IfVariableError.java:8: error: illegal start of type
 3 errors
 \end{shellwindow}
 \mintedCaption{Keine implizierten Variablennamen in logischen Ausdrücken in Java}{ifVariableErrorJava}
-
-Versucht man \autoref{ifVariableErrorJava} zu kompilieren treten einige Fehler auf. In Java können nur vollständige Logische Ausdrücke mit logischen Operatoren verknüpft werden. Zum anderen kann innerhalb eines logischen Ausdrucks lediglich maximal einmal ein Vergleichsoperator verwendet werden. \\
+Versucht man \autoref{ifVariableErrorJava} zu kompilieren treten einige Fehler auf. In Java können nur vollständige Logische Ausdrücke mit logischen Operatoren verknüpft werden. Zum anderen kann innerhalb eines logischen Ausdrucks lediglich maximal einmal ein Vergleichsoperator verwendet werden. 
 
 \java{IfVariableNoError.java}
 \sepCodeAndOutputCheck
@@ -29,13 +27,10 @@ $ java IfVariableNoError
 We get here everytime!
 \end{shellwindow}
 \mintedCaption{Verwendung von Variablennamen in logischen Ausdrücken in Java}{ifVariableNoErrorJava}
-
-\autoref{ifVariableNoErrorJava} demonstriert eine funktionsfähige Implementierung des vorhergehenden Beispiels. Dieser Code kann fehlerfrei kompiliert und ausgeführt werden wie die Ausgabe zeigt.\\
+\autoref{ifVariableNoErrorJava} demonstriert eine funktionsfähige Implementierung des vorhergehenden Beispiels. Dieser Code kann fehlerfrei kompiliert und ausgeführt werden wie die Ausgabe zeigt.
 
 \subsubsection*{Implizierte Variablennamen in COBOL}
-
-In COBOL hingegen ist das Schreiben von logischen Ausdrücken mit implizierten Variablennamen möglich.\\
+In COBOL hingegen ist das Schreiben von logischen Ausdrücken mit implizierten Variablennamen möglich.
 
 \mintedCobol{implicit_variable_names.cbl}{Implizierte Variablennamen in COBOL}{implicitNamesCobol}
-
 \autoref{implicitNamesCobol} stellt in Zeile 11 die Verwendung von implizierten Variablennamen in COBOL dar, die im Gegensatz zu Java möglich ist.

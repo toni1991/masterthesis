@@ -1,37 +1,9 @@
-% arara: pdflatex: { shell: on }
-% arara: biber
-% arara: pdflatex: { shell: on }
-% arara: makeindex
-% arara: pdflatex: { shell: on }
-% arara: makeindex
-% arara: pdflatex: { shell: on }
-%% arara: biber
-%% arara: pdflatex: { shell: on }
-%% arara: pdflatex: { shell: on }
-%% arara: clean: { files: [ Masterarbeit_Grieco_1408410.aux, Masterarbeit_Grieco_1408410.bbl, Masterarbeit_Grieco_1408410.bcf, Masterarbeit_Grieco_1408410.cod, Masterarbeit_Grieco_1408410.blg, Masterarbeit_Grieco_1408410.lof, Masterarbeit_Grieco_1408410.lot, Masterarbeit_Grieco_1408410.out, Masterarbeit_Grieco_1408410.toc, Masterarbeit_Grieco_1408410.log, Masterarbeit_Grieco_1408410.lol, Masterarbeit_Grieco_1408410.run.xml, Masterarbeit_Grieco_1408410.listing] } 
-
-% ------------------------------------------------------------------------------
-% Formatvorlage f?r Masterarbeiten an der Ohm-Hochschule N?rnberg
-% ------------------------------------------------------------------------------
-%   erstellt von Stefan Macke, 24.04.2009
-%   http://blog.stefan-macke.de
-% Dokumentenkopf ---------------------------------------------------------------
-%   Diese Vorlage basiert auf "scrreprt" aus dem koma-script.
-% ------------------------------------------------------------------------------
-
 \input{Praeambel/Praeambel}
-
-% Das eigentliche Dokument -----------------------------------------------------
-%   Der eigentliche Inhalt des Dokuments beginnt hier. Die einzelnen Seiten
-%   und Kapitel werden in eigene Dateien ausgelagert und hier nur inkludiert.
-% ------------------------------------------------------------------------------
-
 \begin{document}
 	
 	% Deckblatt ---------------------------------
 	\maketitle
 	% \includepdf[pages=-]{Sonstiges/Deckblatt.pdf}
-
 	% Seitennummerierung: R?mische Ziffern; Zur?cksetzen auf 1
 	\pagenumbering{Roman}
 	\setcounter{page}{1}
@@ -67,7 +39,7 @@
 			\input{KonzeptuelleHerausforderungen/KonzeptuelleHerausforderungen}
 		% Vergleich wichtiger Sprachkonzepte -------------------------------
 			\input{VergleichWichtigerSprachkonzepte/VergleichWichtigerSprachkonzepte}
-		% COBOL-Pattern in Java -------------------------------
+		% Typische Pattern -------------------------------
 			\input{TypischePattern/TypischePattern}
 		% Schluss -------------------------------
 			\input{Fazit/Fazit}
@@ -76,7 +48,6 @@
 	\pagebreak
 	\pagenumbering{Roman}
 	\setcounter{page}{\value{RomanSiteCounter}}
-
 	% Literatur ---------------------------------
 	\nocite{*}
 	\ohead{\textit{Literaturverzeichnis}}
@@ -91,7 +62,6 @@
 	\ohead{\textit{Anhang}}
 	\appendix
 	\input{Interviews/Interviews}
-
 	\input{Sonstiges/Zeitplan}
 	
 \end{document}
