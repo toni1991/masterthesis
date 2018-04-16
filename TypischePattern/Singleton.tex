@@ -1,1 +1,18 @@
 \section{Singleton}
+\quotes{Alles ist ein Objekt.}\footnote{http://www.fb10.uni-bremen.de/homepages/hackmack/clst/pdf/klassen.pdf} Diese Aussage findet sich in unzähliger Hochschullektüre und Fachbüchern. Genauer wäre -- mit Blick auf statische Elemente -- zwar die Aussage, dass alles Teil einer Klasse sei, jedoch ist für die Idee dahinter beides richtig. Gemeint ist damit, dass es keine Funktionalität oder Eigenschaft gibt, die nicht Teil einer Klasse bzw. eines Objektes ist.
+
+Manchmal jedoch wird eine Klasse zwar durch ein Objekt repräsentiert -- ist also nicht statisch -- allerdings existiert nur genau eine Instanz dieses Objekts. Im realen Leben könnte man z.B. den Papst als genau einmalig vorkommende Instanz ansehen. Diese spezielle Person gibt es stets nur einmal und so muss bei der Modellierung beachtet werden, dass es zu jedem Zeitpunkt nur eine Instanz der Klasse gibt.
+
+\mintedJava{Pope.java}{Singleton in Java}{popeJava}
+
+\autoref{popeJava} modelliert das Beispiel des Papstes in Java. Um die angesprochenen Eigenschaften einer Sigleton-Klasse zu realisieren werden verschiedene Mechanismen verwendet. Zum einen enthält die Klasse einen privaten Konstruktor um eine Instanziierung mittels \mintinline{java}{new}-Operators zu verhindern bzw. nur innerhalb der eigenen Klasse zuzulassen. Außerdem speichert und liefert die Klasse mit der statischen \mintinline{java}{getInstance()}-Methode die aktuell gültige Instanz und legt ggf. eine neue an. Die \mintinline{java}{die()}-Funktion wurde beispielhaft für das Ableben eines Papstes implementiert, sodass in der \mintinline{java}{getInstance()}-Methode fortan eine neue Instanz erzeugt würde.
+
+In der Praxis stellen zum Beispiel eine Datenbank-, Konfigurations- oder Hardwareschnittstellen oftmals ein Singleton-Objekt dar. Im Gegensatz zu statischen Klassen und Funktionen bieten Singletons einige Vorteile:
+
+\begin{itemize}
+    \item Eine Singleton-Klasse kann Interfaces implementieren und von anderen Klassen erben.
+    \item Singleton-Klassen können instanziiert werden, sobald sie gebraucht werden. Statische Klassen werden beim Starten des Programms initialisiert.
+    \item Klassen können von Sigleton-Klassen erben und erhalten damit die Member-Variablen und -Funktionen.
+\end{itemize}
+
+Allerdings gibt es auch Anwendungsfälle, in denen eine Klasse mit statischen Variablen und Funktionen genutzt werden sollte. Als Faustregel dafür gilt zum einen, dass die Klasse keinen Zustand repräsentiert und zum anderen lediglich eine Sammlung von Variablen und Funktionen gleicher Domäne -- z.B. mathematische Operationen -- bereitstellt.

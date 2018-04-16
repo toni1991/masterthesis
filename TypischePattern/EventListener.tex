@@ -1,1 +1,32 @@
-\section{Observer \& EventListener}
+\section{Callback-Muster}
+In der Programmierung ist es häufig nötig, dass bestimmte Ereignisse andere Aktionen auslösen. Dies ist insbesondere in Programmen sinnvoll, die parallele Verabreitungsschritte beinhalten. Um auf diese Ereignisse zu reagieren gibt es im Allgemeinen zwei Möglichkeiten: 
+
+\begin{itemize}
+    \item \textbf{(Busy-)Polling}\\
+    Unter Polling versteht man das zyklische Abfragen eines Wertes oder eines Zustandes, durch einen Teil, der von diesem Wert abhängt.
+    \item \textbf{Callbacks}\\
+    Callbacks sind Funktionen, die in einer bestimmten Art und Weise anderen Programmabschnitten zur Verfügung gestellt werden und bei Bedarf aufgerufen werden können, um z.B. über Zustandsänderungen zu benachrichtigen.
+\end{itemize}
+
+Im Gegensatz zum Polling, bei dem permanent Rechenzeit dafür aufgewendet werden muss aktiv eine Zustandsänderung zu überwachen, wird in der Praxis häufig das Entwurfsmuster der Callbacks verwendet. Damit wird erreicht, dass ein Teilprogramm nicht wie beschrieben aktiv Änderungen beobachten muss, sondern sich von einem anderen Programmabschnitt über Zustände benachrichten lassen kann. 
+
+Obwohl das klassische Callback-Muster aufgrund von fehlenden funktionalen Elementen in Java nicht direkt implementierbar ist, finden sich oft sehr ähnliche Abbildungen davon. Die standardisierten Schnittstellen  \mintinline{java}{Observer} und \mintinline{java}{Observable} bieten dabei eine generische Möglichkeit zur Änderungsbenachrichtigung. Häufiger lassen sich jedoch sogenannte \mintinline{java}{Listener} beobachten, welche das Callback-Muster abbilden sollen. Hierbei werden eigene Interfaces definiert, was zwar die Generizität verringert, jedoch zu breiterem Funktionsumfang und leichter verständlichem Code führt.
+
+Das \autoref{observerJava} zeigt die Handhabung des \mintinline{java}{Observer}-Pattern \cite{gamma_design_1995} in Java mithilfe der \mintinline{java}{Observer} und \mintinline{java}{Observable}-Interfaces. Wie gezeigt, kann die Implentierung des \mintinline{java}{Observer}-Interfaces auch in einer anonymen Klasse geschehen. Diese sprachlichen Konstrukte wurden bereits in \autoref{javaStructureSubsubsection} beschrieben. 
+
+\mintedJava{ObserverPattern.java}{Observer und Observable in Java}{observerJava}
+
+Die sehr viel gebräuchlichere Variante ist es jedoch \mintinline{java}{Listener} zu verwenden. Dabei handelt es sich streng genommen um nichts anderes, als eine eigene Definition des \mintinline{java}{Observer}-Interfaces. Jedoch wird durch die klare Definition der Funktionalität deutlich spezifischerer Code geschrieben, der vor allem in puncto Typsicherheit und Lesbarkeit einige Vorteile gegenüber des Java-eigenen Interfaces bietet.
+
+\mintedJava{ListenerPattern.java}{Listener in Java}{listenerJava}
+
+Die Aufgabe beider Beispiele ist die gleiche. Jedoch verdeutlicht \autoref{listenerJava} die Typsicherheit eigener Interfaces und kennzeichnet wie diese erreicht wird. Folgendes wäre eine beispielhafte Ausgabe beider Programme:
+
+\begin{shellwindow}
+FormattedTime: 2018-04-16T12:32:44.482Z
+PlainTime: 1523881964482
+FormattedTime: 2018-04-16T12:32:46.481Z
+PlainTime: 1523881966481
+FormattedTime: 2018-04-16T12:32:48.481Z
+PlainTime: 1523881968481
+\end{shellwindow}

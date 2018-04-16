@@ -15,24 +15,13 @@ Die Gruppierung von Daten erfolgt in Java in eigenen Klassen, aus denen sich wie
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
-        \umlclass[y=0, x=0]{Person}{
-          name : Name 
- address : Address
-        }{}
-        \umlclass[y=0, x=-5]{Name}{
-          firstName : String 
- surname : String
-        }{}
-        \umlclass[y=0,x=5]{Address}{
-            street : String 
- houseNumber : String 
- zipCode : String 
- city : String
-        }{}
+        \umlclass[y=0, x=0]{Person}{name : Name\\address : Address}{}
+        \umlclass[y=0, x=-5]{Name}{firstName : String\\surname : String \\}{}
+        \umlclass[y=0,x=5]{Address}{street : String\\houseNumber : String\\zipCode : String\\city : String}{}
         \umlaggreg{Person}{Name}
         \umlaggreg{Person}{Address}
     \end{tikzpicture}
     \caption{UML-Diagramm einer Aggregation}
     \label{javaAggregationClasses}
 \end{figure}
-Die Verwendung der Stufennummer 66 als reines Umbenennen eines Datums entfällt in Java, da in diesem Fall neue Variablen mit anderen Namen deklariert werden können welchen der Wert der anderen Variable zugewiesen wird.
+Die Verwendung der Stufennummer 66 als reines Umbenennen eines Datums entfällt in Java, da in diesem Fall neue Variablen mit anderen Namen deklariert werden können, welchen der unsprüngliche Wert der zugewiesen wird.
