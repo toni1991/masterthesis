@@ -24,7 +24,7 @@
 	\onehalfspacing
 	
 	% Seitennummerierung: Speichern der Seitennumber in RomanSiteCounter; Arabische Ziffern; Zur?cksetzen auf 1
-	\pagebreak
+	\clearpage
 	\newcounter{RomanSiteCounter}
 	\setcounter{RomanSiteCounter}{\value{page}}
 	\pagenumbering{arabic}
@@ -45,7 +45,7 @@
 			\input{Fazit/Fazit}
 	
 	% Seitennummerierung: R?mische Ziffern; Zur?cksetzen auf in RomanSiteCounter gespeicherten Wert.
-	\pagebreak
+	\clearpage
 	\pagenumbering{Roman}
 	\setcounter{page}{\value{RomanSiteCounter}}
 	% Literatur ---------------------------------
@@ -53,15 +53,15 @@
 	\ohead{\textit{Literaturverzeichnis}}
 	\singlespacing
 	\printbibliography
-	\pagebreak
+	\clearpage
 	\input{Sonstiges/Todo}
 	\listoftodos
-	\pagebreak
+	\clearpage
 	
 	% Anhänge -----------------------------------
 	\ohead{\textit{Anhang}}
 	\appendix
-	%\input{Interviews/Interviews}
+	\input{Interviews/Interviews}
 	\input{Sonstiges/Zeitplan}
 	
 \end{document}

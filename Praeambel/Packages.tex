@@ -1,3 +1,5 @@
+\usepackage{morewrites}
+
 % Anpassung des Seitenlayouts --------------------------------------------------
 %   siehe Seitenstil.tex
 % ------------------------------------------------------------------------------
@@ -154,6 +156,11 @@
 
 % definiert u.a. die Befehle \todo und \listoftodos
 \usepackage{todonotes}
+% Warning on todo
+\usepackage{etoolbox}
+\makeatletter
+\pretocmd{\@todo}{\GenericWarning{}{There is still a todo here}}{}{}
+\makeatother
 
 % sorgt dafür, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
 \usepackage{xspace}
