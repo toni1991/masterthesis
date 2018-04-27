@@ -1,19 +1,36 @@
 \section{Problemstellung}\label{problemstellung}
 Der folgende Abschnitt soll die Problemstellung verdeutlichen, welche der Arbeit zu Grunde liegt. 
 Dazu wird erläutert, welche Wichtigkeit COBOL genießt und anschließend mit der Bedeutung, die der Sprache in der Lehre tatsächlich beigemessen wird und den Folgen davon für den Arbeitsmarkt, gegenübergestellt.
-\subsection{Wichtigkeit von COBOL}
-``Viele Millionen Cobol-Programme existieren weltweit und müssen laufend gepflegt werden.
-Es ist bei dieser Situation undenkbar und unter wirtschaftlichen Gesichtspunkten unvertretbar in den nächsten Jahren eine Umstellung dieser Programme auf eine andere Sprache durchzuführen.'' \footnote{Dr. Horst Strunz, Fachbereichsleiter Standard-Systeme und Training des mbp, Mathematischer Beratungs- und Programmierungsdienst GmbH, Dortmund in \textit{Ist Cobol die Programmiersprache der Zukunft?}. 
- https://www.computerwoche.de/a/ist-cobol-die-programmiersprache-der-zukunft,1191656}
+
+\subsection*{Wichtigkeit von COBOL}\label{wichtigkeit}
+\quotes{Viele Millionen Cobol-Programme existieren weltweit und müssen laufend gepflegt werden.
+Es ist bei dieser Situation undenkbar und unter wirtschaftlichen Gesichtspunkten unvertretbar in den nächsten Jahren eine Umstellung dieser Programme auf eine andere Sprache durchzuführen.} \cite{_ist_1979}
+
 Was Herr Dr. Strunz neben vielen anderen Experten bereits 1979 prophezeite hat auch heute noch Gültigkeit. Obwohl COBOL zum Ende der 50er Jahre entstand, 1959 veröffentlicht wurde und damit fast 60 Jahre alt ist, trifft man es auch heute noch häufig an. In der britischen Tageszeitung The Guardian, zitiert der Autor Scott Colvey in seinem Artikel %``\citefield{colvey_cobol_2009}{title}'' 
-\cite{colvey_cobol_2009} anlässlich des 50. Geburtstages von COBOL den Micro Focus Manager David Stephenson: `` `some 70\% to 80\% of UK plc business transactions are still based on Cobol' ''. 
-Weiter führt er darin Aussagen von IBM Software-Leiters Charles Chu an, welcher die Aussagen von Stephenson bestätigt: ``$[\ldots]$ there are 250bn lines of Cobol code working well worldwide. Why would companies replace systems that are working well?' ''. 
-Stephen Kelly, Geschäftsführer von Micro Focus, betont zudem, dass sich Stand 2009 über 220 Milliarden COBOL-Codezeilen im produktiven Einsatz befanden, welche vermutlich 80\% der insgesamt weltweit aktiven Codezeilen ausmachten. Außerdem wurden damaligen Zeitpunkt wurden geschätzt 200-mal mehr COBOL-Transaktionen ausgeführt als Google Suchanfragen verzeichnen konnte. \cite{kelly_cobol_2009}
-Nicht nur, dass COBOL im Jahr 2009 also einen enormen Marktanteil ausmachte wird also deutlich, sondern auch die Bedeutung für die Zukunft: Wieso sollte funktionierender Code mit Hilfe von teuren und riskanten Prozessen ersetzt werden?
+\cite{colvey_cobol_2009} anlässlich des 50. Geburtstages von COBOL den Micro Focus Manager David Stephenson: \quotes{`some 70\% to 80\% of UK plc business transactions are still based on Cobol'}. 
+Weiter führt er darin Aussagen von IBM Software-Leiters Charles Chu an, welcher die Aussagen von Stephenson bestätigt: \quotes{$[\ldots]$ there are 250bn lines of Cobol code working well worldwide. Why would companies replace systems that are working well?'}. 
+Stephen Kelly, Geschäftsführer von Micro Focus, betont zudem, dass sich Stand 2009 über 220 Milliarden COBOL-Codezeilen im produktiven Einsatz befanden, welche vermutlich 80\% der insgesamt weltweit aktiven Codezeilen ausmachten. Außerdem wurden damaligen Zeitpunkt wurden geschätzt 200-mal mehr COBOL-Transaktionen ausgeführt als Google Suchanfragen verzeichnen konnte. \cite{kelly_cobol_2009} Diese Aussagen decken sich mit den Angaben in \citeWithTitle{doke_cobol_2005}. Auch darin heißt es, dass mit 225 Milliarden Codezeilen, etwa 70\% des weltweiten Codes in COBOL geschrieben sind.
+
+Nicht nur, dass COBOL in den vergangenen Jahren also einen enormen Marktanteil ausmachte wird also deutlich, sondern auch die Bedeutung für die Zukunft: Wieso sollte funktionierender Code mit Hilfe von teuren und riskanten Prozessen ersetzt werden?
+
 Da sich viele Unternehmen der Frage eines Umstiegs von COBOL auf eine modernere Lösung ausgesetzt sehen, auf die sich nur schwer eine Antwort finden lässt, welche die Risiken und Kosten aufwiegt, stieg die Anzahl \todo[inline]{Beleg} des sich weltweit in Produktion befindlichen COBOL-Codes über die vergangen Jahre sogar noch weiter an.
-\subsection{Bedeutung in der Lehre}
-\todo[inline]{Wie viele Unis bieten COBOL an?}
-\todo[inline]{Rente von COBOL-Entwicklern}
-Im TIOBE-Index\footnote{\url{https://www.tiobe.com/tiobe-index}} für Dezember 2017 rangiert COBOL auf Platz 29 mit einem Rating von 0.961\%. Dieser Index wird auf Basis von Suchanfragen nach den entsprechenden Programmiersprachen, auf den meist frequentiertesten Internetseiten, erstellt. COBOL ist somit Teil von weniger als 1\% der Suchanfragen. Allerdings gilt es hier zu beachten, dass COBOL zu einer Zeit entstand, in der das Internet noch lange nicht existierte und Informationen darüber mittels Büchern verbreitet und vermittelt wurde. Daher ist auch heute noch das Internet nicht die bevorzugenswerteste Quelle, um Wissen über COBOL zu akquirieren. Unter diesen Gesichtspunkten ist das TIOBE-Rating von COBOL als relativ hoch einzuschätzen.
-\todo[inline]{Zusammenfassung}
-\subsection{Kontroverse Beurteilungen von COBOL}
+Dieses Risiko ergibt sich vorrangig durch die Trasnaktion immenser Geldsummen, die mit COBOL-Systemen durchgeführt werden: \quotes{Täglich werden Transaktionen mit einem Volumen von schätzungsweise drei Billionen Dollar über Cobol-Systeme abgewickelt. Dabei geht es um Girokonten, Kartennetze, Geldautomaten und die Abwicklung von Immobilienkrediten. Weil die Banken aggressiv auf eine Digitalisierung ihres Geschäftes setzen, wird Cobol sogar noch wichtiger. Denn Apps für Smartphones etwa sind in modernen Sprachen geschrieben, müssen aber mit den alten Systemen harmonieren.} \cite{beat_balzli_cobol-programmierer_2017}
+
+Im TIOBE-Index\cite{_tiobe_} für April 2018 rangiert COBOL auf Platz 25 mit einem Rating von 0.541\%. Dieser Index wird auf Basis von Suchanfragen nach den entsprechenden Programmiersprachen, auf den meist frequentiertesten Internetseiten, erstellt. COBOL ist somit zwar nur Teil jeder 200. Suchanfrage, rangiert jedoch damit trotzdem vor anderen etablierten oder aufstrebenden Sprachen wie \textit{Kotlin}, \textit{Scala} oder \textit{Haskell}. Außerdem gilt es hier zu beachten, dass COBOL zu einer Zeit entstand, in der das Internet noch lange nicht existierte und Informationen über die Sprache mittels Büchern verbreitet und vermittelt wurden. Daher ist auch heute noch das Internet nicht die vorrangige Quelle, um Wissen über COBOL zu akquirieren. Unter diesen Gesichtspunkten ist das TIOBE-Rating von COBOL als noch höher einzuschätzen.
+
+
+\subsection*{Bedeutung in der Lehre}
+Da COBOL bereits 60 Jahre alt ist haben heutzutage bereits viele einstige COBOL-Entwickler das Rentenalter erreicht. Im Artikel \citeWithTitle{beat_balzli_cobol-programmierer_2017} beschreibt der Autor exemplarisch den Fall eines 75-jährigen Entwickler, der ob seiner Erfahrung und trotz seines Alters immernoch in der Branche tätig ist.
+
+Junge COBOL-Entwickler sind rar, da COBOL nur noch selten Teil der Ausbildung ist. \citeauthor{doke_cobol_2005} führen in \citeWithTitle{doke_cobol_2005} an, dass im Jahr 2002 lediglich in 36.2\% COBOL Teil des Gundstudiums war, obwohl im Jahr 1995 noch 89.7\% der befragten Bildungseinrichtungen angaben COBOL-Kurse als festen Bestandteil der Ausbildung zu haben. Sieht man sich dagegen die Zahlen zu Java als Vertreter moderner Programmiersprachen an, lässt sich ein klarer Trend erkennen. Erst 1995 entstanden, stieg die Zahl der  Universitäten, die Java lehrten von 42.5\% im Jahr 1998 auf 90.0\% im Jahr 2002. Spinnt man diesen Wandel ins heutige Jahr weiter, zu dem sich in der Zwischenzeit noch eine Fülle neuerer lässt sich erahnen wie selten Lehrveranstaltung zum Thema COBOL inzwischen geworden sind.
+
+Man sieht also, dass sich die Lehrer, obwohl der Bedarf an COBOL-Programmierern weiterhin immens ist, stark weg von COBOL fokussiert hat was die Wirtschaft zusammen mit dem zunehmenden Alter erfahrener COBOL-Entwickler vor Probleme stellt.
+
+\subsection*{Kontroverse Beurteilungen von COBOL}
+Die in \autoref{wichtigkeit} angeführten Aussagen und Meinungen stammen oftmals von Personen aus dem Umfeld von Unternehmen, die teils hohen Profit aus dem Weiterbestehen COBOLs herausschlagen. Diese Aussagen sind daher, wenn auch sicherlich nicht falsch, vorsichtig und vor allem sehr differenziert zu betrachten.
+
+Der mehrfach prämierte Informatiker \citeauthor{edsger_wybe_dijkstra_how_1975} z.B. findet sehr klare andere Worte zu COBOL: \quotes{The use of COBOL cripples the mind; its teaching should, therefore, be regarded as a criminal offence.} \cite{edsger_wybe_dijkstra_how_1975}
+
+\citeauthor{florian_hamann_banken_2017} nennt in seinem Artikel \citeWithTitle{florian_hamann_banken_2017} die bereits erwähnte zunehmende Knappheit von Arbeitskräften auch als einen wichtigen Faktor dafür, weshalb COBOL über kurz oder lang von moderneren Systemen und Sprachen verdrängt und abgelöst wird.
+
+Trotz dieser Kontroversen kann festgehalten werden, dass es nach wie vor eine gleichbleibend hohen Bedarf an Entwicklern gibt, den es zu decken gilt.
