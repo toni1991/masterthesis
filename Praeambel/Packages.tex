@@ -92,7 +92,6 @@
 \definecolor{javaStatement} {rgb}{1,    0.5,    0}
 
 % zum Einbinden von Programmcode -----------------------------------------------
-\usepackage{listings}
 \usepackage[newfloat]{minted}
 
 \setminted{
@@ -100,6 +99,8 @@
     linenos=true,
     breaklines
 }
+
+\usepackage{listings}
 
 \lstset{
     float=hbp,
@@ -129,13 +130,20 @@
 
 %% Roman pagenumbers good aligned in toc
 \usepackage{tocloft}
-\cftsetpnumwidth{2em}
+\cftsetpnumwidth{3em}
+\makeatletter
+\AtBeginDocument{%
+\renewcommand\lstlistoflistings{\bgroup
+  \let\contentsname\lstlistlistingname
+  \def\l@lstlisting##1##2{\@dottedtocline{1}{1.5em}{2.3em}{\bfseries Program ##1}{##2}}
+  \let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{lol}}%
+  \tableofcontents \egroup}
+}
+\makeatother
+
 %\setlength\cftafterZtitleskip{10pt}
 %\renewcommand\cftchapafterpnum{\vskip10pt}
 %\renewcommand\cftsecafterpnum{\vskip15pt}
-
-% fortlaufendes Durchnummerieren der Fußnoten ----------------------------------
-\usepackage{chngcntr}
 
 % für lange Tabellen -----------------------------------------------------------
 \usepackage{longtable}
@@ -235,3 +243,9 @@
     pdfsubject={\mytitel},
     pdfkeywords={\mytitel \myart \myautor}
 }
+
+% bessere umbrüche
+\usepackage{microtype}
+
+% nummerierung von figures und lstlsitings ----------------------------------
+\usepackage{chngcntr}
