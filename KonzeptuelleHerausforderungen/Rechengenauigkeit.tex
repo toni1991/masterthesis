@@ -1,18 +1,57 @@
-\section{Rechengenauigkeit}
-Vorallem in betrieblichen Informationssystemen, die oftmals an bestimmten Stellen Geldbeträge durch eine gewisse Anzahl von Rechenschritten errechnen sollen, ist es unerlässlich einen Blick auf die Rechengenauigkeit des Systems und der verwendeten Sprachen zu werfen.
-\subsection*{Rechengenauigkeit in Java}
-Java verwendet zur Speicherung von Fließkommazahlen, wie viele andere moderne Programmiersprachen, den \textit{IEEE 754}-Standard. Ohne näher auf diesen eingehen zu wollen, legt dieser einen Algorithmus fest, mit dessen Hilfe Variablen in einem Speicherbereich repräsentiert werden. Dieser Speicherbereich kann sich je nach Datentyp und Programmiersprache unterscheiden, ist jedoch an sich stets von fester Größe. Daher ist es nicht möglich beliebig genaue Werte abzubilden. 
+\section{Darstellungsgenauigkeit -- Fließ- und Festkommaarithmetik}
+Vorallem in betrieblichen Informationssystemen -- die oftmals Geldbeträge durch eine gewisse Anzahl von Rechenschritten errechnen sollen -- ist es unerlässlich einen Blick auf die Rechengenauigkeit des Systems und der verwendeten Sprachen zu werfen. Diese ist oftmals eine Folge der Speicherrepräsentation -- irrationale Zahlen können durch endlichen Speicherbedarf nicht abgebildet werden -- rationaler Zahlen, die erheblichen Einfluss auf den Darstellungsbereich hat. Man unterscheidet grundsätzlich zwischen Speicherungen in Fließ- und Festkomma-Darstellung.
+ 
+\subsection*{Fließkommaarithmetik}
+In modernen Programmiersprachen wie Java werden Datentypen für rationale Zahlen in der Fließkommarepräsentation gespeichert. Daher auch der Name \mintinline{java}{float} für engl. \quotes{floating point}. Diese Darstellung hat den großen Vorteil, dass sowohl kleine Zahlen die gegen Null gehen als auch sehr große Zahlen mit dem gleichen Speicherbedarf dargestellt werden können, da quasi das Dezimaltrennzeichen verschoben werden kann. Java verwendet zur Dartellung standardmäßig den Datentypen \mintinline{java}{double}, also ein \mintinline{java}{float} mit doppelter Darstellungsgenauigkeit. Somit wird es möglich als kleinsten Absolutwert $2^{-1074}$ und als größten $(2 - 2^{-52}) \cdot 2^{1023}$ darzustellen.
+
+Dabei werden Zahlen nach \textit{IEEE 754}-Standard in Vorzeichen, Exponent und Mantisse umgerechnet und gespeichert. Ohne näher auf diesen eingehen zu wollen, legt dieser einen Algorithmus fest, mit dessen Hilfe Variablen in einem Speicherbereich repräsentiert werden. Dieser Speicherbereich kann sich je nach Datentyp und Programmiersprache zwar unterscheiden, ist jedoch an sich stets von fester Größe. Durch diese feste Größe und den Umstand, dass Zahlen vor dem Speichern umgerechnet werden ergibt sich die Problematik, dass bestimmte Zahlen nicht exakt repräsentiert werden können und lediglich die \quotes{näheste} Repräsentation gespeichert werden kann. Dieser Effekt ist schwer absehbar und führt in der Praxis zu ungenauen (Zwischen-)Ergebnissen.
+
 \java{PrecisionExample.java}
 \sepCodeAndOutputCheck
 \begin{shellwindow}
 $ javac PrecisionExample.java 
 $ java PrecisionExample
-Double addition: 199999.45
-Float addition: 199999.44
-BigDecimal addition: 199999.45
+0,64999997615814210000000 == 0.65 -> false
+0.64999997615814208984375
+0.65
 \end{shellwindow}
-\mintedCaption{Addition von float und double Variablen in Java}{floatDoubleJava}
-\autoref{floatDoubleJava} zeigt das bereits anhand eines sehr einfachen Beispiels. Bereits die Addition von zwei Zahlen mit einer bzw. zwei Dezimalstellen, welche zugegebenermaßen bewusst so gewählt wurden, legt die Problematik offen. So unterscheiden sich die Ergebnisse der Berechnung je nach Datentyp, was auf die Abbildung der Zahlen im Speicher zurückzuführen ist. Um Sicherheit bei der Berechnung zu erhalten ist es stets nötig den Datentyp \mintinline{java}{BigDecimal}, mitsamt des damit verbundenen Speicher- und Laufzeit-Overheads, wie im letzten Teil des Beispiels gezeigt, zu verwenden. Wichtig hierbei ist, dass die Definition wenn möglich über den Konstruktor erfolgt, der eine String-Repräsentation eines Wertes erhält. Andere Konstruktoren wie z.B. \mintinline{java}{BigDecimal(double)} können zu Problemen führen, da der übergebene Wert durch die Speicherung als z.B. \mintinline{java}{double} bereits an Genauigkeit verlieren kann.
-\subsection*{Rechengenauigkeit in COBOL}
-Wie später in \autoref{variables} noch genauer ausgeführt ist der Entwickler und nicht die Sprache in COBOL dafür zuständig genau festzulegen, wie viele Dezimalstellen eine Variable speichern soll. Diese Eigenschaft in Verbindung mit der Speicherrepräsentation der Daten in COBOL führt zu einer praktisch absolut exakten Genauigkeit. %COBOL speichert dabei Daten im sogennanten \textit{BCD}-Code (Binary Coded Decimals) \todo[inline]{https://www.bernd-leitenberger.de/genauigkeit-von-computern.shtml -> Weitere Quelle!} ab. 
-Jedes Zeichen wird in COBOL separat gespeichert. Dies sorgt neben höherem Speicherbedarf, jedoch auch dafür, dass sofern Grundrechenarten für eine Ziffer implementiert sind, beliebig lange Ziffernfolgen nach dem gleichen Schema verarbeitet werden können. Die Ergebnisse werden dabei wieder auch zeichenweise gespeichert und lassen so keine Rundungsfehler oder Fehler aufgrund von unzureichendem Speicherplatz zur Abbildung zu.
+\mintedCaption{Ungenauigkeit am Beispiel einer float-Variable}{floatJava}
+
+\autoref{floatJava} zeigt beispielhaft wie die Repräsentation eines Wertes vom tatsächlichen abweichen kann. Durch die Weiterverwendung eines solchen, nicht-exakt repräsentierten, Wert würden sich unter Umständen Folgefehler in Berechnungen ergeben. Außerdem können wie gezeigt Gleicheitsvergleiche von Zahlen, insbesondere von Berechnungsergebnissen, dadurch fehlerbehaftet sein, weshalb Fließkommadatentypen stets auf ein Werteintervall statt auf Gleichheit geprüft werden sollten.
+
+Diese beschriebenen Fließkommatypen werden stets zur Basis 2 berechnet und heißen daher auch binäre Fließkommatypen. In der \mintinline{java}{java.math}-Bibliothek findet sich jedoch auch ein Objekttyp \mintinline{java}{BigDecimal} welcher ein Fließkommawert zur Basis 10, also ein dezimales Fließkomma darstellt. Die Speicherung beruht in­des­sen auf zwei \mintinline{java}{Integer}-Werten, die ein unskalierten Faktor und einen Exponenten zur Skalierung darstellen. Außerdem ist dieser Typ steuerbar was die Rundung, die Exaktheit von Ergebnissen und das Verhalten bei nichtdarstellbaren Werten angeht. Mit den in \autoref{floatJava} aufgezeigten Effekten lässt sich außerdem festhalten, dass \mintinline{java}{BigDecimal}s nur über andere \mintinline{java}{BigDecimal}-Objekte oder \mintinline{java}{String}s zuverlässig instantiiert werden können. Andere Konstruktoren speichern die übergebenen Werte in primitiven Datentypen zwischen, wodurch eben diese ungewünschten Fehler in der Repräsentation wieder auftreten. \mintinline{java}{BigDecimal} bietet somit eine Möglichkeit Werte exakt abzuspeichern bzw. Kenntnis über unexakte Speicherung -- in der Regel durch Exceptions -- zu erhalten und diese zu steuern. Mit diesem Objekttypen gehen jedoch Speicher- und Laufzeit-Overheads einher die nicht vernachlässigt werden dürfen.
+
+\subsection*{Festkommaarithmetik}
+Um die angesprochenen Probleme zu umgehen verwenden manche Sprachen eine Festkommaarithmetik, um rationale Zahlen zu Speichern oder bieten zumindest Datentypen um eine derartige Speicherrepräsentation zu erreichen. 
+
+Dabei wird im Gegensatz zu Fließkommazahlen festgelegt wieviele Stellen einer Zahl vor- bzw. nach dem Komma gespeichert werden sollen. Jede Ziffer wird dabei für sich -- je nach Implementierung durch eine bestimmte Codierung -- gespeichert und erlaubt somit absolute Genauigkeit im Werte- bzw. Darstellungsbereich. Auch ist der Umgang mit Überläufen fest definiert und führt zu konsistentem und abschätzbarem Verhalten. Ergebnisse werden stets zur Speicherung \quotes{abgeschnitten} außer man definiert explizit, dass gerundet werden soll. \autoref{decimalsInCobol} enthält Beispiele zu beiden Varianten. \mintinline{cobolfree}{PIC 9V9(2)} deklariert eine Variable mit genau einer Vor- und zwei Nachkommastellen. Damit wäre beispielsweise sichergestellt, dass alle Geldbeträge $< 10$ -- auch nach Berechnungen -- korrekt dargestellt werden können.
+
+\cobol{PRECISION_EXAMPLE.cbl}
+\sepCodeAndOutputCheck
+\begin{shellwindow}
+0.99
+1.00
+\end{shellwindow}
+\mintedCaption{Dezimalzahlen in COBOL}{decimalsInCobol}
+
+Ein weiterer Vorteil der Abbildung mit Festkomma ist die Tatsache, dass beliebig große Zahlen gespeichert werden können. Dies sorgt neben höherem Speicherbedarf, jedoch auch dafür, dass sofern Grundrechenarten für eine Ziffer implementiert sind, beliebig lange Ziffernfolgen nach dem gleichen Schema verarbeitet werden können. Die Ergebnisse werden dabei auch zeichenweise gespeichert und lassen so keine Rundungsfehler oder Fehler aufgrund von unzureichendem Speicherplatz zur Abbildung zu. Der Speicherbereich kann in COBOL jedoch zum Beispiel durch das Nutzen von \mintinline{cobolfree}{PACKED DECIMAL}s mit dem Schlüsselwort \mintinline{cobolfree}{COMP-3} hinter der \mintinline{cobolfree}{PICTURE}-Anweisung reduziert werden. Hierbei wird lediglich ein Nibble (\nicefrac{1}{2} Byte) pro Ziffer benötigt.
+
+In betrieblichen Informationssystemen und speziell bei der Verarbeitung von Geldbeträgen, ist es also unerlässlich die Sicherheit einer exakten Darstellung von Zahlen zu haben. Während die binäre Fließkommadarstellung Speicherplatz-Vorteile und Flexibilität des Wertebereichs einer Zahl bietet, jedoch Werte unter Umständen nicht exakt repräsentieren kann, stellt Festkommaarithmetik sicher, dass Zahlen exakt und vorhersehbar repräsentiert werden. Dies wird durch erhöhten Speicherbereich und fehlende Flexibilität erkauft, ist jedoch in der Praxis oftmals unerlässlich. Eine Möglichkeit diese Sicherheit in Java zu erreichen ist das Nutzen des \mintinline{java}{BigDecimal}-Typen, der viele Nachteile und vor allem Unsicherheiten gegenüber binären Fließkommatypen aus dem Weg räumt. Jedoch führt dieser unter Umständen zu Performanz- bzw. Speichereinbußen. COBOL bietet mit Verwendung der Festkommaarithmetik bereits standardmäßig eine Sicherheit und Berechenbarkeit die vielen modernen Sprachen fehlt.
+
+% Vorallem in betrieblichen Informationssystemen, die oftmals an bestimmten Stellen Geldbeträge durch eine gewisse Anzahl von Rechenschritten errechnen sollen, ist es unerlässlich einen Blick auf die Rechengenauigkeit des Systems und der verwendeten Sprachen zu werfen.
+% \subsection*{Rechengenauigkeit in Java}
+% Java verwendet zur Speicherung von Fließkommazahlen, wie viele andere moderne Programmiersprachen, den \textit{IEEE 754}-Standard. Ohne näher auf diesen eingehen zu wollen, legt dieser einen Algorithmus fest, mit dessen Hilfe Variablen in einem Speicherbereich repräsentiert werden. Dieser Speicherbereich kann sich je nach Datentyp und Programmiersprache unterscheiden, ist jedoch an sich stets von fester Größe. Daher ist es nicht möglich beliebig genaue Werte abzubilden. 
+% \java{PrecisionExample.java}
+% \sepCodeAndOutputCheck
+% \begin{shellwindow}
+% $ javac PrecisionExample.java 
+% $ java PrecisionExample
+% Double addition: 199999.45
+% Float addition: 199999.44
+% BigDecimal addition: 199999.45
+% \end{shellwindow}
+% \mintedCaption{Addition von float und double Variablen in Java}{floatDoubleJava}
+% \autoref{floatDoubleJava} zeigt das bereits anhand eines sehr einfachen Beispiels. Bereits die Addition von zwei Zahlen mit einer bzw. zwei Dezimalstellen, welche zugegebenermaßen bewusst so gewählt wurden, legt die Problematik offen. So unterscheiden sich die Ergebnisse der Berechnung je nach Datentyp, was auf die Abbildung der Zahlen im Speicher zurückzuführen ist. Um Sicherheit bei der Berechnung zu erhalten ist es stets nötig den Datentyp \mintinline{java}{BigDecimal}, mitsamt des damit verbundenen Speicher- und Laufzeit-Overheads, wie im letzten Teil des Beispiels gezeigt, zu verwenden. Wichtig hierbei ist, dass die Definition wenn möglich über den Konstruktor erfolgt, der eine String-Repräsentation eines Wertes erhält. Andere Konstruktoren wie z.B. \mintinline{java}{BigDecimal(double)} können zu Problemen führen, da der übergebene Wert durch die Speicherung als z.B. \mintinline{java}{double} bereits an Genauigkeit verlieren kann.
+% \subsection*{Rechengenauigkeit in COBOL}
+% Wie später in \autoref{variables} noch genauer ausgeführt ist der Entwickler und nicht die Sprache in COBOL dafür zuständig genau festzulegen, wie viele Dezimalstellen eine Variable speichern soll. Diese Eigenschaft in Verbindung mit der Speicherrepräsentation der Daten in COBOL führt zu einer praktisch absolut exakten Genauigkeit. %COBOL speichert dabei Daten im sogennanten \textit{BCD}-Code (Binary Coded Decimals) \todo[inline]{https://www.bernd-leitenberger.de/genauigkeit-von-computern.shtml -> Weitere Quelle!} ab. 
+% Jedes Zeichen wird in COBOL separat gespeichert. Dies sorgt neben höherem Speicherbedarf, jedoch auch dafür, dass sofern Grundrechenarten für eine Ziffer implementiert sind, beliebig lange Ziffernfolgen nach dem gleichen Schema verarbeitet werden können. Die Ergebnisse werden dabei wieder auch zeichenweise gespeichert und lassen so keine Rundungsfehler oder Fehler aufgrund von unzureichendem Speicherplatz zur Abbildung zu.

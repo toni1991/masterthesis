@@ -1,18 +1,15 @@
 import java.math.BigDecimal;
 
-public class PrecisionExample {
-
+public class FloatingPoint {
     public static void main(String[] args) {
-        double dValue1 = 99999.8;
-        double dValue2 = 99999.65;
-        System.out.println("Double addition: " + (dValue1 + dValue2));
+        float notPrecisely = 0.65f;
+        System.out.printf("%.23f == 0.65 -> %s\n", 
+                notPrecisely, (notPrecisely == 0.65));
 
-        float fValue1 = 99999.8f;
-        float fValue2 = 99999.65f;
-        System.out.println("Float addition: " + (fValue1 + fValue2));
+        BigDecimal notPreciselyBigDecimal = new BigDecimal(0.65f);
+        System.out.println(notPreciselyBigDecimal);
 
-        BigDecimal bValue1 = new BigDecimal("99999.8");
-        BigDecimal bValue2 = new BigDecimal("99999.65");
-        System.out.println("BigDecimal addition: " + (bValue1.add(bValue2).toPlainString()));
+        BigDecimal preciselyBigDecimal = new BigDecimal("0.65");
+        System.out.println(preciselyBigDecimal);
     }
 }
