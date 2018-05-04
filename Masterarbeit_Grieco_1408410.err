@@ -1,8 +1,0 @@
-#<SignalException: SIGHUP>
-
-/home/toni/Temporary/ltx2any/lib/FileListener.rb:169:in `initialize'
-/home/toni/Temporary/ltx2any/lib/FileListener.rb:169:in `exception'
-/home/toni/Temporary/ltx2any/lib/FileListener.rb:169:in `gets'
-/home/toni/Temporary/ltx2any/lib/FileListener.rb:169:in `noecho'
-/home/toni/Temporary/ltx2any/lib/FileListener.rb:169:in `waitForChanges'
-/home/toni/Temporary/ltx2any/ltx2any.rb:269:in `<main>'

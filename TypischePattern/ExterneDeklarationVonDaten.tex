@@ -5,7 +5,7 @@ Sowohl zur Wiederverwendbarkeit, als auch zur Erreichung einer gewissen Typsiche
 In Java werden Klassen in sogenannten Packages organisiert. Um auf Klassen aus einem anderen Package zuzugreifen, ist ein Importieren der betreffenden Klasse notwendig. Dies geschieht wie in \autoref{importJava} mihilfe des \mintinline{java}{import}-Statements.
 
 \mintedJava{Import.java}{Import in Java}{importJava}
-Das Interface \mintinline{text}{MySystem} nutzt dabei die Klasse \mintinline{text}{MySystemPart} aus dem Package \mintinline{text}{com.secondpackage}. Bei der Verwendung einer Klasse aus dem selben Package ist kein zusätzliches \mintinline{java}{import}-Statement notwendig. Das Importieren geschieht dabei implizit über das Setzen des Packagenamens wie in Zeile 1 gezeigt.
+Das Interface \mintinline{text}{MySystem} nutzt dabei die in Package \mintinline{text}{com.secondpackage} enthaltene Klasse \mintinline{text}{MySystemPart}. Bei der Verwendung einer Klasse aus dem selben Package ist kein zusätzliches \mintinline{java}{import}-Statement notwendig. Das Importieren geschieht dabei implizit über das Setzen des Packagenamens wie in Zeile 1 gezeigt.
 
 COBOL bietet zur externen Deklaration von Daten das \mintinline{cobol}{COPY}-Schlüsselwort. Hiermit wird der Inhalt einer anderen Datei, eines sogennanten \textit{COBOL-Copybook}, durch den Compiler an die Stelle des \mintinline{cobol}{COPY} kopiert. Das Verhalten ist also stark mit der Präprozessoranweisung \mintinline{c}{#include} in den Programmiersprachen C und C++ zu vergleichen.
 
@@ -17,8 +17,11 @@ In diesem speziellen Fall wird zusätzlich Gebrauch der Schlüsselwörter \minti
 
 Am Rande sei hier auch die Nutzung eines \mintinline{cobolfree}{FILLER}\index{FILLER} erwähnt. Hierbei handelt es sich um eine Variable, die nicht direkt verwendet werden kann, da sie keinen Namen hat. Wie im Beispiel sind FILLER oftmals Teile von größeren Strukturen.
 
-Das Einbinden eines Copybooks ist jedoch auch innerhalb der \mintinline{cobolfree}{PROCEDURE DIVISION} möglich wie \autoref{copyInCode} und \autoref{copyFileInCode} darstellt.
+Das Einbinden eines Copybooks ist jedoch auch innerhalb der \mintinline{cobolfree}{PROCEDURE DIVISION} möglich wie \autoref{copyFileInCode} und \autoref{copyInCode} darstellen. Somit wird es möglich Logik in Form von Code der wiederverwendet werden soll auszulagern und an verschiedenen Stellen zu nutzen.
 
 \mintedCobol{COPYBOOK-EVALUATE.cpy}{COBOL-Copybook Datei (COPYBOOK-EVALUATE.cpy)}{copyFileInCode}
 \mintedCobol{copyEvaluate.cbl}{Nutzung von COPYBOOK-EVALUATE.cpy}{copyInCode}
-Somit wird es möglich Code der wiederverwendet werden soll auszulagern und an verschiedenen Stellen zu nutzen.
+
+\recap{
+    In Java ist die Auslagerung von Daten und Logik fester Bestandteil der Sprache. Dieses Konzept spiegelt sich auch in der Fähigkeiten der Modularisierung -- vgl. \autoref{wiederverwendbarkeit} -- wieder. COBOL bietet hierfür das Schlüsselwort \mintinline{cobolfree}{COPY}. Wenngleich dieses Konzept weniger mächtig ist wie das \mintinline{java}{import}-Statement in Java so ist es doch eine Möglichkeit Daten und Logik zu kapseln und auszulagern. Wie Herr Streit und Herr Bonev betonten, lässt sich entsprechende Nutzung jedoch in der Praxis nur selten beobachten und sollte weitaus öfter Verwendung finden.
+}

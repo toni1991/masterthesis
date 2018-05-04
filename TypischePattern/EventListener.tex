@@ -1,4 +1,4 @@
-\section{Callback-Muster}
+\subsection{Callback-Muster}
 In der Programmierung ist es häufig nötig, dass bestimmte Ereignisse andere Aktionen auslösen. Dies ist insbesondere in Programmen sinnvoll, die parallele Verabreitungsschritte beinhalten. Um auf diese Ereignisse zu reagieren gibt es im Allgemeinen zwei Möglichkeiten: 
 
 \begin{itemize}
@@ -12,7 +12,7 @@ Im Gegensatz zum Polling, bei dem permanent Rechenzeit dafür aufgewendet werden
 
 Obwohl das klassische Callback-Muster aufgrund von fehlenden funktionalen Elementen in Java nicht direkt implementierbar ist, finden sich oft sehr ähnliche Abbildungen davon. Die standardisierten Schnittstellen  \mintinline{java}{Observer} und \mintinline{java}{Observable} bieten dabei eine generische Möglichkeit zur Änderungsbenachrichtigung. Häufiger lassen sich jedoch sogenannte \mintinline{java}{Listener} beobachten, welche das Callback-Muster abbilden sollen. Hierbei werden eigene Interfaces definiert, was zwar die Generizität verringert, jedoch zu breiterem Funktionsumfang und leichter verständlichem Code führt.
 
-Das \autoref{observerJava} zeigt die Handhabung des \mintinline{java}{Observer}-Pattern \cite{gamma_design_1995} in Java mithilfe der \mintinline{java}{Observer} und \mintinline{java}{Observable}-Interfaces. Wie gezeigt, kann die Implentierung des \mintinline{java}{Observer}-Interfaces auch in einer anonymen Klasse geschehen. Diese sprachlichen Konstrukte wurden bereits in \autoref{javaStructureSubsubsection} beschrieben. 
+Das \autoref{observerJava} zeigt die Handhabung des \mintinline{java}{Observer}-Pattern \cite{gamma_design_1995} in Java mithilfe der \mintinline{java}{Observer} und \mintinline{java}{Observable}-Interfaces. Wie gezeigt, kann die Implentierung des \mintinline{java}{Observer}-Interfaces auch in einer anonymen Klasse geschehen. Diese sprachlichen Konstrukte wurden bereits in \autoref{sec:structure} beschrieben. 
 
 \mintedJava{ObserverPattern.java}{Observer und Observable in Java}{observerJava}
 

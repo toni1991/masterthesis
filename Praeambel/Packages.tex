@@ -188,6 +188,38 @@
 \usepackage{tikz}
 \usetikzlibrary{patterns}
 \usepackage{tikz-uml}
+\usepackage{tikzscale}
+% \usepackage{smartdiagram}
+% \makeatletter
+% \NewDocumentCommand{\smartdiagramx}{r[] m}{%
+%     \StrCut{#1}{:}\diagramtype\option
+%     \IfStrEq{\diagramtype}{priority descriptive diagram}{% true-priority descriptive diagram
+%         \pgfmathparse{subtract(\sm@core@priorityarrowwidth,\sm@core@priorityarrowheadextend)}
+%         \pgfmathsetmacro\sm@core@priorityticksize{\pgfmathresult/2}
+%         \pgfmathsetmacro\arrowtickxshift{(\sm@core@priorityarrowwidth-\sm@core@priorityticksize)/2}
+%         \begin{tikzpicture}[every node/.style={align=center,let hypenation}]
+%         \foreach \smitem [count=\xi] in {#2}{\global\let\maxsmitem\xi}
+%         \foreach \smitem [count=\xi] in {#2}{%
+%             \edef\col{\@nameuse{color@\xi}}
+%             \node[description,drop shadow](module\xi)
+%             at (0,0+\xi*\sm@core@descriptiveitemsysep) {\smitem};
+%             \draw[line width=\sm@core@prioritytick,\col]
+%             ([xshift=-\arrowtickxshift pt]module\xi.base west)--
+%             ($([xshift=-\arrowtickxshift pt]module\xi.base west)-(\sm@core@priorityticksize pt,0)$);
+%         }%
+%         \coordinate (A) at (module1);
+%         \coordinate (B) at (module\maxsmitem);
+%         \CalcHeight(A,B){heightmodules}
+%         \pgfmathadd{\heightmodules}{\sm@core@priorityarrowheightadvance}
+%         \pgfmathsetmacro{\distancemodules}{\pgfmathresult}
+%         \pgfmathsetmacro\arrowxshift{\sm@core@priorityarrowwidth/2}
+%         \begin{pgfonlayer}{background}
+%         \node[priority arrow,rotate=180,transform shape] at ([xshift=-\arrowxshift pt]module\maxsmitem.north west){};
+%         \end{pgfonlayer}
+%         \end{tikzpicture}
+%     }{}% end-priority descriptive diagram
+% }%
+\makeatother
 
 % Spalten
 \usepackage{multicol}
