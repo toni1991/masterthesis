@@ -1,0 +1,10 @@
+\subsection{Modifier}
+In Java ist es, anders als in COBOL, möglich die Sichtbarkeit von Variablen, Funktionen und Klassen nach außen zu steuern. Dazu dienen sogennante \textit{Modifier}, die an dieser Stelle kurz erläutert werden.
+
+Auf Funktionen oder Variablen, die mit dem Schlüsselwort \mintinline{java}{public} gekennzeichnet sind, kann von jeder Stelle des Programms aus zugegriffen werden.
+
+\mintinline{java}{protected} beschränkt den Zugriff auf die enthaltende Klasse (mitsamt geschachtelter Klassen) und alle Unterklassen. Erbt eine Klasse eine solche Methode oder Variable kann sie diese also nutzen. Andere Klassen haben keinen Zugriff darauf.
+
+Um maximal-restriktiven Zugriff auf einen Teil einer Klasse sicherzustellen bietet sich das Schlüsselwort \mintinline{java}{private} an. Dieses erlaubt nur Zugriffe aus der enthaltenden Klasse und aus geschachtelten Klassen.
+
+Wir kein Schlüsselwort explizit genutzt so ist die Sichtbarkeit auf das aktuelle Package beschränkt (engl. \textit{package-private}). Das bedeutet, dass alle Klassen des selben Package Zugriff erhalten, wohingegen alle Klassen anderer Packages keinen erhalten.

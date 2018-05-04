@@ -1,0 +1,60 @@
+\section{Deklaration und Gültigkeitsbereich von Variablen und Datentypen} \label{variables}
+Eine wichtiges Sprachmittel von Programmiersprachen ist die Verwendungsmöglichkeit von Variablen. Je nach Programmiersprache haben diese Variablen unterschiedliche Eigenschaften und werden verschieden deklariert, initialisiert bzw. definiert. Dieser Abschnitt soll die Unterschiede dabei zwischen COBOL und Java herausarbeiten.
+
+\subsection*{Variablen in Java}
+Eine Variable in Java hat stets einen bestimmten Datentypen. Dies können primitive Datentypen -- \mintinline{java}{float}, \mintinline{java}{double}, \mintinline{java}{byte}, \mintinline{java}{char}, \mintinline{java}{short}, \mintinline{java}{int}, \mintinline{java}{long}, \mintinline{java}{boolean} -- aber auch komplexe Objekttypen sein. Variablen primitiver Zahltypen haben dabei stets ein Vorzeichen.
+
+\mintedJava{VariableExample.java}{Variablendeklarationen in Java}{variablesJava}
+
+\autoref{variablesJava} soll einige Konzepte der Variablendeklaration und -definition verdeutlichen:
+\begin{itemize}
+ \item Variablen können sowohl als Teil einer Klasse als auch lokal innerhalb einer Methode deklariert werden. 
+ \item Variablen mit dem \textit{Modifier} \mintinline{java}{final} sind Konstanten und können nicht mehr geändert werde.
+ \item Die Deklaration erfolg nach dem Muster \quotes{<Datentyp> <Variablenname>}.
+ \item Die Initialisierung einer Variable geschieht durch das zuweisen eines Wertes.
+ \item Komplexe Objekttypen können den Wert \mintinline{java}{null} haben. Das bedeutet, die Variable, die in diesem Fall eine Referenz auf einen Speicherbereich darstellt, ist leer. Hier gilt es zu beachten, dass primitive Datentypen nicht \mintinline{java}{null} sein können. 
+ \item Instanzen eines Objekttypen werden durch das Schlüsselwort \mintinline{java}{new} und den Aufruf eines Konstruktors erzeugt. Primitive Datentypen haben keine Konstruktoren.
+\end{itemize}
+Die Deklaration von Variablen bestimmter Datentypen sorgt dafür, dass ausreichend Speicherplatz für diese reserviert wird. Die Stelle der Deklaration im Code ist dabei frei wählbar und muss lediglich vor der ersten Verwendung stehen. 
+
+Der sog. Scope, zu deutsch Gültigkeitsbereich, gibt in der Programmierung an, in welchem Bereich eine Variable gültig ist. In Java ist der Scope einer Variablen meist einfach zu erkennen. Eine Variable ist innerhalb der geschweiften Klammern gültig, die die Variablendeklaration beinhalten. Dies verdeutlicht \autoref{javaScope}.
+
+Die Variable \mintinline{java}{memberVariable} ist innerhalb der gesamten Klasse \mintinline{java}{ScopeExample}, also in jeder enthaltenen Methode, verschachtelten Klassen und wiederum deren Methoden, gültig. Eine Variable mit selbem Namen kann auch innerhalb einer Methode deklariert werden. Auf die Instanzvariable kann mit dem \mintinline{java}{this}-Schlüsselwort zugegriffen werden. In geschachtelten Klassen muss zusätzlich der Klassenname vorangestellt werden wie Zeile 27 zeigt.  Ist keine lokale Variable mit selbem Namen vorhanden, so kann dieses Schlüsselwort auch weggelassen werden. 
+
+Wie Zeile 19 zeigt ist es auch nicht möglich auf lokale Variablen einer anderen Funktion zuzugreifen. Gleiches gilt für Instanzvariablen verschachtelter Klassen.
+
+\mintedJava{ScopeExample.java}{Variablendeklarationen mit verschiedenen Scopes}{javaScope}
+
+\subsection*{Variablen in COBOL}
+Die Deklaration von Variablen unterscheidet sich in COBOL stark von der in Java. Neben der Eigenschaft, dass Variablen nur innerhalb der \mintinline{cobolfree}{DATA DIVISION} -- als Teil der \mintinline{cobolfree}{WORKING-STORAGE SECTION} oder der \mintinline{cobolfree}{LOCAL-STORAGE SECTION} -- deklariert werden können, ist in COBOL die Definition eines Datentyps gleichzeitig auch die Festlegung der Ausgabe-Repräsentation dieser Variable. 
+
+Dies sorgt dafür, dass bereits an der Stelle der Variablendeklaration festgelegt werden muss, wie diese Daten im folgenden Programm dargestellt werden. Das Schlüsselwort dafür ist die \mintinline{cobolfree}{PICTURE}- oder kurz \mintinline{cobolfree}{PIC}-Anweisung.
+
+\cobol{variable_declaration.cbl}
+\sepCodeAndOutputCheck
+\begin{shellwindow}
+$ ./variableExample
+Mustermann 178
+Mustermann
+178
+1.78
+\end{shellwindow}
+\mintedCaption{Variablendeklarationen in COBOL}{variablesCobol}
+
+\autoref{variablesCobol} demonstriert die Deklaration von vier Variablen. Variablen Anhand dieses Beispiels sollen wiederum verschiedene Konzepte der Variablendeklaration in COBOL illustriert werden
+
+Jede Variablendeklaration beginnt mit einer Stufennummer. Diese Stufennummer sorgt für Gruppierung von Variablen. Zulässig sind dabei Zahlen zwischen \textit{01} und \textit{49}. Die Stufennummern sollten mit ausreichendem Abstand gewählt werden -- in der Praxis werden dazu 5er-Schritte gewählt --  um ein nachträgliches Einfügen zwischen zwei Stufennummern zu erleichtern. Die speziellen Stufennummern \textit{66}, \textit{77} und \textit{88} werden später separat behandelt. Wie das Beispiel zeigt, lassen sich auf einzelne Variablen auch über den Gruppennamen zugreifen. Konstanten sind hierbei in COBOL nicht möglich und so gilt es, wie Herr Bonev und Herr Lamperstorfer betonten, sicherzustellen, dass konstante Werte an keiner Stelle des Programms verändert werden.
+
+Der Stufennummer folgt ein eindeutiger Name für die Variable. An dieser Stelle kann jedoch auch das Schlüsselwort \mintinline{cobolfree}{FILLER} verwendet werden. Dies sorgt dafür, dass eine Platzhaltervariable angelegt wird, auf die jedoch später nicht direkt zugegriffen werden kann.
+
+Die Festlegung der Repräsentation geschieht wie bereits erwähnt durch ein \mintinline{cobolfree}{PIC}. Nach diesem \mintinline{cobolfree}{PIC} wird festgelegt wie diese Variable dargestellt werden soll. \quotes{X} steht dabei für ein alphanumerisches, \quotes{9} für ein numerisches Zeichen und \quotes{A} für einen Buchstaben. Die Angabe der Stellen einer Variable wird durch die Wiederholung des jeweiligen Zeichens oder die verkürzte Notation mit der nachgestellten Anzahl der Wiederholungen in runden Klammern -- z.B. XXXX $\widehat{=}$ X(4) -- erreicht. Als Dezimaltrennzeichen wird wie gezeigt ein \quotes{V} verwendet und ein vorangestelltes \quotes{S} sorgt dafür, dass eine numerische Variable ein Vorzeichen führt. Es wird also genau festgelegt wie viele Vor- und Nachkommastellen eine Variable hat.
+
+Die Initialisierung einer Variable erfolgt durch die \mintinline{cobolfree}{VALUE}-Anweisung, gefolgt von dem Wert, welcher der Variablen zugewiesen werden soll. Dabei gibt es die Schlüsselwörter \mintinline{cobolfree}{SPACE} bzw. \mintinline{cobolfree}{SPACES} und \mintinline{cobolfree}{ZERO} bzw. \mintinline{cobolfree}{ZEROS}, die anstelle eines Wertes verwendet werden können, um eine Variable mit Leerzeichen bzw. Nullen zu initialisieren.
+
+Durch die Definition der Repräsentation findet man in der Praxis oft Variablen, die auf den selben Speicherbereich wie eine andere Verweisen, jedoch die dort enthaltenen Daten anders darstellen bzw. interpretieren. Dies geschieht wie im Beispiel gezeigt mithilfe des Schlüsselworts \mintinline{cobolfree}{REDEFINES}.
+
+Eine Typsicherheit ist in COBOL nicht ausreichend gewährleistet. So kann eine Variable mit \mintinline{cobolfree}{REDEFINES} oder eine Variable, welche die eigentliche gruppiert, den Speicherbereich einer anderen mit, unter Umständen ungültigen, Werten befüllen. Auch sind uninitialisierte Variablen teilweise mit falschen Datentypen vorbelegt. 
+
+Auch der Scope von Variablen in COBOL unterscheidet sich sehr stark von Java. Allgemein kann festgehalten werden, dass auf eine Variable von jeder Stelle innerhalb eines Programms aus zugegriffen werden kann. Das sorgt dafür, dass schnell Fehler auftreten können, die sich durch unbeabsichtigten Zugriff auf falsche Variablen ergeben. In der Praxis sind diese, so alle befragten Experten übereinstimmend, häufiger beobachtbar und bergen hohes und vor allem schwer auszumachendes Fehlerpotential. An dieser Stelle sei lediglich der Unterschied der \mintinline{cobolfree}{WORKING-STORAGE SECTION} und der \mintinline{cobolfree}{LOCAL-STORAGE SECTION} erwähnt. Während Variablenwerte in ersterer über mehrere Programaufrufe hinweg erhalten bleiben, werden Variablen der \mintinline{cobolfree}{LOCAL-STORAGE SECTION} bei jedem Aufruf neu instanziiert. Diesen Unterschiedes sind sich COBOL-Entwickler in der Praxis nicht immer bewusst, obwohl so zumindest teilweise eine Reduzierung von Seiteneffekten durch falsch belegte Variablen erreicht werden könnte. Daher war Herrn Streits Vorschlag, Variablen wenn möglich in der \mintinline{cobolfree}{LOCAL-STORAGE SECTION} anzulegen.
+
+Zum Abschluss dieses Abschnitts sei erwähnt, dass der Speicherplatz von Variablen weder in COBOL noch in Java händisch freigegeben werden. In Java sorgt der \textit{garbage collector} dafür, dass Speicherbereich, der nicht mehr verwendet wird wieder freigegeben wird. In COBOL geschieht dies mit dem Ende eines Programms. 
