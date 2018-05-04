@@ -39,16 +39,16 @@ Neben der inhaltlichen Struktur bleibt noch zu erwähnen, dass Java Programme ke
 \end{figure}
 
 \autoref{cobolStructureDiagram} zeigt die strukturellen Bestandteile eines COBOL-Programms. 
-Ein Programm kann besteht dabei aus vier fest definierten \textit{DIVISION}s:
+Ein Programm kann besteht dabei aus vier fest definierten Divisions:
 
 \begin{itemize}
     \item \mintinline{cobolfree}{IDENTIFICATION DIVISION} -- Hier werden grundlegende Daten zum Programm, wie der Name oder der Autor festgelegt.
     \item \mintinline{cobolfree}{ENVIRONMENT DIVISION} -- Definiert die Ein- und Ausgabe sowie Konfigurationen der Systemumgebung.
-    \item \mintinline{cobolfree}{DATA DIVISION} -- Diese \textit{DIVISION} beinhaltet die Definitionen von Daten. Dazu zählen Variablen oder auch Datei-Record-Definitionen.
-    \item \mintinline{cobolfree}{PROCEDURE DIVISION} -- Innerhalb dieser \textit{DIVISION} befindet sich der ausführbare Code.
+    \item \mintinline{cobolfree}{DATA DIVISION} -- Diese Division beinhaltet die Definitionen von Daten. Dazu zählen Variablen oder auch Datei-Record-Definitionen.
+    \item \mintinline{cobolfree}{PROCEDURE DIVISION} -- Innerhalb dieser Division befindet sich der ausführbare Code.
 \end{itemize}
 
-Eine \textit{DIVISION} -- außer der \mintinline{cobolfree}{IDENTIFICATION DIVISION} -- kann wiederum aus verschiedenen Sections bestehen, wobei diese nur innerhalb der \mintinline{cobolfree}{PROCEDURE DIVISION} frei definiert werden können.
+Eine Division -- außer der \mintinline{cobolfree}{IDENTIFICATION DIVISION} -- kann wiederum aus verschiedenen Sections bestehen, wobei diese nur innerhalb der \mintinline{cobolfree}{PROCEDURE DIVISION} frei definiert werden können.
 
 Die \mintinline{cobolfree}{ENVIRONMENT DIVISION} kann eine \mintinline{cobolfree}{CONFIGURATION SECTION} und eine \mintinline{cobolfree}{INPUT- OUTPUT SECTION} enthalten. Erstere erlaubt Definitionen zum Zielsystem. Letztere beinhaltet Definitionen zum Dateizugriff sowie zu Ein- und Ausgabeoperationen.
 
