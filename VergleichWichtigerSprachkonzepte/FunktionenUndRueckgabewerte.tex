@@ -31,7 +31,7 @@ Rekursive \cob{PERFORM}-Aufrufe sind zwar syntaktisch möglich, jedoch führt di
 
 \autoref{recursionCobol} enthält analog zu gezeigtem Java-Beispiel auch ein Programm, welches Rekursiv die Fakultät einer Zahl errechnet und ausgibt. Wichtig ist hierbei vorallem die \cob{RECURSIVE} Definition hinter dem Programmnamen in Zeile 2. Die \cob{WORKING-STORAGE SECTION} enthält dabei Variablen, welche von jeder Instanz des rekursiv aufgerufenen Programms gemeinsam genutz werden. In \cob{LOCAL-STORAGE SECTION} finden sich Variablen, deren Gültigkeitsbereich sich auf die aktuelle Aufrufinstanz beschränken.
 
-In COBOL ist es anders als in Java auch möglich eigenständige Unterprogramme aufzurufen. Wie bereits in \autoref{sec:structure} beschrieben dient die \cob{LINKAGE SECTION} dazu im Unterprogramm zu definieren, welche Variablen übergeben werden. Mithilfe der \cob{CALL}-Anweisung und des Programmnamens können. Wie in \autoref{wiederverwendbarkeit} kann die Angabe des Programmnamens auch pseudo-variabel geschehen um ein statisches Linken der Programmteile zu vermeiden.
+In COBOL ist es, anders als in Java, auch möglich eigenständige Unterprogramme aufzurufen. Wie bereits in \autoref{sec:structure} beschrieben dient die \cob{LINKAGE SECTION} dazu im Unterprogramm zu definieren, welche Variablen übergeben werden. Mithilfe der \cob{CALL}-Anweisung und des Programmnamens können. Wie in \autoref{wiederverwendbarkeit} kann die Angabe des Programmnamens auch pseudo-variabel geschehen um ein statisches Linken der Programmteile zu vermeiden.
 
 \cobol{CALLING_PROGRAM.cbl}
 \cobol{CALLED_PROGRAM.cbl}
