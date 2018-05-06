@@ -1,13 +1,13 @@
 \subsection{Reorganisation von Daten}
 Wie bereits in \autoref{variables} erwähnt beinhaltet COBOL drei Stufennummern denen eine besondere Rolle zuteilwird. Dieser Abschnitt soll daher kurz die COBOL Stufennummer \textit{66} beschreiben.
 
-In \autoref{cobol66} wird die Stufennummer 66 in Verbindung mit der \mintinline{cobolfree}{RENAMES}-Anweisung, was zwingend erforderlich ist, verwendet, um Teile der Personendaten neu zu gruppieren. Dies geschieht durch die Verwendung des \mintinline{cobolfree}{THRU}-Schlüsselworts. Ohne die Angabe dieses Bereichs können auch einzelne Variablen umbenannt werden. Wichtig ist hierbei zu erwähnen, dass lediglich eine neue Referenz auf den selben Speicherbereich erstellt, nicht jedoch neuer Speicher alloziert wird.
+In \autoref{cobol66} wird die Stufennummer 66 in Verbindung mit der \cob{RENAMES}-Anweisung, was zwingend erforderlich ist, verwendet, um Teile der Personendaten neu zu gruppieren. Dies geschieht durch die Verwendung des \cob{THRU}-Schlüsselworts. Ohne die Angabe dieses Bereichs können auch einzelne Variablen umbenannt werden. Wichtig ist hierbei zu erwähnen, dass lediglich eine neue Referenz auf den selben Speicherbereich erstellt, nicht jedoch neuer Speicher alloziert wird.
 \cobol{66_section.cbl}
 \begin{shellwindow}
 Max       Mustermann
 Musterstraße  7a   12345 Musterstadt   
 \end{shellwindow}
-\mintedCaption{Stufennummer 66 und \mintinline{cobolfree}{RENAMES}-Befehl}{cobol66}
+\mintedCaption{Stufennummer 66 und \cob{RENAMES}-Befehl}{cobol66}
 Diese Stufennummer wird in der Praxis selten verwendet und auch ist in Java zu dieser Stufennummer kein exaktes Pendant zu finden. 
 \subsubsection*{Abbildung in Java}
 Die Gruppierung von Daten erfolgt in Java in eigenen Klassen, aus denen sich wiederum andere Objekte zusammensetzen können. Diese Aggregationsbeziehung ist im Diagramm in \autoref{javaAggregationClasses} dargestellt. 

@@ -13,11 +13,11 @@ Um bereits an dieser Stelle einen kleinen Einblick in COBOL, die Programmierung 
 
 Legt man in der OpenCobolIDE ein neues Programm an, so enthält die Datei das bekannte \quotes{Hello world} als Beispielprogramm. Wir werden dieses Programm nun so erweitern, dass es die Eingabe eines Benutzernamens erwartet und so eine persönliche Begrüßung ausgibt. \autoref{firstCOBOLProgram} zeigt das fertige Programm.
 
-Als erstes wurde die \mintinline{cobolfree}{PROGRAM-ID} festgelegt. Dies ist der Programmname, wie er auch nach außen -- für eventuelle andere Programm -- sichtbar wird, und sollte daher eindeutig sein. Wichtig hierbei ist auch das Setzen des richtigen Namens in der letzten Zeile, die das \mintinline{cobolfree}{END PROGRAM} enthält.
+Als erstes wurde die \cob{PROGRAM-ID} festgelegt. Dies ist der Programmname, wie er auch nach außen -- für eventuelle andere Programm -- sichtbar wird, und sollte daher eindeutig sein. Wichtig hierbei ist auch das Setzen des richtigen Namens in der letzten Zeile, die das \cob{END PROGRAM} enthält.
 
-Anschließend wird eine Variable mit dem Namen \mintinline{cobolfree}{USERNAME} angelegt, die aus 20 alphanumerischen Zeichen (\mintinline{cobolfree}{PIC X(20)}) besteht und mit Leerzeichen (\mintinline{cobolfree}{VALUE SPACES}) initialisiert wird.
+Anschließend wird eine Variable mit dem Namen \cob{USERNAME} angelegt, die aus 20 alphanumerischen Zeichen (\cob{PIC X(20)}) besteht und mit Leerzeichen (\cob{VALUE SPACES}) initialisiert wird.
 
-Mittels \mintinline{cobolfree}{DISPLAY} wird der Nutzer aufgefordert seinen Namen einzugeben, den das \mintinline{cobolfree}{ACCEPT}-Schlüsselwort dann in die angesprochene Variable schreibt.
+Mittels \cob{DISPLAY} wird der Nutzer aufgefordert seinen Namen einzugeben, den das \cob{ACCEPT}-Schlüsselwort dann in die angesprochene Variable schreibt.
 
 \begin{shellwindow}
 $ cobc -x HELLO_USER.cbl
@@ -27,6 +27,6 @@ Hello Toni
 \end{shellwindow}
 \mintedCaption{Erstes COBOL-Programm in der Kommandozeile}{cobc}
 
-Anschließend wird geprüft ob der Nutzer eine Eingabe gemacht hat. Ist dies der Fall, wird eine persönliche Begrüßung ausgegeben. Andernfalls erscheint die generische Meldung \quotes{\mintinline{cobolfree}{Hello world}}. Diese Ausgaben werden wie bereits die Eingabeaufforderung mit \mintinline{cobolfree}{DISPLAY} ausgegeben.
+Anschließend wird geprüft ob der Nutzer eine Eingabe gemacht hat. Ist dies der Fall, wird eine persönliche Begrüßung ausgegeben. Andernfalls erscheint die generische Meldung \quotes{\cob{Hello world}}. Diese Ausgaben werden wie bereits die Eingabeaufforderung mit \cob{DISPLAY} ausgegeben.
 
 Kompiliert wird das Programm nun mit den Tasten \textit{F8} (kompilieren) bzw. \textit{F5} (kompilieren und ausführen). Soll der GnuCOBOL-Compiler direkt ausgeführt werden, reicht ein einfaches Kommado um eine ausführbare Datei zu erstellen. Dies wird in \autoref{cobc} dargestellt.

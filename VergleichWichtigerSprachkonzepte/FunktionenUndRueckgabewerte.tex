@@ -1,4 +1,4 @@
-\section{Funktionen und Rückgabewerte}\label{sec:functionsAndReturnValues}
+\section{Funktionen, Unterprogramme und Rückgabewerte}\label{sec:functionsAndReturnValues}
 Ein wichtiger Bestandteil von vielen Programmiersprachen sind Prozeduren und Funktionen. Dabei handelt es sich um Codeabschnitte, die von einer anderen Stelle aus aufgerufen werden können. Im Gegensatz zu Prozeduren, die bestimmte Verarbeitungsschritte durchlaufen, liefern Funktionen dabei noch zusätzlich einen Rückgabewert.
 
 \subsection*{Java}
@@ -8,23 +8,41 @@ In Java muss jede Anweisung Teil einer Funktion sein. Wie in \autoref{programmab
 \autoref{javaMethods} zeigt verschiedene Methoden. An diesem Beispiel sollen zwei wichtige Konzepte dargestellt werden: 
 \begin{itemize}
     \item \textbf{Übergabe von Parametern}
-    Wie gezeigt erhalten die Funktionen unterschiedliche Parameter. Die Methode \mintinline{java}{process()} zum Beipiel erhält keinen Parameter, wohingegen \mintinline{java}{getGreeting(String, String)} zwei Parameter vom Typ \mintinline{java}{String} erwartet.
+    Wie gezeigt erhalten die Funktionen unterschiedliche Parameter. Die Methode \jav{process()} zum Beipiel erhält keinen Parameter, wohingegen \jav{getGreeting(String, String)} zwei Parameter vom Typ \jav{String} erwartet.
     \item \textbf{Rückgabe eines Wertes}
-    Eine Funktion muss stets den Typ ihres Rückgabewertes definieren. Soll kein Rückgabewert geliefert werden so ist der Typ als \mintinline{java}{void} zu definieren. Im Gegensatz zu anderen Sprachen kann eine Methode in Java lediglich einen Wert zurückliefern.
+    Eine Funktion muss stets den Typ ihres Rückgabewertes definieren. Soll kein Rückgabewert geliefert werden so ist der Typ als \jav{void} zu definieren. Im Gegensatz zu anderen Sprachen kann eine Methode in Java lediglich einen Wert zurückliefern.
 \end{itemize}
-Der Aufruf einer Funktion erfolgt wie in Zeile 12 gezeigt mittels Methodenname und den zu übergebenen Parametern. Außerdem zeigt sich, dass Funktionen mithilfe des \mintinline{java}{return}-Statements \textbf{einen} Rückgabewert an die aufrufende Funktion zurückgeben können. Ein \mintinline{java}{return} kann auch dazu benutzt werden um Funktionen an anderen Stellen als der letzten Zeile zu verlassen. Eine Funktion ohne Rückgabewert -- \mintinline{java}{void} -- terminiert implizit in der letzten Zeile und benötigt kein explizites \mintinline{java}{return}, kann dieses jedoch auch ohne Rückgabewert nutzen um vorher den Funktionsablauf zu beenden. Eine Methode mit Rückgabewert muss stets einen Wert mit passendem Datentyp durch \mintinline{java}{return} zurückgeben.
+Der Aufruf einer Funktion erfolgt wie in Zeile 12 gezeigt mittels Methodenname und den zu übergebenen Parametern. Außerdem zeigt sich, dass Funktionen mithilfe des \jav{return}-Statements \textbf{einen} Rückgabewert an die aufrufende Funktion zurückgeben können. Ein \jav{return} kann auch dazu benutzt werden um Funktionen an anderen Stellen als der letzten Zeile zu verlassen. Eine Funktion ohne Rückgabewert -- \jav{void} -- terminiert implizit in der letzten Zeile und benötigt kein explizites \jav{return}, kann dieses jedoch auch ohne Rückgabewert nutzen um vorher den Funktionsablauf zu beenden. Eine Methode mit Rückgabewert muss stets einen Wert mit passendem Datentyp durch \jav{return} zurückgeben.
 
 Eine eher selten genutzte, wenn doch elegante Möglichkeit die sich mit Funktionen in Java bietet, ist die Rekursion. Dabei handelt es sich um eine Funktion die sich selbst aufruft. 
 
 \mintedJava{RecursionExample.java}{Rekursion in Java}{javaRecursion}
 
-Die Funktionen \mintinline{java}{facultyRecursive} und \mintinline{java}{facultyIterative} in \autoref{javaRecursion} berechnen  die Fakultät einer übergebenen Zahl. Klar ersichtlich ist, dass auch schon ein sehr kleines Beispiel durch eine rekursive Implementierung eleganter und durch weniger Code ausgedrückt werden kann. Auf der anderen Seite ist die iterative Implementierung sicherer, da die rekursive Variante unter Umständen an die nicht fest definierte Grenze der maximalen Rekursionstiefe gelangt.
+Die Funktionen \jav{facultyRecursive} und \jav{facultyIterative} in \autoref{javaRecursion} berechnen  die Fakultät einer übergebenen Zahl. Klar ersichtlich ist, dass auch schon ein sehr kleines Beispiel durch eine rekursive Implementierung eleganter und durch weniger Code ausgedrückt werden kann. Auf der anderen Seite ist die iterative Implementierung sicherer, da die rekursive Variante unter Umständen an die nicht fest definierte Grenze der maximalen Rekursionstiefe gelangt.
 
 \subsection*{COBOL}
-Das Konzept einer Funktion existiert in COBOL nicht. Lediglich das Aufrufen einer Section oder eines Paragraphs mithilfe eines \mintinline{cobolfree}{PERFORM} geben ansatzweise ähnliche Möglichkeiten und können daher als Vergleich herangezogen werden. Jedoch können dabei weder Parameter übergeben noch ein Wert zurückgeliefert werden. Darum ist es nötig Werte, die innerhalb einer SECTION verwendet werden sollen in Variablen zu kopieren. Auch ein Wert, der zurückgeliefert werden soll muss in eine solche Variable kopiert werden. Wie in \autoref{sec:scope} beschrieben sind diese Variablen jedoch immer global innerhalb eines Programms definiert.
+Das Konzept einer Funktion existiert in COBOL nicht. Lediglich das Aufrufen einer Section oder eines Paragraphs mithilfe eines \cob{PERFORM} geben ansatzweise ähnliche Möglichkeiten und können daher als Vergleich herangezogen werden. Jedoch können dabei weder Parameter übergeben noch ein Wert zurückgeliefert werden. Darum ist es nötig Werte, die innerhalb einer SECTION verwendet werden sollen in Variablen zu kopieren. Auch ein Wert, der zurückgeliefert werden soll muss in eine solche Variable kopiert werden. Wie in \autoref{sec:scope} beschrieben sind diese Variablen jedoch immer global innerhalb eines Programms definiert.
 
 Oft bringt das allerdings Probleme mit sich. Zum Beispiel werden in der Praxis oft Variablen, die für etwas anderes gedacht sind, an einer anderen Stelle wiederverwendet. So ist nicht ganz klar, welchen Zweck Variablen erfüllen. Ein weiterer großer Nachteil ist, dass Logik oftmals kopiert und sehr ähnlich nochmals geschrieben werden muss, um auf anderen Daten zu operieren.
 
-Rekursive \mintinline{cobolfree}{PERFORM}-Aufrufe sind zwar syntaktisch möglich, jedoch führt die Ausführung zu einem undefinierten Verhalten des Programms und ist deshalb in jedem Fall zu unterlassen. Es kann quasi festgehalten werden, dass Rekursionen innerhalb eines Programms in COBOL nicht möglich sind. Anders sieht es dabei mit gesamten Programmen aus.
+Rekursive \cob{PERFORM}-Aufrufe sind zwar syntaktisch möglich, jedoch führt die Ausführung zu einem undefinierten Verhalten des Programms und ist deshalb in jedem Fall zu unterlassen. Es kann quasi festgehalten werden, dass Rekursionen innerhalb eines Programms in COBOL nicht möglich sind. Anders sieht es dabei mit gesamten Programmen aus.
+
 \mintedCobol{recursion.cbl}{Rekursion in COBOL}{recursionCobol}
-\autoref{recursionCobol} enthält analog zu gezeigtem Java-Beispiel auch ein Programm, welches Rekursiv die Fakultät einer Zahl errechnet und ausgibt. Wichtig ist hierbei vorallem die \mintinline{cobolfree}{RECURSIVE} Definition hinter dem Programmnamen in Zeile 2. Die \mintinline{cobolfree}{WORKING-STORAGE SECTION} enthält dabei Variablen, welche von jeder Instanz des rekursiv aufgerufenen Programms gemeinsam genutz werden. In \mintinline{cobolfree}{LOCAL-STORAGE SECTION} finden sich Variablen, deren Gültigkeitsbereich sich auf die aktuelle Aufrufinstanz beschränken.
+
+\autoref{recursionCobol} enthält analog zu gezeigtem Java-Beispiel auch ein Programm, welches Rekursiv die Fakultät einer Zahl errechnet und ausgibt. Wichtig ist hierbei vorallem die \cob{RECURSIVE} Definition hinter dem Programmnamen in Zeile 2. Die \cob{WORKING-STORAGE SECTION} enthält dabei Variablen, welche von jeder Instanz des rekursiv aufgerufenen Programms gemeinsam genutz werden. In \cob{LOCAL-STORAGE SECTION} finden sich Variablen, deren Gültigkeitsbereich sich auf die aktuelle Aufrufinstanz beschränken.
+
+In COBOL ist es anders als in Java auch möglich eigenständige Unterprogramme aufzurufen. Wie bereits in \autoref{sec:structure} beschrieben dient die \cob{LINKAGE SECTION} dazu im Unterprogramm zu definieren, welche Variablen übergeben werden. Mithilfe der \cob{CALL}-Anweisung und des Programmnamens können. Wie in \autoref{wiederverwendbarkeit} kann die Angabe des Programmnamens auch pseudo-variabel geschehen um ein statisches Linken der Programmteile zu vermeiden.
+
+\cobol{CALLING_PROGRAM.cbl}
+\cobol{CALLED_PROGRAM.cbl}
+\begin{shellwindow}
+$ cobc -x -o CALLING_PROGRAM CALLING_PROGRAM.cbl 
+$ cobc -m CALLED_PROGRAM.cbl
+$ ./CALLING_PROGRAM
+22
+SUB-PROGRAM got passed: 0022
+CALLING PROGRAM: 0044
+\end{shellwindow}
+\mintedCaption{Unterprogramme in COBOL}{subprogramsCobol}
+
+\autoref{subprogramsCobol} zeigt den Aufruf eines Unterprogramms und die Übergabe von Parametern. Diese Parameter werden per Referenz übergeben. Das heißt, dass Unterprogramme stets auf den gleichen Speicherbereich zugreifen wie das ursprüngliche Program und so auch dessen Daten verändern. Dies gilt es zu beachten, da dadurch ungewünschte Seiteneffekte oder gar Fehler auftreten können. Das Definieren eines Rückgabewertes in einem Unterprogramm ist nicht möglich. Soll also ein Rückgabewert im aufgerufenen Program gesetzt werden, so ist dieser innerhalb der übergebenen Datenstruktur zu setzen, auf die wie erwähnt auch das aufrufende Programm zugriff hat. 

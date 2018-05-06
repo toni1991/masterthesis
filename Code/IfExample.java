@@ -9,5 +9,9 @@ public class IfExample {
             System.out.println("Number is still 0");
         } else
             System.out.println("Number is not 0");
+
+        System.out.println(
+            number == 0 ? "Number is 0" : "Number is not 0"
+        );
     }
 }
