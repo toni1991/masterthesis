@@ -74,13 +74,19 @@
 
 % recap
 \newcommand{\recap}[1]{
-    \begin{wrapfigure}{l}{.05\textwidth}
-        %\vspace{-20pt}
-        \begin{center}
-            \includegraphics[width=0.9\linewidth]{Bilder/exclamation_mark}
-        \end{center}
-        %\vspace{-20pt}
-    \end{wrapfigure}
-    #1
-    %\noindent\parbox{\linewidth}{#1}
+    {
+        \centering
+        \setlength{\fboxsep}{1em}
+        \noindent\fcolorbox{lightgray}{lightgray!50!white}{%
+            \begin{minipage}[c]{.95\linewidth}
+                \begin{wrapfigure}{l}{.05\linewidth}
+                    %\usefont{T1}{fxb}{o}{b}\fontsize{10cm}{10.5cm}\selectfont?
+                    \vspace{-15pt}
+                    \includegraphics[width=0.9\linewidth]{Bilder/exclamation_mark}
+                    \vspace{-20pt}
+                \end{wrapfigure}
+                #1
+            \end{minipage}
+        }
+    }
 }
