@@ -1,12 +1,14 @@
 \section{Konventionen}
-Im folgenden Abschnitt sollen bestimmte Konventionen dargestellt werden, die in COBOL bzw. Java gelten.
+Da bei Programmen oft eine Vielzahl von Entwicklern tätig ist und sich das Entwicklerteam auch über die Zeit ändern kann ist es nötig, dass alle Entwickler einen ähnlichen Stil verfolgen, sodass das Zurechtfinden in Code eines anderen Programmierers erleichtert wird. Diese Konventionen können zwar auch auf Projektebene festgelegt werden, jedoch entwickelen sich in Programmiersprachen oft Konventionen welche sich projekt-, personen- und unternehmensunabhängig etablieren. In diesem Kapitel werden die wichtisten dieser Konventionen beschrieben.
+
 \subsection*{Groß- und Kleinschreibung}
-Bei der Programmierung behilft man sich oftmals der Groß- und Kleinschreibung, um ein höheres Maß an Struktur und Lesbarkeit des Codes zu erreichen. 
+Bei der Programmierung behilft man sich oftmals der Groß- und Kleinschreibung, um ein höheres Maß an Struktur und Lesbarkeit des Codes zu erreichen.
+
 \subsubsection*{Java}
 Wichtig ist hierbei vorneweg zu beachten, dass Java \quotes{case-sensitive} ist, also zwischen Groß- und Kleinbuchstaben unterscheidet, während COBOL \quotes{case-insensitive} ist, also -- außer in Strings -- keinen Unterschied macht.
 In Java ist es üblich Methodennamen und veränderbare Variablen mit einem kleinen Buchstaben beginnend zu benennen. Besteht der Name aus mehreren Wörtern so wird dieser im \quotes{camel-case} geschrieben. Das heißt, dass stets Großbuchstaben für den Beginn eines neuen Wortes verwendet werden. Beispiele hierfür wären \mintinline{java}{getAdditionalData()} oder \mintinline{java}{int currentAmountOfMoney}. Klassennamen werden in dem selben Muster geschrieben, beginnen jedoch mit einem Großbuchstaben: \mintinline{java}{ToolBox}. Zu guter letzt sollten konstante Variablen und Werte innerhalb eines Aufzählungstyps durchgehend aus Großbuchstaben bestehen, wobei einzelne Wörter mit einem Unterstrich voneinander getrennt werden (\mintinline{java}{final int MULIPLY_FACTOR = 2}). 
 \subsubsection*{COBOL}
-COBOL hingegen unterscheidet bei Variablennamen und Schlüsselwörtern nicht zwischen Groß- und Kleinschreibung. Es ist jedoch üblich sowohl Schlüsselwörter als auch Variablennamen komplett groß zu schreiben. Dies rührt daher, dass COBOL aus der Lochkartenzeit stammt, die meist lediglich Großbuchstaben im Zeichsatz hatten. Auch frühe Hostsysteme auf denen COBOL entwickelt und ausgeführt wurden arbeiteten meist nur mit Großschreibung, sodass Programme auch über die Zeit hinweg nur so geschrieben wurden.
+COBOL hingegen unterscheidet bei Variablennamen und Schlüsselwörtern nicht zwischen Groß- und Kleinschreibung. Es ist jedoch üblich sowohl Schlüsselwörter als auch Variablennamen komplett groß zu schreiben. Dies rührt daher, dass COBOL aus der Lochkartenzeit stammt, die meist lediglich Großbuchstaben im Zeichsatz hatten. Auch frühe Hostsysteme auf denen COBOL entwickelt und ausgeführt wurden, arbeiteten meist nur mit Großschreibung, sodass Programme auch über die Zeit hinweg nur so geschrieben wurden.
 
 
 \subsection*{Affixe}
@@ -19,7 +21,7 @@ Ein weiterer Codingstil der gelegentlich angewendet wird ist das Nutzen von \quo
 \subsubsection*{COBOL}\label{affixCOBOL}
 In COBOL ist es in der Praxis dagegen sehr sinnvoll Affixe zu verwenden. Dadurch, dass es nicht möglich ist lokale Variablen zu definieren erlauben es Präfixe schnell und übersichtlich kenntlich zu machen, welche Variablen zu welchem Programmteil gehören. Dabei handelt es sich um eine Best-Practice-Methode, um den Code verständlicher und leichter lesbar zu machen, wie \textit{Herr Streit} im Fachinterview betonte, auch wenn in der Praxis oftmals darauf verzichtet wird.
 
-So kann man den Namen einer \textit{SECTION} oder eines Paragraph mit einem Präfix versehen und die darin genutzten Variablen mit demselbigen kennzeichnen. Beispielsweise sollte eine Variable \mintinline{cobolfree}{PC-100-VALUE} nur in der \textit{SECTION} \mintinline{cobolfree}{PC-100-PROCESS} verwendet werden. 
+So kann man den Namen einer Section oder eines Paragraph mit einem Präfix versehen und die darin genutzten Variablen mit demselbigen kennzeichnen. Beispielsweise sollte eine Variable \mintinline{cobolfree}{PC-100-VALUE} nur in der Section \mintinline{cobolfree}{PC-100-PROCESS} verwendet werden. 
 
 Oft finden sich in bestehendem Code auch Präfixe welche die Art des Speichers -- z.B. \mintinline{cobolfree}{WS-} für \mintinline{cobolfree}{WORKING-STORAGE} -- kennzeichnen. Eine Benennung nach den genutzten Programmteilen ist jedoch vorzuziehen und sorgt für klarere Struktur und Lesbarkeit.
 
@@ -28,4 +30,9 @@ Oft finden sich in bestehendem Code auch Präfixe welche die Art des Speichers -
 In COBOL ist es möglich bestimmte Schlüsselwörter zu verkürzen. Dabei kann jedoch nicht beliebig gekürzt werden. Es sind lediglich weitere Schlüsselwörter mit selber Funktion definiert, die genutzt werden können. Ein Beispiel dafür ist die \mintinline{cobolfree}{PICTURE}-Anweisung, die auch als \mintinline{cobolfree}{PIC} geschrieben werden kann. Dabei handelt es sich zwar nicht um eine Konvention im eigentlichen Sinne, jedoch findet sich in der Praxis oftmals COBOL-Code welcher gekürzte Schlüsselwörter verwendet.
 
 In Java ist ein verkürzen von Schlüsselwörtern hingegen nicht möglich.
-\todo[inline]{Ein Statement pro Zeile, Einrückungen... -> Struktur / Aufbau des Codes (Verweis auch auf das Strukturkapitel, welches Strukturen enthält die nicht konventionell sondern fest vorgegeben sind.)}
+
+\subsection*{Formatierung des Quelltextes}
+
+Neben den in \autoref{sec:structure} beschriebenen fest vorgegebenen strukturellen Eigenschaften von Java- und COBOL-Programmen, lassen sich auch Konventionen beschreiben, die das Formatieren des Quelltextes betreffen.
+
+Für COBOL und Java gilt hierbei gleichermaßen, dass pro Zeile genau ein Statement stehen sollte. Alles innerhalb eines Blocks -- also eine oder mehrere untergeordnete Anweisungen -- werden konventionell um einen Tabulatorsprung eingerückt. Außerdem sollten zwischen Blöcken und Anweisungen Leerzeilen eingefügt werden, die die Lesbarkeit erhöhen. In COBOL ist jedoch bei der Einrückung das bereits beschriebene Spaltenprinzip zu beachten.

@@ -1,0 +1,33 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. LOOP-EXAMPLE.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 NUM PIC 9(2).
+       
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE SECTION.
+           PERFORM PERFORM-UNTIL.
+           PERFORM PERFORM-VARYING.
+           PERFORM PERFORM-VARYING-TEST-AFTER.
+           STOP RUN.
+            
+       PERFORM-UNTIL SECTION.
+           MOVE 0 TO NUM.
+           PERFORM UNTIL NUM = 10
+              COMPUTE NUM = NUM + 1
+           END-PERFORM.
+           DISPLAY NUM.
+       
+       PERFORM-VARYING SECTION.
+           MOVE 0 TO NUM.
+           PERFORM VARYING NUM FROM 0 BY 1 UNTIL NUM = 10
+              DISPLAY NUM
+           END-PERFORM.
+               
+       PERFORM-VARYING-TEST-AFTER SECTION.
+           MOVE 0 TO NUM.
+           PERFORM WITH TEST AFTER VARYING NUM FROM 0 BY 1 UNTIL NUM = 10
+              DISPLAY NUM
+           END-PERFORM.
+       
+       END PROGRAM LOOP-EXAMPLE.

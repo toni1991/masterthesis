@@ -19,16 +19,10 @@ UNION-SUB-PROGRAM: 190.742
 
 \autoref{structUnionCOBOL} zeigt sowohl die Verwendung als Struktur-Typ, als auch den Zugriff als Union-Typ in einem Unterprogramm und mithilfe der in \autoref{variables} beschriebenen \mintinline{cobolfree}{REDEFINES} Anweisung. Wie bereits vormals in dieser Arbeit gezeigt, wird -- in diesem Falle zur Ausgabe -- auf eine gesamte Datenstruktur zugegriffen, die mehrere unterschiedliche Variablen enthält. Diese Datenstruktur stellt also ein \textit{Struct} dar. Im gezeigten Unterprogramm hingegen wird der selbe Speicherbereich anders interpretiert
 
-\todo{Erweiterung von Datenstrukturen hinten!}
+Dies wird laut Herrn Streit in der Praxis auch oft ausgenutzt um Erweiterungen von Programmen zu realisieren. Da Unterprogramme lediglich einen Zeiger auf Datenstrukturen übergeben bekommen können diese Strukturen erweitert werden ohne, dass das Unterprogramm geändert werden muss, solange neue Datenfeldern an das Ende angehängt werden. Weitere Unterprogramme, welche an neue Datenfelder angepasst wurden könn wiederum diese Daten nutzen, die hinten angehängt wurden. Zu beachten ist, dass das Einfügen von Feldern zwischen anderen unweigerlich zur Anpassung aller Komponenten sorgt.
 
 \subsubsection*{Structs und Unions in Java}
 
-Java hingegen bietet keine direkten Konzepte um Verbunddatenstrukturen darzustellen. Allerdings können \textit{Structs} sehr intuitiv als sogenannte \textit{Java Beans}, eine Klasse die verschiedenen \mintinline{java}{public} Variablen kapselt, implementiert werden. Dies zeigt \autoref{javaBean}. Je nach Anwendungsfall empfiehlt es sich jedoch auf Klassen mit privaten Variablen und getter- und setter-Methoden zurückzugreifen.
+Java hingegen bietet keine direkten Konzepte um Verbunddatenstrukturen darzustellen. Allerdings können \textit{Structs} sehr intuitiv als sogenannte \textit{Java Beans}, eine Klasse die verschiedenen \mintinline{java}{public} Variablen kapselt, implementiert werden. Dies zeigt \autoref{javaBean}. Je nach Anwendungsfall empfiehlt es sich jedoch auf Klassen mit privaten Variablen und getter- und setter-Methoden zurückzugreifen. \textit{Unions} lassen sich in Java am besten durch, die in \autoref{generics} beschriebenen, \textit{Generics} darstellen.
 
 \mintedJava{Bean.java}{Java Bean}{javaBean}
-
-\textit{Unions} lassen sich in Java am besten durch \textit{Generics} darstellen. Dabei handelt es sich um das grundlegende Konzept, dass Variablentypen generisch sein können, solange sie bestimmte Eigenschaften -- zumindest vom Typ \textit{Object} abgeleitet zu sein, was für jede Java Klasse gilt -- erfüllt. Dies soll \autoref{javaGenerics} verdeutlichen.
-
-%\java{IGenericsExample.java}
-\java{GenericsExample.java}
-\mintedCaption{Generics in Java}{javaGenerics}
