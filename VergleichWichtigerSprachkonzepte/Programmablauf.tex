@@ -101,7 +101,7 @@ In COBOL ist ebenfalls das Schlüsselwort \cob{CONTINUE} vorhanden. Allerdings i
 
 Neben diesem ist \cob{NEXT SENTENCE} ist ein Schlüsselwort das häufig in älterem Code zu finden sei, wie Herr Lamperstorfer bestätigte. Dieses kann dazu genutzt werden, um den aktuellen Sentence zu verlassen und mit der Anweisung die darauf folgt fortzufahren. Zu beobachten sei die Verwendung auch häufig zur Negation einer Bedingung, indem der \cob{IF}-Zweig lediglich dieses Statement enthält und der \cob{ELSE}-Zweig die Logik bei nichtzutreffen der Bedingung enthält. Diese Konstrukte sollten jedoch vermieden werden und durch ein einfach Negieren mit \cob{NOT} geschrieben bzw. ersetzt werden. Aus Gründen der Unübersichtlichkeit ist dieses Schlüsselwort in GnuCOBOL standardmäßig verboten. 
 
-Seltener zu finden ist dagegen die \cob{EXIT PERFORM}-Anweisung. Diese kann innerhalb von Schleifen dazu genutzt werden, um wie ein \jav{break} die Schleife zu verlassen oder durch \cob{EXIT PERFORM CYCLE} wie ein \jav{continue} in Java mit dem nächten Schleifendurchlauf fortzufahren. Dies soll \autoref{exitPerform} verdeutlichen.
+Seltener zu finden ist dagegen die \cob{EXIT PERFORM}-Anweisung. Diese kann innerhalb von Schleifen dazu genutzt werden, um, wie mit einem \jav{break} in Java, die umgebende Schleife zu verlassen oder durch \cob{EXIT PERFORM CYCLE}, wie mit einem \jav{continue} in Java, mit dem nächten Schleifendurchlauf fortzufahren. Dies soll \autoref{exitPerform} verdeutlichen.
 
 \cobol{EXIT-PERFORM.cbl}
 \sepCodeAndOutputCheck
