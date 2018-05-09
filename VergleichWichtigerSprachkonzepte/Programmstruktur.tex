@@ -1,5 +1,5 @@
 \section{Programmstruktur}\label{sec:structure}
-Dieser Abschnitt behandelt die strukturellen Unterschiede von Java- und COBOL-Programmen. Dazu wird erläutert in welche Einheiten sich die Programme der jeweiligen Sprache aufteilen lassen. 
+Dieser Abschnitt behandelt die strukturellen Unterschiede von Java- und COBOL-Programmen. Dazu wird erläutert, in welche Einheiten sich die Programme der jeweiligen Sprache aufteilen lassen. 
 
 \subsection*{Struktur eines Javaprogramms}
 \autoref{javaStructureDiagram} gibt einen zusammenfassenden Überblick über die Teile eines Java-Programms und bildet graphisch ab, wie sich die jeweiligen Komponenten zusammensetzen können.
@@ -10,21 +10,19 @@ Dieser Abschnitt behandelt die strukturellen Unterschiede von Java- und COBOL-Pr
     \caption{Strukturelle Bestandteile eines Java-Programms \label{javaStructureDiagram}}
 \end{figure}
 
-Anhand dieses Diagrams werden die wichtigsten Konzepte der Strukturierung von Java-Code aufgezeigt. Zeile 1 beinhaltet die Package-Deklaration, d.h. hiermit wird die Klasse dem hier genannten Package zugeordnet. Diese Deklaration \textbf{muss} gleich der Ordnerhierarchie sein, in denen die Java-Dateien verwaltet werden. 
+Anhand dieses Diagrams werden die wichtigsten Konzepte der Strukturierung von Java-Code aufgezeigt. Zeile 1 beinhaltet die Package-Deklaration, \dh hiermit wird die Klasse dem hier genannten Package zugeordnet. Diese Deklaration \textbf{muss} gleich der Ordnerhierarchie sein, in denen die Java-Dateien verwaltet werden. 
 
-Die nächstkleinere Einheit eines Java-Programms stellen Klassen dar. Hierbei handelt es sich um das Kernkonzept der objektorientierten Programmierung. Von dieser Klasse können fortan Objekte instanziiert werden. Um einen tieferen Einblick in die Thematik der Objektorientierung zu erhalten sei an dieser Stelle einschlägige Fachliteratur erwähnt. Diese erwähnte Klasse muss dabei in einer Datei gespeichert sein, die den selben Namen trägt wie die Klasse selbst. Aus dem Klassennamen \jav{MasterThesis} folgt also der Dateiname \mintinline{text}{MasterThesis.java}.
+Die nächstkleinere Einheit eines Java-Programms stellen Klassen dar. Hierbei handelt es sich um das Kernkonzept der objektorientierten Programmierung. Von dieser Klasse können fortan Objekte instanziiert werden. Um einen tieferen Einblick in die Thematik der Objektorientierung zu erhalten, sei an dieser Stelle auf einschlägige Fachliteratur verwießen. Diese Klasse muss dabei in einer Datei gespeichert sein, die den selben Namen trägt wie die Klasse selbst. Aus dem Klassennamen \jav{MasterThesis} folgt also der Dateiname \mintinline{text}{MasterThesis.java}.
 
-Teil dieser Klassen können wiederum Methoden, Variablendeklarationen und weitere Klassen sein. Diese können jeweils statisch oder auch einer Instanz zugeordnet sein. Auch dabei handelt es sich um ein gängiges Konzept der objektorientierten Softwareentwicklung. Hierzu sei an dieser stelle lediglich erwähnt, dass statische Methoden, Variablen und Klassen Teil der Klasse sind und kein konkret instanziiertes Objekt benötigen während nicht-statische Komponenten stets ein konkretes Objekt einer Klasse benötigen.
-
-Diese weiteren Klassen haben strukturell die selben Eigenschaften wie die umgebende Klasse, außer, dass sie nicht in einer Datei gespeichert sein müssen bzw. können deren Name dem Klassennamen entspricht.
+Teil dieser Klassen können wiederum Methoden, Variablendeklarationen und weitere Klassen sein. Diese inneren Klassen haben strukturell die selben Eigenschaften wie die umgebende Klasse. Die Bestandteile einer Klasse können jeweils statisch oder auch einer Instanz zugeordnet sein. Auch dabei handelt es sich um ein gängiges Konzept der objektorientierten Softwareentwicklung. Hierzu sei an dieser Stelle lediglich erwähnt, dass statische Methoden, Variablen und Klassen Teil der Klasse sind und kein konkret instanziiertes Objekt benötigen, während nicht-statische Komponenten stets ein konkretes Objekt einer Klasse benötigen. 
 
 Methoden wiederum bestehen aus einzelnen Statements. Zu erwähnen ist, dass Variablendeklarationen auch ein Statement darstellen. Während Variablendeklarationen an jeder Stelle innerhalb einer Klasse möglich sind, sind andere Statements als Teil einer Klasse nur dann gültig, wenn diese in geschweiften Klammern stehen. Diese Blöcke werden -- der Reihe nach -- vor jedem Konstruktoraufruf ausgeführt und heißen deshalb auch \textit{Initializer}. Auch ist die Definition von statischen \textit{Initializer} möglich, die einmalig nach dem Laden einer Klasse ausgeführt werden. \autoref{initJava} führt Beispiele dafür an.
 
 \mintedJava{Initializer.java}{Initializer in Java}{initJava}
 
-Statements die aus Variablendeklarationen, Zuweisungen oder Methodenaufrufen bestehen, müssen im Gegensatz zu Block-Statements, wie z.B. Schleifen oder Verzweigungen, stets mit einem Semikolon beendet werden. 
+Statements die aus Variablendeklarationen, Zuweisungen oder Methodenaufrufen bestehen, müssen im Gegensatz zu Block-Statements, wie \zB Schleifen oder Verzweigungen, stets mit einem Semikolon beendet werden. 
 
-Die letzten strukturellen Elemente sind anonyme Klassen und Funktionen, auch Lambda-Funktionen genannt. Wobei anonyme Funktionen in Java genaugenommen nur eine syntaktische Schreibweise einer speziellen anonymen Klasse sind. Die Verwendung wird in \autoref{anonymousJava} illustriert. Die Zeilen \till{9}{14} beinhalten eine anonyme Klasse, die das \jav{IntConsumer}-Interface implementiert. Die völlig identische  anonyme Klasse wird implizit durch die Lambda-Funktion in den Zeilen \till{16}{18} implementiert.
+Die letzten strukturellen Elemente sind anonyme Klassen und Funktionen, auch Lambda-Funktionen genannt, wobei anonyme Funktionen in Java genau genommen nur eine syntaktische Schreibweise einer speziellen anonymen Klasse sind. Die Verwendung wird in \autoref{anonymousJava} illustriert. Die Zeilen \till{9}{14} beinhalten eine anonyme Klasse, die das \jav{IntConsumer}-Interface implementiert. Die völlig identische  anonyme Klasse wird implizit durch die Lambda-Funktion in den Zeilen \till{16}{18} implementiert.
 
 \mintedJava{AnonymousClassAndMethodExample.java}{Anonyme Klassen und Funktion in Java}{anonymousJava}
 
@@ -39,10 +37,10 @@ Neben der inhaltlichen Struktur bleibt noch zu erwähnen, dass Java Programme ke
 \end{figure}
 
 \autoref{cobolStructureDiagram} zeigt die strukturellen Bestandteile eines COBOL-Programms. 
-Ein Programm kann besteht dabei aus vier fest definierten Divisions:
+Ein Programm besteht dabei aus vier fest definierten Divisions:
 
 \begin{itemize}
-    \item \cob{IDENTIFICATION DIVISION} -- Hier werden grundlegende Daten zum Programm, wie der Name oder der Autor festgelegt.
+    \item \cob{IDENTIFICATION DIVISION} -- Hier werden grundlegende Daten zum Programm wie der Name oder der Autor festgelegt.
     \item \cob{ENVIRONMENT DIVISION} -- Definiert die Ein- und Ausgabe sowie Konfigurationen der Systemumgebung.
     \item \cob{DATA DIVISION} -- Diese Division beinhaltet die Definitionen von Daten. Dazu zählen Variablen oder auch Datei-Record-Definitionen.
     \item \cob{PROCEDURE DIVISION} -- Innerhalb dieser Division befindet sich der ausführbare Code.
@@ -50,32 +48,32 @@ Ein Programm kann besteht dabei aus vier fest definierten Divisions:
 
 Eine Division -- außer der \cob{IDENTIFICATION DIVISION} -- kann wiederum aus verschiedenen Sections bestehen, wobei diese nur innerhalb der \cob{PROCEDURE DIVISION} frei definiert werden können.
 
-Die \cob{ENVIRONMENT DIVISION} kann eine \cob{CONFIGURATION SECTION} und eine \cob{INPUT- OUTPUT SECTION} enthalten. Erstere erlaubt Definitionen zum Zielsystem. Letztere beinhaltet Definitionen zum Dateizugriff sowie zu Ein- und Ausgabeoperationen.
+Die \cob{ENVIRONMENT DIVISION} kann eine \cob{INPUT-OUTPUT SECTION} und eine \cob{CONFIGURATION SECTION} enthalten. Erstere beinhaltet Definitionen zum Dateizugriff sowie zu Ein- und Ausgabeoperationen und letztere zum Zielsystem.
 
 Teil der \cob{DATA DIVISION} sind folgende Sections:
 \begin{itemize}
-    \item \cob{FILE SECTION} -- Definiert Dateien bzw. Dateischemata auf die im Programm zugegriffen werden soll.
+    \item \cob{FILE SECTION} -- Definiert Dateien bzw. Dateischemata, auf die im Programm zugegriffen wird.
     \item \cob{WORKING-STORAGE SECTION} -- Enthält Variablendeklarationen, welche über mehrere Programmaufrufe hinweg bestehen bleiben.
-    \item \cob{LOCAL-STORAGE SECTION} -- Enthält Variablendeklarationen, welche bei jedem Programmaufrufe neu alloziiert werden.
+    \item \cob{LOCAL-STORAGE SECTION} -- Enthält Variablendeklarationen, die bei jedem Programmaufrufe neu alloziert werden.
     \item \cob{LINKAGE SECTION} -- Enthält Definitionen von Variablen, welche bei einem Programmaufruf von außen übergeben werden können.
 \end{itemize}
 
 In der \cob{PROCEDURE DIVISION} finden sich schließlich vom Entwickler definierte Sections, welche ein COBOL-Pendant zu Funktionen in Java darstellen.
 
-Die nächstkleinere Einheit eines COBOL-Programms stellen Paragraphs dar. Diese lassen sich -- mit kleinen Unterschieden -- im Allgemeinen wie Sections verwenden. In bestehenden COBOL-Programmen lassen sich daher zwei unterschiedliche Stile beobachten. Auf der einen Seite gibt es Programme die lediglich aus Paragraphs bestehen und auf der anderen existieren Systeme in denen Sections verwendet wurden und durch Paragraphs untergliedert sind. Generell ist zweitere Variante vorzuziehen wie auch \citeauthor{richards_enhancing_1984} in \citeWithTitle{richards_enhancing_1984} beschreibt, da dadurch sowohl die Programmstruktur lesbarer wird als auch die Fehleranfälligkeit verringert wird. Auf beide Eigenschaften wird im weiteren Verlauf der Arbeit eingegangen. An dieser Stelle soll lediglich festgehalten werden, dass es verschiedene Varianten gibt.
+Die nächstkleinere Einheit eines COBOL-Programms stellen Paragraphs dar. Diese lassen sich -- mit kleinen Unterschieden -- im Allgemeinen wie Sections verwenden. In bestehenden COBOL-Programmen lassen sich daher zwei unterschiedliche Stile beobachten. Auf der einen Seite gibt es Programme, die lediglich aus Paragraphs bestehen, und auf der anderen existieren Systeme, in denen Sections verwendet wurden und durch Paragraphs untergliedert sind. Generell ist zweitere Variante vorzuziehen wie auch \citeauthor{richards_enhancing_1984} in \citeWithTitle{richards_enhancing_1984} beschreibt, da dadurch sowohl die Programmstruktur lesbarer als auch die Fehleranfälligkeit verringert wird. Auf beide Eigenschaften wird im weiteren Verlauf der Arbeit eingegangen. An dieser Stelle soll lediglich festgehalten werden, dass es verschiedene Varianten gibt.
 
-Sections und Paragraphs können wiederum aus Sentences bestehen. Dabei handelt es sich um ein oder mehr Statements. Ein Sentence wird stets von einem Punkt abgeschlossen. Während Sections Paragraphs also Analogien zu Methoden in Java sind kann man Sentences am ehesten mit Block-Statements -- sobald diese geschachtelt werden stimmt diese Analogie nicht mehr -- und Statements mit Semikolon-terminierten Statements in Java vergleichen. Herr Streit merkte dazu im Interview an, dass diese Punkte stets ein Statement terminieren sollten. Alles andere sei schlechter Stil und könne zu unabsehbaren semantischen Fehlern führen. 
+Sections und Paragraphs können wiederum aus Sentences bestehen. Dabei handelt es sich um ein oder mehr Statements. Ein Sentence wird stets von einem Punkt abgeschlossen. Während Sections Paragraphs also Analogien zu Methoden in Java sind, kann man Sentences am ehesten mit Block-Statements -- sobald diese geschachtelt werden, stimmt diese Analogie nicht mehr -- und Statements mit Semikolon-terminierten Statements in Java vergleichen. Herr Streit merkte dazu im Interview an, dass diese Punkte stets ein Statement terminieren sollten. Alles andere sei schlechter Stil und könne zu unabsehbaren semantischen Fehlern führen. 
 
 COBOL-Programme lassen sich nicht beliebig formatieren. So folgt ein COBOL-Pro"=gramm einem festgelegten spaltenweisen Aufbau:
 \begin{itemize}
     \item \textbf{Spalte \till{1}{6}}\\
-    In diesen Spalten befindet sich die sog. Sequenznummer. Damit können Programmzeilen nummeriert werden. Der Zeichensatz dafür entspricht dem zugrundeliegenden System. So könnten Zeilen auch bespielsweise mit Buchstaben versehen werden.
+    In diesen Spalten befindet sich die sog. Sequenznummer. Damit können Programmzeilen nummeriert werden. Da der Zeichensatz dafür dem zugrundeliegenden System entspricht, können Zeilen auch beispielsweise mit Buchstaben versehen werden.
     \item \textbf{Spalte 7}\\
-    In dieser Spalte kann ein Zeichen gesetzt werden, um dem Compiler die Bedeutung der Zeile kenntlich zu machen. Ein \textbf{*} leitet z.B. eine Kommentarzeile ein und mit \textbf{-} kann ein nicht-numerisches Literal aus der vorherigen Zeile fortgeführt werden.
+    In dieser Spalte kann ein Zeichen gesetzt werden, um dem Compiler die Bedeutung der Zeile kenntlich zu machen. Ein \tt{\textbf{*}} leitet \zB eine Kommentarzeile ein und mit \tt{\textbf{-}} kann ein nicht-numerisches Literal aus der vorherigen Zeile fortgeführt werden.
     \item \textbf{Spalte \till{8}{11} und Spalte \till{12}{72}}\\
-    Diese Spalten enthalten Definitionen und ausführbaren Programmcode. Je nach COBOL-Dialekt sind diese beiden Bereich jedoch im Hinblick auf Variablendeklarationen unterschiedlich. Während in ersterem nur die Stufennummern \textit{01} und \textit{77} deklariert werden dürfen, müssen alle anderen in dem Bereich ab Spalte 12 stehen. Dies gilt jedoch wie erwähnt nicht auf allen Systemen.
+    Diese Spalten enthalten Definitionen und ausführbaren Programmcode. Je nach COBOL-Dialekt sind diese beiden Bereiche jedoch im Hinblick auf Variablendeklarationen unterschiedlich. Während in ersterem nur die Stufennummern \textit{01} und \textit{77} deklariert werden dürfen, müssen alle anderen in dem Bereich ab Spalte 12 stehen. Dies gilt jedoch wie erwähnt nicht auf allen Systemen.
     \item \textbf{Spalte \till{73}{80}}\\
-    In klassischem COBOL dienen diese Spalten dazu Kommentare zur aktuellen Zeile einzufügen. Wie Herr Streit betonte sind diese in Altsystemen exzessiv genutz um Versionsinformationen -- wie Änderungsdatum oder Ticketnummern -- festzuhalten, sollten jedoch zum Wohl der Übersichtlichkeit entfernt werden und im Zuge einer Renovierung oder Migration durch eine modernen Versionsverwaltung wie z.B. SVN oder Git ersetzt werden. Auch ein Änderungsvergleich zwischen Programmversionen in einem entsprechenden Werkzeug wird durch diese Kommentare erheblich erschwert. Wichig sei es jedoch zu verstehen, dass diese Kommentare, zu Zeiten in denen es keine Versionsverwaltungssoftware gab, sinnvoll waren.
+    In klassischem COBOL dienen diese Spalten dazu Kommentare zur aktuellen Zeile einzufügen. Wie Herr Streit betonte sind diese in Altsystemen exzessiv genutzt, um Versionsinformationen -- wie Änderungsdatum oder Ticketnummern -- festzuhalten, sollten jedoch zum Wohl der Übersichtlichkeit entfernt und im Zuge einer Renovierung oder Migration durch eine modernen Versionsverwaltung wie \zB SVN oder Git ersetzt werden. Auch ein Änderungsvergleich zwischen Programmversionen in einem entsprechenden Werkzeug wird durch diese Kommentare erheblich erschwert. Wichig sei es jedoch zu verstehen, dass diese Kommentare, zu Zeiten, in denen es keine Versionsverwaltungssoftware gab, sinnvoll waren.
 \end{itemize}
 
 Im sogenannten \textit{Free-Format}, welches von einigen COBOL-Dialekten unterstützt wird, gelten diese Beschränkungen nicht. Dabei gilt lediglich, dass Spalte 1 wie Spalte 7 zur Kennzeichnung von Kommentaren fungiert. Auch die Breite eine Zeile kann hierbei, im Gegensatz zum klassischen COBOL, 80 Zeichen überschreiten. 

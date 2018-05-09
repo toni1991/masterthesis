@@ -11,7 +11,7 @@ import java.nio.file.Path;
 
 public class FileInputOutput {
 
-    private final static Path filePath = FileSystems.getDefault().getPath("/home/toni/Temporary/output.txt");
+    private final static Path filePath = FileSystems.getDefault().getPath("file.txt");
 
     public static void main(String... args) {
         writeFile();
@@ -19,10 +19,10 @@ public class FileInputOutput {
     }
 
     private static void writeFile() {
-        Charset charset = StandardCharsets.UTF_8;
         String s = "I'm getting written to the File\n";
 
-        try (BufferedWriter writer = Files.newBufferedWriter(filePath, charset)) {
+        try (BufferedWriter writer = 
+            Files.newBufferedWriter(filePath, StandardCharsets.UTF_8)) {
             writer.write(s, 0, s.length());
         } catch (IOException x) {
             System.err.format("IOException: %s%n", x);

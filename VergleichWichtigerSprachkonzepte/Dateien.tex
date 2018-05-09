@@ -5,14 +5,16 @@ Java bietet bereits mit Bibliotheksfunktionen des JDK umfangreiche Möglichkeite
 
 \mintedJava{FileInputOutput.java}{Datei-Ein- und Ausgabe in Java \cite{oracle_reading_}}{javaIo}
 
-In Java sind darüberhinaus viele Bibliotheken erhältlich, die das Parsen von bestimmten, standardisierten Dateiformaten erleichtern können. Jedoch erfordert es ohne diese Biliotheken stets eigene Implementierungen, da das JDK an dieser Stelle nicht viel mehr als die gezeigten Möglichkeiten bietet.
+In Java sind darüberhinaus viele Bibliotheken erhältlich, die das Parsen von bestimmten, standardisierten Dateiformaten erleichtern können. Jedoch erfordert es ohne diese Biliotheken stets eigene Implementierungen, da das JDK an dieser Stelle nicht viel mehr als die gezeigten Abstraktionen und Möglichkeiten bietet.
 
 In COBOL hingegen wird der Zugriff auf Dateien auf Basis sogenannter \textit{Records} bewerkstelligt. Dies entspricht weitestgehend dem gezeigten Java-Beispiel, jedoch hat der Entwickler hier die Möglichkeit zu definieren, wie eine Zeile der Datei aufgebaut ist. Dies setzt zwar voraus, dass der Dateiinhalt in einer Art Tabelle formatiert ist, sorgt allerdings dafür, dass kein Mehraufwand beim Parsen nötig ist. \autoref{cobolOutput} und \autoref{cobolInput} zeigen diese Verwendung der Datei-Ein- und Ausgabe in COBOL.
 
 \mintedCobol{recordFile.txt}{Eingabedatei recordFile.txt}{recordFile}
 
-\mintedCobol{PersonData.cpy}x{Personendaten Copybook}{}
+\mintedCobol{PersonData.cpy}{Personendaten Copybook}{copyBookPersonData}
 
-\mintedCobol{Files.cbl}{Datei-Ausgabe in COBOL \cite{oracle_reading_}}{cobolOutput}
+\mintedCobol{Files.cbl}{Lesen von Dateien in COBOL}{cobolOutput}
+
+\mintedCobol{Files.cbl}{Schreiben von Dateien in COBOL}{cobolOutput}
 
 \todo{complete section}
