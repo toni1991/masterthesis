@@ -65,7 +65,6 @@
 \newcommand{\mintedJavaWithOutput}[4]{\java{#1}#4\mintedCaption{#2}{#3}}
 \newcommand{\mintedJava}[3]{\java{#1}\mintedCaption{#2}{#3}}
 
-
 % Interviews
 \newcommand{\interviewExpert}[2]{\subsubsection*{#1}#2}
 \newcommand{\toni}[1]{\subsubsection*{Antonio Grieco}\textit{#1}}
@@ -74,20 +73,18 @@
 \newcommand{\thomas}[1]{\interviewExpert{Thomas Lamperstorfer}{#1}}
 
 % recap
+\newcommand{\recappage}[1]{
+    \begin{minipage}[c]{\linewidth}
+        \begin{wrapfigure}{l}{.1\linewidth}
+            \vspace{-15pt}
+            \includegraphics[width=\linewidth]{Bilder/recap}
+            \vspace{-25pt}
+        \end{wrapfigure}
+        #1
+    \end{minipage}
+}
+
 \newcommand{\recap}[1]{
-    {
-        \centering
-        \setlength{\fboxsep}{1em}
-        \noindent\fcolorbox{lightgray}{lightgray!50!white}{%
-            \begin{minipage}[c]{.95\linewidth}
-                \begin{wrapfigure}{l}{.05\linewidth}
-                    %\usefont{T1}{fxb}{o}{b}\fontsize{10cm}{10.5cm}\selectfont?
-                    \vspace{-15pt}
-                    \includegraphics[width=0.9\linewidth]{Bilder/exclamation_mark}
-                    \vspace{-20pt}
-                \end{wrapfigure}
-                #1
-            \end{minipage}
-        }
-    }
+    \setlength{\fboxsep}{1.5em}
+    \colorbox{gray!25}{\parbox{\linewidth-2\fboxsep}{\recappage{#1}}}
 }
