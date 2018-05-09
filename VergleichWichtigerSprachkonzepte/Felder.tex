@@ -1,5 +1,5 @@
 \section{Arrays}\label{sec:felder}
-Eine zentrale Datenstruktur in der Programmierung stellen Felder bzw. Arrays -- in COBOL auch als \textit{table} bezeichnet -- dar. Dabei handelt es sich um eine geordnete Sammlung von Werten eines Typs, auf die, im Gegensatz zu \zB verketteten Listen, direkt zugegriffen werden kann. 
+Eine zentrale Datenstruktur in der Programmierung stellen Felder \bzw Arrays -- in COBOL auch als \textit{table} bezeichnet -- dar. Dabei handelt es sich um eine geordnete Sammlung von Werten eines Typs, auf die, im Gegensatz zu \zB verketteten Listen, direkt zugegriffen werden kann. 
 
 \mintedJava{Arrays.java}{Felder in Java}{arraysJava}
 Zeile 4 in \autoref{arraysJava} beschreibt das Anlegen eines Arrays in Java mittels \jav{new}-Schlüs"-sel"-wort, wohingegen Zeile 8 den Zugriff auf ein Element zeigt. Die Indizierung der Elemente beginnt dabei mit dem Element 0. Ein Feld der Größe 10 hat also die Indizes \till{0}{9}. Sowohl beim Anlegen als auch beim Zugreifen auf ein Element des Arrays wird der \jav{[]}-Operator verwendet.
@@ -9,6 +9,6 @@ In COBOL können Felder durch \cob{OCCURS}, gefolgt von der Anzahl der zu speich
 \mintedCobol{arrays.cbl}{Felder in COBOL}{arraysCobol}
 In Zeile 12 ist der Zugriff auf ein einzelnes Feld-Element zu sehen. Dies geschieht in COBOL mittels runder Klammern. Zu beachten ist hierbei, dass COBOL die einzelnen Elemente beginnend mit 1 indiziert. Im Gegensatz zu Java hat ein Array der Größe 10 in COBOL also die Indizes \till{1}{10}.
 
-Eine Besonderheit von Feldern in COBOL und in Java ist, dass diese auch mehrdimensional sein können. In COBOL spricht man statt von Dimensionen von Levels. Jedes Element der ersten Dimension bzw. des ersten Levels besteht also aus einem weiteren Feld. Ein Zugriff auf ein beispielhaftes zweidimensionales Array ist dann mittels \jav{[][]} in Java bzw. \cob{(X,Y)} in COBOL möglich. Dabei ist auch ein Zugriff auf eine ganze Dimension möglich.
+Eine Besonderheit von Feldern in COBOL und in Java ist, dass diese auch mehrdimensional sein können. In COBOL spricht man statt von Dimensionen von Levels. Jedes Element der ersten Dimension \bzw des ersten Levels besteht also aus einem weiteren Feld. Ein Zugriff auf ein beispielhaftes zweidimensionales Array ist dann mittels \jav{[][]} in Java \bzw \cob{(X,Y)} in COBOL möglich. Dabei ist auch ein Zugriff auf eine ganze Dimension möglich.
 
 Eine weitere Gemeinsamkeit ist die Tatsache, dass Felder in beiden Sprachen eine feste Größe haben. Nach dem Anlegen des Feldes kann diese Größe nicht mehr geändert werden. Jedoch muss in COBOL bereits zur Zeit der Kompilierung festgelegt werden, wie viele Elemente ein Array beinhalten soll. In Java kann diese Größe auch variabel zur Laufzeit des Programms festgelegt werden.

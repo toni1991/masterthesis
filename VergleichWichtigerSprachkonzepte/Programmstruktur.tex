@@ -10,9 +10,9 @@ Dieser Abschnitt behandelt die strukturellen Unterschiede von Java- und COBOL-Pr
     \caption{Strukturelle Bestandteile eines Java-Programms \label{javaStructureDiagram}}
 \end{figure}
 
-Anhand dieses Diagrams werden die wichtigsten Konzepte der Strukturierung von Java-Code aufgezeigt. Zeile 1 beinhaltet die Package-Deklaration, \dh hiermit wird die Klasse dem hier genannten Package zugeordnet. Diese Deklaration \textbf{muss} gleich der Ordnerhierarchie sein, in denen die Java-Dateien verwaltet werden. 
+Anhand dieses Diagramms werden die wichtigsten Konzepte der Strukturierung von Java-Code aufgezeigt. Zeile 1 beinhaltet die Package-Deklaration, \dahe hiermit wird die Klasse dem hier genannten Package zugeordnet. Diese Deklaration \textbf{muss} gleich der Ordnerhierarchie sein, in denen die Java-Dateien verwaltet werden. 
 
-Die nächstkleinere Einheit eines Java-Programms stellen Klassen dar. Hierbei handelt es sich um das Kernkonzept der objektorientierten Programmierung. Von dieser Klasse können fortan Objekte instanziiert werden. Um einen tieferen Einblick in die Thematik der Objektorientierung zu erhalten, sei an dieser Stelle auf einschlägige Fachliteratur verwießen. Diese Klasse muss dabei in einer Datei gespeichert sein, die den selben Namen trägt wie die Klasse selbst. Aus dem Klassennamen \jav{MasterThesis} folgt also der Dateiname \mintinline{text}{MasterThesis.java}.
+Die nächstkleinere Einheit eines Java-Programms stellen Klassen dar. Hierbei handelt es sich um das Kernkonzept der objektorientierten Programmierung. Von dieser Klasse können fortan Objekte instanziiert werden. Um einen tieferen Einblick in die Thematik der Objektorientierung zu erhalten, sei an dieser Stelle auf einschlägige Fachliteratur verwiesen. Diese Klasse muss dabei in einer Datei gespeichert sein, die den selben Namen trägt wie die Klasse selbst. Aus dem Klassennamen \jav{MasterThesis} folgt also der Dateiname \mintinline{text}{MasterThesis.java}.
 
 Teil dieser Klassen können wiederum Methoden, Variablendeklarationen und weitere Klassen sein. Diese inneren Klassen haben strukturell die selben Eigenschaften wie die umgebende Klasse. Die Bestandteile einer Klasse können jeweils statisch oder auch einer Instanz zugeordnet sein. Auch dabei handelt es sich um ein gängiges Konzept der objektorientierten Softwareentwicklung. Hierzu sei an dieser Stelle lediglich erwähnt, dass statische Methoden, Variablen und Klassen Teil der Klasse sind und kein konkret instanziiertes Objekt benötigen, während nicht-statische Komponenten stets ein konkretes Objekt einer Klasse benötigen. 
 
@@ -48,11 +48,11 @@ Ein Programm besteht dabei aus vier fest definierten Divisions:
 
 Eine Division -- außer der \cob{IDENTIFICATION DIVISION} -- kann wiederum aus verschiedenen Sections bestehen, wobei diese nur innerhalb der \cob{PROCEDURE DIVISION} frei definiert werden können.
 
-Die \cob{ENVIRONMENT DIVISION} kann eine \cob{INPUT-OUTPUT SECTION} und eine \cob{CONFIGURATION SECTION} enthalten. Erstere beinhaltet Definitionen zum Dateizugriff sowie zu Ein- und Ausgabeoperationen und letztere zum Zielsystem.
+Die \cob{ENVIRONMENT DIVISION} kann zwei verschiedene Sections enthalten. Definitionen zum Zielsystem finden sich innerhalb der \cob{CONFIGURATION SECTION} und Angaben zu Dateizugriffen sowie zu Ein- und Ausgabeoperationen in der \cob{INPUT-OUTPUT SECTION}.
 
 Teil der \cob{DATA DIVISION} sind folgende Sections:
 \begin{itemize}
-    \item \cob{FILE SECTION} -- Definiert Dateien bzw. Dateischemata, auf die im Programm zugegriffen wird.
+    \item \cob{FILE SECTION} -- Definiert Dateien \bzw Dateischemata, auf die im Programm zugegriffen wird.
     \item \cob{WORKING-STORAGE SECTION} -- Enthält Variablendeklarationen, welche über mehrere Programmaufrufe hinweg bestehen bleiben.
     \item \cob{LOCAL-STORAGE SECTION} -- Enthält Variablendeklarationen, die bei jedem Programmaufrufe neu alloziert werden.
     \item \cob{LINKAGE SECTION} -- Enthält Definitionen von Variablen, welche bei einem Programmaufruf von außen übergeben werden können.
@@ -69,11 +69,11 @@ COBOL-Programme lassen sich nicht beliebig formatieren. So folgt ein COBOL-Pro"=
     \item \textbf{Spalte \till{1}{6}}\\
     In diesen Spalten befindet sich die sog. Sequenznummer. Damit können Programmzeilen nummeriert werden. Da der Zeichensatz dafür dem zugrundeliegenden System entspricht, können Zeilen auch beispielsweise mit Buchstaben versehen werden.
     \item \textbf{Spalte 7}\\
-    In dieser Spalte kann ein Zeichen gesetzt werden, um dem Compiler die Bedeutung der Zeile kenntlich zu machen. Ein \tt{\textbf{*}} leitet \zB eine Kommentarzeile ein und mit \tt{\textbf{-}} kann ein nicht-numerisches Literal aus der vorherigen Zeile fortgeführt werden.
+    In dieser Spalte kann ein Zeichen gesetzt werden, um dem Compiler die Bedeutung der Zeile kenntlich zu machen. Ein {\tt\textbf{*}} leitet \zB eine Kommentarzeile ein und durch {\tt\textbf{-}} kann die vorherige Zeile fortgeführt werden.
     \item \textbf{Spalte \till{8}{11} und Spalte \till{12}{72}}\\
     Diese Spalten enthalten Definitionen und ausführbaren Programmcode. Je nach COBOL-Dialekt sind diese beiden Bereiche jedoch im Hinblick auf Variablendeklarationen unterschiedlich. Während in ersterem nur die Stufennummern \textit{01} und \textit{77} deklariert werden dürfen, müssen alle anderen in dem Bereich ab Spalte 12 stehen. Dies gilt jedoch wie erwähnt nicht auf allen Systemen.
     \item \textbf{Spalte \till{73}{80}}\\
-    In klassischem COBOL dienen diese Spalten dazu Kommentare zur aktuellen Zeile einzufügen. Wie Herr Streit betonte sind diese in Altsystemen exzessiv genutzt, um Versionsinformationen -- wie Änderungsdatum oder Ticketnummern -- festzuhalten, sollten jedoch zum Wohl der Übersichtlichkeit entfernt und im Zuge einer Renovierung oder Migration durch eine modernen Versionsverwaltung wie \zB SVN oder Git ersetzt werden. Auch ein Änderungsvergleich zwischen Programmversionen in einem entsprechenden Werkzeug wird durch diese Kommentare erheblich erschwert. Wichig sei es jedoch zu verstehen, dass diese Kommentare, zu Zeiten, in denen es keine Versionsverwaltungssoftware gab, sinnvoll waren.
+    In klassischem COBOL dienen diese Spalten dazu Kommentare zur aktuellen Zeile einzufügen. Wie Herr Streit betonte sind diese in Altsystemen exzessiv genutzt, um Versionsinformationen -- wie Änderungsdatum oder Ticketnummern -- festzuhalten, sollten jedoch zum Wohl der Übersichtlichkeit entfernt und im Zuge einer Renovierung oder Migration durch eine modernen Versionsverwaltung wie \zB SVN oder Git ersetzt werden. Auch ein Änderungsvergleich zwischen Programmversionen in einem entsprechenden Werkzeug wird durch diese Kommentare erheblich erschwert. Wichtig sei es jedoch zu verstehen, dass diese Kommentare, zu Zeiten, in denen es keine Versionsverwaltungssoftware gab, sinnvoll waren.
 \end{itemize}
 
 Im sogenannten \textit{Free-Format}, welches von einigen COBOL-Dialekten unterstützt wird, gelten diese Beschränkungen nicht. Dabei gilt lediglich, dass Spalte 1 wie Spalte 7 zur Kennzeichnung von Kommentaren fungiert. Auch die Breite eine Zeile kann hierbei, im Gegensatz zum klassischen COBOL, 80 Zeichen überschreiten. 

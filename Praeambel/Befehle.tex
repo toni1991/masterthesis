@@ -4,22 +4,21 @@
 \newcommand{\changefont}[3]{\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
 
 % Abkürzungen mit korrektem Leerraum 
-\newcommand{\ua}{\mbox{u.\,a.\ }}
-\newcommand{\zB}{\mbox{z.\,B.\ }}
-\newcommand{\dh}{\mbox{d.\,h.\ }}
-\newcommand{\idR}{\mbox{i.\,d.\,R.\ }}
-\newcommand{\uU}{\mbox{u.\,U.\ }}
-\newcommand{\uA}{\mbox{u.\,A.\ }}
-\newcommand{\iA}{\mbox{i.\,A.\ }}
-\newcommand{\dahe}{\mbox{d.\,h.\ }}
-\newcommand{\Vgl}{Vgl.\ }
-\newcommand{\ggf}{ggf.\ }
 \newcommand{\bzw}{bzw.\ }
-\newcommand{\evtl}{evtl.\ }
-\newcommand{\szs}{szs.\ }
-\newcommand{\sog}{sog.\ }
+\newcommand{\dahe}{\mbox{d.\,h.\ }}
 \newcommand{\engl}{engl.\ }
+\newcommand{\evtl}{evtl.\ }
+\newcommand{\ggf}{ggf.\ }
+\newcommand{\iA}{\mbox{i.\,A.\ }}
+\newcommand{\idR}{\mbox{i.\,d.\,R.\ }}
 \newcommand{\lat}{lat.\ }
+\newcommand{\sog}{sog.\ }
+\newcommand{\szs}{szs.\ }
+\newcommand{\ua}{\mbox{u.\,a.\ }}
+\newcommand{\uA}{\mbox{u.\,A.\ }}
+\newcommand{\uU}{\mbox{u.\,U.\ }}
+\newcommand{\Vgl}{Vgl.\ }
+\newcommand{\zB}{\mbox{z.\,B.\ }}
 
 \newcommand{\abbildung}[1]{Abbildung~\ref{fig:#1}}
 
@@ -55,8 +54,8 @@
 \newcommand{\till}[2]{#1 -- #2}
 
 %Minted
-\newcommand{\cob}[1]{\mintinline{cobolfree}{#1}}
-\newcommand{\jav}[1]{\mintinline{java}{#1}}
+\newcommand{\cob}[1]{\mintinline[breaklines]{cobolfree}{#1}}
+\newcommand{\jav}[1]{\mintinline[breaklines]{java}{#1}}
 \newcommand{\cobolNotFree}[1]{\inputminted[bgcolor=hellgrau,fontsize=\scriptsize]{cobol}{Code/#1}}
 \newcommand{\cobol}[1]{\inputminted[bgcolor=hellgrau,fontsize=\scriptsize]{cobolfree}{Code/#1}}
 \newcommand{\java}[1]{\inputminted[bgcolor=hellgrau,fontsize=\footnotesize]{java}{Code/#1}}

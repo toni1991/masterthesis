@@ -1,5 +1,5 @@
 \subsection{Verbunddatenstrukturen}\label{verbunddatenstrukturen}
-\textit{Structs} und \textit{Unions} sind weitere in der Programmierung -- vor allem mit älteren Sprachen -- verbreitete Datenstrukturen. Beide Typen bilden sogenannte Verbunddatenstrukturen, \dh sie bieten eine Art Kapselung von mehreren Variablen, welche unterschiedlichen Typs sein können. Structs bezeichnen dabei einen Speicherbereich der von aus mehreren Variablen besteht, die so gruppiert gespeichert werden. Unions hingegen bezeichnen einen Speicherbereich, der auf verschiedene Weisen -- in unterschiedlichen Datentypen -- interpretiert werden kann. Sie gruppieren also mehrere Variablen von denen stets nur eine Gültigkeit aufweisen kann.
+\textit{Structs} und \textit{Unions} sind weitere in der Programmierung verbreitete Datenstrukturen. Beide Typen bilden sogenannte Verbunddatenstrukturen, \dahe sie bieten eine Art Kapselung von mehreren Variablen, welche unterschiedlichen Typs sein können. Structs bezeichnen dabei einen Speicherbereich, der aus mehreren Variablen besteht, die so gruppiert gespeichert werden. Unions hingegen bezeichnen einen Speicherbereich, der auf verschiedene Weisen -- in unterschiedlichen Datentypen -- interpretiert werden kann. Sie gruppieren mehrere Variablen von denen stets nur eine Gültigkeit aufweisen kann.
 
 \subsubsection*{Structs und Unions in COBOL}
 
@@ -17,12 +17,15 @@ UNION-SUB-PROGRAM: 190.742
 \end{shellwindow}
 \mintedCaption{Structs und Unions in COBOL}{structUnionCOBOL}
 
-\autoref{structUnionCOBOL} zeigt sowohl die Verwendung als Struktur-Typ, als auch den Zugriff als Union-Typ in einem Unterprogramm und mithilfe der in \autoref{variables} beschriebenen \cob{REDEFINES} Anweisung. Wie bereits vormals in dieser Arbeit gezeigt, wird -- in diesem Falle zur Ausgabe -- auf eine gesamte Datenstruktur zugegriffen, die mehrere unterschiedliche Variablen enthält. Diese Datenstruktur stellt also ein \textit{Struct} dar. Im gezeigten Unterprogramm hingegen wird der selbe Speicherbereich anders interpretiert
+\autoref{structUnionCOBOL} zeigt sowohl die Verwendung als Struktur-Typ, als auch den Zugriff als Union-Typ in einem Unterprogramm und mithilfe der in \autoref{variables} beschriebenen \cob{REDEFINES} Anweisung. Wie bereits in dieser Arbeit gezeigt, wird -- in diesem Falle zur Ausgabe -- auf eine gesamte Datenstruktur zugegriffen, die mehrere unterschiedliche Variablen enthält. Diese Datenstruktur stellt also ein \textit{Struct} dar. Im gezeigten Unterprogramm hingegen wird der selbe Speicherbereich anders interpretiert
 
-Dies wird laut Herrn Streit in der Praxis auch oft ausgenutzt um Erweiterungen von Programmen zu realisieren. Da Unterprogramme lediglich einen Zeiger auf Datenstrukturen übergeben bekommen können diese Strukturen erweitert werden ohne, dass das Unterprogramm geändert werden muss, solange neue Datenfeldern an das Ende angehängt werden. Weitere Unterprogramme, welche an neue Datenfelder angepasst wurden könn wiederum diese Daten nutzen, die hinten angehängt wurden. Zu beachten ist, dass das Einfügen von Feldern zwischen anderen unweigerlich zur Anpassung aller Komponenten sorgt.
+Dies wird laut Herrn Streit in der Praxis auch oft ausgenutzt, um Erweiterungen von Programmen zu realisieren. Da Unterprogramme lediglich einen Zeiger auf Datenstrukturen übergeben bekommen, können diese Strukturen erweitert werden, ohne das Unterprogramm zu ändern, solange neue Datenfeldern an das Ende angehängt werden. Weitere Unterprogramme, welche an neue Datenfelder angepasst wurden, können wiederum die Daten, die hinten angehängt wurden, nutzen. Das Einfügen von Feldern zwischen bestehenden, hat unweigerlich die Anpassung aller Komponenten zur Folge.
 
 \subsubsection*{Structs und Unions in Java}
 
-Java hingegen bietet keine direkten Konzepte um Verbunddatenstrukturen darzustellen. Allerdings können \textit{Structs} sehr intuitiv als sogenannte \textit{Java Beans}, eine Klasse die verschiedenen \jav{public} Variablen kapselt, implementiert werden. Dies zeigt \autoref{javaBean}. Je nach Anwendungsfall empfiehlt es sich jedoch auf Klassen mit privaten Variablen und getter- und setter-Methoden zurückzugreifen. \textit{Unions} lassen sich in Java am besten durch, die in \autoref{generics} beschriebenen, \textit{Generics} darstellen.
+In Java lassen sich Verbunddatenstrukturen auf verschiedene Weisen realisieren. \textit{Structs} stellen eine einfache Form von Klassen dar, die, wie \autoref{javaBean} zeigt, unterschiedliche Attribute kapseln. Diese werden auch \textit{Java Beans} genannt.
 
 \mintedJava{Bean.java}{Java Bean}{javaBean}
+
+\textit{Unions} können über \jav{enum}s realisieren. 
+\todo{}
