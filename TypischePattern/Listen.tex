@@ -2,22 +2,28 @@
 Während \autoref{sec:felder} Felder behandelt, welche wie angesprochen eine feste Größe haben, bietet das Konzept von Listen deutliche Vorteile, wenn die Anzahl der Elemente variabel sein soll und zum Zeitpunkt des Erstellens nicht bekannt ist.
 \subsubsection*{Listen in Java}
 In Java kann das \jav{List}-Interface implementiert werden \bzw ein Objekt dieser Implementierung instanziiert werden, um eine Liste variabler Größe zu erhalten. Die wohl gebräuchlichste Implementierung dieses Interfaces stellt die Klasse \jav{ArrayList} dar. Intern hält diese -- wie der Name schon vermuten lässt -- ein Array, welches bei Bedarf in ein neues, größeres Array kopiert wird. Die einfache Handhabung dieser Klasse wird in  \autoref{javaArrayList} dargestellt.
-\java{ArrayListExample.java}
-\begin{shellwindow}
-Elements: [] - Size: 0
-Elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] - Size: 10
-Elements: [0, 1, 2, 3, 4, 6, 7, 8, 9] - Size: 9
-Elements: [0, 1, 2, 3, 4, 6, 7, 8, 9, 2147483647] - Size: 10
-\end{shellwindow}
-\mintedCaption{ArrayList Beispiel in Java}{javaArrayList}
+
+\begin{codeWithCaption}{ArrayList Beispiel in Java}{javaArrayList}
+    \java{ArrayListExample.java}
+    \begin{shellwindow}
+    Elements: [] - Size: 0
+    Elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] - Size: 10
+    Elements: [0, 1, 2, 3, 4, 6, 7, 8, 9] - Size: 9
+    Elements: [0, 1, 2, 3, 4, 6, 7, 8, 9, 2147483647] - Size: 10
+    \end{shellwindow}
+\end{codeWithCaption}
+
 \subsubsection*{Listen in COBOL}
 Eine exakte Abbildung von Listen ist in COBOL nicht möglich, da hier bereits zum Zeitpunkt des Kompilierens feststehen muss, wie groß ein Feld ist.
-\cobol{List.cbl}
-\begin{shellwindow}
- SIZE: 00
-002, SIZE: 01
-002,004, SIZE: 02
-004, SIZE: 01
-\end{shellwindow}
-\mintedCaption{Einfache Listen Implementierung in COBOL}{cobolList}
+
+\begin{codeWithCaption}{Einfache Listen Implementierung in COBOL}{cobolList}
+    \cobol{List.cbl}
+    \begin{shellwindow}
+     SIZE: 00
+    002, SIZE: 01
+    002,004, SIZE: 02
+    004, SIZE: 01
+    \end{shellwindow}
+\end{codeWithCaption}
+
 \autoref{cobolList} zeigt jedoch beispielhaft eine einfache und unvollständige Implementierung einer Liste in COBOL. Hierbei sind lediglich Einfüge- und Löschoperationen realisiert. Zu beachten ist, dass aus bereits genannten Gründen auch diese Liste eine maximale Größe hat, die unter Umständen nicht ausreichend ist. Weitere Funktionalitäten der Liste müssten analog implementiert werden.

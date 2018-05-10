@@ -2,37 +2,37 @@
 Vor allem in betrieblichen Informationssystemen -- die oftmals Geldbeträge durch eine gewisse Anzahl von Rechenschritten errechnen sollen -- ist es unerlässlich, einen Blick auf die Rechengenauigkeit des Systems und der verwendeten Sprachen zu werfen. Diese ist oftmals eine Folge der Speicherrepräsentation rationaler Zahlen, die erheblichen Einfluss auf den Darstellungsbereich hat. Man unterscheidet grundsätzlich zwischen Speicherungen in Fließ- und Festkomma-Darstellung.
  
 \subsection*{Fließkommaarithmetik}
-In modernen Programmiersprachen wie Java werden Datentypen für rationale Zahlen in der Fließkommarepräsentation gespeichert. Daher auch der Name \jav{float} für \engl \quotes{floating point}. Diese Darstellung hat den großen Vorteil, dass sowohl kleine Zahlen, die gegen Null gehen, als auch sehr große Zahlen mit dem gleichen Speicherbedarf dargestellt werden können, da quasi das Dezimaltrennzeichen verschoben werden kann. Java verwendet zur Darstellung standardmäßig den Datentypen \jav{double}, ein \jav{float} mit doppelter Darstellungsgenauigkeit \bzw doppeltem Speicherbedarf. Somit wird es möglich, als kleinsten Absolutwert $2^{-1074}$ und als größten $(2 - 2^{-52}) \cdot 2^{1023}$ darzustellen.
+In modernen Programmiersprachen wie Java werden Datentypen für rationale Zahlen in der Fließkommarepräsentation gespeichert. Daher auch der Name \jav{float} für \engl \quotes{floating point}. Diese Darstellung hat den großen Vorteil, dass sowohl kleine Zahlen, die gegen null gehen, als auch sehr große Zahlen mit dem gleichen Speicherbedarf dargestellt werden können, da quasi das Dezimaltrennzeichen verschoben werden kann. Java verwendet zur Darstellung standardmäßig den Datentypen \jav{double}, ein \jav{float} mit doppelter Darstellungsgenauigkeit \bzw doppeltem Speicherbedarf. Somit wird es möglich, als kleinsten Absolutwert $2^{-1074}$ und als größten $(2 - 2^{-52}) \cdot 2^{1023}$ darzustellen.
 
 Dabei werden Zahlen nach \textit{IEEE 754}-Standard in Vorzeichen, Exponent und Mantisse umgerechnet und gespeichert. Ohne näher auf diesen eingehen zu wollen, sei kurz erwähnt, dass dieser einen Algorithmus festlegt, mit dessen Hilfe Variablen in einem Speicherbereich repräsentiert werden. Dieser Speicherbereich kann sich je nach Datentyp und Programmiersprache zwar unterscheiden, ist jedoch an sich stets fester Größe. Dadurch und durch den Umstand, dass Zahlen vor dem Speichern umgerechnet werden, ergibt sich die Problematik, dass bestimmte Zahlen nicht exakt repräsentiert werden können und lediglich die nächste Repräsentation gespeichert werden kann. Dieser Effekt ist schwer absehbar und kann in der Praxis zu ungenauen (Zwischen-)Ergebnissen führen.
 
-\java{PrecisionExample.java}
-\sepCodeAndOutputCheck
-\begin{shellwindow}
-$ javac PrecisionExample.java 
-$ java PrecisionExample
-0,64999997615814210000000 == 0.65 -> false
-0.64999997615814208984375
-0.65
-\end{shellwindow}
-\mintedCaption{Ungenauigkeit am Beispiel einer float-Variable}{floatJava}
+\begin{codeWithCaption}{Ungenauigkeit am Beispiel einer float-Variable}{floatJava}
+    \java{PrecisionExample.java}
+    \begin{shellwindow}
+    $ javac PrecisionExample.java 
+    $ java PrecisionExample
+    0,64999997615814210000000 == 0.65 -> false
+    0.64999997615814208984375
+    0.65
+    \end{shellwindow}
+\end{codeWithCaption}
 
-\autoref{floatJava} zeigt beispielhaft wie die Repräsentation eines Wertes vom tatsächlichen abweichen kann. Durch die Weiterverwendung eines solchen, nicht-exakt repräsentierten Werts würden sich unter Umständen Folgefehler in Berechnungen ergeben. Außerdem können wie gezeigt Vergleiche von Zahlen, insbesondere von Berechnungsergebnissen, dadurch fehlerbehaftet sein, weshalb Fließkommadatentypen stets auf ein Werteintervall statt auf Gleichheit geprüft werden sollten.
+\autoref{floatJava} zeigt beispielhaft, wie die Repräsentation eines Wertes vom tatsächlichen abweichen kann. Durch die Weiterverwendung eines solchen, nicht-exakt repräsentierten Werts würden sich unter Umständen Folgefehler in Berechnungen ergeben. Außerdem können wie gezeigt Vergleiche von Zahlen, insbesondere von Berechnungsergebnissen, dadurch fehlerbehaftet sein, weshalb Fließkommadaten stets auf ein Werteintervall statt auf Gleichheit geprüft werden sollten.
 
-Diese beschriebenen Fließkommatypen werden stets zur Basis 2 berechnet und heißen daher auch binäre Fließkommatypen. In der \jav{java.math}-Bibliothek findet sich jedoch auch ein Objekttyp \jav{BigDecimal}, welcher einen Fließkommawert zur Basis 10, also ein dezimales Fließkomma darstellt. Die Speicherung beruht in­des­sen auf zwei \jav{Integer}-Werten, die einen unskalierten Faktor und einen Exponenten zur Skalierung darstellen. Außerdem ist dieser Typ steuerbar was die Rundung, die Exaktheit von Ergebnissen und das Verhalten bei nichtdarstellbaren Werten angeht. Mit den in \autoref{floatJava} aufgezeigten Effekten lässt sich außerdem festhalten, dass \jav{BigDecimal}s nur über andere \jav{BigDecimal}-Objekte oder \jav{String}s zuverlässig instanziiert werden können. Andere Konstruktoren speichern die übergebenen Werte in primitiven Datentypen zwischen, wodurch eben diese ungewünschten Fehler in der Repräsentation wieder auftreten. \jav{BigDecimal} bietet somit eine Möglichkeit, Werte exakt abzuspeichern \bzw Kenntnis über unexakte Speicherung -- in der Regel durch Exceptions -- zu erhalten und diese zu steuern. Mit diesem Objekttypen gehen jedoch Speicher- und Laufzeit-Overheads einher, die nicht vernachlässigt werden dürfen.
+Diese beschriebenen Fließkommatypen werden stets zur Basis 2 berechnet und heißen daher auch binäre Fließkommatypen. In der \jav{java.math}-Bibliothek findet sich jedoch auch ein Objekttyp \jav{BigDecimal}, welcher einen Fließkommawert zur Basis 10, also ein dezimales Fließkomma darstellt. Die Speicherung beruht in­des­sen auf zwei \jav{Integer}-Werten, die einen unskalierten Faktor und einen Exponenten zur Skalierung darstellen. Außerdem ist dieser Typ steuerbar was die Rundung, die Exaktheit von Ergebnissen und das Verhalten bei nicht-darstellbaren Werten angeht. Mit den in \autoref{floatJava} aufgezeigten Effekten lässt sich außerdem festhalten, dass \jav{BigDecimal}s nur über andere \jav{BigDecimal}-Objekte oder \jav{String}s zuverlässig instanziiert werden können. Andere Konstruktoren speichern die übergebenen Werte in Datentypen zwischen, die zu eben diese ungewünschten Fehler in der Repräsentation führen. \jav{BigDecimal} bietet somit eine Möglichkeit, Werte exakt abzuspeichern \bzw Kenntnis über unexakte Speicherung -- in der Regel durch Exceptions -- zu erhalten und diese zu steuern. Mit diesem Objekttypen gehen jedoch Speicher- und Laufzeit-Overheads einher, die nicht vernachlässigt werden dürfen.
 
 \subsection*{Festkommaarithmetik}
 Um die angesprochenen Probleme zu umgehen, verwenden manche Sprachen eine Festkommaarithmetik, um rationale Zahlen zu speichern, oder bieten zumindest Datentypen, um eine derartige Speicherrepräsentation zu erreichen. 
 
-Dabei wird im Gegensatz zu Fließkommazahlen festgelegt, wieviele Stellen einer Zahl vor- \bzw nach dem Komma gespeichert werden sollen. Jede Ziffer wird dabei für sich -- je nach Implementierung durch eine bestimmte Codierung -- gespeichert und erlaubt somit absolute Genauigkeit im Werte- \bzw Darstellungsbereich. Auch ist der Umgang mit Überläufen fest definiert und führt zu konsistentem und abschätzbarem Verhalten. Ergebnisse werden stets zur Speicherung \quotes{abgeschnitten}, außer man definiert explizit, dass gerundet werden soll. \autoref{decimalsInCobol} enthält Beispiele zu beiden Varianten. \cob{PIC 9V9(2)} deklariert eine Variable mit genau einer Vor- und zwei Nachkommastellen. Damit wäre beispielsweise sichergestellt, dass alle Geldbeträge $< 10$ -- auch nach Berechnungen -- korrekt dargestellt werden können.
+Dabei wird im Gegensatz zu Fließkommazahlen festgelegt, wie viele Stellen einer Zahl vor- \bzw nach dem Komma gespeichert werden sollen. Jede Ziffer wird dabei für sich -- je nach Implementierung durch eine bestimmte Codierung -- gespeichert und erlaubt somit absolute Genauigkeit im Werte- \bzw Darstellungsbereich. Auch ist der Umgang mit Überläufen fest definiert und führt zu konsistentem und abschätzbarem Verhalten. Ergebnisse werden stets zur Speicherung \quotes{abgeschnitten}, außer man definiert explizit, dass gerundet werden soll. \autoref{decimalsInCobol} enthält Beispiele zu beiden Varianten. \cob{PIC 9V9(2)} deklariert eine Variable mit genau einer Vor- und zwei Nachkommastellen. Damit wäre beispielsweise sichergestellt, dass alle Geldbeträge $<10$ -- auch nach Berechnungen -- korrekt dargestellt werden können.
 
-\cobol{PRECISION_EXAMPLE.cbl}
-\sepCodeAndOutputCheck
-\begin{shellwindow}
-0.99
-1.00
-\end{shellwindow}
-\mintedCaption{Dezimalzahlen in COBOL}{decimalsInCobol}
+\begin{codeWithCaption}{Dezimalzahlen in COBOL}{decimalsInCobol}
+    \cobol{PRECISION_EXAMPLE.cbl}
+    \begin{shellwindow}
+    0.99
+    1.00
+    \end{shellwindow}
+\end{codeWithCaption}
 
 Ein weiterer Vorteil der Abbildung mit Festkomma ist die Tatsache, dass beliebig große Zahlen gespeichert werden können. Dies sorgt trotz höherem Speicherbedarf auch dafür, dass sofern Grundrechenarten für eine Ziffer implementiert sind, beliebig lange Ziffernfolgen nach dem gleichen Schema verarbeitet werden können. Die Ergebnisse werden dabei auch zeichenweise gespeichert und lassen so keine Rundungsfehler oder Fehler aufgrund von unzureichendem Speicherplatz zur Abbildung zu. Der Speicherbereich kann in COBOL jedoch zum Beispiel durch das Nutzen von \cob{PACKED DECIMAL}s mit dem Schlüsselwort \cob{COMP-3} hinter der \cob{PICTURE}-Anweisung reduziert werden. Hierbei wird lediglich ein Nibble (\nicefrac{1}{2} Byte) pro Ziffer benötigt.
 
@@ -42,7 +42,6 @@ Ein weiterer Vorteil der Abbildung mit Festkomma ist die Tatsache, dass beliebig
 % \subsection*{Rechengenauigkeit in Java}
 % Java verwendet zur Speicherung von Fließkommazahlen, wie viele andere moderne Programmiersprachen, den \textit{IEEE 754}-Standard. Ohne näher auf diesen eingehen zu wollen, legt dieser einen Algorithmus fest, mit dessen Hilfe Variablen in einem Speicherbereich repräsentiert werden. Dieser Speicherbereich kann sich je nach Datentyp und Programmiersprache unterscheiden, ist jedoch an sich stets von fester Größe. Daher ist es nicht möglich beliebig genaue Werte abzubilden. 
 % \java{PrecisionExample.java}
-% \sepCodeAndOutputCheck
 % \begin{shellwindow}
 % $ javac PrecisionExample.java 
 % $ java PrecisionExample

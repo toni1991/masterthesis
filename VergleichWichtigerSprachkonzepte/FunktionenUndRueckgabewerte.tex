@@ -31,6 +31,7 @@ Rekursive \cob{PERFORM}-Aufrufe sind zwar syntaktisch möglich, jedoch führt di
 
 In COBOL ist es, anders als in Java, auch möglich eigenständige Unterprogramme aufzurufen. Wie bereits in \autoref{sec:structure} beschrieben dient die \cob{LINKAGE SECTION} dazu, im Unterprogramm zu definieren, welche Variablen übergeben werden. Mithilfe der \cob{CALL}-Anweisung, des Programmnamens und der Angabe von Variablennamen kann dieses Unterprogramm aufgerufen und die Werte übergeben werden. Wie in \autoref{wiederverwendbarkeit} kann die Angabe des Programmnamens auch pseudo-variabel geschehen, um ein statisches Linken der Programmteile zu vermeiden.
 
+\begin{codeWithCaption}{Unterprogramme in COBOL}{subprogramsCobol}
 \cobol{CALLING_PROGRAM.cbl}
 \cobol{CALLED_PROGRAM.cbl}
 \begin{shellwindow}
@@ -41,6 +42,6 @@ $ ./CALLING_PROGRAM
 SUB-PROGRAM got passed: 0022
 CALLING PROGRAM: 0044
 \end{shellwindow}
-\mintedCaption{Unterprogramme in COBOL}{subprogramsCobol}
+\end{codeWithCaption}
 
 \autoref{subprogramsCobol} zeigt den Aufruf eines Unterprogramms und die Übergabe von Parametern. Diese Parameter werden per Referenz übergeben. Das heißt, dass Unterprogramme stets auf den gleichen Speicherbereich zugreifen wie das ursprüngliche Program und so auch dessen Daten verändern. Dies gilt es zu beachten, da dadurch ungewünschte Seiteneffekte oder gar Fehler auftreten können. Das Definieren eines Rückgabewertes in einem Unterprogramm ist nicht möglich. Soll also ein Rückgabewert im aufgerufenen Program gesetzt werden, so ist dieser innerhalb der übergebenen Datenstruktur zu setzen, auf die wie erwähnt auch das aufrufende Programm Zugriff hat. 

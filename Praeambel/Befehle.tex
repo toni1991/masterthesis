@@ -54,16 +54,35 @@
 \newcommand{\till}[2]{#1 -- #2}
 
 %Minted
+\usepackage{xparse}
+\NewDocumentEnvironment{codeWithCaption}{mm} % one m per argument
+  {}
+  {\vspace*{-3.5em}\captionof{listing}{#1\label{#2}}}
+
 \newcommand{\cob}[1]{\mintinline[breaklines]{cobolfree}{#1}}
 \newcommand{\jav}[1]{\mintinline[breaklines]{java}{#1}}
-\newcommand{\cobolNotFree}[1]{\inputminted[bgcolor=hellgrau,fontsize=\scriptsize]{cobol}{Code/#1}}
-\newcommand{\cobol}[1]{\inputminted[bgcolor=hellgrau,fontsize=\scriptsize]{cobolfree}{Code/#1}}
-\newcommand{\java}[1]{\inputminted[bgcolor=hellgrau,fontsize=\footnotesize]{java}{Code/#1}}
-\newcommand{\mintedCaption}[2]{\begingroup\captionsetup{type=listing}\captionof{listing}{#1\label{#2}}\endgroup}
-\newcommand{\mintedCobolWithOutput}[4]{\cobol{#1}#4\mintedCaption{#2}{#3}}
-\newcommand{\mintedCobol}[3]{\cobol{#1}\mintedCaption{#2}{#3}}
-\newcommand{\mintedJavaWithOutput}[4]{\java{#1}#4\mintedCaption{#2}{#3}}
-\newcommand{\mintedJava}[3]{\java{#1}\mintedCaption{#2}{#3}}
+
+\newcommand{\inputCode}[3]{
+    \inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,linenos,
+    bgcolor=hellgrau,fontsize=#1]{#2}{Code/#3}
+}
+\newcommand{\cobolNotFree}[1]{\inputCode{\scriptsize}{cobol}{#1}}
+\newcommand{\cobol}[1]{\inputCode{\scriptsize}{cobolfree}{#1}}
+\newcommand{\java}[1]{\inputCode{\footnotesize}{java}{#1}}
+
+\newcommand{\mintedCobol}[3]{
+    \begin{codeWithCaption}{#2}{#3}
+    \cobol{#1}
+    \end{codeWithCaption}
+}
+
+\newcommand{\mintedJava}[3]{
+    \begin{codeWithCaption}{#2}{#3}
+    \java{#1}
+    \end{codeWithCaption}
+}
+
+%\newcommand{\mintedCaption}[2]{\begingroup\captionsetup{type=listing}\captionof{listing}{#1\label{#2}}\endgroup}
 
 % Interviews
 \newcommand{\interviewExpert}[2]{\subsubsection*{#1}#2}

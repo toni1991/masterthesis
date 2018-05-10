@@ -1,14 +1,10 @@
-package de.masterthesis;
-
 public class ScopeExample {
-
     int memberAndLocalVariable;
 
     void memberFunction(int parameter) {
         // innerMemberVariable = 0; -> Ungültig
         int memberAndLocalVariable = 0;
-        {
-            // int memberAndLocalVariable = 1; -> Ungültig
+        { // int memberAndLocalVariable = 1; -> Ungültig
             int localVariable;
         }
         int localVariable;

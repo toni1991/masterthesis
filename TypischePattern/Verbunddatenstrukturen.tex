@@ -5,6 +5,7 @@
 
 Das fundamentale Konzept von Variablendeklarationen in COBOL ist -- wie bereits in \autoref{variables} angesprochen -- die Nutzung von Stufennummern und eine Untergliederung mithilfe dieser Stufennummern. Das sorgt dafür, dass jede untergliederte Variable in COBOL eine Verbunddatenstruktur darstellt.
 
+\begin{codeWithCaption}{Structs und Unions in COBOL}{structUnionCOBOL}
 \cobol{UNION_PROGRAM.cbl}
 \cobol{UNION_SUB_PROGRAM.cbl}
 \begin{shellwindow}
@@ -15,7 +16,7 @@ INTEGER: 190742
 DECIMAL: 1907.42
 UNION-SUB-PROGRAM: 190.742
 \end{shellwindow}
-\mintedCaption{Structs und Unions in COBOL}{structUnionCOBOL}
+\end{codeWithCaption}
 
 \autoref{structUnionCOBOL} zeigt sowohl die Verwendung als Struktur-Typ, als auch den Zugriff als Union-Typ in einem Unterprogramm und mithilfe der in \autoref{variables} beschriebenen \cob{REDEFINES} Anweisung. Wie bereits in dieser Arbeit gezeigt, wird -- in diesem Falle zur Ausgabe -- auf eine gesamte Datenstruktur zugegriffen, die mehrere unterschiedliche Variablen enthält. Diese Datenstruktur stellt also ein \textit{Struct} dar. Im gezeigten Unterprogramm hingegen wird der selbe Speicherbereich anders interpretiert
 

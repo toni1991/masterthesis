@@ -5,23 +5,26 @@ Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weite
 
 Der so entstandene Wahrheitswert kann folglich immer dann verwendet werden, wenn überprüft werden soll, ob die Variable \mintinline{text}{AGE} im Bereich zwischen 0 und 17 \bzw zwischen 17 und 99 liegt, sprich getestet werden, ob das Alter einer minder- oder volljährigen Person entspricht.
 
-\cobol{88_section.cbl}
-\sepCodeAndOutputCheck
+\begin{codeWithCaption}{Beispiel für COBOL Stufennummer 88}{88_cobol_listing}
+    \cobol{88_section.cbl}
 \begin{shellwindow}
 $ ./eightyeight
 Person is underage (AGE = 13)
 AGE = 18
 \end{shellwindow}
-\mintedCaption{Beispiel für COBOL Stufennummer 88}{88_cobol_listing}
+\end{codeWithCaption}
+
 Zeile 14 des Programms illustriert einen weiteren Anwendungsfall der benannten Bedingungen. So lässt sich der Wert der eigentlichen Variable setzen, indem der bedingten Variable der Wahrheitswert \cob{TRUE} zugewiesen wird. Das Ergebnis dieser Zuweisung wird in der Ausgabe von \autoref{88_cobol_listing} in Zeile 3 dargestellt. Zu beachten ist hierbei, dass die meisten COBOL-Compiler nur das Setzen des Wertes \cob{TRUE} erlauben.
 
 Dieses Verhalten wird oftmals ausgenutzt, um Variablen mit bestimmten Werten zu belegen. Dieses Verhalten beschreibt \autoref{88_cobol_value_set_listing}.
 
 \mintedCobol{88_section_value_set.cbl}{Setzen von Werten mithilfe benannter Bedingungen}{88_cobol_value_set_listing}
+
 \subsubsection*{Abbildung in Java}
 Java besitzt kein Sprachkonstrukt, um die Funktionalität der Stufennummer 88 direkt nachzubilden. Eine Möglichkeit gleiches Verhalten darzustellen bietet allerdings die Implementierung spezieller Methoden. Dies soll \autoref{88_java_listing} veranschaulichen.
 
 \mintedJava{88_section.java}{Bedingte Werte in Java}{88_java_listing}
+
 Die Methoden \mintinline{text}{isUnderage} und \mintinline{text}{isAdult} geben einen Wahrheitswert in Abhängigkeit des Variablenwertes zurück. Die Funktion \mintinline{text}{setAge} setzt wiederum das Alter.
 
 Der Anwendungsfall, dass eine benannte Bedingung in COBOL verwendet wird, um bestimmte Werte zu setzen, lässt sich in Java am elegantesten über Aufzählungstypen -- \jav{enum} -- realisieren. Wie der Typ \jav{ErrorMessage} in \autoref{88_java_value_set_listing} zeigt, setzt jeder einzelne konstante Wert des Aufzählungstypen eine eigene Fehlernachricht, welche anschließend über die \jav{getMessage}-Funktion verfügbar ist.

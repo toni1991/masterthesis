@@ -2,7 +2,7 @@
 \tcbuselibrary{skins}
 \definecolor{topbar}{RGB}{220,220,220}
 \definecolor{main}{RGB}{60,60,60}
-\definecolor{quit}{RGB}{248,73,73}
+\definecolor{end}{RGB}{248,73,73}
 \definecolor{min}{RGB}{252,182,37}
 \definecolor{max}{RGB}{41,198,52}
 \colorlet{offwhite}{white!96!black}
@@ -20,11 +20,9 @@
   colback=main, 
   coltext=offwhite, 
   overlay={
-    \fill [fill=quit] ([xshift=3mm]title.west) circle (1mm);
+    \fill [fill=end] ([xshift=3mm]title.west) circle (1mm);
     \fill [fill=min] ([xshift=6mm]title.west) circle (1mm);
     \fill [fill=max] ([xshift=9mm]title.west) circle (1mm);
   }%
 }
-
-\newcommand{\sepCodeAndOutput}[0]{\vspace{-1em}}
-\newcommand{\sepCodeAndOutputCheck}[0]{\sepCodeAndOutput}
+\AfterEndEnvironment{shellwindow}{\vspace{3.5em}}

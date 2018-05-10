@@ -1,9 +1,12 @@
 \section{Programmablauf und Kontrollfluss}\label{programmablauf}
 Durch die in \autoref{sec:functionsAndReturnValues} erläuterten Unterschiede ergeben sich auch im Programmablauf Diskrepanzen. Allerdings führen diese Unterschiede nicht zu einem gänzlich anderen Ablauf, sondern dazu, dass Gemeinsamkeiten nicht auf den ersten Blick erkennbar sind, obwohl der Ablauf im Grunde sehr ähnlich ist. Sowohl Java- als auch COBOL-Programme werden im Allgemeinen von oben nach unten durchlaufen. Beiden Programmiersprachen ist gemein, dass sie einen definierten Einstiegspunkt in ein Programm haben. Während jedes Java-Programm in der \jav{main}-Methode startet, wird ein COBOL-Programm stets sequenziell von oben nach unten abgearbeitet und durchlaufen und beginnt daher stets mit der ersten Zeile der \cob{PROCEDURE DIVISION}.
 
-\subsection{Ablauf}
+\subsection{Genereller Ablauf}
+
+\autoref{javaMainMethod} demonstriert einen sehr simplen Programmablauf in Java. Wie bereits erwähnt ist der Startpunkt eines jeden Java-Programms die \jav{main}-Methode. Von dieser aus können weitere Methoden aufgerufen werden, und sobald das Ende dieser Methode erreicht ist, terminiert das Programm. Im vorliegenden Beispiel wird also nach einer Ausgabe in \jav{main} die Funktion \jav{otherMethod} aufgerufen, bevor der Ablauf wieder in der \jav{main}-Methode fortgesetzt wird. Daran soll folgendes Verhalten deutlich werden: Endet eine aufgerufene Funktion wie geplant -- \dahe ohne eine \jav{Exception} -- wird stets mit der nächsten Anweisung nach dem Funktionsaufruf fortgefahren. 
+
+\begin{codeWithCaption}{Java main-Methode}{javaMainMethod}
 \java{MainMethod.java}
-\sepCodeAndOutputCheck
 \begin{shellwindow}
 $ javac MainMethod.java 
 $ java MainMethod
@@ -12,16 +15,14 @@ Running other method!
 Running return value method!
 Continue main method!
 \end{shellwindow}
-\mintedCaption{Java main-Methode}{javaMainMethod}
-
-\autoref{javaMainMethod} demonstriert einen sehr simplen Programmablauf in Java. Wie bereits erwähnt ist der Startpunkt eines jeden Java-Programms die \jav{main}-Methode. Von dieser aus können weitere Methoden aufgerufen werden, und sobald das Ende dieser Methode erreicht ist, terminiert das Programm. Im vorliegenden Beispiel wird also nach einer Ausgabe in \jav{main} die Funktion \jav{otherMethod} aufgerufen, bevor der Ablauf wieder in der \jav{main}-Methode fortgesetzt wird. Daran soll folgendes Verhalten deutlich werden: Endet eine aufgerufene Funktion wie geplant -- \dahe ohne eine \jav{Exception} -- wird stets mit der nächsten Anweisung nach dem Funktionsaufruf fortgefahren. 
+\end{codeWithCaption}
 
 In COBOL gestaltet sich der Programmablauf ähnlich. Das Programm wird stets von oben nach unten durchlaufen, wobei dieser lineare Ablauf \zB durch die Verwendung von \cob{PERFORM}-, \cob{CALL}-, \cob{GO TO}- oder \cob{NEXT SENTENCE}-Anweisungen verändert werden kann.
 
 Ein Unterprogramm wird mit \cob{CALL} aufgerufen und gibt mit \cob{GOBACK} die Kontrolle zurück an das aufrufende Programm. Die Ausführung eines COBOL-Programms endet beim Erreichen einer \cob{STOP RUN}-Anweisung oder mit dem Ende des Programms (\cob{END PROGRAM}). 
 
+\begin{codeWithCaption}{Programmablauf in COBOL}{simpleControlFlowCobol}
 \cobol{simpleControlFlow.cbl}
-\sepCodeAndOutputCheck
 \begin{shellwindow}
 $ ./simpleControlFlow 
 Main paragraph
@@ -33,14 +34,14 @@ Enter some number: 1
 Main paragraph again
 Enter some number: 2
 \end{shellwindow}
-\mintedCaption{Programmablauf in COBOL}{simpleControlFlowCobol}
+\end{codeWithCaption}
 
 Die beiden Ausführungen von \autoref{simpleControlFlowCobol} zeigen das angesprochene Verhalten eines COBOL-Programms. Beim ersten Durchlauf wird für die Variable \cob{INPUT-NUMBER} der Wert 0 eingegeben, was durch das Ausführen der \cob{STOP RUN}-Anweisung in Zeile 15, das Beenden des Programmes bewirkt. Beim zweiten Mal wird hingegen der Wert 1 eingegeben. Dieser Wert verhindert das Abschließen des Programms in Zeile 15, wodurch der Programmablauf in Zeile 17 fortgesetzt wird und somit erneut die Eingabeaufforderung erscheint.
 
-Wie in \autoref{sec:structure} beschrieben besteht ein COBOL-Programm aus verschiedenen strukturellen Komponenten. Diese haben auch einen gewissen Einfluss auf den Pro\-grammab\-lauf. Dies soll das Beispiel in \autoref{paragraphSecionControlFlowCobol} veranschaulichen.
+Wie in \autoref{sec:structure} beschrieben besteht ein COBOL-Programm aus verschiedenen strukturellen Komponenten. \autoref{paragraphSecionControlFlowCobol} soll den Einfluss davon auf den Pro\-grammab\-lauf veranschaulichen.
 
+\begin{codeWithCaption}{Programmablaufunterschiede in COBOL mit Sections und Paragraphs}{paragraphSecionControlFlowCobol}
 \cobol{paragraphSecionControlFlow.cbl}
-\sepCodeAndOutputCheck
 \begin{shellwindow}
 $ ./paragraphSecionControlFlow 
 Calling section:
@@ -50,7 +51,7 @@ Calling paragraphs with PERFORM THRU:
 Calling paragraph:
 1
 \end{shellwindow}
-\mintedCaption{Programmablaufunterschiede in COBOL mit Sections und Paragraphs}{paragraphSecionControlFlowCobol}
+\end{codeWithCaption}
 
 Wird mittels \cob{PERFORM} eine Section aufgerufen, so werden alle Paragraphs innerhalb dieser Section der Reihe nach ausgeführt. Ruft man jedoch einen Paragraph auf, so wird nur dieser Paragraph ausgeführt. Eine weitere Möglichkeit ist die Kombination des \cob{PERFORM} mit dem \cob{THRU}-Schlüsselwort. Hierbei werden alle Paragraphs zwischen zwei festgelegten Paragraphs ausgeführt. Der Kontrollfluss geht bei jeder Variante stets an das Statement nach dem \cob{PERFORM}.
 
@@ -83,8 +84,8 @@ COBOL nutzt für alle Schleifen das \cob{PERFORM}-Schlüsselwort. In Verbindung 
 
 Weitere Schlüsselwörter, die den Kontrollfluss -- vor allem im Zusammenhang mit Verzeigungen und Schleifen -- in Java steuern können, sind außerdem \jav{break}, \jav{continue} und \jav{goto}. Zu beachten ist dabei, dass das \jav{goto}-Schlüsselwort zwar im Sprachstandard definiert, jedoch in keiner gängigen JVM implementiert ist. Die Verwendung führt zu Fehlern beim Kompilieren. In \autoref{javaBreakContinue} finden sich beispielhafte Verwendungen der beiden anderen Schlüsselwörter.
 
+\begin{codeWithCaption}{Beispiele für die Verwendung von break und continue in Java}{javaBreakContinue}
 \java{BreakContinueExample.java}
-\sepCodeAndOutputCheck
 \begin{shellwindow}
 $ javac BreakContinueExample.java 
 $ java BreakContinueExample
@@ -93,7 +94,7 @@ $ java BreakContinueExample
 == continue example == 
 (0)(1)(2)(8)(9)
 \end{shellwindow}
-\mintedCaption{Beispiele für die Verwendung von break und continue in Java}{javaBreakContinue}
+\end{codeWithCaption}
 
 Ein einfaches \jav{break} sorgt wie gezeigt dafür, dass die direkt umfassende Schleife verlassen wird. Auch ein simples \jav{continue} hat Auswirkungen auf die direkt beinhaltende Schleife. So sorgt es dafür, dass der aktuelle Schleifendurchlauf abgebrochen und mit dem nächsten fortgefahren wird. \autoref{mehrfachverzweigungen} zeigt eine weitere Verwendung des \jav{break}-Statements. Deutlich unüblicher -- jedoch nicht weniger relevant -- ist der Gebrauch eines Labels in Java. Dieses Label kann in der Verbindung mit einer \jav{break}- oder \jav{continue}-Anweisung genutzt werden, um mehrere umfassende Schleifen zu verlassen \bzw um mit dem nächsten Schleifendurchlauf einer weiter außen befindlichen fortzufahren. Die Anweisung betrifft dabei die Schleife, welche das Label trägt. 
 
@@ -103,13 +104,13 @@ Neben diesem ist \cob{NEXT SENTENCE} ein Schlüsselwort, das häufig in älterem
 
 Seltener zu finden ist dagegen die \cob{EXIT PERFORM}-Anweisung. Diese kann innerhalb von Schleifen dazu genutzt werden, um, wie mit einem \jav{break} in Java, die umgebende Schleife zu verlassen oder durch \cob{EXIT PERFORM CYCLE}, wie mit einem \jav{continue} in Java, mit dem nächsten Schleifendurchlauf fortzufahren. Dies soll \autoref{exitPerform} verdeutlichen.
 
+\begin{codeWithCaption}{EXIT PERFORM in COBOL}{exitPerform}
 \cobol{EXIT-PERFORM.cbl}
-\sepCodeAndOutputCheck
 \begin{shellwindow}
 00
 10
 \end{shellwindow}
-\mintedCaption{\cob{EXIT PERFORM} in COBOL}{exitPerform}
+\end{codeWithCaption}
 
 An dieser Stelle sei ausdrücklich erwähnt, dass die Verwendung des \cob{GO TO}\index{GO TO}-Befehls -- abgesehen von oben genanntem Einsatz als \textit{return}-Ersatz innerhalb einer Section -- in COBOL unterlassen werden sollte, oftmals sogar durch projekt- oder unternehmensspezifische Vorgaben verboten ist, da ansonsten sehr schwer verständlicher und wartbarer Code entstehen kann. Leider findet man sich in der Praxis oftmals mit Code konfrontiert, der \cob{GO TO}-Befehle zur Steuerung des Ablaufs verwendet. Sogar Schleifenkonstrukte sind in älteren Programmen oft damit realisiert, worauf Herr Streit hinwies.
 

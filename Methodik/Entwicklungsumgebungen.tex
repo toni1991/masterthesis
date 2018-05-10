@@ -9,7 +9,9 @@ Der COBOL-Code dieser Arbeit wurde in der OpenCobolIDE\footnote{https://github.c
 
 Um bereits an dieser Stelle einen kleinen Einblick in COBOL, die Programmierung und die Ausführung mit der OpenCobolIDE zu bekommen, wird ein kurzes COBOL-Programm implementiert. Die einzelnen Bestandteile davon werden im Laufe der Arbeit genauer beschrieben.
 
-\cobolNotFree{newCobol.cbl}\mintedCaption{Erstellen eines neuen COBOL Programms}{firstCOBOLProgram}
+\begin{codeWithCaption}{Erstellen eines neuen COBOL Programms}{firstCOBOLProgram}
+    \cobolNotFree{newCobol.cbl}
+\end{codeWithCaption}
 
 Legt man in der OpenCobolIDE ein neues Programm an, so enthält die Datei das bekannte \quotes{Hello world} als Beispielprogramm. Wir haben dieses Programm nun so erweitert, dass es die Eingabe eines Benutzernamens erwartet und eine persönliche Begrüßung ausgibt. \autoref{firstCOBOLProgram} zeigt das fertige Programm.
 
@@ -19,13 +21,14 @@ Anschließend wurde eine Variable mit dem Namen \cob{USERNAME} angelegt, die aus
 
 Mittels \cob{DISPLAY} wird der Nutzer aufgefordert seinen Namen einzugeben, den das \cob{ACCEPT}-Schlüsselwort dann in die angesprochene Variable schreibt.
 
-\begin{shellwindow}
-$ cobc -x HELLO_USER.cbl
-$ ./HELLO_USER
-Your name: Toni
-Hello Toni
-\end{shellwindow}
-\mintedCaption{Erstes COBOL-Programm in der Kommandozeile}{cobc}
+\begin{codeWithCaption}{Erstes COBOL-Programm in der Kommandozeile}{cobc}
+    \begin{shellwindow}
+    $ cobc -x HELLO_USER.cbl
+    $ ./HELLO_USER
+    Your name: Toni
+    Hello Toni
+    \end{shellwindow}
+\end{codeWithCaption}
 
 Anschließend wird geprüft, ob der Nutzer eine Eingabe gemacht hat. Ist dies der Fall, wird eine persönliche Begrüßung ausgegeben. Andernfalls erscheint die generische Meldung \quotes{\cob{Hello world}}. Diese Ausgaben werden wie bereits die Eingabeaufforderung mit \cob{DISPLAY} ausgegeben.
 
