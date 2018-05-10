@@ -168,7 +168,7 @@
 % Warning on todo
 \usepackage{etoolbox}
 \makeatletter
-\pretocmd{\@todo}{\GenericWarning{}{There is still a todo here}}{}{}
+\pretocmd{\@todo}{\PackageWarning{todonotes}{There is still a todo here!}}{}{}
 \makeatother
 
 % sorgt dafür, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
