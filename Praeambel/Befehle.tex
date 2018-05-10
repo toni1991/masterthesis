@@ -57,7 +57,10 @@
 \usepackage{xparse}
 \NewDocumentEnvironment{codeWithCaption}{mm} % one m per argument
   {}
-  {\vspace*{-3.5em}\captionof{listing}{#1\label{#2}}}
+  {
+    \vspace*{-3.5em}
+    \begingroup\captionsetup{type=listing}\captionof{listing}{#1\label{#2}}\endgroup
+  }
 
 \newcommand{\cob}[1]{\mintinline[breaklines]{cobolfree}{#1}}
 \newcommand{\jav}[1]{\mintinline[breaklines]{java}{#1}}

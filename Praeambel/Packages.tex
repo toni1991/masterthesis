@@ -34,9 +34,9 @@
 \usepackage{amsmath,amsfonts}
 
 % für Index-Ausgabe mit \printindex --------------------------------------------
-\usepackage{makeidx}
-\makeindex
-\AtBeginDocument{\renewcommand\indexname{Stichwortverzeichnis}}
+%<-\usepackage{makeidx}
+%<-\makeindex
+%<-\AtBeginDocument{\renewcommand\indexname{Stichwortverzeichnis}}
 %\addcontentsline{toc}{chapter}{Stichwortverzeichnis}
 
 % toc in toc
@@ -121,6 +121,7 @@
     captionpos=b,
     breakautoindent=true
 }
+\makeatletter \def\@dotsep{4.5} \makeatother
 
 % URL verlinken, lange URLs umbrechen etc. -------------------------------------
 \usepackage{url}

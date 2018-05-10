@@ -1,5 +1,5 @@
 \section{Externe Deklaration von Daten} 
-\index{COPY} \index{import} \index{COBOL Copybook}
+%\index{COPY} \index{import} \index{COBOL Copybook}
 Sowohl zur Wiederverwendbarkeit als auch zur Erreichung einer gewissen Typsicherheit ist es in vielen Programmiersprachen möglich, Datenstrukturen extern in einer eigenen Datei zu deklarieren und an verschiedenen Stellen wieder zu verwenden. Dies ist auch in COBOL und Java möglich, wenngleich sich die Ansätze stark unterscheiden. In Java ist diese Deklaration ein entscheidendes Sprachkonzept und so muss -- wie bereits beschrieben -- jede Klasse in einer eigenen Datei angelegt werden. In COBOL bietet dieses Konzept lediglich einen gewissen komfortableren Umgang mit Datendeklarationen, ist jedoch nicht zwingend notwendig.
 
 In Java werden Klassen in sogenannten Packages organisiert. Um auf Klassen aus einem anderen Package zuzugreifen, ist ein Importieren der betreffenden Klasse notwendig. Dies geschieht wie in \autoref{importJava} mithilfe des \jav{import}-Statements.
@@ -15,7 +15,7 @@ COBOL bietet zur externen Deklaration von Daten das \mintinline{cobol}{COPY}-Sch
 
 In diesem speziellen Fall wird zusätzlich Gebrauch der Schlüsselwörter \cob{REPLACING} und \cob{BY} gemacht. Dieses kann dazu verwendet werden, um Variablennamen oder Strings im dem Copybook auszutauschen.
 
-Am Rande sei hier auch die Nutzung eines \cob{FILLER}\index{FILLER} erwähnt. Hierbei handelt es sich um eine Variable, die nicht direkt verwendet werden kann, da sie keinen Namen hat. Wie im Beispiel sind FILLER oftmals Teile von größeren Strukturen.
+Am Rande sei hier auch die Nutzung eines \cob{FILLER} erwähnt. Hierbei handelt es sich um eine Variable, die nicht direkt verwendet werden kann, da sie keinen Namen hat. Wie im Beispiel sind FILLER oftmals Teile von größeren Strukturen.
 
 Das Einbinden eines Copybooks ist jedoch auch innerhalb der \cob{PROCEDURE DIVISION} möglich wie \autoref{copyFileInCode} und \autoref{copyInCode} darstellen. Somit wird es möglich Logik in Form von Code der wiederverwendet werden soll auszulagern und an verschiedenen Stellen zu nutzen.
 

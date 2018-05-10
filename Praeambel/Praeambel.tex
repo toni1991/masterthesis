@@ -3,7 +3,6 @@
     DIV=10,
     ngerman, % für Umlaute, Silbentrennung etc.
     a4paper, % Papierformat
-    onepage, % einseitiges Dokument
     titlepage, % es wird eine Titelseite verwendet
     parskip=full, % Abstand zwischen Absätzen (halbe Zeile)
     headings=normal, % Größe der Überschriften verkleinern
@@ -14,6 +13,8 @@
     captions=tableheading, % Beschriftung von Tabellen unterhalb ausgeben
     final % Status des Dokuments (final/draft)
 ]{scrreprt}
+
+\KOMAoptions{twoside=false}
 
 \listfiles
 
