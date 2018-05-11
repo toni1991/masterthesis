@@ -18,7 +18,7 @@ UNION-SUB-PROGRAM: 190.742
 \end{shellwindow}
 \end{codeWithCaption}
 
-\autoref{structUnionCOBOL} zeigt sowohl die Verwendung als Struktur-Typ, als auch den Zugriff als Union-Typ in einem Unterprogramm und mithilfe der in \autoref{variables} beschriebenen \cob{REDEFINES} Anweisung. Wie bereits in dieser Arbeit gezeigt, wird -- in diesem Falle zur Ausgabe -- auf eine gesamte Datenstruktur zugegriffen, die mehrere unterschiedliche Variablen enthält. Diese Datenstruktur stellt also ein \textit{Struct} dar. Im gezeigten Unterprogramm hingegen wird der selbe Speicherbereich anders interpretiert
+\autoref{structUnionCOBOL} zeigt sowohl die Verwendung als Struktur-Typ, als auch den Zugriff als Union-Typ in einem Unterprogramm und mithilfe der in \autoref{variables} beschriebenen \cob{REDEFINES} Anweisung. Wie bereits in dieser Arbeit gezeigt, wird -- in diesem Falle zur Ausgabe -- auf eine gesamte Datenstruktur zugegriffen, die mehrere unterschiedliche Variablen enthält. Diese Datenstruktur stellt ein \textit{Struct} dar. Im gezeigten Unterprogramm hingegen wird der selbe Speicherbereich anders interpretiert.
 
 Dies wird laut Herrn Streit in der Praxis auch oft ausgenutzt, um Erweiterungen von Programmen zu realisieren. Da Unterprogramme lediglich einen Zeiger auf Datenstrukturen übergeben bekommen, können diese Strukturen erweitert werden, ohne das Unterprogramm zu ändern, solange neue Datenfeldern an das Ende angehängt werden. Weitere Unterprogramme, welche an neue Datenfelder angepasst wurden, können wiederum die Daten, die hinten angehängt wurden, nutzen. Das Einfügen von Feldern zwischen bestehenden, hat unweigerlich die Anpassung aller Komponenten zur Folge.
 

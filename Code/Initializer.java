@@ -1,3 +1,5 @@
+package de.masterthesis.augsburg;
+
 public class Initializer {
 
     static { // static initializer

@@ -10,12 +10,14 @@ Das Interface \mintinline{text}{MySystem} nutzt dabei die in Package \mintinline
 COBOL bietet zur externen Deklaration von Daten das \mintinline{cobol}{COPY}-Schlüsselwort. Hiermit wird der Inhalt einer anderen Datei, eines sogenannten \textit{COBOL-Copybook}, durch den Compiler an die Stelle des \mintinline{cobol}{COPY} kopiert. Das Verhalten ist stark mit der Präprozessoranweisung \mintinline{c}{#include} in den Programmiersprachen C und C++ zu vergleichen.
 
 \mintedCobol{COPYBOOK.cpy}{COBOL-Copybook Datei (COPYBOOK.cpy)}{copyFileCobol}
+
 \mintedCobol{copy.cbl}{Nutzung eines COBOL-Copybook}{copyCobol}
+
 \autoref{copyFileCobol} zeigt den Inhalt des Copybooks. Hier werden die Datenstrukturen definiert, die fortan an anderer Stelle genutzt werden sollen. In \autoref{copyCobol} Zeile 6 wird das COBOL-Copybook in die \cob{WORKING-STORAGE SECTION} kopiert, sodass die deklarierten Daten fortan im Programm genutzt werden können.
 
 In diesem speziellen Fall wird zusätzlich Gebrauch der Schlüsselwörter \cob{REPLACING} und \cob{BY} gemacht. Dieses kann dazu verwendet werden, um Variablennamen oder Strings im dem Copybook auszutauschen.
 
-Am Rande sei hier auch die Nutzung eines \cob{FILLER} erwähnt. Hierbei handelt es sich um eine Variable, die nicht direkt verwendet werden kann, da sie keinen Namen hat. Wie im Beispiel sind FILLER oftmals Teile von größeren Strukturen.
+Am Rande wird hier auch die Nutzung eines \cob{FILLER} gezeigt. Hierbei handelt es sich um eine Variable, die nicht direkt verwendet werden kann, da sie keinen Namen hat. Wie im Beispiel sind FILLER oftmals Teile von größeren Strukturen.
 
 Das Einbinden eines Copybooks ist jedoch auch innerhalb der \cob{PROCEDURE DIVISION} möglich wie \autoref{copyFileInCode} und \autoref{copyInCode} darstellen. Somit wird es möglich Logik in Form von Code der wiederverwendet werden soll auszulagern und an verschiedenen Stellen zu nutzen.
 
