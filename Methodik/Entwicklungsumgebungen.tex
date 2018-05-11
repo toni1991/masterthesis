@@ -15,7 +15,7 @@ Um bereits an dieser Stelle einen kleinen Einblick in COBOL, die Programmierung 
 
 Legt man in der OpenCobolIDE ein neues Programm an, so enthält die Datei das bekannte \quotes{Hello world} als Beispielprogramm. Wir haben dieses Programm nun so erweitert, dass es die Eingabe eines Benutzernamens erwartet und eine persönliche Begrüßung ausgibt. \autoref{firstCOBOLProgram} zeigt das fertige Programm.
 
-Als erstes wird die \cob{PROGRAM-ID} festgelegt. Dies ist der Programmname, wie er auch nach außen -- für eventuelle andere Programme -- sichtbar wird, und sollte daher eindeutig sein. Wichtig hierbei ist auch das Setzen des richtigen Namens in der letzten Zeile, die das \cob{END PROGRAM} enthält.
+Als erstes wird die \cob{PROGRAM-ID} festgelegt. Dies ist der Programmname, wie er auch nach außen -- für eventuelle andere Programme -- sichtbar wird, und sollte daher eindeutig sein. Wichtig hierbei ist auch das Setzen des Namens in der letzten Zeile, die das \cob{END PROGRAM} enthält. Diese Zeile kann entfallen, muss aber den richtigen Programmnamen enthalten wenn sie verwendet wird.
 
 Anschließend wurde eine Variable mit dem Namen \cob{USERNAME} angelegt, die aus 20 alphanumerischen Zeichen (\cob{PIC X(20)}) besteht und mit Leerzeichen (\cob{VALUE SPACES}) initialisiert wird.
 

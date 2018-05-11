@@ -12,9 +12,15 @@ Durch diese praktischen Modularisierungsmöglichkeiten ist es in Java auch gut m
 Ein weiterer Punkt, der Java dazu verhilft, dass Programme wiederverwendet werden können ist die Tatsache, dass Java-Code in plattformunabhängigen Byte-Code übersetzt wird. Die Java-Virtual-Machine (\textit{JVM}) führt dann diesen Byte-Code aus und sorgt so dafür, dass bereits kompilierte Programme auf allen Systemen mit JVM ausführbar sind und so weiterverteilt werden können, ohne neu kompiliert werden zu müssen. Diese JVM wiederum ist ein plattformabhängiges System, welches jedoch für -- nahezu -- alle gängigen Systeme und Plattformen verfügbar ist.
 
 \subsection*{COBOL}
-Im Gegensatz zu Java lässt COBOL ein Modularisierungskonzept vermissen. Wie in \autoref{sec:functionsAndReturnValues} nachzulesen ist, fehlen grundlegende Spracheigenschaften, um die Wiederverwendbarkeit von Code sicherzustellen. 
+Im Gegensatz zu Java lässt COBOL ein weitreichendes Modularisierungskonzept vermissen. Wie in \autoref{sec:functionsAndReturnValues} nachzulesen ist, fehlen grundlegende Spracheigenschaften, um die Wiederverwendbarkeit von Code sicherzustellen. 
 
-Wie ein Herr Lamperstorfer betonte, sieht man daher in der Praxis oftmals Code-Blöcke, die ein und die selbe Logik abbilden, aber durch die Verwendung von anderen Daten nochmals im Copy-Paste-Stil in den Code integriert wurden. Das sorgt für ein hohes Maß an Redundanz. Um diese Redundanz zu vermeiden, werden aber auch gängigerweise Datenstrukturen für mehr als nur einen Zweck im Programm \quotes{missbraucht}. Darunter leidet natürlich die Les- und Wartbarkeit von COBOL-Code sehr, da häufig nicht klar ist, welche Daten in welchem Kontext wie verwendet werden. Zu diesem Thema sei auf \autoref{affixCOBOL} verwiesen.
+\todo{hier gäbe es möglichkeiten mit copy; vorwärtsreferenz aufpassen}
+\todo{hier gäbe es möglichkeiten mit unterprogrammen; vorwärtsreferenz aufpassen}
+Der typische Ansatz in COBOL ist Funktionalitäten über Schlüsselwörter bereitzustellen. Dies stößt irgendwann unweigerlich an Grenzen und so 
+\todo[inline,color=red]{viel als Schlüsselwort in COBOL, in Java nicht, sondern als Library}
+
+
+Wie Herr Lamperstorfer betonte, sieht man daher in der Praxis oftmals Code-Blöcke, die ein und die selbe Logik abbilden, aber durch die Verwendung von anderen Daten nochmals im Copy-Paste-Stil in den Code integriert wurden. Das sorgt für ein hohes Maß an Redundanz. Um diese Redundanz zu vermeiden, werden aber auch gängigerweise Datenstrukturen für mehr als nur einen Zweck im Programm \quotes{missbraucht}. Darunter leidet natürlich die Les- und Wartbarkeit von COBOL-Code sehr, da häufig nicht klar ist, welche Daten in welchem Kontext wie verwendet werden. Zu diesem Thema sei auf \autoref{affixCOBOL} verwiesen.
 
 In COBOL kann Variabilität im Vergleich zu Java nur sehr schwer erreicht werden. Code muss oftmals in hohem Maße kopiert werden, um ähnliche Funktionalität abzubilden und so fallen Anpassungen in diesem Bereich unverhältnismäßig groß aus.
 
