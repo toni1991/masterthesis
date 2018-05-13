@@ -95,18 +95,21 @@
 \newcommand{\thomas}[1]{\interviewExpert{Thomas Lamperstorfer}{#1}}
 
 % recap
-\newcommand{\recappage}[1]{
+\newcommand{\recappage}[2]{
     \begin{minipage}[c]{\linewidth}
-        \begin{wrapfigure}{l}{.1\linewidth}
+        \begin{wrapfigure}{l}{.2\linewidth}
+            \centering
             \vspace{-15pt}
-            \includegraphics[width=\linewidth]{Bilder/recap}
+            \includegraphics[width=.75\linewidth]{Bilder/recap}
+            \textsc{\autoref{#1}}
             \vspace{-25pt}
         \end{wrapfigure}
-        #1
+        #2
+        \todo[inline]{Racap!}
     \end{minipage}
 }
 
-\newcommand{\recap}[1]{
+\newcommand{\recap}[2]{
     \setlength{\fboxsep}{1.5em}
-    \colorbox{gray!25}{\parbox{\linewidth-2\fboxsep}{\recappage{#1}}}
+    \colorbox{gray!25}{\parbox{\linewidth-2\fboxsep}{\recappage{#1}{#2}}}
 }

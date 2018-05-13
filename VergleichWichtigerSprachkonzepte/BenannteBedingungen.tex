@@ -1,4 +1,4 @@
-\subsection{Benannte Bedingungen}
+\subsection{Benannte Bedingungen}\label{cobolSec88}
 Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weitere Besonderheit in COBOL dar. Mit ihr ist es möglich, einer Variable einen Wahrheitswert zuzuweisen, der von einem anderen Variablenwert abhängt. Es entsteht eine sogenannte benannte Bedingung.
 
 \autoref{88_cobol_listing} zeigt die Verwendung der Stufennummer 88. Die Variable \mintinline{text}{AGE} kann dabei zweistellige numerische Werte enthalten, die einem beispielhaften Alter entsprechen, welches zu Beginn mit 13 vorbelegt wird. Liegt der Wert zwischen 0 und 17 (\cob{VALUE 0 THRU 17}), so weisen die Variablen \mintinline{text}{ISUNDERAGE} den Wahrheitswert \cob{TRUE} und \mintinline{text}{ISADULT} den Wahrheitswert \cob{FALSE} auf.
@@ -16,9 +16,9 @@ AGE = 18
 
 Zeile 14 des Programms illustriert einen weiteren Anwendungsfall der benannten Bedingungen. So lässt sich der Wert der eigentlichen Variable setzen, indem der bedingten Variable der Wahrheitswert \cob{TRUE} zugewiesen wird. Das Ergebnis dieser Zuweisung wird in der Ausgabe von \autoref{88_cobol_listing} in Zeile 3 dargestellt. Zu beachten ist hierbei, dass die meisten COBOL-Compiler nur das Setzen des Wertes \cob{TRUE} erlauben.
 
-Dieses Verhalten wird oftmals ausgenutzt, um Variablen mit bestimmten Werten zu belegen. Dieses Verhalten beschreibt \autoref{88_cobol_value_set_listing}.
-
 \mintedCobol{88_section_value_set.cbl}{Setzen von Werten mithilfe benannter Bedingungen}{88_cobol_value_set_listing}
+
+Dieses Verhalten kann dazu genutzt werden, um Variablen mit bestimmten Werten zu belegen. Dieses Verhalten beschreibt \autoref{88_cobol_value_set_listing}. Oftmals fungieren diese bedingten Bedingungen auch als Schalter \bzw Flags, \dahe je nach Wert werden unterschiedliche Funktionalitäten ausgeführt.
 
 \subsubsection*{Abbildung in Java}
 Java besitzt kein Sprachkonstrukt, um die Funktionalität der Stufennummer 88 direkt nachzubilden. Eine Möglichkeit gleiches Verhalten darzustellen bietet allerdings die Implementierung spezieller Methoden. Dies soll \autoref{88_java_listing} veranschaulichen.

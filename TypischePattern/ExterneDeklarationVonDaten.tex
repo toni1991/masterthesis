@@ -1,4 +1,4 @@
-\section{Externe Deklaration von Daten} 
+\section{Externe Deklaration von Daten} \label{copy}
 %\index{COPY} \index{import} \index{COBOL Copybook}
 Sowohl zur Wiederverwendbarkeit als auch zur Erreichung einer gewissen Typsicherheit ist es in vielen Programmiersprachen möglich, Datenstrukturen extern in einer eigenen Datei zu deklarieren und an verschiedenen Stellen wieder zu verwenden. Dies ist auch in COBOL und Java möglich, wenngleich sich die Ansätze stark unterscheiden. In Java ist diese Deklaration ein entscheidendes Sprachkonzept und so muss -- wie bereits beschrieben -- jede Klasse in einer eigenen Datei angelegt werden. In COBOL bietet dieses Konzept lediglich einen gewissen komfortableren Umgang mit Datendeklarationen, ist jedoch nicht zwingend notwendig.
 
@@ -13,17 +13,17 @@ COBOL bietet zur externen Deklaration von Daten das \mintinline{cobol}{COPY}-Sch
 
 \mintedCobol{copy.cbl}{Nutzung eines COBOL-Copybook}{copyCobol}
 
-\autoref{copyFileCobol} zeigt den Inhalt des Copybooks. Hier werden die Datenstrukturen definiert, die fortan an anderer Stelle genutzt werden sollen. In \autoref{copyCobol} Zeile 6 wird das COBOL-Copybook in die \cob{WORKING-STORAGE SECTION} kopiert, sodass die deklarierten Daten fortan im Programm genutzt werden können.
+\autoref{copyFileCobol} zeigt den Inhalt des Copybooks. Hier werden die Datenstrukturen definiert, die fortan an anderer Stelle genutzt werden können. In \autoref{copyCobol} Zeile 6 wird das COBOL-Copybook in die \cob{WORKING-STORAGE SECTION} kopiert, sodass die deklarierten Daten fortan im Programm genutzt werden können.
 
-In diesem speziellen Fall wird zusätzlich Gebrauch der Schlüsselwörter \cob{REPLACING} und \cob{BY} gemacht. Dieses kann dazu verwendet werden, um Variablennamen oder Strings im dem Copybook auszutauschen.
+In diesem speziellen Fall wird zusätzlich Gebrauch der Schlüsselwörter \cob{REPLACING} und \cob{BY} gemacht. Dieses kann dazu verwendet werden, um Variablennamen oder Strings im dem Copybook auszutauschen. Dieser Mechanismus führt zu einer höheren Wiederverwendbarkeit, sollte jedoch mit Bedacht genutzt werden, da eine Analyse des Programms erschwert wird, weil Variable durch die Namensersetzung im Quelltext schwerer zu finden sind.
 
 Am Rande wird hier auch die Nutzung eines \cob{FILLER} gezeigt. Hierbei handelt es sich um eine Variable, die nicht direkt verwendet werden kann, da sie keinen Namen hat. Wie im Beispiel sind FILLER oftmals Teile von größeren Strukturen.
 
-Das Einbinden eines Copybooks ist jedoch auch innerhalb der \cob{PROCEDURE DIVISION} möglich wie \autoref{copyFileInCode} und \autoref{copyInCode} darstellen. Somit wird es möglich Logik in Form von Code der wiederverwendet werden soll auszulagern und an verschiedenen Stellen zu nutzen.
+Das Einbinden eines Copybooks ist jedoch auch innerhalb der \cob{PROCEDURE DIVISION} möglich wie \autoref{copyFileInCode} und \autoref{copyInCode} darstellen. Somit wird es möglich Logik in Form von Code der wiederverwendet wird auszulagern und an verschiedenen Stellen zu nutzen. Dies ist allerdings in einigen Unternehmen verpönt, wie Herr Streit anmerkte und daher eher seltener zu sehen.
 
 \mintedCobol{COPYBOOK-EVALUATE.cpy}{COBOL-Copybook Datei (COPYBOOK-EVALUATE.cpy)}{copyFileInCode}
 \mintedCobol{copyEvaluate.cbl}{Nutzung von COPYBOOK-EVALUATE.cpy}{copyInCode}
 
-\recap{
-    In Java ist die Auslagerung von Daten und Logik fester Bestandteil der Sprache. Dieses Konzept spiegelt sich auch in der Fähigkeiten der Modularisierung -- vgl. \autoref{wiederverwendbarkeit} -- wieder. COBOL bietet hierfür das Schlüsselwort \cob{COPY}. Wenngleich dieses Konzept deutlich weniger mächtig ist wie das \jav{import}-Statement in Java so ist es doch eine Möglichkeit Daten und Logik zu kapseln und auszulagern. Wie Herr Streit und Herr Bonev betonten, lässt sich entsprechende Nutzung jedoch in der Praxis nur selten beobachten und sollte weitaus öfter Verwendung finden.
+\recap{copy}{
+    In Java ist die Auslagerung von Daten und Logik fester Bestandteil der Sprache. Dieses Konzept spiegelt sich auch in der Fähigkeiten der Modularisierung -- vgl. \autoref{wiederverwendbarkeit} -- wieder. COBOL bietet hierfür das Schlüsselwort \cob{COPY}. Wenngleich dieses Konzept deutlich weniger mächtig ist als das \jav{import}-Statement in Java so ist es doch eine Möglichkeit Daten und Logik zu kapseln und auszulagern. Wie Herr Streit betonte, werden diese Copybooks in der Praxis zwar verwendet, könnten aber noch feingranularer und öfter zum Einsatz kommen.
 }

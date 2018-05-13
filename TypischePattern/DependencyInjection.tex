@@ -12,4 +12,4 @@ Die erste der angesprochenen Vorgehensweise verletzt allerdings -- je nach Ausnu
 
 \autoref{diJava} beinhaltet eine einfache Dependency Injection. Der Code macht gleichzeitig Gebrauch von Interfaces, was einen Teil der Flexibilität der Dependency Injection verdeutlicht. Neben der gezeigten Möglichkeit der Übergabe an den Konstruktor einer Klasse, erwähnt \citeauthor{martin_clean_2008} \cite{martin_clean_2008} auch die Varianten diese Abhängigkeiten über Setter-Methoden oder Interfaces herzustellen.
 
-Um Dependency Injection zu erreichen gibt es auch einige Frameworks mit deren Hilfe Objekte \zB mittels Annotationen sehr komfortabel injiziert werden können. Allerdings ist in der Praxis davon abzuraten, diese Frameworks zu verwenden, da sie meist die Logik zur Objektinstanziierung vor dem Entwickler verstecken, unter Umständen Konfigurationen erfordern, was Zusammenhänge Abhängigkeit in Konfigurationsdateien \bzw -klassen verschiebt und der Code stark mit dem Framework verwoben wird. 
+Da Variablen, wie \autoref{sec:scope} beschreibt, in COBOL immer dem ganzen Programm zugänglich sind, ist die Dependency Injection hier nicht relevant.

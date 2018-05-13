@@ -1,6 +1,8 @@
 \subsection{Maps}
-Maps erlauben schnellen Zugriff auf bestimmte Elemente. Erreicht wird dies oft durch eine sogenannte HashMap, bei der der Speicherbereich, in dem ein Element der Datenstruktur gespeichert werden soll, mithilfe der Daten des Objekts berechnet -- auch als \textit{gehasht} bezeichnet -- wird. Dies eignet sich vor allem, wenn viele Elemente in der Datenstruktur gespeichert werden sollen oder konstante Zugriffszeit -- $O(1)$ -- auf Elemente notwendig ist.
+Maps erlauben schnellen Zugriff auf bestimmte Elemente. Erreicht wird dies oft durch eine sogenannte \textit{HashMap}, wobei auch andere Implementierungen wie Bäume denkbar sind. Bei diesen \textit{HashMaps} wird der Speicherbereich, in dem ein Element der Datenstruktur gespeichert werden, mithilfe der Daten des Objekts berechnet, was auch als \textit{gehasht} bezeichnet wird. Dies eignet sich vor allem, wenn viele Elemente in der Datenstruktur gespeichert werden und konstante Zugriffszeit -- $O(1)$ -- auf Elemente notwendig ist. Diese Zugriffszeit hängt von der zugrundeliegenden Implementierung ab.
 
-In Java steht dafür das Interface \jav{Map} und Implementierungen wie \jav{HashMap} bereit. Damit werden generische Objekte anhand ihrer \jav{hashCode}-Funktion in einer Map verwaltet.
+In Java steht dafür das Interface \jav{Map} und Implementierungen wie \jav{HashMap} bereit. Damit werden generische Objekte anhand ihrer \jav{hashCode}-Funktion in einer Map verwaltet um eine Zugriffszeit von zu bekommen. 
 
-COBOL bietet keine Konstrukte, um eine Map abzubilden. Wie die Experten Bonev und Streit jedoch angaben wurden in der Praxis bereits Möglichkeiten entwickelt, ein solches Verhalten in COBOL abzubilden. Eine einfache wäre eine eigene Hash-Funktion für den genauen Anwendungsfall zu implementieren, die Eingabewerte eindeutig auf Indizes eines Arrays fester Größe abbildet. Eine weitere Möglichkeit \todo{siehe interview jona}
+COBOL bietet keine Konstrukte, um eine Map abzubilden. Wie die Experten Bonev und Streit angaben wurden in der Praxis bereits Möglichkeiten entwickelt, ein solches Verhalten in COBOL abzubilden. Eine einfache wäre eine eigene Hash-Funktion für den genauen Anwendungsfall zu implementieren, die Eingabewerte eindeutig auf Indizes eines Arrays fester Größe abbildet. 
+
+Eine weitere Möglichkeit \todo{siehe interview jona}

@@ -10,7 +10,7 @@ In der Programmierung ist es häufig nötig, dass bestimmte Ereignisse andere Ak
 
 Im Gegensatz zum Polling, bei dem permanent Rechenzeit dafür aufgewendet werden muss, aktiv eine Zustandsänderung zu überwachen, wird in der Praxis häufig das Entwurfsmuster der Callbacks verwendet. Damit wird erreicht, dass ein Teilprogramm nicht wie beschrieben aktiv Änderungen beobachten muss, sondern sich von einem anderen Programmabschnitt über Zustände benachrichtigen lassen kann. 
 
-Obwohl das klassische Callback-Muster aufgrund von fehlenden funktionalen Elementen in Java nicht direkt implementierbar ist, finden sich oft sehr ähnliche Abbildungen davon. Die standardisierten Schnittstellen  \jav{Observer} und \jav{Observable} bieten dabei eine generische Möglichkeit zur Änderungsbenachrichtigung. Häufiger lassen sich jedoch sogenannte \jav{Listener} beobachten, welche das Callback-Muster abbilden sollen. Hierbei werden eigene Interfaces definiert, was zwar die Generizität verringert, jedoch zu breiterem Funktionsumfang und leichter verständlichem Code führt.
+Obwohl das klassische Callback-Muster aufgrund von fehlenden funktionalen Elementen in Java nicht direkt implementierbar ist, finden sich oft sehr ähnliche Abbildungen davon. Die standardisierten Schnittstellen  \jav{Observer} und \jav{Observable} bieten dabei eine generische Möglichkeit zur Änderungsbenachrichtigung. Häufiger lassen sich jedoch sogenannte \jav{Listener} beobachten, welche das Callback-Muster abbilden. Hierbei werden eigene Interfaces definiert, was zwar die Generizität verringert, jedoch zu breiterem Funktionsumfang und leichter verständlichem Code führt.
 
 Das \autoref{observerJava} zeigt die Handhabung des \jav{Observer}-Pattern \cite{gamma_design_1995} in Java mithilfe der \jav{Observer} und \jav{Observable}-Interfaces. Wie gezeigt, kann die Implementierung des \jav{Observer}-Interfaces auch in einer anonymen Klasse geschehen. Diese sprachlichen Konstrukte wurden bereits in \autoref{sec:structure} beschrieben. 
 
@@ -31,4 +31,4 @@ FormattedTime: 2018-04-16T12:32:48.481Z
 PlainTime: 1523881968481
 \end{shellwindow}
 
-In COBOL hingegen ist ein solches Muster nicht möglich. Allerdings aufgrund der fehlenden Nebenläufigkeit und Objektorientierung auch nicht nötig.
+In COBOL können Callbacks nur rudimentär abgebildet werden, helfen jedoch auch hier Code klarer zu strukturieren. So kann beispielsweise für jedes Element einer Liste, ein Unterprogramm als Callback aufgerufen werden oder durch die in \autoref{mehrfachverzweigungen} gezeigten Mehrfachverzweigungen Code abhängig von Bedingungen ausgeführt und so unterschiedliches Verhalten erreicht werden. Vor allem in Verbindung mit Flags (siehe \autoref{cobolSec88}) kann die Ausführung von einzelnen Codeteilen erreicht werden, die dem Callback-Muster ähnlich ist. Diese Callback-Strategien lassen sich laut Herrn Streit auch in realen Systemen beobachten.

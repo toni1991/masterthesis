@@ -1,15 +1,24 @@
-import java.math.BigDecimal;
+public class PrecisionExample {
 
-public class FloatingPoint {
     public static void main(String[] args) {
-        float notPrecisely = 0.65f;
-        System.out.printf("%.23f == 0.65 -> %s\n", 
-                notPrecisely, (notPrecisely == 0.65));
+        float number = 0.5f;
+        int numberInt = Float.floatToIntBits(number);
+        printFloatAndBinary(number, numberInt);
 
-        BigDecimal notPreciselyBigDecimal = new BigDecimal(0.65f);
-        System.out.println(notPreciselyBigDecimal);
+        numberInt++;
+        number = Float.intBitsToFloat(numberInt);
+        printFloatAndBinary(number, numberInt);
 
-        BigDecimal preciselyBigDecimal = new BigDecimal("0.65");
-        System.out.println(preciselyBigDecimal);
+        number = 0.50000002f;
+        numberInt = Float.floatToIntBits(number);
+        printFloatAndBinary(number, numberInt);
     }
+
+    public static void printFloatAndBinary(float number, int binary) {
+        System.out.println(
+                String.format("%.8f = %s", number, 
+                        Integer.toBinaryString(binary))
+        );
+    }
+
 }

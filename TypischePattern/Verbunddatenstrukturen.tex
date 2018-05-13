@@ -18,13 +18,16 @@ UNION-SUB-PROGRAM: 190.742
 \end{shellwindow}
 \end{codeWithCaption}
 
-\autoref{structUnionCOBOL} zeigt sowohl die Verwendung als Struktur-Typ, als auch den Zugriff als Union-Typ in einem Unterprogramm und mithilfe der in \autoref{variables} beschriebenen \cob{REDEFINES} Anweisung. Wie bereits in dieser Arbeit gezeigt, wird -- in diesem Falle zur Ausgabe -- auf eine gesamte Datenstruktur zugegriffen, die mehrere unterschiedliche Variablen enthält. Diese Datenstruktur stellt ein \textit{Struct} dar. Im gezeigten Unterprogramm hingegen wird der selbe Speicherbereich anders interpretiert.
+\autoref{structUnionCOBOL} zeigt sowohl die Verwendung als Struktur-Typ, als auch den Zugriff als Union-Typ in einem Unterprogramm und mithilfe der in \autoref{variables} beschriebenen \cob{REDEFINES} Anweisung. Wie bereits in dieser Arbeit gezeigt, wird -- in diesem Falle zur Ausgabe -- auf eine gesamte Datenstruktur zugegriffen, die mehrere unterschiedliche Variablen enthält. Diese Datenstruktur stellt ein Struct dar. Im gezeigten Unterprogramm hingegen wird der selbe Speicherbereich anders interpretiert.
 
 Dies wird laut Herrn Streit in der Praxis auch oft ausgenutzt, um Erweiterungen von Programmen zu realisieren. Da Unterprogramme lediglich einen Zeiger auf Datenstrukturen übergeben bekommen, können diese Strukturen erweitert werden, ohne das Unterprogramm zu ändern, solange neue Datenfeldern an das Ende angehängt werden. Weitere Unterprogramme, welche an neue Datenfelder angepasst wurden, können wiederum die Daten, die hinten angehängt wurden, nutzen. Das Einfügen von Feldern zwischen bestehenden, hat unweigerlich die Anpassung aller Komponenten zur Folge.
 
 \subsubsection*{Structs und Unions in Java}
 
-In Java gehen Verbunddatenstrukturen in Klassen und Aufzählungstypen (jav{enum}) auf. Klassen stellen weiterentwickelte Formen von \textit{Structs} dar, die, wie \autoref{javaBean} zeigt, unterschiedliche Attribute kapseln. Diese Klassen werden auch \textit{Java Beans} genannt. 
+In Java gehen Verbunddatenstrukturen in Klassen und Aufzählungstypen (jav{enum}) auf. Klassen stellen weiterentwickelte Formen von Structs dar, die, wie \autoref{javaBean} zeigt, unterschiedliche Attribute kapseln. Diese Klassen werden auch \textit{Java Beans} genannt. 
 
-\mintedJava{Bean.java}{Java Bean}{javaBean}
+\mintedJava{Bean.java}{Struct in Java (JavaBean)}{javaBean}
 
+Unions dagegen lassen sich durch verschiedene getter-Methoden abbilden. Dabei bietet eine Klasse mehere Methoden, die sich auf das selbe Feld zurückführen lassen, aber dieses wie \autoref{javaUnion} \zB in verschiedenen Datentypen zurückliefern oder Felder verbinden. 
+
+\mintedJava{Union.java}{Union in Java}{javaUnion}
