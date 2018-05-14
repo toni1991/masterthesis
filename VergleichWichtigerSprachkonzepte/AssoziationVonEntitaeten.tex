@@ -1,0 +1,15 @@
+\subsection{Assoziation von Entitäten}
+
+Vor allem in der objektorientierten Programmierung ist es nötig innerhalb von Objekten Referenzen auf andere Entitäten zu halten, um so Verbindungen zwischen diesen Objekten zu realisieren. Damit können Funktionalitäten und Daten von anderen Entitäten genutzt und verändert werden. 
+
+In der Regel unterscheidet man zwischen drei Arten von Assoziationen. Die 1-zu-1 Beziehung beschreibt eine Beziehung bei der jeweils einem Objekt ein anderes zugeordnet ist. Ein Beispiel dafür wäre eine klassische Ehekonstellation, bei der einem Partner genau ein anderer zugeordnet wird, wobei auch Beziehungen zwischen Entitäten unterschiedlicher Typen möglich sind. 
+
+Bei der 1-zu-N Assoziation hingegen wird einer Entität eine Menge anderer zugeordnet. Exemplarisch dafür wäre eine Bibliothek-Buch Beziehung. Während ein konkret gedrucktes Buchexemplar nur in einer Bibliothek stehen kann, kann diese mehrere (N) Bücher beinhalten. 
+
+Die dritte Form stellt eine M-zu-N Assoziation dar, in der mehreren Objekten auf einer Seite mehrere auf der jeweils anderen zugeordnet werden. Dies ist beispielsweise bei der Beziehung von Studenten und Veranstaltungen gegeben. Während mehrere Studenten Teil einer Veranstaltung sein können, kann ein Student mehr als eine Veranstaltung besuchen.
+
+\mintedJava{AssociationExample.java}{Assoziationen in Java}{assocJava}
+
+In Java lassen sich diese Assoziationen durch Attribute innerhalb einer Klasse realisieren, wie \autoref{assocJava} für die oben beschriebenen Beispiele zeigt. Ob diese Attribute innerhalb der Klasse instanziiert werden oder wie in \autoref{depi} gezeigt von außen zur Verfügung gestellt werden hat dabei keine Auswirkung.
+
+\todo{cobol}

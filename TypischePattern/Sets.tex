@@ -2,7 +2,7 @@
 Neben den in \autoref{lists} beschriebenen Listen bieten Sets in der Programmierung eine weitere häufig genutzte Datenstruktur. Die zwei wesentlichen Unterschiede im Gegensatz zu Listen sind zum einen eine fehlende Ordnung der Elemente und die Eigenschaft, dass ein und das selbe Element nur genau einmal innerhalb eines Sets vorkommen darf. Das Set entspricht somit weitestgehend der mathematischen Definition einer Menge.
 
 \subsubsection*{Sets in Java}
-Wie für Listen bietet Java auch für Sets das \jav{Set}-Interface. Die wohl am häufigsten genutzte Implementierung dieses Interfaces stellt die \jav{HashSet}-Klasse dar, welche die \jav{hashCode}-Methode eines Objektes nutzt, um es pseudo-eindeutig identifizierbar zu machen.
+Wie für Listen bietet Java auch für Sets das \jav{Set}-Interface. Die wohl am häufigsten genutzte Implementierung dieses Interfaces stellt die \jav{HashSet}-Klasse dar, welche die \jav{hashCode}-Methode eines Objektes nutzt, um es pseudo-eindeutig identifizierbar zu machen. Dadurch wird vermieden, dass die gesamte Liste durchlaufen werden muss um Duplikate zu finden.
 
 \begin{codeWithCaption}{HashSet Beispiel in Java}{javaHashSet}
     \java{HashSetExample.java}
@@ -28,4 +28,6 @@ Analog zu Listen kann festgehalten werden, dass eine Implementierung von Sets in
 \end{shellwindow}
 \end{codeWithCaption}
 
-\autoref{cobolSet} greift jedoch beispielhaft die Kernaspekte von Sets auf und zeigt eine mögliche Implementierung in COBOL. Wie auch in \autoref{cobolSet} sind nur Einfüge- und Löschoperationen realisiert.
+\autoref{cobolSet} greift jedoch die Kernaspekte von Sets auf und zeigt eine mögliche Implementierung in COBOL. Wie auch in \autoref{cobolSet} sind nur Einfüge- und Löschoperationen realisiert. 
+
+Wenngleich diese Implementierung beispielhaft zeigt, dass die Grundidee eines Sets auch in COBOL abbildbar ist, so hat sie gegenüber Java doch einige Nachteile. Zum einen ist sie ineffizient, da -- anders als bei \jav{HashSet}s -- stets alle Werte der Liste durchlaufen werden müssen, um Redundanz zu vermeiden. Zum anderen liegt die große Stärke von Datenstrukturen in Java in der Generizität (siehe \autoref{generics}). Diese kann in COBOL nicht erreicht werden, wodurch ein Set stets neu für die zugrundeliegenden Datentypen implementiert werden muss.
