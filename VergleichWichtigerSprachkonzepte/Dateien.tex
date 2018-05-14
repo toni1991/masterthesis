@@ -1,20 +1,42 @@
 \section{Dateien}
 Wie in \autoref{schnittstellenDatenquellen} beschrieben wurde, stellen oftmals auch Dateien eine wichtige Datenressource dar. An dieser Stelle soll der Umgang -- das Lesen und Schreiben -- mit Dateien in Java und COBOL erläutert und gegenübergestellt werden.
 
+\subsection*{Dateien in Java}
+
 Java bietet bereits mit Bibliotheksfunktionen des JDK umfangreiche Möglichkeiten, Dateien zu lesen und zu schreiben. Dies geschieht dabei in der Regel zeilenweise, wobei auch byte- \bzw zeichenweises Lesen möglich ist. Das Beispiel \autoref{javaIo} zeigt dabei zusätzlich die Verwendung der Klasse \jav{InputStream}. Diese sorgt dafür, dass die Datei nicht auf einmal in den Speicher geladen wird, sondern nur die gelesenen Daten im Speicher gehalten werden. Dies ist essenziell, um große Dateien zu lesen, da der Speicher des Systems ohne eine solche Methodik möglicherweise nicht ausreichend wäre, um die gesamte Datei zu speichern und so eine \jav{Exception} auftreten würde.
 
 \mintedJava{FileInputOutput.java}{Datei-Ein- und Ausgabe in Java \cite{oracle_reading_}}{javaIo}
 
 In Java sind darüberhinaus viele Bibliotheken erhältlich, die das Parsen von bestimmten, standardisierten Dateiformaten erleichtern können. Jedoch erfordert es ohne diese Biliotheken stets eigene Implementierungen, da das JDK an dieser Stelle nicht viel mehr als die gezeigten Abstraktionen und Möglichkeiten bietet.
 
-In COBOL hingegen wird der Zugriff auf Dateien auf Basis sogenannter \textit{Records} bewerkstelligt. Dies entspricht weitestgehend dem gezeigten Java-Beispiel, jedoch hat der Entwickler hier die Möglichkeit zu definieren, wie eine Zeile der Datei aufgebaut ist. Dies setzt zwar voraus, dass der Dateiinhalt in einer Art Tabelle formatiert ist, sorgt allerdings dafür, dass kein Mehraufwand beim Parsen nötig ist. \autoref{cobolOutput} und \autoref{cobolInput} zeigen diese Verwendung der Datei-Ein- und Ausgabe in COBOL.
+\subsection*{Dateien in COBOL}
 
-\mintedCobol{recordFile.txt}{Eingabedatei recordFile.txt}{recordFile}
+In COBOL hingegen wird der Zugriff auf Dateien auf Basis sogenannter \textit{Records} bewerkstelligt. Dies entspricht weitestgehend dem gezeigten Java-Beispiel, jedoch hat der Entwickler hier die Möglichkeit zu definieren, wie eine Zeile der Datei aufgebaut ist. Dies setzt zwar voraus, dass der Dateiinhalt in einer Art Tabelle formatiert ist, sorgt allerdings dafür, dass kein Mehraufwand beim Parsen nötig ist. 
+
+\mintedCobol{recordFile.txt}{Ein- bzw. Ausgabedatei recordFile.txt}{recordFile}
 
 \mintedCobol{PersonData.cpy}{Personendaten Copybook}{copyBookPersonData}
 
-\mintedCobol{Files.cbl}{Lesen von Dateien in COBOL \citeVgl{university_of_limerick_department}}{cobolOutput}
+\autoref{recordFile} zeigt den Aufbau der zu verarbeitenden Datensätze, die in \autoref{copyBookPersonData} als COBOL Struktur definiert sind.
 
-\mintedCobol{Files.cbl}{Schreiben von Dateien in COBOL \citeVgl{university_of_limerick_department}}{cobolInput}
+\mintedCobol{WRITE_FILE.cpy}{Dateien schreiben in COBOL (\vgl \cite{university_of_limerick_department})}{writeFileCopy}
 
-\todo{complete section}
+\mintedCobol{READ_FILE.cpy}{Dateien lesen in COBOL (\vgl \cite{university_of_limerick_department})}{readFileCopy}
+
+\autoref{readFileCopy} und \autoref{writeFileCopy} beinhalten Sections die die Datei-Ein- \bzw Ausgabe bewerkstelligen. Diese werden durch den \cob{COPY} Befehl in \autoref{cobolInpuOutput} eingebunden und genutzt. Zeile 8 spezifiziert dabei, dass es sich um eine Datei handelt, deren Einträge durch einen Zeilenvorschub getrennt sind. Im Gegensatz dazu kann man den Aufbau als \cob{ORGANIZATION IS RECORD SEQUENTIAL} \bzw \cob{ORGANIZATION IS SEQUENTIAL} definieren oder weglassen, da dies dem Standard entspricht, was bedeutet, dass die Einträge nicht voneinander abgetrennt sind. Dies wäre gleichbedeutend mit dem Entfernen der Zeilenumbrüche in \autoref{recordFile}.
+
+\begin{codeWithCaption}{Datei-Ein- und Ausgabe in COBOL (\vgl \cite{university_of_limerick_department})}{cobolInpuOutput}
+    \cobol{Files.cbl} 
+    \begin{shellwindow}
+    Write to file:
+    AGE FIRSTNAME SURNAME
+     44      Adam    Opal
+    Read from file:
+    Age:  26 Name: Hofmann,    Monika
+    Age:  21 Name:   Bauer,      Marc
+    Age:  45 Name:   Maier,    Sophia
+    Age:  44 Name:    Opal,      Adam
+    \end{shellwindow}
+\end{codeWithCaption}
+
+Mit relativer Dateiorganisation -- \cob{ORGANIZATION IS RELATIVE} -- und anderen Zugriffsmodi wie \cob{ACCESS MODE IS RANDOM} lassen sich auch nicht-sequenzielle Dateizugriffe, beispielsweise über Record-Indizes, realisieren.

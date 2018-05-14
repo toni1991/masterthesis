@@ -3,6 +3,4 @@ Maps erlauben schnellen Zugriff auf bestimmte Elemente. Erreicht wird dies oft d
 
 In Java steht dafür das Interface \jav{Map} und Implementierungen wie \jav{HashMap} bereit. Damit werden generische Objekte anhand ihrer \jav{hashCode}-Funktion in einer Map verwaltet um eine Zugriffszeit von zu bekommen. 
 
-COBOL bietet keine Konstrukte, um eine Map abzubilden. Wie die Experten Bonev und Streit angaben wurden in der Praxis bereits Möglichkeiten entwickelt, ein solches Verhalten in COBOL abzubilden. Eine einfache wäre eine eigene Hash-Funktion für den genauen Anwendungsfall zu implementieren, die Eingabewerte eindeutig auf Indizes eines Arrays fester Größe abbildet. 
-
-Eine weitere Möglichkeit \todo{siehe interview jona}
+COBOL bietet keine Konstrukte, um eine Map abzubilden. Wie die Experten Bonev und Streit angaben wurden in der Praxis allerdings Möglichkeiten entwickelt, eine solche Datenstruktur in COBOL abzubilden, indem \zB eine eigene Hash-Funktion für den genauen Anwendungsfall implementiert wird, die die Eingabewerte eindeutig auf Indizes eines Arrays fester Größe abbildet. Eine weitere bereits beobachtete Variante ist das Nutzen von zwei Listen, wobei eine nach einem bestimmten Attribut der enthaltenen Daten sortiert wird und den Index des eigentlichen Objektes in der zweiten Liste beinhaltet, wodurch sich durch effiziente Indexsuche eine Map abbilden lässt.

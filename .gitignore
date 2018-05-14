@@ -226,3 +226,5 @@ TSWLatexianTemp*
 .ltx2anyignore*
 *.log.md
 *_tmp/
+
+Code/bin/
