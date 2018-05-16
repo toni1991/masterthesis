@@ -13,7 +13,7 @@ Eine Variable in Java hat stets einen bestimmten Datentypen. Dies können primit
  \item Die Deklaration erfolg nach dem Muster \quotes{$\langle$Datentyp$\rangle$ $\langle$Variablenname$\rangle$}.
  \item Die Initialisierung einer Variable geschieht durch das Zuweisen eines Wertes.
  \item Komplexe Objekttypen können den Wert \jav{null} haben. Das bedeutet, die Variable, die in diesem Fall eine Referenz auf einen Speicherbereich darstellt, ist leer. Hier gilt es zu beachten, dass primitive Datentypen nicht \jav{null} sein können. 
- \item Instanzen eines Objekttypen werden durch das Schlüsselwort \jav{new} und den Aufruf eines Konstruktors erzeugt. Primitive Datentypen haben keine Konstruktoren.
+ \item Instanzen eines Objekttypen werden durch das Schlüsselwort \jav{new} und den Aufruf eines Konstruktors erzeugt. Dieses Schlüsselwort sorgt für die dynamische Allokation von Speicherbereich. Im Gegensatz dazu wird der Speicherplatz für primitive Datentypen, welche keine Konstruktoren besitzen, statisch reserviert.
 \end{itemize}
 Die Deklaration von Variablen bestimmter Datentypen sorgt dafür, dass ausreichend Speicherplatz für diese reserviert wird. Die Stelle der Deklaration im Code ist dabei frei wählbar und muss lediglich vor der ersten Verwendung stehen. 
 
@@ -26,7 +26,7 @@ Das Attribut \jav{memberVariable} ist innerhalb der gesamten Klasse \jav{ScopeEx
 \subsection*{Variablen in COBOL}
 Die Deklaration von Variablen unterscheidet sich in COBOL stark von der in Java. Neben der Eigenschaft, dass Variablen nur innerhalb der \cob{DATA DIVISION} -- als Teil der \cob{WORKING-STORAGE SECTION} oder der \cob{LOCAL-STORAGE SECTION} -- deklariert werden können, ist in COBOL die Definition eines Datentyps gleichzeitig auch die Festlegung der Ausgabe-Repräsentation dieser Variable. 
 
-Dies sorgt dafür, dass bereits an der Stelle der Variablendeklaration festgelegt werden muss, wie diese Daten im folgenden Programm dargestellt werden. Das Schlüsselwort dafür ist die \cob{PICTURE}- oder kurz \cob{PIC}-Anweisung.
+Dies sorgt nicht nur dafür, dass Speicherplatz nicht wie mit \jav{new} in Java dynamisch alloziert werden kann, sonder auch dafür, dass bereits an der Stelle der Variablendeklaration festgelegt werden muss, wie diese Daten im folgenden Programm dargestellt werden. Das Schlüsselwort dafür ist die \cob{PICTURE}- oder kurz \cob{PIC}-Anweisung.
 
 \begin{codeWithCaption}{Variablendeklarationen in COBOL}{variablesCobol}
 \cobol{variable_declaration.cbl}
