@@ -14,17 +14,17 @@ Anhand dieses Diagramms werden die wichtigsten Konzepte der Strukturierung von J
 
 Die nächstkleinere Einheiten eines Java-Programms stellen Klassen dar, von denen Objekte instanziiert werden können. Hierbei handelt es sich um das Kernkonzept der objektorientierten Programmierung. Um einen tieferen Einblick in diese Thematik zu erhalten, sei an dieser Stelle auf einschlägige Fachliteratur verwiesen. Diese Klasse muss dabei in einer Datei gespeichert sein, die den selben Namen trägt wie die Klasse selbst. Die Klasse \jav{MasterThesis} muss daher in der Datei \mintinline{text}{MasterThesis.java} stehen.
 
-Teil dieser Klassen können wiederum Funktionen, in Java oft Methoden genannt, Variablendeklarationen und weitere Klassen sein. Diese inneren Klassen haben strukturell die selben Eigenschaften wie die umgebende Klasse. Die Bestandteile einer Klasse können jeweils statisch oder auch einer Instanz zugeordnet sein. Auch dabei handelt es sich um ein gängiges Konzept der objektorientierten Softwareentwicklung. Statische Methoden, Variablen und Klassen können Teil einer Klasse sein und benötigen kein konkret instanziiertes Objekt, während nicht-statische Komponenten stets ein konkretes Objekt einer Klasse benötigen. 
+\mintedJava{Initializer.java}{Initializer in Java}{initJava}
+
+Teil dieser Klassen können Funktionen, in Java oft Methoden genannt, Variablendeklarationen und weitere Klassen sein. Diese inneren Klassen haben strukturell die selben Eigenschaften wie die umgebende Klasse. Die Bestandteile einer Klasse können jeweils statisch oder auch einer Instanz zugeordnet sein. Auch dabei handelt es sich um ein gängiges Konzept der objektorientierten Softwareentwicklung. Statische Methoden, Variablen und Klassen können Teil einer Klasse sein und benötigen kein konkret instanziiertes Objekt, während nicht-statische Komponenten stets ein konkretes Objekt einer Klasse benötigen. 
 
 Methoden wiederum bestehen aus einzelnen Statements. Variablendeklarationen stellen auch Statements dar und sind an jeder Stelle innerhalb einer Klasse möglich, während andere Statements als Teil einer Klasse nur dann gültig sind, wenn diese in geschweiften Klammern stehen. Diese Blöcke werden -- der Reihe nach -- vor jedem Konstruktoraufruf ausgeführt und heißen deshalb auch \textit{Initializer}. Auch ist die Definition von statischen \textit{Initializer} möglich, die einmalig nach dem Laden einer Klasse ausgeführt werden. \autoref{initJava} führt Beispiele dafür an.
 
-\mintedJava{Initializer.java}{Initializer in Java}{initJava}
-
 Statements, die aus Variablendeklarationen, Zuweisungen oder Methodenaufrufen bestehen, müssen im Gegensatz zu Block-Statements, wie \zB Schleifen oder Verzweigungen, stets mit einem Semikolon beendet werden. 
 
-Die letzten strukturellen Elemente sind anonyme Klassen und Funktionen, auch Lambda-Funktionen genannt, wobei anonyme Funktionen in Java genau genommen nur eine syntaktische Schreibweise einer speziellen anonymen Klasse sind. Die Verwendung wird in \autoref{anonymousJava} illustriert. Die Zeilen \till{9}{14} beinhalten eine anonyme Klasse, die das \jav{IntConsumer}-Interface implementiert. Die völlig identische  anonyme Klasse wird implizit durch die Lambda-Funktion in den Zeilen \till{16}{18} implementiert.
-
 \mintedJava{AnonymousClassAndMethodExample.java}{Anonyme Klassen und Funktion in Java}{anonymousJava}
+
+Die letzten strukturellen Elemente sind anonyme Klassen und Funktionen, auch Lambda-Funktionen genannt, wobei anonyme Funktionen in Java genau genommen nur eine syntaktische Schreibweise einer speziellen anonymen Klasse sind. Die Verwendung wird in \autoref{anonymousJava} illustriert. Die Zeilen \till{9}{14} beinhalten eine anonyme Klasse, die das \jav{IntConsumer}-Interface implementiert. Die völlig identische  anonyme Klasse wird implizit durch die Lambda-Funktion in den Zeilen \till{16}{18} implementiert.
 
 Neben der inhaltlichen Struktur kann festgehalten werden, dass Java Programme nur wenigen festen Formatierungsregeln folgen müssen. Neben den Eigenschaften, dass die Package-Deklaration vor Imports stehen, und diese wiederum vor der ersten Klasse stehen müssen, können Java-Programme nahezu beliebig formatiert werden.
 

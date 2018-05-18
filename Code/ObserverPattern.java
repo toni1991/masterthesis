@@ -22,9 +22,8 @@ public class ObserverPattern {
 
     static class FormattedObserver implements Observer {
         public void update(Observable o, Object arg) {
-            System.out.println(
-                    "FormattedTime: " + 
-                            Instant.ofEpochMilli((long) arg).toString());
+            System.out.println("FormattedTime: " + 
+                Instant.ofEpochMilli((long) arg).toString());
         }
     }
 

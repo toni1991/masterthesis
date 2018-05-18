@@ -1,9 +1,9 @@
 \subsection{Singleton-Muster}
 \quotes{Alles ist ein Objekt.} \cite{susanne_hackmack_objekte_2018} Diese Aussage findet sich in unzähliger Hochschullektüre und Fachbüchern. Genauer wäre -- mit Blick auf statische Elemente -- zwar die Aussage, dass alles Teil einer Klasse sei, jedoch ist für die Idee dahinter beides richtig. Gemeint ist damit, dass es keine Funktionalität oder Eigenschaft gibt, die nicht Teil einer Klasse \bzw eines Objektes ist.
 
-Manchmal jedoch wird eine Klasse zwar durch ein Objekt repräsentiert, allerdings existiert nur genau eine Instanz davon. Im realen Leben könnte man \zB den Papst als genau einmalig vorkommende Instanz nehmen. Diese spezielle Person gibt es stets nur einmal und so muss bei der Modellierung beachtet werden, dass es zu jedem Zeitpunkt nur eine Instanz der Klasse gibt.
-
 \mintedJava{Pope.java}{Singleton in Java}{popeJava}
+
+Manchmal jedoch wird eine Klasse zwar durch ein Objekt repräsentiert, allerdings existiert nur genau eine Instanz davon. Im realen Leben könnte man \zB den Papst als genau einmalig vorkommende Instanz nehmen. Diese spezielle Person gibt es stets nur einmal und so muss bei der Modellierung beachtet werden, dass es zu jedem Zeitpunkt nur eine Instanz der Klasse gibt.
 
 \autoref{popeJava} modelliert das Beispiel des Papstes in Java. Um die angesprochenen Eigenschaften einer Sigleton-Klasse zu realisieren, werden verschiedene Mechanismen verwendet. Zum einen enthält die Klasse einen privaten Konstruktor, um eine Instanziierung mittels \jav{new}-Operator zu verhindern \bzw nur innerhalb der eigenen Klasse zuzulassen. Außerdem speichert und liefert die Klasse mit der statischen \jav{getInstance()}-Methode die aktuell gültige Instanz und legt ggf. eine neue an. Die \jav{die()}-Funktion wurde beispielhaft für das Ableben eines Papstes implementiert, sodass in der \jav{getInstance()}-Methode eine neue Instanz erzeugt würde.
 

@@ -1,9 +1,9 @@
 \subsection{Schleifen}
 Wie in vielen anderen Sprachen unterstützen Java und COBOL auch Schleifenkonstrukte. Während Java dafür dedizierte Schlüsselwörter bereitstellt, fungiert in COBOL auch dafür das \cob{PERFORM}-Statement. Dies kann für Unklarheiten sorgen, weil dieses Schlüsselwort, wie in \autoref{generalablauf} beschrieben, auch dafür verwendet wird, Sections und Paragraphs aufzurufen.
 
-Java bietet mit \jav{while}-, \jav{do}-\jav{while}- und \jav{for}-Schleifen drei unterschiedliche Arten von Schleifen. \autoref{loopsJava} enthält alle drei Konstrukte. Während die ersten beiden eine Bedingung kopf- \bzw fußgesteuert überprüfen, wird eine \jav{for}-Schleife \idR dazu genutzt, um Werte einer bestimmten (Zahlen-)Menge zu durchlaufen.
-
 \mintedJava{Loops.java}{Schleifen in Java}{loopsJava}
+
+Java bietet mit \jav{while}-, \jav{do}-\jav{while}- und \jav{for}-Schleifen drei unterschiedliche Arten von Schleifen. \autoref{loopsJava} enthält alle drei Konstrukte. Während die ersten beiden eine Bedingung kopf- \bzw fußgesteuert überprüfen, wird eine \jav{for}-Schleife \idR dazu genutzt, um Werte einer bestimmten (Zahlen-)Menge zu durchlaufen.
 
 COBOL nutzt für alle Schleifen das \cob{PERFORM}-Schlüsselwort. In Verbindung mit weiteren Statements entstehen so unterschiedliche Schleifentypen. \autoref{loopsCOBOL} beschreibt die wichtigsten davon. Eine bedingte Schleifenausführung lässt sich mithilfe des \cob{UNTIL}-Schlüsselworts und einer nachfolgenden Bedingung erreichen. Eine Zählschleife, entsprechend eines \jav{for} in Java, kann durch \cob{VARYING}, \cob{FROM} und \cob{BY} konstruiert werden. Jede Schleife kann zusätzlich durch die Angabe von \cob{WITH TEST AFTER} von einer kopfgesteuerten zu einer fußgesteuerten Schleife gemacht werden, \dahe die Bedingung wird nach einem Schleifendurchlauf geprüft und nicht davor.
 

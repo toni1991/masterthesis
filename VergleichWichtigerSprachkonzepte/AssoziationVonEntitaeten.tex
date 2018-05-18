@@ -12,6 +12,14 @@ Die dritte Form stellt eine M-zu-N Assoziation dar, in der mehreren Objekten auf
 
 In Java lassen sich diese Assoziationen durch Attribute innerhalb einer Klasse realisieren, wie \autoref{assocJava} für die oben beschriebenen Beispiele zeigt. Ob diese Attribute innerhalb der Klasse instanziiert werden oder wie in \autoref{depi} gezeigt von außen zur Verfügung gestellt werden hat dabei keine Auswirkung.
 
-\mintedCobol{Entities.cbl}{Assoziationen in COBOL}{assocCobol}
+\begin{codeWithCaption}{Assoziationen in COBOL}{assocCobol}
+    \cobol{Entities.cbl}
+    \begin{shellwindow}
+      Anna   Wolf is married with   Olaf   Wolf
+    Hubert  Mayer is married with Ursula  Mayer
+      Olaf   Wolf is married with   Anna   Wolf
+    Ursula  Mayer is married with Hubert  Mayer
+    \end{shellwindow}
+\end{codeWithCaption}
 
 In COBOL werden Daten häufig als Array gespeichert. Dabei lassen sich Beziehungen über die Speicherung von Indizes erreichen. Dies zeigt \autoref{assocCobol} für das Beispiel verheirateter Personen. Um mehrfache Beziehungen herzustellen kann, statt einem Index, ein Array von Indizes gespeichert werden.

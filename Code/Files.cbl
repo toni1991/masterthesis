@@ -3,8 +3,7 @@
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
-       SELECT RecordFile
-          ASSIGN TO "recordFile.txt"
+       SELECT RecordFile ASSIGN TO "recordFile.txt"
           ORGANIZATION IS LINE SEQUENTIAL.
 
        DATA DIVISION.
@@ -19,7 +18,6 @@
             STOP RUN.
 
        COPY "WRITE_FILE".
-
        COPY "READ_FILE".
 
        END PROGRAM FILES.

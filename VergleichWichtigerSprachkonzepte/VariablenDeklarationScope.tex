@@ -19,9 +19,9 @@ Die Deklaration von Variablen bestimmter Datentypen sorgt dafür, dass ausreiche
 
 Der sog. Scope, zu deutsch Gültigkeitsbereich, gibt in der Programmierung an, in welchem Bereich eine Variable gültig ist. In Java ist der Scope einer Variablen meist einfach zu erkennen. Eine Variable ist innerhalb der geschweiften Klammern gültig, die die Variablendeklaration beinhalten. Dies verdeutlicht \autoref{javaScope}.
 
-Das Attribut \jav{memberVariable} ist innerhalb der gesamten Klasse \jav{ScopeExample} und somit in jeder enthaltenen Methode, verschachtelten Klassen und wiederum deren Methoden, gültig. Eine Variable mit selbem Namen kann auch innerhalb einer Methode deklariert werden. Auf die Instanzvariable kann mit dem \jav{this}-Schlüsselwort zugegriffen werden. In geschachtelten Klassen muss zusätzlich der Klassenname vorangestellt, werden wie Zeile 27 zeigt. Ist keine lokale Variable mit selbem Namen vorhanden, so kann dieses Schlüsselwort auch weggelassen werden. Wie Zeile 19 zeigt, ist es nicht möglich, auf lokale Variablen einer anderen Funktion zuzugreifen. Gleiches gilt für Instanzvariablen verschachtelter Klassen.
-
 \mintedJava{ScopeExample.java}{Variablendeklarationen mit verschiedenen Scopes}{javaScope}
+
+Das Attribut \jav{memberVariable} ist innerhalb der gesamten Klasse \jav{ScopeExample} und somit in jeder enthaltenen Methode, verschachtelten Klassen und wiederum deren Methoden, gültig. Eine Variable mit selbem Namen kann auch innerhalb einer Methode deklariert und auf die Instanzvariable dem \jav{this}-Schlüsselwort zugegriffen werden. In geschachtelten Klassen muss zusätzlich der Klassenname vorangestellt, werden wie Zeile 27 zeigt. Ist keine lokale Variable mit selbem Namen vorhanden, so kann dieses Schlüsselwort auch weggelassen werden. Wie Zeile 19 zeigt, ist es nicht möglich, auf lokale Variablen einer anderen Funktion zuzugreifen. Gleiches gilt für Instanzvariablen verschachtelter Klassen.
 
 \subsection*{Variablen in COBOL}
 Die Deklaration von Variablen unterscheidet sich in COBOL stark von der in Java. Neben der Eigenschaft, dass Variablen nur innerhalb der \cob{DATA DIVISION} -- als Teil der \cob{WORKING-STORAGE SECTION} oder der \cob{LOCAL-STORAGE SECTION} -- deklariert werden können, ist in COBOL die Definition eines Datentyps gleichzeitig auch die Festlegung der Ausgabe-Repräsentation dieser Variable. 

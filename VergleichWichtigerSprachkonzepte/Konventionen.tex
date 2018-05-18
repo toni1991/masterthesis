@@ -1,7 +1,7 @@
 \section{Konventionen}
 Da in umfangreichen Softwareprojekten oft eine Vielzahl von Entwicklern tätig ist und sich das Entwicklerteam auch über die Zeit ändern kann, ist es nötig, dass alle Entwickler einen ähnlichen Stil verfolgen, sodass das Zurechtfinden innerhalb des Codes eines anderen Programmierers erleichtert wird. Diese Konventionen können zwar auch auf Projektebene festgelegt werden, jedoch entwickeln sich in Programmiersprachen oft Konventionen, die sich projekt-, personen- und unternehmensunabhängig etablieren. In diesem Kapitel werden die wichtigsten dieser Konventionen beschrieben.
 
-\subsection{Groß- und Kleinschreibung}
+\subsection*{Groß- und Kleinschreibung}
 Beim Programmieren wird oftmals Groß- und Kleinschreibung verwendet, um ein höheres Maß an Struktur und Lesbarkeit des Codes zu erreichen.
 
 Java ist \quotes{case-sensitive}, \dahe  es wird zwischen Groß- und Kleinbuchstaben unterschieden, während COBOL \quotes{case-insensitive} ist, folglich -- außer in Strings -- keinen Unterschied macht. In Java ist es üblich, Methodennamen und veränderbare Variablen mit einem kleinen Buchstaben beginnend zu benennen. Besteht der Name aus mehreren Wörtern, so wird dieser im \quotes{CamelCase} geschrieben, was bedeutet, dass stets Großbuchstaben für den Beginn eines neuen Wortes verwendet werden. Beispiele hierfür wären \jav{getAdditionalData()} oder \jav{int currentAmountOfMoney}. Klassennamen werden in selbigem Muster geschrieben, beginnen jedoch mit einem Großbuchstaben: \jav{ToolBox}. Konstante Variablen und Werte innerhalb eines Aufzählungstyps sollten durchgehend aus Großbuchstaben bestehen, wobei einzelne Wörter mit einem Unterstrich voneinander getrennt werden (\jav{final int MULIPLY_FACTOR = 2}). 
@@ -9,7 +9,7 @@ Java ist \quotes{case-sensitive}, \dahe  es wird zwischen Groß- und Kleinbuchst
 COBOL hingegen unterscheidet bei Variablennamen und Schlüsselwörtern nicht zwischen Groß- und Kleinschreibung. Es ist jedoch üblich, sowohl Schlüsselwörter als auch Variablennamen komplett groß zu schreiben. Dies rührt daher, dass COBOL aus der Lochkartenzeit stammt, die meist lediglich Großbuchstaben im Zeichensatz hatten. Auch frühe Host-Systeme, auf denen COBOL entwickelt und ausgeführt wurden, arbeiteten meist nur mit Großschreibung, sodass Programme auch über die Zeit hinweg nur so geschrieben wurden.
 
 
-\subsection{Affixe} \label{affix}\label{affixCOBOL}
+\subsection*{Affixe} \label{affix}\label{affixCOBOL}
 Ein weiteres wichtiges Werkzeug bei der Strukturierung von Programmcode ist das Versehen mit Affixen (Prä- oder Suffixen).
 
 In Java ist es nicht ratsam, Affixe zu verwenden. Da diese jedoch in einigen bestehende Codebasen Verwendung finden, werden an dieser Stelle die üblichsten behandelt.
@@ -25,12 +25,12 @@ Oft finden sich in bestehendem Code auch Präfixe, welche die Art des Speichers 
 
 In COBOL ist jedoch Vorsicht geboten, da, vor allem in alten Systemen, die Zeichenzahl von Datei-, Programm- und Variablennamen Begrenzungen unterliegt. So ist es nicht unüblich, dass beispielsweise lediglich 8 Stellen für Dateinamen zur Verfügung stehen, was eine sinnvolle Benennung erheblich erschwert. Dies ist auch ein Grund dafür, dass Affixe seltener beobachtbar sind, als sie sein sollten.
 
-\subsection{Schlüsselwörter}
+\subsection*{Schlüsselwörter}
 In COBOL ist es möglich, bestimmte Schlüsselwörter zu verkürzen. Dabei kann jedoch nicht beliebig gekürzt werden. Es sind lediglich weitere Schlüsselwörter mit selber Funktion definiert, die genutzt werden können. Ein Beispiel dafür ist die \cob{PICTURE}-Anweisung, die auch als \cob{PIC} geschrieben werden kann. Dabei handelt es sich zwar nicht um eine Konvention im eigentlichen Sinne, jedoch findet sich in der Praxis oftmals COBOL-Code, der gekürzte Schlüsselwörter verwendet.
 
 In Java ist ein Verkürzen von Schlüsselwörtern hingegen nicht möglich.
 
-\subsection{Formatierung des Quelltextes}
+\subsection*{Formatierung des Quelltextes}
 
 Neben den in \autoref{sec:structure} beschriebenen fest vorgegebenen strukturellen Eigenschaften von Java- und COBOL-Programmen, lassen sich auch Konventionen beschreiben, die das Formatieren des Quelltextes betreffen.
 

@@ -4,6 +4,8 @@ Neben den in \autoref{lists} beschriebenen Listen bieten Sets in der Programmier
 \subsubsection*{Sets in Java}
 Wie für Listen bietet Java auch für Sets das \jav{Set}-Interface. Die wohl am häufigsten genutzte Implementierung dieses Interfaces stellt die \jav{HashSet}-Klasse dar, welche die \jav{hashCode}-Methode eines Objektes nutzt, um es pseudo-eindeutig identifizierbar zu machen. Dadurch wird vermieden, dass die gesamte Liste durchlaufen werden muss, um Duplikate zu finden.
 
+In \autoref{javaHashSet} wird gezeigt, dass das Einfügen von Elementen, die bereits im Set enthalten sind, keine Auswirkung hat. Die Eigenschaft, dass ein Set ungeordnet ist, lässt sich leider nicht zeigen, da Java die Werte bei der gezeigten Ausgabe ordnet. Dieses Verhalten tritt auch auf, wenn die Werte in umgekehrter Reihenfolge dem Set hinzugefügt werden, was jedoch in keinem Fall bedeutet, dass es sich beim Set um eine stets sortierte Liste handelt, auch wenn es den Eindruck vermittelt.
+
 \begin{codeWithCaption}{HashSet Beispiel in Java}{javaHashSet}
     \java{HashSetExample.java}
 \begin{shellwindow}
@@ -11,8 +13,6 @@ Wie für Listen bietet Java auch für Sets das \jav{Set}-Interface. Die wohl am 
 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 
 \end{shellwindow}
 \end{codeWithCaption}
-
-In \autoref{javaHashSet} wird gezeigt, dass das Einfügen von Elementen, die bereits im Set enthalten sind, keine Auswirkung hat. Die Eigenschaft, dass ein Set ungeordnet ist, lässt sich leider nicht zeigen, da Java die Werte bei der gezeigten Ausgabe ordnet. Dieses Verhalten tritt auch auf, wenn die Werte in umgekehrter Reihenfolge dem Set hinzugefügt werden, was jedoch in keinem Fall bedeutet, dass es sich beim Set um eine stets sortierte Liste handelt, auch wenn es den Eindruck vermittelt.
 
 \subsubsection*{Sets in COBOL}
 Analog zu Listen kann festgehalten werden, dass eine Implementierung von Sets in COBOL nicht ohne weiteres möglich ist. Die Einschränkung der Größe der Datenstruktur bestünde auch hier. 

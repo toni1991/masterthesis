@@ -23,9 +23,9 @@ Das Konzept einer Funktion existiert in COBOL nicht. Lediglich das Aufrufen eine
 
 Oft bringt das allerdings Probleme mit sich. Zum Beispiel werden in der Praxis oft Variablen, die für etwas anderes gedacht sind, an einer anderen Stelle wiederverwendet. So ist nicht ganz klar, welchen Zweck Variablen erfüllen. Ein weiterer großer Nachteil ist, dass Logik oftmals kopiert und sehr ähnlich nochmals geschrieben werden muss, um auf anderen Daten zu operieren.
 
-Rekursive \cob{PERFORM}-Aufrufe sind zwar syntaktisch möglich, jedoch führt die Ausführung zu einem undefinierten Verhalten des Programms und ist deshalb in jedem Fall zu unterlassen. Es kann quasi festgehalten werden, dass Rekursionen innerhalb eines Programms in COBOL nicht möglich sind. Anders sieht es dabei mit gesamten Programmen aus.
-
 \mintedCobol{recursion.cbl}{Rekursion in COBOL}{recursionCobol}
+
+Rekursive \cob{PERFORM}-Aufrufe sind zwar syntaktisch möglich, jedoch führt die Ausführung zu einem undefinierten Verhalten des Programms und ist deshalb in jedem Fall zu unterlassen. Es kann quasi festgehalten werden, dass Rekursionen innerhalb eines Programms in COBOL nicht möglich sind. Anders sieht es dabei mit gesamten Programmen aus.
 
 \autoref{recursionCobol} enthält analog zu gezeigtem Java-Beispiel auch ein Programm, welches rekursiv die Fakultät einer Zahl errechnet und ausgibt. Wichtig ist hierbei vorallem die \cob{RECURSIVE} Definition hinter dem Programmnamen in Zeile 2. Die \cob{WORKING-STORAGE SECTION} enthält dabei Variablen, welche von jeder Instanz des rekursiv aufgerufenen Programms gemeinsam genutzt werden. In \cob{LOCAL-STORAGE SECTION} finden sich Variablen, deren Gültigkeitsbereich sich auf die aktuelle Aufrufinstanz beschränken.
 
