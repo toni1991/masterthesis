@@ -1,0 +1,10 @@
+\section{Datenquellen und Reporting}\label{reporting}
+
+Kernaspekte von Informationssystemen sind deren Daten. Datenbanken stellen dabei eine der gebräuchlichsten Arten der Datenhaltung dar.
+
+Um Zugriff auf Daten innerhalb einer Datenbank zu erhalten, bietet Java mit der \quotes{Java Database Connectivity} API standardisierte Mechanismen, um auf Datenbanken zuzugreifen. Darauf aufbauend existieren Abstraktionsschichten wie \textit{Hibernate}\footnote{\url{http://hibernate.org/}}, die eine Abbildung von Datenbankentitäten auf Java-Klassen ermöglichen.
+
+In COBOL können Datenbankabfragen mithilfe des \cob{EXEC SQL}-Befehls erfolgen. Damit lässt sich der betreffende SQL-Code direkt innerhalb des COBOL-Codes schreiben und Werte aus Variablen nutzen \bzw in diese schreiben. Herr Bonev bemerkte hierzu, dass diese Datenbankabfragen oft Optimierungsmöglichkeiten bieten. Oft sei zu beobachten, dass Entwickler auf einfache Datenbankabfragen zurückgreifen und eine eventuelle Datenfilterung erst später innerhalb des Programms machen. Diese Filterung ist jedoch auch direkt durch eine geeignete Datenbankabfrage zu erreichen, was sehr viel performanter sei. 
+
+\mytodo{\todo[inline]{EVA-Prinzip mit Zitat!}}
+\mytodo{\todo[inline]{Stapelverarbeitung}}
