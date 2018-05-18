@@ -1,5 +1,5 @@
 \subsection{Verbunddatenstrukturen}\label{verbunddatenstrukturen}
-\textit{Structs} und \textit{Unions} sind weitere in der Programmierung verbreitete Datenstrukturen. Beide Typen bilden sogenannte Verbunddatenstrukturen, \dahe sie bieten eine Art Kapselung von mehreren Variablen, welche unterschiedlichen Typs sein können. Structs bezeichnen dabei einen Speicherbereich, der aus mehreren Variablen besteht, die so gruppiert gespeichert werden. Unions hingegen bezeichnen einen Speicherbereich, der auf verschiedene Weisen -- in unterschiedlichen Datentypen -- interpretiert werden kann. Sie gruppieren mehrere Variablen von denen stets nur eine Gültigkeit aufweisen kann.
+\textit{Structs} und \textit{Unions} sind weitere in der Programmierung verbreitete Datenstrukturen. Beide Typen bilden sogenannte Verbunddatenstrukturen, \dahe sie bieten eine Art Kapselung von mehreren Variablen, welche unterschiedlichen Typs sein können. Structs bezeichnen dabei einen Speicherbereich, der aus mehreren Variablen besteht, die so gruppiert gespeichert werden. Unions hingegen bezeichnen einen Speicherbereich, der auf verschiedene Weisen -- in unterschiedlichen Datentypen -- interpretiert werden kann. Sie gruppieren mehrere Variablen, von denen stets nur eine Gültigkeit aufweisen kann.
 
 \subsubsection*{Structs und Unions in COBOL}
 
@@ -28,6 +28,6 @@ In Java gehen Verbunddatenstrukturen in Klassen und Aufzählungstypen (jav{enum}
 
 \mintedJava{Bean.java}{Struct in Java (JavaBean)}{javaBean}
 
-Unions dagegen lassen sich durch verschiedene getter-Methoden abbilden. Dabei bietet eine Klasse mehere Methoden, die sich auf das selbe Feld zurückführen lassen, aber dieses wie \autoref{javaUnion} \zB in verschiedenen Datentypen zurückliefern oder Felder verbinden. 
+Unions dagegen lassen sich durch verschiedene getter-Methoden abbilden. Dabei bietet eine Klasse mehere Methoden, die sich auf das selbe Feld zurückführen lassen, aber dieses -- wie \autoref{javaUnion} zeigt -- in verschiedenen Datentypen zurückliefern oder Felder verbinden. 
 
 \mintedJava{Union.java}{Union in Java}{javaUnion}

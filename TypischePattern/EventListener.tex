@@ -16,11 +16,11 @@ Das \autoref{observerJava} zeigt die Handhabung des \jav{Observer}-Pattern \cite
 
 \mintedJava{ObserverPattern.java}{Observer und Observable in Java}{observerJava}
 
-Die sehr viel gebräuchlichere Variante ist es jedoch \jav{Listener} zu verwenden. Dabei handelt es sich streng genommen um nichts anderes, als eine eigene Definition des \jav{Observer}-Interfaces. Jedoch wird durch die klare Definition der Funktionalität deutlich spezifischerer Code geschrieben, der vor allem in puncto Typsicherheit und Lesbarkeit einige Vorteile gegenüber des Java-eigenen Interfaces bietet.
+Die sehr viel gebräuchlichere Variante ist es jedoch, \jav{Listener} zu verwenden. Dabei handelt es sich streng genommen um nichts anderes, als eine eigene Definition des \jav{Observer}-Interfaces. Jedoch wird durch die klare Definition der Funktionalität deutlich spezifischerer Code geschrieben, der vor allem in puncto Typsicherheit und Lesbarkeit einige Vorteile gegenüber des Java-eigenen Interfaces bietet.
 
 \mintedJava{ListenerPattern.java}{Listener in Java}{listenerJava}
 
-Die Aufgabe beider Beispiele ist die gleiche. Jedoch verdeutlicht \autoref{listenerJava} die Typsicherheit eigener Interfaces und kennzeichnet wie diese erreicht wird. Folgendes wäre eine beispielhafte Ausgabe beider Programme:
+Die Aufgabe beider Beispiele ist die gleiche. Jedoch verdeutlicht \autoref{listenerJava} die Typsicherheit eigener Interfaces und kennzeichnet, wie diese erreicht wird. Folgendes wäre eine beispielhafte Ausgabe beider Programme:
 
 \begin{shellwindow}
 FormattedTime: 2018-04-16T12:32:44.482Z
@@ -31,4 +31,4 @@ FormattedTime: 2018-04-16T12:32:48.481Z
 PlainTime: 1523881968481
 \end{shellwindow}
 
-In COBOL können Callbacks nur rudimentär abgebildet werden, helfen jedoch auch hier Code klarer zu strukturieren. So kann beispielsweise für jedes Element einer Liste, ein Unterprogramm als Callback aufgerufen werden oder durch die in \autoref{mehrfachverzweigungen} gezeigten Mehrfachverzweigungen Code abhängig von Bedingungen ausgeführt und so unterschiedliches Verhalten erreicht werden. Vor allem in Verbindung mit Flags (siehe \autoref{cobolSec88}) kann die Ausführung von einzelnen Codeteilen erreicht werden, die dem Callback-Muster ähnlich ist. Diese Callback-Strategien lassen sich laut Herrn Streit auch in realen Systemen beobachten.
+In COBOL können Callbacks nur rudimentär abgebildet werden, helfen jedoch auch hier, Code klarer zu strukturieren. So kann beispielsweise für jedes Element einer Liste, ein Unterprogramm als Callback aufgerufen werden oder durch die in \autoref{mehrfachverzweigungen} gezeigten Mehrfachverzweigungen Code abhängig von Bedingungen ausgeführt und so unterschiedliches Verhalten erreicht werden. Vor allem in Verbindung mit Flags (siehe \autoref{cobolSec88}) kann die Ausführung von einzelnen Codeteilen erreicht werden, die dem Callback-Muster ähnlich ist. Diese Callback-Strategien lassen sich laut Herrn Streit auch in realen Systemen beobachten.

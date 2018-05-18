@@ -19,13 +19,13 @@ In diesem speziellen Fall wird zusätzlich Gebrauch der Schlüsselwörter \cob{R
 
 Am Rande wird hier auch die Nutzung eines \cob{FILLER} gezeigt. Hierbei handelt es sich um eine Variable, die nicht direkt verwendet werden kann, da sie keinen Namen hat. Wie im Beispiel sind FILLER oftmals Teile von größeren Strukturen.
 
-Das Einbinden eines Copybooks ist jedoch auch innerhalb der \cob{PROCEDURE DIVISION} möglich wie \autoref{copyFileInCode} und \autoref{copyInCode} darstellen. Somit wird es möglich Logik in Form von Code der wiederverwendet wird auszulagern und an verschiedenen Stellen zu nutzen. Dies ist allerdings in einigen Unternehmen verpönt, wie Herr Streit anmerkte und daher eher seltener zu sehen.
+Das Einbinden eines Copybooks ist jedoch auch innerhalb der \cob{PROCEDURE DIVISION} möglich wie \autoref{copyFileInCode} und \autoref{copyInCode} darstellen. Somit wird es möglich, Logik in Form von Code, der wiederverwendet wird, auszulagern und an verschiedenen Stellen zu nutzen. Dies ist allerdings in einigen Unternehmen verpönt, wie Herr Streit anmerkte und daher eher seltener zu sehen.
 
 \mintedCobol{COPYBOOK-EVALUATE.cpy}{COBOL-Copybook Datei (COPYBOOK-EVALUATE.cpy)}{copyFileInCode}
 
 \mintedCobol{copyEvaluate.cbl}{Nutzung von COPYBOOK-EVALUATE.cpy}{copyInCode}
 
-Herr Lamperstorfer wies darauf hin, dass diese Copybooks jedoch auch problematische Eigenschaften mit sich bringen, die es zu beachten gilt. So müssen bei Änderungen daran, alle Programme, die das Copybook einbinden neu kompiliert werden. Außerdem werden Dateistrukturen oftmals durch diese repräsentiert, wodurch Änderungen daran, Anpassungen der in \autoref{filesCobol} erwähnten \cob{RECORD}-basierten Dateien erfordern, da sich alle Datenfelder ohne eine Trennung von Zeilenvorschüben verschieben.
+Herr Lamperstorfer wies darauf hin, dass diese Copybooks jedoch auch problematische Eigenschaften mit sich bringen, die es zu beachten gilt. So müssen bei Änderungen daran, alle Programme, die das Copybook einbinden, neu kompiliert werden. Außerdem werden Dateistrukturen oftmals durch diese repräsentiert, wodurch Änderungen daran, Anpassungen der in \autoref{filesCobol} erwähnten \cob{RECORD}-basierten Dateien erfordern, da sich alle Datenfelder ohne eine Trennung von Zeilenvorschüben verschieben.
 
 \recap{copy}{
     In Java ist die Auslagerung von Daten und Logik fester Bestandteil der Sprache. Dieses Konzept spiegelt sich auch in der Modularisierung -- \vgl \autoref{wiederverwendbarkeit} -- wieder. COBOL bietet hierfür das Schlüsselwort \cob{COPY}. Wenngleich dieses Konzept deutlich weniger mächtig ist als das \jav{import}-Statement in Java so ist es doch eine Möglichkeit Daten und Logik zu kapseln und auszulagern. Wie Herr Streit betonte, werden diese Copybooks in der Praxis zwar verwendet, könnten aber noch feingranularer und öfter zum Einsatz kommen.

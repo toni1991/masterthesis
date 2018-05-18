@@ -1,5 +1,5 @@
 \subsection{Implizierte Variablennamen}
-Dieser Abschnitt behandelt einen Fehler, der typischerweise zu Beginn in der Softwareentwicklung beobachtet werden kann. \autoref{ifVariableErrorJava} zeigt, wie Anfänger häufig versuchen logische Ausdrücke zu konstruieren. Dies entspricht dem intuitiven Gedanken \quotes{Wenn Variable X größer 0 und kleiner 5 ist, dann \dots} oder der mathematischen Definition \quotes{$0 < X < 5$}.
+Dieser Abschnitt behandelt einen Fehler, der typischerweise zu Beginn in der Softwareentwicklung beobachtet werden kann. \autoref{ifVariableErrorJava} zeigt, wie Anfänger häufig versuchen, logische Ausdrücke zu konstruieren. Dies entspricht dem intuitiven Gedanken \quotes{Wenn Variable X größer 0 und kleiner 5 ist, dann \dots} oder der mathematischen Definition \quotes{$0 < X < 5$}.
 
 \begin{codeWithCaption}{Keine implizierten Variablennamen in logischen Ausdrücken in Java}{ifVariableErrorJava}
 \java{IfVariableError.java}
@@ -18,7 +18,7 @@ IfVariableError.java:8: error: illegal start of type
 \end{shellwindow}
 \end{codeWithCaption}
 
-Versucht man \autoref{ifVariableErrorJava} zu kompilieren, treten einige Fehler auf. In Java können nur vollständige logische Ausdrücke mit logischen Operatoren verknüpft werden. Zum anderen kann innerhalb eines logischen Ausdrucks lediglich maximal einmal ein Vergleichsoperator verwendet werden. 
+Versucht man, \autoref{ifVariableErrorJava} zu kompilieren, treten einige Fehler auf. In Java können nur vollständige logische Ausdrücke mit logischen Operatoren verknüpft werden. Zum anderen kann innerhalb eines logischen Ausdrucks lediglich maximal einmal ein Vergleichsoperator verwendet werden. 
 
 \begin{codeWithCaption}{Verwendung von Variablennamen in logischen Ausdrücken in Java}{ifVariableNoErrorJava}
 \java{IfVariableNoError.java}

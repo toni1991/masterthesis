@@ -23,7 +23,7 @@ In COBOL hingegen wird der Zugriff auf Dateien auf Basis sogenannter \textit{Rec
 
 \mintedCobol{READ_FILE.cpy}{Dateien lesen in COBOL (\vgl \cite{university_of_limerick_department})}{readFileCopy}
 
-\autoref{readFileCopy} und \autoref{writeFileCopy} beinhalten Sections die die Datei-Ein- \bzw Ausgabe bewerkstelligen. Diese werden durch den \cob{COPY} Befehl in \autoref{cobolInpuOutput} eingebunden und genutzt. Zeile 8 spezifiziert dabei, dass es sich um eine Datei handelt, deren Einträge durch einen Zeilenvorschub getrennt sind. Im Gegensatz dazu kann man den Aufbau als \cob{ORGANIZATION IS RECORD SEQUENTIAL} \bzw \cob{ORGANIZATION IS SEQUENTIAL} definieren oder weglassen, da dies dem Standard entspricht, was bedeutet, dass die Einträge nicht voneinander abgetrennt sind. Dies wäre gleichbedeutend mit dem Entfernen der Zeilenumbrüche in \autoref{recordFile}.
+\autoref{readFileCopy} und \autoref{writeFileCopy} beinhalten Sections, die die Datei-Ein- \bzw Ausgabe bewerkstelligen. Diese werden durch den \cob{COPY} Befehl in \autoref{cobolInpuOutput} eingebunden und genutzt. Zeile 8 spezifiziert dabei, dass es sich um eine Datei handelt, deren Einträge durch einen Zeilenvorschub getrennt sind. Im Gegensatz dazu kann man den Aufbau als \cob{ORGANIZATION IS RECORD SEQUENTIAL} \bzw \cob{ORGANIZATION IS SEQUENTIAL} definieren oder weglassen, da dies dem Standard entspricht, was bedeutet, dass die Einträge nicht voneinander abgetrennt sind. Dies wäre gleichbedeutend mit dem Entfernen der Zeilenumbrüche in \autoref{recordFile}.
 
 \begin{codeWithCaption}{Datei-Ein- und Ausgabe in COBOL (\vgl \cite{university_of_limerick_department})}{cobolInpuOutput}
     \cobol{Files.cbl} 
