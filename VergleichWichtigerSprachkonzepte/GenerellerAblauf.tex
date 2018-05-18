@@ -1,0 +1,55 @@
+\subsection{Genereller Ablauf} \label{generalablauf}
+
+\autoref{javaMainMethod} demonstriert einen sehr simplen Programmablauf in Java. Der Startpunkt eines jeden Java-Programms ist die \jav{main}-Methode. Von dieser aus können weitere Methoden aufgerufen werden, und sobald das Ende dieser Methode erreicht ist, terminiert das Programm. Im vorliegenden Beispiel wird nach einer Ausgabe in \jav{main} die Methode \jav{otherMethod} aufgerufen, bevor der Ablauf wieder in der \jav{main}-Methode fortgesetzt wird. Daran soll folgendes Verhalten deutlich werden: Endet eine aufgerufene Methode wie geplant, wird mit der nächsten Anweisung nach dem Methodenaufruf fortgefahren. 
+
+\begin{codeWithCaption}{Java main-Methode}{javaMainMethod}
+\java{MainMethod.java}
+\begin{shellwindow}
+$ javac MainMethod.java 
+$ java MainMethod
+Running main method!
+Running other method!
+Running return value method!
+Continue main method!
+\end{shellwindow}
+\end{codeWithCaption}
+
+In COBOL gestaltet sich der Programmablauf ähnlich. Das Programm wird stets von oben nach unten durchlaufen, wobei dieser lineare Ablauf \zB durch die Verwendung von \cob{PERFORM}-, \cob{CALL}-, \cob{GO TO}- oder \cob{NEXT SENTENCE}-Anweisungen verändert werden kann.
+
+Ein Unterprogramm wird mit \cob{CALL} aufgerufen und gibt mit \cob{GOBACK} die Kontrolle zurück an das aufrufende Programm. Die Ausführung eines COBOL-Programms endet beim Erreichen einer \cob{STOP RUN}-Anweisung oder mit dem Ende des Programms (\cob{END PROGRAM}). 
+
+\begin{codeWithCaption}{Programmablauf in COBOL}{simpleControlFlowCobol}
+\cobol{simpleControlFlow.cbl}
+\begin{shellwindow}
+$ ./simpleControlFlow 
+Main paragraph
+Enter some number: 0
+Main paragraph again
+$ ./simpleControlFlow 
+Main paragraph
+Enter some number: 1 
+Main paragraph again
+Enter some number: 2
+\end{shellwindow}
+\end{codeWithCaption}
+
+Die beiden Ausführungen von \autoref{simpleControlFlowCobol} zeigen das angesprochene Verhalten eines COBOL-Programms. Beim ersten Durchlauf wird für die Variable \cob{INPUT-NUMBER} der Wert 0 eingegeben, was durch das Ausführen der \cob{STOP RUN}-Anweisung in Zeile 15, das Beenden des Programmes bewirkt. Beim zweiten Mal wird hingegen der Wert 1 eingegeben. Dieser Wert verhindert das Abschließen des Programms in Zeile 15, wodurch der Programmablauf in Zeile 17 fortgesetzt wird und somit erneut die Eingabeaufforderung erscheint.
+
+Wie in \autoref{sec:structure} beschrieben, besteht ein COBOL-Programm aus verschiedenen strukturellen Komponenten. \autoref{paragraphSecionControlFlowCobol} soll den Einfluss davon auf den Pro\-grammab\-lauf veranschaulichen.
+
+\begin{codeWithCaption}{Programmablaufunterschiede in COBOL mit Sections und Paragraphs}{paragraphSecionControlFlowCobol}
+\cobol{paragraphSecionControlFlow.cbl}
+\begin{shellwindow}
+$ ./paragraphSecionControlFlow 
+Calling section:
+123 
+Calling paragraphs with PERFORM THRU:
+123 
+Calling paragraph:
+1
+\end{shellwindow}
+\end{codeWithCaption}
+
+Wird mittels \cob{PERFORM} eine Section aufgerufen, so werden alle Paragraphs innerhalb dieser Section der Reihe nach ausgeführt. Ruft man jedoch einen Paragraph auf, so wird nur dieser Paragraph ausgeführt. Eine weitere Möglichkeit ist die Kombination des \cob{PERFORM} mit dem \cob{THRU}-Schlüsselwort. Hierbei werden alle Paragraphs zwischen zwei festgelegten Paragraphs ausgeführt. Der Kontrollfluss geht bei jeder Variante stets an das Statement nach dem \cob{PERFORM}.
+
+Um Verwirrungen vorzubeugen und lesbaren Code zu erhalten, sollten alle Paragraphs stets Teil einer Section sein und auch nur diese Ziel einer \cob{PERFORM}-Anweisung sein. Der letzte Paragraph einer Section sollte dabei immer ein \cob{EXIT}-Paragraph sein, der nur das Schlüsselwort \cob{EXIT} beinhaltet. So ist das Ende einer Section beim Lesen des Codes klar erkennbar. Dieses Vorgehen wurde auch von \citeauthor{richards_enhancing_1984} bereits \citeyear{richards_enhancing_1984} als Best-Practice beschrieben  \cite{richards_enhancing_1984}. Die meisten Code-Beispiele dieser Arbeit enthalten bewusst keinen separaten \cob{EXIT}-Paragraph, um den Umfang und die Übersichtlichkeit der Listings so gering wie möglich zu halten. 

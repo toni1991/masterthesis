@@ -48,7 +48,11 @@ Ein Programm besteht dabei aus vier fest definierten Divisions:
 
 Eine Division -- außer der \cob{IDENTIFICATION DIVISION} -- kann wiederum aus verschiedenen Sections bestehen, wobei diese nur innerhalb der \cob{PROCEDURE DIVISION} frei definiert werden können.
 
-Die \cob{ENVIRONMENT DIVISION} kann zwei verschiedene Sections enthalten. Definitionen zum Zielsystem finden sich innerhalb der \cob{CONFIGURATION SECTION} und Angaben zu Dateizugriffen sowie zu Ein- und Ausgabeoperationen in der \cob{INPUT-OUTPUT SECTION}.
+Die \cob{ENVIRONMENT DIVISION} kann zwei verschiedene Sections enthalten. Definitionen zum Zielsystem finden sich innerhalb der \cob{CONFIGURATION SECTION} und Angaben zu Dateizugriffen sowie zu Ein- und Ausgabeoperationen in der \cob{INPUT-OUTPUT SECTION}. 
+
+\mintedCobol{SpecialNames.cbl}{SPECIAL-NAMES Paragraph in COBOL}{specialNames}
+
+Erwähnenswert hierbei ist der \cob{SPECIAL-NAMES} Paragraph der \cob{CONFIGURATION SECTION}. Darin können Definitionen vorgenommen werden, die \ua Auswirkungen auf die Syntax haben können. \autoref{specialNames} beinhaltet die Neudefinition des Dezimaltrennzeichens und die Definition einer Klasse von Werten, die in diesem Beispiel valide Werte eines Zeichens innerhalb von Namen darstellen. Diese Klassen sind jedoch nicht mit dem objektorientierten Konzept einer Klasse zu vergleichen. 
 
 Teil der \cob{DATA DIVISION} sind folgende Sections:
 \begin{itemize}

@@ -1,0 +1,33 @@
+\subsection{Weitere Schlüsselwörter}
+
+Weitere Schlüsselwörter, die den Kontrollfluss -- vor allem im Zusammenhang mit Verzeigungen und Schleifen -- in Java steuern können, sind außerdem \jav{break}, \jav{continue} und \jav{goto}. Zu beachten ist dabei, dass das \jav{goto}-Schlüsselwort zwar im Sprachstandard definiert, jedoch in keiner gängigen JVM implementiert ist. Die Verwendung führt zu Fehlern beim Kompilieren. In \autoref{javaBreakContinue} finden sich beispielhafte Verwendungen der beiden anderen Schlüsselwörter.
+
+\begin{codeWithCaption}{Beispiele für die Verwendung von break und continue in Java}{javaBreakContinue}
+\java{BreakContinueExample.java}
+\begin{shellwindow}
+$ javac BreakContinueExample.java 
+$ java BreakContinueExample
+== break example == 
+(0)(1)
+== continue example == 
+(0)(1)(2)(8)(9)
+\end{shellwindow}
+\end{codeWithCaption}
+
+Ein einfaches \jav{break} sorgt wie gezeigt dafür, dass die direkt umfassende Schleife verlassen wird. Auch ein simples \jav{continue} hat Auswirkungen auf die direkt beinhaltende Schleife. So sorgt es dafür, dass der aktuelle Schleifendurchlauf abgebrochen und mit dem nächsten fortgefahren wird. \autoref{mehrfachverzweigungen} zeigt eine weitere Verwendung des \jav{break}-Statements. Deutlich unüblicher -- jedoch nicht weniger relevant -- ist der Gebrauch eines Labels in Java. Dieses Label kann in der Verbindung mit einer \jav{break}- oder \jav{continue}-Anweisung genutzt werden, um mehrere umfassende Schleifen zu verlassen \bzw um mit dem nächsten Schleifendurchlauf einer weiter außen befindlichen fortzufahren. Die Anweisung betrifft dabei die Schleife, welche das Label trägt. 
+
+In COBOL ist ebenfalls das Schlüsselwort \cob{CONTINUE} vorhanden. Allerdings ist hierbei Vorsicht geboten, da dieses abweichende Bedeutung vom gleichnamigen Java-Schlüsselwort hat. Während in Java zum nächsten Schleifendurchlauf gesprungen werden kann, entspricht dieses Schlüsselwort in COBOL lediglich einer Anweisung, bei der nichts ausgeführt wird. Dies ist in der Praxis häufig zu beobachten, um \zB Verzweigungsteile leer zu lassen, ohne die Bedingung negieren zu müssen, da der Compiler keine leeren Teile akzeptiert.
+
+Neben diesem ist \cob{NEXT SENTENCE} ein Schlüsselwort, das häufig in älterem Code zu finden sei, wie Herr Lamperstorfer bestätigte. Dieses kann dazu genutzt werden, um den aktuellen Sentence zu verlassen und mit der darauf folgenden Anweisung fortzufahren. Ein grundlegendes Problem, das sich mit Verwendung dieser Anweisung jedoch ergibt, ist, dass das in \autoref{sec:structure} angesprochene Punkt-Symbol mit Semantik belegt wird. So kann ein zusätzliches Sentence-Ende Zeichen den Programmfluss ändern. Zu beobachten ist die Verwendung von \cob{NEXT SENTENCE} auch häufig zur Negation einer Bedingung, indem der \cob{IF}-Zweig lediglich dieses Statement enthält und der \cob{ELSE}-Zweig die Logik bei Nichtzutreffen der Bedingung enthält. Diese Konstrukte sollten daher vermieden werden und durch Negation mit \cob{NOT} ausgedrückt \bzw anders ersetzt werden. Aus genannten Gründen ist dieses Schlüsselwort in GnuCOBOL standardmäßig verboten.
+
+Seltener zu finden ist dagegen die \cob{EXIT PERFORM}-Anweisung. Diese kann innerhalb von Schleifen dazu genutzt werden, um, wie mit einem \jav{break} in Java, die umgebende Schleife zu verlassen oder durch \cob{EXIT PERFORM CYCLE}, wie mit einem \jav{continue} in Java, mit dem nächsten Schleifendurchlauf fortzufahren. Dies soll \autoref{exitPerform} verdeutlichen.
+
+\begin{codeWithCaption}{EXIT PERFORM in COBOL}{exitPerform}
+\cobol{EXIT-PERFORM.cbl}
+\begin{shellwindow}
+00
+10
+\end{shellwindow}
+\end{codeWithCaption}
+
+Die Verwendung des \cob{GO TO}-Befehls sollte in COBOL unterlassen werden und ist oftmals sogar durch projekt- oder unternehmensspezifische Vorgaben verboten ist, da ansonsten sehr schwer verständlicher und wartbarer Code entstehen kann. Eine Ausnahme dieses Verbotes stellt dabei das \cob{GO TO} mit einem \cob{EXIT}-Paragraphen (siehe \autoref{generalablauf}) als Ziel dar. Dies ist nötig, da COBOL keinen Befehl wie das \jav{return} in Java enthält, um die Ausführungskontrolle an die aufrufende Stelle zurückzugeben. Leider findet man in der Praxis oftmals Code, der \cob{GO TO}-Befehle zur Steuerung des Ablaufs verwendet. Sogar Schleifenkonstrukte sind in älteren Programmen oft damit realisiert, worauf Herr Streit hinwies. 

@@ -1,0 +1,9 @@
+\subsection{Ausnahmebehandlung} \label{exceptions}
+
+In modernen Sprachen sind Ausnahmebehandlungsmechanismen vorhanden, um die Steuerung des Kontrollflusses klar von der Fehlerbehandlung zu trennen. So wird zum einen eine übersichtlichere Implementierung erlaubt, aber auch erreicht, dass bereits der Compiler auf Fehler hinweisen kann, die bei der Ausführung auftreten können \bzw gänzlich das Kompilieren bei ungenügender Fehlerbehandlung verweigert.
+
+Java bietet dabei das Konzept der \jav{Exception}s. Diese lassen sich in sogenannte \textit{checked} und \textit{unchecked}-\jav{Exception}s unterteilen. Während \textit{checked}-\jav{Exception} stets einer ausreichenden Fehlerbehandlung oder Deklaration im Code bedürfen und ansonsten zu Fehlern des Kompiliervorgangs führen, können \textit{unchecked}-\jav{Exception}s unbehandelt gelassen werden. Zur genauen Verwendungserklärung kann weiterführende Literatur wie \citeWithTitle{byrne_java_2009-1} von \citeauthor{byrne_java_2009-1} herangezogen werden.
+
+COBOL bietet zur generellen Ausnahmebehandlung keine Methodik. Fehlerfälle müssen über Variablenwerte signalisiert, geprüft und entsprechend behandelt werden. Herr Streit wies darauf hin, dass eine ungenügende Prüfung hierbei zum kompletten Absturz des Programms führen kann. Jedoch ist es möglich, vordefinierte Fehler bei Berechnungen oder String-Zuweisungen abzufangen und darauf zu reagieren, wie \autoref{exceptionsCobol} zeigt. Dazu können \cob{ON SIZE ERROR} und \cob{ON OVERFLOW} genutzt werden.
+
+\mintedCobol{ON-SIZE-ERROR.cbl}{Rudimentäre Fehlerbehandlung in COBOL}{exceptionsCobol}
