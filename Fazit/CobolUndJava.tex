@@ -1,2 +1,9 @@
-\section{Zusammenspiel von COBOL und Java} \label{cobolandjava}
-\mytodo{\todo[inline]{Thomas: Außerdem gibt es rehosting tools, dann läuft der Code in der jvm da kannst beliebig anstöpseln}}
+\subsection*{Verknüpfung von COBOL und Java} \label{cobolandjava}
+
+Abschließend bleibt zu sagen, dass auch das gleichzeitige Betreiben von COBOL und Java in der Praxis möglich ist. Das verspricht kleinere Einheiten von Programmcode migrieren und in Java neu implementieren zu können.
+
+Herr Lamperstorfer wies darauf hin, dass es dazu die Möglichkeit gibt, COBOL-Code innerhalb der JVM laufen zu lassen. Man spricht auch von \textit{Rehosting}. Dazu wird ein spezieller Compiler benötigt, der den COBOL in Java-ByteCode übersetzen kann. Damit wird es möglich, COBOL-Module direkt aus Java-Code heraus zu nutzen.
+
+Eine weitere Möglichkeit an dieser Stelle ist es, das \textit{Java Native Interface}, kurz \textit{JNI} genannt, zu nutzen. Dabei handelt es sich um eine Schnittstelle, die es Java ermöglicht Systembibliotheken zu laden und Systemprogramme aufzurufen. Damit kann folglich kompilierter COBOL-Code aufgerufen werden.
+
+Laut Herrn Streit ist jedoch eine solche Verknüpfung in der Praxis nicht zufriedenstellend und wird daher weitestgehend vermieden.
