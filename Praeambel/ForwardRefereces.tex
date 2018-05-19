@@ -1,20 +1,17 @@
-\newwrite\refs
-\openout\refs=\jobname.refs
-\makeatletter
-\renewcommand\@setref[3]{%
-        \ifx#1\relax
-                \write\refs{'#3' \thepage\space undefined}%
-                \protect \G@refundefinedtrue
-                \nfss@text{\reset@font\bfseries ??}%
-                \@latex@warning{Reference `#3' on page \thepage\space
-                                undefined}%
-                \PackageWarning{todonotes}{Undefined reference!}
-        \else
-                \write\refs{'#3' \thepage\space
-                            \expandafter\@secondoftwo#1}%
-                \PackageWarning{todonotes}{Check references: '#3' \thepage\space
-                            \expandafter\@secondoftwo#1}
-                \expandafter#2#1\null
-        \fi
-}
-\makeatother
+% \newwrite\refs
+% \openout\refs=\jobname.refs
+% \makeatletter
+% \renewcommand\@setref[3]{%
+%         \ifx#1\relax
+%                 \write\refs{'#3' \thepage\space undefined}%
+%                 \protect \G@refundefinedtrue
+%                 \nfss@text{\reset@font\bfseries ??}%
+%                 \@latex@warning{Reference `#3' on page \thepage\space
+%                                 undefined}%
+%         \else
+%                 \write\refs{'#3' \thepage\space
+%                             \expandafter\@secondoftwo#1}%
+%                 \expandafter#2#1\null
+%         \fi
+% }
+% \makeatother
