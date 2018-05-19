@@ -1,9 +1,12 @@
 \subsection*{Verknüpfung von COBOL und Java} \label{cobolandjava}
 
-Abschließend bleibt zu sagen, dass auch das gleichzeitige Betreiben von COBOL und Java in der Praxis möglich ist. Das verspricht kleinere Einheiten von Programmcode migrieren und in Java neu implementieren zu können.
+Abschließend bleibt zu sagen, dass auch der gleichzeitige Betrieb von COBOL und Java in der Praxis möglich ist. Das verspricht kleinere Einheiten von Programmcode, die migriert und in Java neu implementiert oder weiterverwendet werden können.
 
-Herr Lamperstorfer wies darauf hin, dass es dazu die Möglichkeit gibt, COBOL-Code innerhalb der JVM laufen zu lassen. Man spricht auch von \textit{Rehosting}. Dazu wird ein spezieller Compiler benötigt, der den COBOL in Java-ByteCode übersetzen kann. Damit wird es möglich, COBOL-Module direkt aus Java-Code heraus zu nutzen.
+Herr Lamperstorfer wies darauf hin, dass es dazu die Möglichkeit gibt, COBOL-Code innerhalb der JVM laufen zu lassen. Man spricht auch von \textit{Rehosting}. Dazu wird ein spezieller Compiler benötigt, der den COBOL- in Byte-Code der JVM übersetzt. Damit wird es möglich, COBOL-Module direkt aus Java-Code heraus zu nutzen. Außerdem existieren Werkzeuge, die COBOL-Code in Java-Code übersetzen, sodass dieser anschließend -- im Gegensatz zu generiertem Byte-Code -- weiter bearbeitet werden kann. 
 
-Eine weitere Möglichkeit an dieser Stelle ist es, das \textit{Java Native Interface}, kurz \textit{JNI} genannt, zu nutzen. Dabei handelt es sich um eine Schnittstelle, die es Java ermöglicht Systembibliotheken zu laden und Systemprogramme aufzurufen. Damit kann folglich kompilierter COBOL-Code aufgerufen werden.
+Mit dem \textit{Java Native Interface}, kurz \textit{JNI} genannt, ergibt sich eine weitere Möglichkeit COBOL und Java zu verknüpfen. Dabei handelt es sich um eine Schnittstelle, die es Java-Programmen ermöglicht Systembibliotheken zu laden und Systemprogramme aufzurufen, womit kompilierter COBOL-Code aufgerufen werden.
 
-Laut Herrn Streit ist jedoch eine solche Verknüpfung in der Praxis nicht zufriedenstellend und wird daher weitestgehend vermieden.
+\mintedCobolNotfree{converted.cbl}{Ursprünglicher COBOL-Code}{convertedCobol}
+\mintedJava{converted.java}{Generierter Java-Code}{convertedJava}
+
+Laut Herrn Streit ist jedoch eine solche Verknüpfung in der Praxis nicht zufriedenstellend und wird daher weitestgehend vermieden. \autoref{convertedCobol}\footnote{\label{convertedFootnote} Dieser Code ist Teil einer Beispieldatei (Zeile 51-56) des NACA-Projekts, das sich auf die Übersetzung von COBOL nach Java spezialisiert hat.\\\url{https://github.com/charleso/naca/blob/master/NacaSamples/src/online/ONLINE1.java} \visitedOn} und \autoref{convertedJava}\footref{convertedFootnote} unterstreichen dies und zeigen, dass der generierte Java-Code in diesem Fall nicht zur weiteren Verwendung zu gebrauchen ist.

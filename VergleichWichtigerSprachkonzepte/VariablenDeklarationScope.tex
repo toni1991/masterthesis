@@ -43,6 +43,16 @@ Mustermann
 
 Jede Variablendeklaration beginnt mit einer Stufennummer. Diese Stufennummer sorgt für Gruppierung von Variablen. Zulässig sind dabei Zahlen zwischen \textit{01} und \textit{49}. Die Stufennummern sollten mit ausreichendem Abstand gewählt werden, um ein nachträgliches Einfügen zwischen zwei Stufennummern zu erleichtern. In der Praxis werden dazu \idR 5er-Schritte gewählt. Die speziellen Stufennummern \textit{66}, \textit{77} und \textit{88} werden später separat behandelt. Wie das Beispiel demonstriert, ist der Zugriff auf einzelne Variablen auch über den Gruppennamen möglich. Konstanten sind hierbei in COBOL nicht möglich und so gilt es, wie Herr Bonev und Herr Lamperstorfer betonten, sicherzustellen, dass konstante Werte an keiner Stelle des Programms verändert werden. Ein weiterer Nachteil davon ist, dass für diese pseudo-konstanten Werte im Gegensatz zu Konstanten in Java Speicherplatz reserviert werden muss. In den Anfängen von COBOL waren diese \quotes{Konstanten} daher verpönt und wurden nur sparsam verwendet.
 
+\begin{codeWithCaption}{Mehrdeutige Variablennamen in COBOL}{duplicateVariableName}
+    \cobol{DuplicateVariableNames.cbl}
+    \begin{shellwindow}
+    First: First value         
+    Second: Second value  
+    \end{shellwindow}
+\end{codeWithCaption}
+
+Diese Gruppierung ermöglicht es, Variablennamen mehrfach zu verwenden. Dabei müssen Referenzen auf eine Variable, mithilfe des \cob{IN}-Schlüsselworts immer auch die einschließende Gruppe spezifizieren, um Mehrdeutigkeit zu vermeiden. Dies zeigt \autoref{duplicateVariableName}.
+
 Der Stufennummer folgt ein eindeutiger Name für die Variable. An dieser Stelle kann jedoch auch das Schlüsselwort \cob{FILLER} verwendet werden. Dies sorgt dafür, dass eine Platzhaltervariable angelegt wird, auf die jedoch später nicht direkt zugegriffen werden kann.
 
 Die Festlegung der Repräsentation geschieht wie gezeigt durch ein \cob{PIC}. Nach diesem \cob{PIC} wird festgelegt, wie diese Variable dargestellt werden soll. \quotes{X} steht dabei für ein alphanumerisches, \quotes{9} für ein numerisches Zeichen und \quotes{A} für einen Buchstaben. Die Angabe der Stellen einer Variable wird durch die Wiederholung des jeweiligen Zeichens oder die verkürzte Notation mit der nachgestellten Anzahl der Wiederholungen in runden Klammern -- \zB XXXX $\widehat{=}$ X(4) -- erreicht. Als Dezimaltrennzeichen wird wie gezeigt ein \quotes{V} verwendet und ein vorangestelltes \quotes{S} sorgt dafür, dass eine numerische Variable ein Vorzeichen führt. So wird genau festgelegt, wie viele Vor- und Nachkommastellen eine Variable hat.

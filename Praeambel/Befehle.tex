@@ -74,6 +74,12 @@
 \newcommand{\cobol}[1]{\inputCode{\scriptsize}{cobolfree}{#1}}
 \newcommand{\java}[1]{\inputCode{\footnotesize}{java}{#1}}
 
+\newcommand{\mintedCobolNotfree}[3]{
+    \begin{codeWithCaption}{#2}{#3}
+    \cobolNotFree{#1}
+    \end{codeWithCaption}
+}
+
 \newcommand{\mintedCobol}[3]{
     \begin{codeWithCaption}{#2}{#3}
     \cobol{#1}
@@ -118,3 +124,5 @@
 %\newcommand{\mytodo}[1]{
 %    \noindent\colorbox{blue!25}{\parbox{\linewidth-2\fboxsep}{#1}}
 %}
+
+\newcommand{\visitedOn}{(besucht am 19.05.2018)}

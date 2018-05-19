@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. DUPLICATE-NAMING.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+           01 FIRSTGROUP.
+               05 PNAME PIC X(20) VALUE "First value".
+           01 SECONDGROUP.
+               05 PNAME PIC X(20) VALUE "Second value".
+
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           DISPLAY "First: " PNAME IN FIRSTGROUP.
+           DISPLAY "Second: " PNAME IN SECONDGROUP.
+
+       END PROGRAM DUPLICATE-NAMING.
