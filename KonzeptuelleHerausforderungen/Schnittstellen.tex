@@ -4,19 +4,14 @@ In betrieblichen Informationssystemen stellen außerdem Schnittstellen ein wicht
 
 Vor allem in der heutigen Zeit, in der Informationssysteme nicht mehr als alleinige Verarbeitungs-, Reporting- und Darstellungsschicht fungieren, sondern eingebettet in einen größeren Kontext aus verschiedensten Modulen, mobilen Applikationen und Websites funktionieren und mit diesen kommunizieren müssen, ist ein ausgereiftes Schnittstellenkonzept und die standardisierte Bereitstellung und Nutzung von Daten und Diensten unerlässlich.
 
-Für Java sind an dieser Stelle eine Fülle an Bibliotheken erhältlich, welche Netzwerkkommunikation über verschiedenste Protokolle auf unterschiedlichen Ebenen ermöglichen. Neben diversen verfügbaren Fremdbibliotheken bietet bereits das JDK unterschiedliche Methoden zur Kommunikation mit Fremdsystemen.
+Für Java sind eine Fülle an Bibliotheken erhältlich, welche Netzwerkkommunikation über verschiedenste Protokolle auf unterschiedlichen Ebenen ermöglichen. Neben diversen verfügbaren Fremdbibliotheken bietet bereits das JDK unterschiedliche Methoden zur Kommunikation mit Fremdsystemen.
 
 Zudem ist es durch die Definition von Interfaces auch auf Klassenebene möglich, Schnittstellen zu bieten, die eine einfache Erweiterung von und Verbindungen zu Neusystemen möglich machen.
 
-COBOL hingegen lässt an dieser Stelle einige Funktionalität vermissen. Durch das fehlende Bibliothekskonzept -- wie in \autoref{wiederverwendbarkeit} erläutert -- und das gänzliche Fehlen von Netzwerkkommunikationsmechanismen ist es in reinem COBOL nicht möglich, Netzwerkschnittstellen festzulegen, die von außen erreichbar sind, oder solche zu nutzen. 
+COBOL hingegen lässt hierfür einige Funktionalität vermissen. Durch das fehlende Bibliothekskonzept -- wie in \autoref{wiederverwendbarkeit} erläutert -- und das gänzliche Fehlen von Netzwerkkommunikationsmechanismen ist es in reinem COBOL nicht möglich, Netzwerkschnittstellen festzulegen, die von außen erreichbar sind, oder solche zu nutzen. 
 
 COBOL-Systeme nutzen daher \idR Systemmodule, um Aufgaben, wie die Netzwerkkommunikation, zu erledigen, die mit reinem COBOL nicht möglich oder aufwendig sind. Außerdem erfordern diese Systeme nicht selten Anpassungen in anderen Systemen, auch wenn es nicht sinnvoll erscheint.
 
-Auch intern kann ein COBOL-System nur bedingt Standards definieren, die zwischen unterschiedlichen Programmteilen für einheitliche Kommunikationskanäle sorgen. Daher basieren COBOL-Systeme, wie \autoref{reporting} beschreibt, auf einfachen EVA-Prinzipien. 
+Auch intern kann ein COBOL-System nur bedingt Standards definieren, die zwischen unterschiedlichen Programmteilen für einheitliche Kommunikationskanäle sorgen. Allerdings  basieren COBOL-Systeme, wie \autoref{reporting} beschreibt, auf einfachen EVA-Prinzipien, weshalb Schnittstellen in der Stapelverarbeitung datenbasiert seien, wie Herr Lamperstorfer festhielt. Diese Eigenschaft ist jedoch mehr dem Host-Umfeld zuzuschreiben als der Sprache COBOL.
 
 Mit Tools wie IBM MQ, zuvor WebSphere MQ, \footnote{\url{https://www.ibm.com/de-de/marketplace/secure-messaging} \visitedOn} können Systeme allerdings so verbunden werden, dass sie miteinander kommunizieren können. Laut Herrn Lamperstorfer lässt sich damit \quotes{technisch einfach} eine Verbindung zwischen Alt- und Neusystemen herstellen, diese sei jedoch fachlich und im Hinblick auf Performanz recht schwierig umzusetzen.
-
-\mytodo{\todo[inline]{datenquellen, datenbanken}}
-
-\mytodo{\todo[inline]{3. Batchbetrieb -> Schnittstellen (Host nicht COBOL)}}
-\mytodo{\todo[inline]{Schnittstellen datenbasiert(copies). Db nicht so relevant da host sehr schnell mit Dateien. }}

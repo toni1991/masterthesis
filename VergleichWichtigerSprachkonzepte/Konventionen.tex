@@ -12,7 +12,7 @@ COBOL hingegen unterscheidet bei Variablennamen und Schlüsselwörtern nicht zwi
 \subsection*{Affixe} \label{affix}\label{affixCOBOL}
 Ein weiteres wichtiges Werkzeug bei der Strukturierung von Programmcode ist das Versehen mit Affixen (Prä- oder Suffixen).
 
-In Java ist es nicht ratsam, Affixe zu verwenden. Da diese jedoch in einigen bestehende Codebasen Verwendung finden, werden an dieser Stelle die üblichsten behandelt.
+In Java ist es nicht ratsam, Affixe zu verwenden. Da diese jedoch in einigen bestehende Codebasen Verwendung finden, werden im Folgenden die üblichsten behandelt.
 Oftmals werden Interfaces in Java mit einem vorangestellten \quotes{I} gekennzeichnet. Diese Konvention sorgt jedoch dafür, dass Implementierungen eines Interfaces namentlich nicht immer klar abgegrenzt und definiert sind. Wird beispielsweise ein Interface \jav{IOutput} definiert, so könnten valide Implementierungen \jav{ConsoleOutput} oder \jav{PrinterOutput} sein. Jedoch erlaubt dies namentlich auch die Interface-Implementierung namens \jav{Output}, bei der nicht ausreichend klar ist, welchen Zweck diese Klasse erfüllt.
 
 Ein weiterer Codingstil, der gelegentlich angewendet wird, ist das Nutzen von \quotes{m} und \quotes{s} als Präfix von Variablen. Diese sollen kennzeichnen, dass eine Variable entweder Instanzvariable (\textbf{m}ember) oder statisch (\textbf{s}tatic) ist. Durch die Verwendung von modernen IDEs, die beide farblich unterschiedlich darstellen, und des Schlüsselwortes \jav{this}, welches exakt für Referenzen auf Instanzvariablen gedacht ist, werden Variablen jedoch bereits ausreichend gekennzeichnet, sodass der Code durch die Verwendung dieser Präfixe unnötigerweise schwerer lesbar gemacht wird.

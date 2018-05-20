@@ -15,3 +15,14 @@
 %         \fi
 % }
 % \makeatother
+
+% \newwrite\refs
+% \openout\refs=\jobname.refs
+% \let\oldautoref\autoref
+% \makeatletter
+% \renewcommand{\autoref}[1]{
+%     \oldautoref{#1}\ignorespaces
+%     \protected@edef\ttttpage{\pageref{#1}}
+%     \write\refs{\oldautoref{#1};\ttttpage}
+% }
+% \makeatother
