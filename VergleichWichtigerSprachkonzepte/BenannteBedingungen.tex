@@ -1,4 +1,4 @@
-\subsection{Benannte Bedingungen}\label{cobolSec88}
+\subsection{Benannte Bedingungen}\mylabel{cobolSec88}
 Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weitere Besonderheit in COBOL dar. Mit ihr ist es möglich, einer Variable einen Wahrheitswert zuzuweisen, der von einem anderen Variablenwert abhängt. Es entsteht eine sogenannte benannte Bedingung.
 
 \autoref{88_cobol_listing} zeigt die Verwendung der Stufennummer 88. Die Variable \mintinline{text}{AGE} kann dabei zweistellige numerische Werte enthalten, die einem beispielhaften Alter entsprechen, welches zu Beginn mit 13 vorbelegt wird. Liegt der Wert zwischen 0 und 17 (\cob{VALUE 0 THRU 17}), so weisen die Variablen \mintinline{text}{ISUNDERAGE} den Wahrheitswert \cob{TRUE} und \mintinline{text}{ISADULT} den Wahrheitswert \cob{FALSE} auf.

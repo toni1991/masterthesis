@@ -16,13 +16,15 @@
 % }
 % \makeatother
 
-% \newwrite\refs
-% \openout\refs=\jobname.refs
-% \let\oldautoref\autoref
-% \makeatletter
-% \renewcommand{\autoref}[1]{
-%     \oldautoref{#1}\ignorespaces
-%     \protected@edef\ttttpage{\pageref{#1}}
-%     \write\refs{\oldautoref{#1};\ttttpage}
-% }
-% \makeatother
+\newwrite\refs
+\openout\refs=\jobname.refs
+\let\oldautoref\autoref
+%\renewcommand{\autoref}[1]{
+%    \oldautoref{#1}\ignorespaces
+%    \write\refs{Autoref;#1;\thepage}
+%}
+
+\newcommand{\mylabel}[1]{
+    \label{#1}
+    \write\refs{Label;#1;\thepage}
+}
