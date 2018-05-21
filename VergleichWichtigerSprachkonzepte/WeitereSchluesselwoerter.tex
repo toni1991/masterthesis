@@ -22,6 +22,8 @@ Neben diesem ist \cob{NEXT SENTENCE} ein Schlüsselwort, das häufig in älterem
 
 Seltener zu finden ist dagegen die \cob{EXIT PERFORM}-Anweisung. Diese kann innerhalb von Schleifen dazu genutzt werden, um, wie mit einem \jav{break} in Java, die umgebende Schleife zu verlassen oder durch \cob{EXIT PERFORM CYCLE}, wie mit einem \jav{continue} in Java, mit dem nächsten Schleifendurchlauf fortzufahren. Dies soll \autoref{exitPerform} verdeutlichen.
 
+Die Verwendung des \cob{GO TO}-Befehls sollte in COBOL unterlassen werden und ist oftmals sogar durch projekt- oder unternehmensspezifische Vorgaben verboten ist, da ansonsten sehr schwer verständlicher und wartbarer Code entstehen kann. Eine Ausnahme dieses Verbotes stellt dabei das \cob{GO TO} mit einem \cob{EXIT}-Paragraphen (siehe \autoref{generalablauf}) als Ziel dar. Dies ist nötig, da COBOL keinen Befehl wie das \jav{return} in Java enthält, um die Ausführungskontrolle an die aufrufende Stelle zurückzugeben. Leider findet man in der Praxis oftmals Code, der \cob{GO TO}-Befehle zur Steuerung des Ablaufs verwendet. Sogar Schleifenkonstrukte sind in älteren Programmen oft damit realisiert, worauf Herr Streit hinwies. 
+
 \begin{codeWithCaption}{EXIT PERFORM in COBOL}{exitPerform}
 \cobol{EXIT-PERFORM.cbl}
 \begin{shellwindow}
@@ -29,5 +31,3 @@ Seltener zu finden ist dagegen die \cob{EXIT PERFORM}-Anweisung. Diese kann inne
 10
 \end{shellwindow}
 \end{codeWithCaption}
-
-Die Verwendung des \cob{GO TO}-Befehls sollte in COBOL unterlassen werden und ist oftmals sogar durch projekt- oder unternehmensspezifische Vorgaben verboten ist, da ansonsten sehr schwer verständlicher und wartbarer Code entstehen kann. Eine Ausnahme dieses Verbotes stellt dabei das \cob{GO TO} mit einem \cob{EXIT}-Paragraphen (siehe \autoref{generalablauf}) als Ziel dar. Dies ist nötig, da COBOL keinen Befehl wie das \jav{return} in Java enthält, um die Ausführungskontrolle an die aufrufende Stelle zurückzugeben. Leider findet man in der Praxis oftmals Code, der \cob{GO TO}-Befehle zur Steuerung des Ablaufs verwendet. Sogar Schleifenkonstrukte sind in älteren Programmen oft damit realisiert, worauf Herr Streit hinwies. 

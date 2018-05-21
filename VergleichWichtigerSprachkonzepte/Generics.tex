@@ -1,4 +1,4 @@
-\section{Generische Programmierung}\mylabel{generics}
+\section{Generische Programmierung}\label{generics}
 Moderne Programmiersprachen wie Java oder C\# erlauben eine Programmierung mit sogenannten \textit{Generics}. Dabei handelt es sich um ein Konzept, bei dem Variablentypen generisch sein können, solange sie bestimmte Eigenschaften erfüllen. Diese Eigenschaften werden durch das Implementieren eines bestimmten Interfaces oder durch das Erben von einer bestimmten Klasse beschrieben. Dies soll \autoref{javaGenerics} verdeutlichen. Hieran wird auch deutlich, dass sowohl für Interfaces als auch für Oberklassen stets das Schlüsselwort \jav{extends} verwendet werden muss.
 
 In diesem Beispiel werden die drei generischen Typen \textit{S}, \textit{T} und \textit{U} verwendet. \textit{T} muss dabei die Eigenschaft erfüllen, das \jav{Serializable} Interface zu implementieren. \textit{S} muss eine Unterklasse von \jav{Number} sein. Für \textit{U} hingegen wird keine bestimmte Eigenschaft definiert. Das bedeutet, dass jede Klasse, die von der Klasse \jav{Object} erbt -- in Java \textbf{jede} Klasse -- verwendet werden kann. 
