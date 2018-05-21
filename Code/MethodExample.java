@@ -1,5 +1,4 @@
 public class MethodExample {
-
     public void printGreeting(String greeting) {
         System.out.println(greeting);
     }

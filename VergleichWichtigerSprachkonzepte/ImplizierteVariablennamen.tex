@@ -20,6 +20,8 @@ IfVariableError.java:8: error: illegal start of type
 
 Versucht man, \autoref{ifVariableErrorJava} zu kompilieren, treten einige Fehler auf. In Java können nur vollständige logische Ausdrücke mit logischen Operatoren verknüpft werden. Zum anderen kann innerhalb eines logischen Ausdrucks lediglich maximal einmal ein Vergleichsoperator verwendet werden. 
 
+\autoref{ifVariableNoErrorJava} demonstriert eine funktionsfähige Implementierung des vorhergehenden Beispiels. Dieser Code kann fehlerfrei kompiliert und ausgeführt werden wie die Ausgabe zeigt.
+
 \begin{codeWithCaption}{Verwendung von Variablennamen in logischen Ausdrücken in Java}{ifVariableNoErrorJava}
 \java{IfVariableNoError.java}
 \begin{shellwindow}
@@ -29,11 +31,8 @@ We get here everytime!
 \end{shellwindow}
 \end{codeWithCaption}
 
-\autoref{ifVariableNoErrorJava} demonstriert eine funktionsfähige Implementierung des vorhergehenden Beispiels. Dieser Code kann fehlerfrei kompiliert und ausgeführt werden wie die Ausgabe zeigt.
-
 \subsubsection*{Implizierte Variablennamen in COBOL}
-In COBOL hingegen ist das Schreiben von logischen Ausdrücken mit implizierten Variablennamen möglich.
+
+In COBOL hingegen ist das Schreiben von logischen Ausdrücken mit implizierten Variablennamen möglich. \autoref{implicitNamesCobol} stellt in Zeile 11 die Verwendung in COBOL dar, die im Gegensatz zu Java möglich ist.
 
 \mintedCobol{implicit_variable_names.cbl}{Implizierte Variablennamen in COBOL}{implicitNamesCobol}
-
-\autoref{implicitNamesCobol} stellt in Zeile 11 die Verwendung von implizierten Variablennamen in COBOL dar, die im Gegensatz zu Java möglich ist.

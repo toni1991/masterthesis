@@ -17,13 +17,13 @@ In COBOL hingegen wird der Zugriff auf Dateien auf Basis sogenannter \textit{Rec
 
 \mintedCobol{PersonData.cpy}{Personendaten Copybook}{copyBookPersonData}
 
-\autoref{recordFile} zeigt den Aufbau der zu verarbeitenden Datensätze, die in \autoref{copyBookPersonData} als COBOL Struktur definiert sind. \autoref{readFileCopy} und \autoref{writeFileCopy} beinhalten Sections, die die Datei-Ein- \bzw Ausgabe bewerkstelligen. Diese werden durch den \cob{COPY} Befehl in \autoref{cobolInpuOutput} eingebunden und genutzt. Zeile 8 spezifiziert dabei, dass es sich um eine Datei handelt, deren Einträge durch einen Zeilenvorschub getrennt sind. Im Gegensatz dazu kann man den Aufbau als \cob{ORGANIZATION IS RECORD SEQUENTIAL} \bzw \cob{ORGANIZATION IS SEQUENTIAL} definieren oder weglassen, da dies dem Standard entspricht, was bedeutet, dass die Einträge nicht voneinander abgetrennt sind. Dies wäre gleichbedeutend mit dem Entfernen der Zeilenumbrüche in \autoref{recordFile}.
+\autoref{recordFile} zeigt den Aufbau der zu verarbeitenden Datensätze, die in \autoref{copyBookPersonData} als COBOL Struktur definiert sind. \autoref{readFileCopy} und \autoref{writeFileCopy} beinhalten Sections, die die Datei-Ein- \bzw Ausgabe bewerkstelligen. Diese werden durch den \cob{COPY} Befehl in \autoref{cobolInpuOutput} eingebunden und genutzt. Zeile 8 spezifiziert dabei, dass es sich um eine Datei handelt, deren Einträge durch einen Zeilenvorschub getrennt sind. 
 
 \mintedCobol{WRITE_FILE.cpy}{Dateien schreiben in COBOL (\vgl \cite{university_of_limerick_department})}{writeFileCopy}
 
 \mintedCobol{READ_FILE.cpy}{Dateien lesen in COBOL (\vgl \cite{university_of_limerick_department})}{readFileCopy}
 
-Mit relativer Dateiorganisation -- \cob{ORGANIZATION IS RELATIVE} -- und anderen Zugriffsmodi wie \cob{ACCESS MODE IS RANDOM} lassen sich auch nicht-sequenzielle Dateizugriffe, beispielsweise über Record-Indizes, realisieren.
+Im Gegensatz dazu kann man den Aufbau als \cob{ORGANIZATION IS RECORD SEQUENTIAL} \bzw \cob{ORGANIZATION IS SEQUENTIAL} definieren oder weglassen, da dies dem Standard entspricht, was bedeutet, dass die Einträge nicht voneinander abgetrennt sind. Dies wäre gleichbedeutend mit dem Entfernen der Zeilenumbrüche in \autoref{recordFile}.
 
 \begin{codeWithCaption}{Datei-Ein- und Ausgabe in COBOL (\vgl \cite{university_of_limerick_department})}{cobolInpuOutput}
     \cobol{Files.cbl} 
@@ -38,3 +38,5 @@ Mit relativer Dateiorganisation -- \cob{ORGANIZATION IS RELATIVE} -- und anderen
     Age:  44 Name:    Opal,      Adam
     \end{shellwindow}
 \end{codeWithCaption}
+
+Mit relativer Dateiorganisation -- \cob{ORGANIZATION IS RELATIVE} -- und anderen Zugriffsmodi wie \cob{ACCESS MODE IS RANDOM} lassen sich auch nicht-sequenzielle Dateizugriffe, beispielsweise über Record-Indizes, realisieren.
