@@ -14,13 +14,13 @@ Ein weiterer Punkt, der Java-Code wiederverwendbar macht, ist die Tatsache, dass
 \subsection*{COBOL}
 Im Gegensatz zu Java lässt COBOL ein weitreichendes Modularisierungskonzept vermissen. Wie später in \autoref{sec:functionsAndReturnValues} genauer nachzulesen ist, fehlen grundlegende Spracheigenschaften, um die Wiederverwendbarkeit von Code sicherzustellen. 
 
-Der typische Ansatz in COBOL ist, Funktionalität über Schlüsselwörter bereitzustellen. Allerdings stößt dies unweigerlich an Grenzen, da logischerweise nicht jeder Anwendungsfall als Teil der Sprache implementiert werden kann. Die Sprache bietet also grundsätzlich mehr Funktionalität durch Schlüsselwörter als Java, lässt sich im Gegensatz dazu aber schwerer erweitern. 
+Der typische Ansatz in COBOL ist, Funktionalität über Schlüsselwörter bereitzustellen. Allerdings stößt dies unweigerlich an Grenzen, da logischerweise nicht alles als Teil der Sprache implementiert werden kann. Die Sprache bietet also grundsätzlich mehr Funktionalität durch Schlüsselwörter als Java, lässt sich im Gegensatz dazu aber schwerer erweitern. 
 
 Möglich wird dies beispielsweise durch Unterprogramme, die Logik und Daten kapseln und so wiederverwendbar machen. Auch denkbar sind sogenannte Copybooks. Dabei handelt es sich um ein ähnliches Konzept wie Headerdateien in C++, also Dateien, deren Inhalt durch den Compiler vor dem Übersetzen an andere Stellen kopiert wird. Diese werden in \autoref{copy} näher beschrieben.
 
 Diese Konzepte sind jedoch nur begrenzt für die generelle Wiederverwendung von Code geeignet. Wie Herr Lamperstorfer betonte, sieht man daher in der Praxis oftmals Code-Blöcke, die ein und die selbe Logik abbilden, aber durch die Verwendung von anderen Daten nochmals im Copy-Paste-Stil in den Code integriert werden, was für viel Redundanz sorgt. 
 
-Wie in \autoref{verlaesslichkeit} beschrieben, findet man diesen Copy-Paste-Stil wegen fehlender oder teurer Möglichkeiten zu testen. Weiter merkte Herr Lamperstorfer an, dass es womöglich an der fehlenden Erfahrung und Ausbildung der Entwickler lag, dass solche Vorgehensweisen häufig verwendet wurden. Außerdem sei der Wartungsaufwand zur Entstehungszeit vieler bestehender Systeme nicht in dem heute erforderlichen Ausmaß abzusehen gewesen.
+Wie in \autoref{verlaesslichkeit} beschrieben, findet man diesen Copy-Paste-Stil häufig wegen fehlender oder teurer Möglichkeiten zu testen. Weiter merkte Herr Lamperstorfer an, dass es womöglich an der fehlenden Erfahrung und Ausbildung der Entwickler lag, dass solche Vorgehensweisen häufig verwendet wurden. Außerdem sei der Wartungsaufwand zur Entstehungszeit vieler bestehender Systeme nicht in dem heute erforderlichen Ausmaß abzusehen gewesen.
 
 Um diese Redundanzen zu vermeiden, werden teilweise Datenstrukturen für mehr als nur einen Zweck im Programm \quotes{missbraucht}. Darunter leidet die Les- und Wartbarkeit von COBOL-Code sehr, da häufig nicht klar ist, welche Daten in welchem Kontext wie verwendet werden. Zu diesem Thema sei auf \autoref{affixCOBOL} verwiesen.
 
