@@ -1,24 +1,19 @@
 public class AssociationExample {
 
-    // 1-to-1 association
-    class MarriageParticipant {
+    class MarriageParticipant { // 1-to-1 association
         MarriageParticipant partner;
     }
 
-    // 1-to-many association
-    class Library {
+    class Library {  // 1-to-many association
         List<Book> books;
     }
-
     class Book {
         Library library;
     }
 
-    // many-to-many association
-    class Student {
+    class Student {  // many-to-many association
         List<Course> courses;
     }
-
     class Course {
         List<Student> students;
     }

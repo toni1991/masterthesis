@@ -1,5 +1,4 @@
 public class ValueSet {
-
     enum ErrorMessage {
         FIRST_ERROR("The first error occured!"),
         SECOND_ERROR("The second error occured!"),
@@ -10,7 +9,7 @@ public class ValueSet {
         private ErrorMessage(String message){
             this.message = message;
         }
-
+        
         String getMessage() {
             return this.message;
         }

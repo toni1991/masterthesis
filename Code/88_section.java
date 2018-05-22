@@ -17,7 +17,6 @@ public class EightyEight{
             )
         );
     }
-    
     static class AgeCheck {
         private int age;
         

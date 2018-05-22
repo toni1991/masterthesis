@@ -17,14 +17,16 @@ In \autoref{javaHashSet} wird gezeigt, dass das Einfügen von Elementen, die ber
 \subsubsection*{Sets in COBOL}
 Analog zu Listen kann festgehalten werden, dass eine Implementierung von Sets in COBOL nicht ohne weiteres möglich ist. Die Einschränkung der Größe der Datenstruktur bestünde auch hier. 
 
+\clearpage
+
 \begin{codeWithCaption}{Einfache Set Implementierung in COBOL}{cobolSet}
     \cobol{Set.cbl} \cFollow
 \begin{shellwindow}
- SIZE: 000
-002, SIZE: 001
-002,004, SIZE: 002
-002,004, SIZE: 002
-002, SIZE: 001
+SIZE: 000
+002,SIZE: 001
+002,004,SIZE: 002
+002,004,SIZE: 002
+002,SIZE: 001
 \end{shellwindow}
 \end{codeWithCaption}
 

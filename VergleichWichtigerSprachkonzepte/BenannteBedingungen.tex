@@ -5,6 +5,8 @@ Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weite
 
 Der so entstandene Wahrheitswert kann folglich immer dann verwendet werden, wenn überprüft werden soll, ob die Variable \mintinline{text}{AGE} im Bereich zwischen 0 und 17 \bzw zwischen 17 und 99 liegt, sprich getestet werden, ob das Alter einer minder- oder volljährigen Person entspricht.
 
+\clearpage
+
 \begin{codeWithCaption}{Beispiel für COBOL Stufennummer 88}{88_cobol_listing}
     \cobol{88_section.cbl} \cFollow
 \begin{shellwindow}
@@ -16,9 +18,12 @@ AGE = 18
 
 Zeile 14 des Programms illustriert einen weiteren Anwendungsfall der benannten Bedingungen. So lässt sich der Wert der eigentlichen Variable setzen, indem der bedingten Variable der Wahrheitswert \cob{TRUE} zugewiesen wird. Das Ergebnis dieser Zuweisung wird in der Ausgabe von \autoref{88_cobol_listing} in Zeile 3 dargestellt. Zu beachten ist hierbei, dass die meisten COBOL-Compiler nur das Setzen des Wertes \cob{TRUE} erlauben.
 
+Dieses Verhalten kann dazu genutzt werden, um Variablen mit bestimmten Werten zu belegen. Dieses Verhalten beschreibt \autoref{88_cobol_value_set_listing}. Oftmals fungieren diese bedingten Bedingungen auch als Schalter \bzw Flags, \dahe je nach Wert werden unterschiedliche Funktionalitäten ausgeführt.
+
+\clearpage
+
 \mintedCobol{88_section_value_set.cbl}{Setzen von Werten mithilfe benannter Bedingungen}{88_cobol_value_set_listing}
 
-Dieses Verhalten kann dazu genutzt werden, um Variablen mit bestimmten Werten zu belegen. Dieses Verhalten beschreibt \autoref{88_cobol_value_set_listing}. Oftmals fungieren diese bedingten Bedingungen auch als Schalter \bzw Flags, \dahe je nach Wert werden unterschiedliche Funktionalitäten ausgeführt.
 
 \subsubsection*{Abbildung in Java}
 Java besitzt kein Sprachkonstrukt, um die Funktionalität der Stufennummer 88 direkt nachzubilden. Eine Möglichkeit, gleiches Verhalten darzustellen bietet allerdings die Implementierung spezieller Methoden. Dies soll \autoref{88_java_listing} veranschaulichen.

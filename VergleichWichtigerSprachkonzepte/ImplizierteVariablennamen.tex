@@ -4,25 +4,20 @@ Dieser Abschnitt behandelt einen Fehler, der typischerweise zu Beginn in der Sof
 \begin{codeWithCaption}{Keine implizierten Variablennamen in logischen Ausdrücken in Java}{ifVariableErrorJava}
 \java{IfVariableError.java} \cFollow
 \begin{shellwindow}
-$ javac -Xmaxerrs 3 IfVariableError.java 
+$ javac -Xmaxerrs 2 IfVariableError.java 
 IfVariableError.java:4: error: > expected
         if (System.currentTimeMillis() > 0 && < Long.MAX_VALUE) {
                                                               ^
 IfVariableError.java:4: error: ')' expected
         if (System.currentTimeMillis() > 0 && < Long.MAX_VALUE) {
                                                                ^
-IfVariableError.java:8: error: illegal start of type
-        if (0 < System.currentTimeMillis() < Long.MAX_VALUE) {
-        ^
-3 errors
+2 errors
 \end{shellwindow}
 \end{codeWithCaption}
 
 Versucht man, \autoref{ifVariableErrorJava} zu kompilieren, treten einige Fehler auf. In Java können nur vollständige logische Ausdrücke mit logischen Operatoren verknüpft werden. Zum anderen kann innerhalb eines logischen Ausdrucks lediglich maximal einmal ein Vergleichsoperator verwendet werden. 
 
 \autoref{ifVariableNoErrorJava} demonstriert eine funktionsfähige Implementierung des vorhergehenden Beispiels. Dieser Code kann fehlerfrei kompiliert und ausgeführt werden wie die Ausgabe zeigt.
-
-\clearpage
 
 \begin{codeWithCaption}{Verwendung von Variablennamen in logischen Ausdrücken in Java}{ifVariableNoErrorJava}
 \java{IfVariableNoError.java} \cFollow
