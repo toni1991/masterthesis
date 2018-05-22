@@ -1,4 +1,5 @@
 public class Union {
+
     private int heightInCm;
     private String firstName;
     private String surname;
