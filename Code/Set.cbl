@@ -1,6 +1,5 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. SET-EXAMPLE.
-
        DATA DIVISION.
        WORKING-STORAGE SECTION.
            01 SET-STORAGE PIC 9(3) OCCURS 100 TIMES INDEXED BY S-IDX.
@@ -8,7 +7,6 @@
            01 SET-SIZE PIC 9(3) VALUE 000.
            01 I-VAL PIC 9(3).
            01 D-VAL PIC 9(3).
-
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
            PERFORM INIT-SET.
@@ -18,7 +16,7 @@
            MOVE 2 TO I-VAL. PERFORM INSERT-VALUE. PERFORM PRINT-SET.
            MOVE 4 TO D-VAL. PERFORM DELETE-VALUE. PERFORM PRINT-SET.
            STOP RUN.
-
+           
        INIT-SET SECTION.
            PERFORM VARYING S-IDX FROM 1 BY 1 UNTIL S-IDX = 100
                MOVE SET-NIL-VALUE TO SET-STORAGE(S-IDX)
@@ -42,7 +40,6 @@
                    COMPUTE SET-SIZE = SET-SIZE + 1
                END-IF
            END-PERFORM.
-               
        INSERT-VALUE-EXIT.
            EXIT.
 
@@ -55,7 +52,6 @@
                        COMPUTE SET-SIZE = SET-SIZE - 1
                    END-IF
            END-PERFORM.
-
        PRINT-SET SECTION.
            PERFORM VARYING S-IDX FROM 1 BY 1 UNTIL S-IDX = 100
                IF NOT SET-STORAGE(S-IDX) = SET-NIL-VALUE THEN
@@ -63,5 +59,4 @@
                END-IF
            END-PERFORM.
            DISPLAY "SIZE: " SET-SIZE.
-
        END PROGRAM SET-EXAMPLE.

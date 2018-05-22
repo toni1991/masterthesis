@@ -6,11 +6,9 @@
 Das fundamentale Konzept von Variablendeklarationen in COBOL ist -- wie bereits in \autoref{variables} angesprochen -- die Nutzung von Stufennummern und eine Untergliederung mithilfe dieser Stufennummern. Das sorgt dafür, dass jede untergliederte Variable in COBOL eine Verbunddatenstruktur darstellt.
 
 \begin{codeWithCaption}{Structs und Unions in COBOL}{structUnionCOBOL}
-\cobol{UNION_PROGRAM.cbl}
-\cobol{UNION_SUB_PROGRAM.cbl}
+\cobol{UNION_PROGRAM.cbl} \cFollow
+\cobol{UNION_SUB_PROGRAM.cbl} \cFollow
 \begin{shellwindow}
-$ cobc -x -o UNION-PROGRAM UNION-PROGRAM.cbl 
-$ cobc -m UNION-SUB-PROGRAM.cbl
 $ ./UNION-PROGRAM
 INTEGER: 190742
 DECIMAL: 1907.42

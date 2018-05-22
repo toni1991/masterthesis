@@ -10,7 +10,6 @@ public class ListenerPattern {
     public static void main(String[] args) {
         TimeProducer timeProducer = new TimeProducer();
         TimeListener plainListener = new TimeListener() {
-            @Override
             public void printTime(long timeMillis) {
                 System.out.println("PlainTime: " + timeMillis);
             }
@@ -26,7 +25,6 @@ public class ListenerPattern {
     }
 
     static class FormattedListener implements TimeListener {
-        @Override
         public void printTime(long timeMillis) {
             System.out.println("FormattedTime: " + 
                 Instant.ofEpochMilli(timeMillis).toString());
@@ -54,5 +52,4 @@ public class ListenerPattern {
             }
         }
     }
-
 }

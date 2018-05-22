@@ -11,13 +11,11 @@
             PERFORM SET-PARTNER.
             PERFORM PRINT-PARTNER.
             STOP RUN.
-
        SET-PARTNER SECTION.
            MOVE "  Anna  Wolf3" TO PERSON(1).
            MOVE "Hubert Mayer4" TO PERSON(2).
            MOVE "  Olaf  Wolf1" TO PERSON(3).
            MOVE "Ursula Mayer2" TO PERSON(4).
-
        PRINT-PARTNER SECTION.
            PERFORM VARYING P-IDX FROM 1 BY 1 UNTIL P-IDX = 5
                DISPLAY FIRSTNAME(P-IDX)" "SURNAME(P-IDX)
@@ -25,5 +23,4 @@
                    FIRSTNAME(PARTNER-IDX(P-IDX))" "
                    SURNAME(PARTNER-IDX(P-IDX))
            END-PERFORM.
-
        END PROGRAM ENTITIES.

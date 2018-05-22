@@ -29,7 +29,7 @@ Die Deklaration von Variablen unterscheidet sich in COBOL stark von der in Java.
 Dies sorgt nicht nur dafür, dass Speicherplatz nicht wie mit \jav{new} in Java dynamisch alloziert werden kann, sondern auch dafür, dass bereits an der Stelle der Variablendeklaration festgelegt werden muss, wie diese Daten im folgenden Programm dargestellt werden. Das Schlüsselwort dafür ist die \cob{PICTURE}- oder kurz \cob{PIC}-Anweisung.
 
 \begin{codeWithCaption}{Variablendeklarationen in COBOL}{variablesCobol}
-\cobol{variable_declaration.cbl}
+\cobol{variable_declaration.cbl} \cFollow
 \begin{shellwindow}
 $ ./variableExample
 Mustermann 178
@@ -44,7 +44,7 @@ Mustermann
 Jede Variablendeklaration beginnt mit einer Stufennummer. Diese Stufennummer sorgt für Gruppierung von Variablen. Zulässig sind dabei Zahlen zwischen \textit{01} und \textit{49}. Die Stufennummern sollten mit ausreichendem Abstand gewählt werden, um ein nachträgliches Einfügen zwischen zwei Stufennummern zu erleichtern. In der Praxis werden dazu \idR 5er-Schritte gewählt. Die speziellen Stufennummern \textit{66}, \textit{77} und \textit{88} werden später separat behandelt. Wie das Beispiel demonstriert, ist der Zugriff auf einzelne Variablen auch über den Gruppennamen möglich. Konstanten sind hierbei in COBOL nicht möglich und so gilt es, wie Herr Bonev und Herr Lamperstorfer betonten, sicherzustellen, dass konstante Werte an keiner Stelle des Programms verändert werden. Ein weiterer Nachteil davon ist, dass für diese pseudo-konstanten Werte im Gegensatz zu Konstanten in Java Speicherplatz reserviert werden muss. In den Anfängen von COBOL waren diese \quotes{Konstanten} daher verpönt und wurden nur sparsam verwendet.
 
 \begin{codeWithCaption}{Mehrdeutige Variablennamen in COBOL}{duplicateVariableName}
-    \cobol{DuplicateVariableNames.cbl}
+    \cobol{DuplicateVariableNames.cbl} \cFollow
     \begin{shellwindow}
     First: First value         
     Second: Second value  

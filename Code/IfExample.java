@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class IfExample {
-
     public static void main(String... args) {
         int number = new Scanner(System.in).nextInt();
         if (number == 0) {
@@ -10,8 +9,6 @@ public class IfExample {
         } else
             System.out.println("Number is not 0");
 
-        System.out.println(
-            number == 0 ? "Number is 0" : "Number is not 0"
-        );
+        System.out.println(number == 0 ? "0" : "Not 0");
     }
 }

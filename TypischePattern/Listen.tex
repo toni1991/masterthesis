@@ -6,7 +6,7 @@ Während \autoref{sec:felder} Felder behandelt, welche wie angesprochen eine fes
 In Java kann das \jav{List}-Interface implementiert werden \bzw ein Objekt dieser Implementierung instanziiert werden, um eine Liste variabler Größe zu erhalten. Die wohl gebräuchlichste Implementierung dieses Interfaces stellt die Klasse \jav{ArrayList} dar. Intern hält diese -- wie der Name schon vermuten lässt -- ein Array, welches bei Bedarf in ein neues, größeres Array kopiert wird. Die einfache Handhabung dieser Klasse wird in  \autoref{javaArrayList} dargestellt.
 
 \begin{codeWithCaption}{ArrayList Beispiel in Java}{javaArrayList}
-    \java{ArrayListExample.java}
+    \java{ArrayListExample.java} \cFollow
     \begin{shellwindow}
     Elements: [] - Size: 0
     Elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] - Size: 10
@@ -19,7 +19,7 @@ In Java kann das \jav{List}-Interface implementiert werden \bzw ein Objekt diese
 Eine exakte Abbildung von Listen ist in COBOL nicht möglich, da hier bereits zum Zeitpunkt des Kompilierens feststehen muss, wie groß ein Feld ist.
 
 \begin{codeWithCaption}{Einfache Listen Implementierung in COBOL}{cobolList}
-    \cobol{List.cbl}
+    \cobol{List.cbl} \cFollow
     \begin{shellwindow}
      SIZE: 00
     002, SIZE: 01

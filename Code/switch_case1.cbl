@@ -1,11 +1,9 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. SWITCH-CASE-EVALUATE.
-
        DATA DIVISION.
        WORKING-STORAGE SECTION.
            01 AGE PIC 9(3).
            01 SEX PIC X(1).
-                
        PROCEDURE DIVISION.
        MAIN.
            ACCEPT AGE.
@@ -27,5 +25,4 @@
                     DISPLAY "Unknown age or gender"
            END-EVALUATE.
            STOP RUN.
-
        END PROGRAM SWITCH-CASE-EVALUATE.

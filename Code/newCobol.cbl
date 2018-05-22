@@ -4,7 +4,6 @@
        FILE SECTION.
        WORKING-STORAGE SECTION.
            01 USERNAME PIC X(20) VALUE SPACES.      
-
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
             DISPLAY "Your name: " WITH NO ADVANCING.    

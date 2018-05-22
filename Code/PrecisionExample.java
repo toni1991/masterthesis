@@ -20,5 +20,4 @@ public class PrecisionExample {
                         Integer.toBinaryString(binary))
         );
     }
-
 }

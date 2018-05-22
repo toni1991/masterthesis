@@ -5,11 +5,9 @@
           01 SUB-PROGRAM-PARAMS.
               05 INPUT-NUMBER PIC 9(4).
               05 RET-VALUE PIC 9(4).
-           
        PROCEDURE DIVISION USING SUB-PROGRAM-PARAMS.
        MAIN-PROCEDURE.
            DISPLAY "SUB-PROGRAM got passed: " INPUT-NUMBER.
            COMPUTE RET-VALUE = INPUT-NUMBER * 2.
-           GOBACK.
-           
+           GOBACK.           
        END PROGRAM CALLED_PROGRAM.

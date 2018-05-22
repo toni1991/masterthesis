@@ -1,11 +1,9 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. SWTICH-CASE-EVALUATE.
-       
        DATA DIVISION.
        WORKING-STORAGE SECTION.
            01 FIRST-NUM PIC 9(2).
            01 SECOND-NUM PIC 9(2).
-           
        PROCEDURE DIVISION.
        MAIN.
            ACCEPT FIRST-NUM.

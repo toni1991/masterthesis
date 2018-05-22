@@ -11,5 +11,4 @@ public class IfVariableError {
             System.out.println("We never get here either!");            
         }        
     }
-
 }

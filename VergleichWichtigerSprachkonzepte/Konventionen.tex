@@ -21,7 +21,7 @@ In COBOL ist es in der Praxis dagegen sehr sinnvoll, Affixe zu verwenden. Da es 
 
 So kann man den Namen einer Section oder eines Paragraph mit einem Präfix versehen und auch die darin genutzten Variablen damit kennzeichnen. Beispielsweise sollte eine Variable \cob{PC-100-VALUE} nur in der Section \cob{PC-100-PROCESS} verwendet werden. 
 
-Oft finden sich in bestehendem Code auch Präfixe, welche die Art des Speichers -- \zB \cob{WS-} für \cob{WORKING-STORAGE} -- kennzeichnen. Eine Benennung nach den genutzten Programmteilen ist jedoch vorzuziehen und sorgt für klarere Struktur und Lesbarkeit.
+Oft finden sich in bestehendem Code auch Präfixe, welche die Speicherart -- \zB \cob{WS-} für \cob{WORKING-STORAGE} -- kennzeichnen. Eine Benennung nach den genutzten Programmteilen ist jedoch vorzuziehen und sorgt für klarere Struktur und Lesbarkeit.
 
 In COBOL ist jedoch Vorsicht geboten, da, vor allem in alten Systemen, die Zeichenzahl von Datei-, Programm- und Variablennamen Begrenzungen unterliegt. So ist es nicht unüblich, dass beispielsweise lediglich 8 Stellen für Dateinamen zur Verfügung stehen, was eine sinnvolle Benennung erheblich erschwert. Dies ist auch ein Grund dafür, dass Affixe seltener beobachtbar sind, als sie sein sollten.
 
@@ -34,4 +34,4 @@ In Java ist ein Verkürzen von Schlüsselwörtern hingegen nicht möglich.
 
 Neben den in \autoref{sec:structure} beschriebenen fest vorgegebenen strukturellen Eigenschaften von Java- und COBOL-Programmen, lassen sich auch Konventionen beschreiben, die das Formatieren des Quelltextes betreffen.
 
-Für COBOL und Java gilt hierbei gleichermaßen, dass pro Zeile genau ein Statement stehen sollte. Alles innerhalb eines Blocks -- eine oder mehrere untergeordnete Anweisungen -- werden konventionell um einen Tabulatorsprung eingerückt. Außerdem sollten zwischen Blöcken und Anweisungen Leerzeilen eingefügt werden, die die Lesbarkeit erhöhen. In COBOL ist jedoch bei der Einrückung das bereits beschriebene Spaltenprinzip zu beachten.
+Für COBOL und Java gilt hierbei gleichermaßen, dass pro Zeile genau ein Statement stehen sollte. Alles innerhalb eines Blocks -- untergeordnete Anweisungen -- wird konventionell um einen Tabulatorsprung eingerückt. Außerdem sollten zwischen Blöcken und Anweisungen Leerzeilen eingefügt werden, die die Lesbarkeit erhöhen. In COBOL ist jedoch bei der Einrückung das bereits beschriebene Spaltenprinzip zu beachten.

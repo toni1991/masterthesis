@@ -5,12 +5,10 @@
            01 SUB-PROGRAM-PARAMS.
               05 INPUT-NUMBER PIC 9(4).
               05 RET-VALUE PIC 9(4).
-               
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
            ACCEPT INPUT-NUMBER.
            CALL "CALLED_PROGRAM" USING SUB-PROGRAM-PARAMS.
            DISPLAY "CALLING PROGRAM: " RET-VALUE.
            STOP RUN.
-           
        END PROGRAM CALLING_PROGRAM.

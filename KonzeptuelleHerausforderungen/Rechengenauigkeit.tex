@@ -7,9 +7,8 @@ In modernen Programmiersprachen wie Java werden Datentypen für rationale Zahlen
 Diese Fließkommatypen werden zur Basis 2 berechnet und heißen daher auch binäre Fließkommatypen. Dabei werden Zahlen nach \textit{IEEE 754}-Standard in Vorzeichen, Exponent und Mantisse umgerechnet und gespeichert. Ohne näher auf diesen eingehen zu wollen, kann angemerkt werden, dass dieser einen Algorithmus festlegt, mit dessen Hilfe Variablen in einem Speicherbereich repräsentiert werden. Auch die Größe dieses Speicherbereichs ist durch den Standard vorgegeben und daher fest. Dadurch und durch den Umstand, dass sowohl Exponent als auch Mantisse ins Dualsystem umgerechnet werden, ergibt sich die Problematik, dass eine Dezimalzahl \uU nicht exakt repräsentiert und lediglich die nächste Repräsentation gespeichert werden kann, da eine Kommaverschiebung nur um dyadische Zahlenwerte passieren kann. Dieser Effekt ist schwer absehbar und kann in der Praxis zu ungenauen (Zwischen-)Ergebnissen führen.
 
 \begin{codeWithCaption}{Ungenauigkeit am Beispiel einer float-Variable}{floatJava}
-    \java{PrecisionExample.java}
+    \java{PrecisionExample.java} \cFollow
     \begin{shellwindow}
-    $ javac PrecisionExample.java 
     $ java PrecisionExample
     0,50000000 = 111111000000000000000000000000
     0,50000006 = 111111000000000000000000000001
@@ -31,7 +30,7 @@ Dabei wird im Gegensatz zu Fließkommazahlen festgelegt, wie viele Stellen einer
 Da Ergebnisse zeichenweise gespeichert werden und so keine Rundungsfehler oder Fehler aufgrund von unzureichendem Speicherplatz zur Abbildung zulassen, ergibt sich jedoch ein erhöhter Speicherbedarf. Dieser kann in COBOL jedoch zum Beispiel durch das Nutzen von \cob{PACKED DECIMAL}s mit dem Schlüsselwort \cob{COMP-3} hinter der \cob{PICTURE}-Anweisung reduziert werden. Hierbei wird lediglich ein Nibble (\nicefrac{1}{2} Byte) pro Ziffer benötigt.
 
 \begin{codeWithCaption}{Dezimalzahlen in COBOL}{decimalsInCobol}
-    \cobol{PRECISION_EXAMPLE.cbl}
+    \cobol{PRECISION_EXAMPLE.cbl} \cFollow
     \begin{shellwindow}
     0.99
     1.00

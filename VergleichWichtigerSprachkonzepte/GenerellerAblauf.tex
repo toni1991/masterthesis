@@ -3,9 +3,8 @@
 \autoref{javaMainMethod} demonstriert einen sehr simplen Programmablauf in Java. Der Startpunkt eines jeden Java-Programms ist die \jav{main}-Methode. Von dieser aus können weitere Methoden aufgerufen werden, und sobald das Ende dieser Methode erreicht ist, terminiert das Programm. Im vorliegenden Beispiel wird nach einer Ausgabe in \jav{main} die Methode \jav{otherMethod} aufgerufen, bevor der Ablauf wieder in der \jav{main}-Methode fortgesetzt wird. Daran soll folgendes Verhalten deutlich werden: Endet eine aufgerufene Methode wie geplant, wird mit der nächsten Anweisung nach dem Methodenaufruf fortgefahren. 
 
 \begin{codeWithCaption}{Java main-Methode}{javaMainMethod}
-\java{MainMethod.java}
+\java{MainMethod.java} \cFollow
 \begin{shellwindow}
-$ javac MainMethod.java 
 $ java MainMethod
 Running main method!
 Running other method!
@@ -21,7 +20,7 @@ Ein Unterprogramm wird mit \cob{CALL} aufgerufen und gibt mit \cob{GOBACK} die K
 Die beiden Ausführungen von \autoref{simpleControlFlowCobol} zeigen das angesprochene Verhalten eines COBOL-Programms. Beim ersten Durchlauf wird für die Variable \cob{INPUT-NUMBER} der Wert 0 eingegeben, was durch das Ausführen der \cob{STOP RUN}-Anweisung in Zeile 15, das Beenden des Programmes bewirkt. Beim zweiten Mal wird hingegen der Wert 1 eingegeben. Dieser Wert verhindert das Abschließen des Programms in Zeile 15, wodurch der Programmablauf in Zeile 17 fortgesetzt wird und somit erneut die Eingabeaufforderung erscheint.
 
 \begin{codeWithCaption}{Programmablauf in COBOL}{simpleControlFlowCobol}
-\cobol{simpleControlFlow.cbl}
+\cobol{simpleControlFlow.cbl} \cFollow
 \begin{shellwindow}
 $ ./simpleControlFlow 
 Main paragraph
@@ -37,8 +36,10 @@ Enter some number: 2
 
 Wie in \autoref{sec:structure} beschrieben, besteht ein COBOL-Programm aus verschiedenen strukturellen Komponenten. \autoref{paragraphSecionControlFlowCobol} soll den Einfluss davon auf den Pro\-grammab\-lauf veranschaulichen.
 
+\clearpage
+
 \begin{codeWithCaption}{Programmablaufunterschiede in COBOL mit Sections und Paragraphs}{paragraphSecionControlFlowCobol}
-\cobol{paragraphSecionControlFlow.cbl}
+\cobol{paragraphSecionControlFlow.cbl} \cFollow
 \begin{shellwindow}
 $ ./paragraphSecionControlFlow 
 Calling section:

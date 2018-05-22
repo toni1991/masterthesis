@@ -2,7 +2,7 @@
 Dieser Abschnitt behandelt einen Fehler, der typischerweise zu Beginn in der Softwareentwicklung beobachtet werden kann. \autoref{ifVariableErrorJava} zeigt, wie Anfänger häufig versuchen, logische Ausdrücke zu konstruieren. Dies entspricht dem intuitiven Gedanken \quotes{Wenn Variable X größer 0 und kleiner 5 ist, dann \dots} oder der mathematischen Definition \quotes{$0 < X < 5$}.
 
 \begin{codeWithCaption}{Keine implizierten Variablennamen in logischen Ausdrücken in Java}{ifVariableErrorJava}
-\java{IfVariableError.java}
+\java{IfVariableError.java} \cFollow
 \begin{shellwindow}
 $ javac -Xmaxerrs 3 IfVariableError.java 
 IfVariableError.java:4: error: > expected
@@ -22,8 +22,10 @@ Versucht man, \autoref{ifVariableErrorJava} zu kompilieren, treten einige Fehler
 
 \autoref{ifVariableNoErrorJava} demonstriert eine funktionsfähige Implementierung des vorhergehenden Beispiels. Dieser Code kann fehlerfrei kompiliert und ausgeführt werden wie die Ausgabe zeigt.
 
+\clearpage
+
 \begin{codeWithCaption}{Verwendung von Variablennamen in logischen Ausdrücken in Java}{ifVariableNoErrorJava}
-\java{IfVariableNoError.java}
+\java{IfVariableNoError.java} \cFollow
 \begin{shellwindow}
 $ javac IfVariableNoError.java 
 $ java IfVariableNoError

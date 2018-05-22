@@ -1,7 +1,4 @@
-import java.util.stream.IntStream;
-
 public class Loops {
-
     public static void main(String... args) {
         int number = 0;
         while (number < 10) {
@@ -17,7 +14,7 @@ public class Loops {
             System.out.println(number);
         }
 
-        for (Integer num : IntStream.range(0, 10).toArray()) {
+        for (int num : new int[] { 0, 1, 2, 3, 4, 5 }) {
             System.out.println(num);
         }
     }

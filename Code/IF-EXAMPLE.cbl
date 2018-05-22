@@ -11,19 +11,15 @@
            ACCEPT VAR.            
            PERFORM PERIOD-IF-EXAMPLE.
            STOP RUN.
-            
        END-IF-EXAMPLE SECTION.
             IF VAR = 0
                 DISPLAY "VAR = 0"
             ELSE
                 DISPLAY "VAR != 0"
             END-IF. 
-       
        PERIOD-IF-EXAMPLE SECTION.
             IF VAR = 0
                 DISPLAY "VAR = 0"
             ELSE 
                 DISPLAY "VAR != 0".
-            
        END PROGRAM IF-EXAMPLE.
-

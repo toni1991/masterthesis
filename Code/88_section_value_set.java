@@ -11,7 +11,7 @@ public class ValueSet {
             this.message = message;
         }
 
-        String getMessage(){
+        String getMessage() {
             return this.message;
         }
     }

@@ -7,7 +7,7 @@ Wie für Listen bietet Java auch für Sets das \jav{Set}-Interface. Die wohl am 
 In \autoref{javaHashSet} wird gezeigt, dass das Einfügen von Elementen, die bereits im Set enthalten sind, keine Auswirkung hat. Die Eigenschaft, dass ein Set ungeordnet ist, lässt sich leider nicht zeigen, da Java die Werte bei der gezeigten Ausgabe ordnet. Dieses Verhalten tritt auch auf, wenn die Werte in umgekehrter Reihenfolge dem Set hinzugefügt werden, was jedoch in keinem Fall bedeutet, dass es sich beim Set um eine stets sortierte Liste handelt, auch wenn es den Eindruck vermittelt.
 
 \begin{codeWithCaption}{HashSet Beispiel in Java}{javaHashSet}
-    \java{HashSetExample.java}
+    \java{HashSetExample.java} \cFollow
 \begin{shellwindow}
 0 1 2 3 4 5 6 7 8 9 
 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 
@@ -18,7 +18,7 @@ In \autoref{javaHashSet} wird gezeigt, dass das Einfügen von Elementen, die ber
 Analog zu Listen kann festgehalten werden, dass eine Implementierung von Sets in COBOL nicht ohne weiteres möglich ist. Die Einschränkung der Größe der Datenstruktur bestünde auch hier. 
 
 \begin{codeWithCaption}{Einfache Set Implementierung in COBOL}{cobolSet}
-    \cobol{Set.cbl}
+    \cobol{Set.cbl} \cFollow
 \begin{shellwindow}
  SIZE: 000
 002, SIZE: 001

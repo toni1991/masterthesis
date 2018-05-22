@@ -6,7 +6,7 @@ Neben den bereits angesprochenen Stufennummern stellt die \textit{88} eine weite
 Der so entstandene Wahrheitswert kann folglich immer dann verwendet werden, wenn überprüft werden soll, ob die Variable \mintinline{text}{AGE} im Bereich zwischen 0 und 17 \bzw zwischen 17 und 99 liegt, sprich getestet werden, ob das Alter einer minder- oder volljährigen Person entspricht.
 
 \begin{codeWithCaption}{Beispiel für COBOL Stufennummer 88}{88_cobol_listing}
-    \cobol{88_section.cbl}
+    \cobol{88_section.cbl} \cFollow
 \begin{shellwindow}
 $ ./eightyeight
 Person is underage (AGE = 13)
@@ -29,4 +29,4 @@ Die Methoden \mintinline{text}{isUnderage} und \mintinline{text}{isAdult} geben 
 
 \mintedJava{88_section_value_set.java}{Setzen eines konstanten Wertes mit einem Enum in Java}{88_java_value_set_listing}
 
-Der Anwendungsfall, dass eine benannte Bedingung in COBOL verwendet wird, um bestimmte Werte zu setzen, lässt sich in Java am elegantesten über Aufzählungstypen -- \jav{enum} -- realisieren. Wie der Typ \jav{ErrorMessage} in \autoref{88_java_value_set_listing} zeigt, setzt jeder einzelne konstante Wert des Aufzählungstypen eine eigene Fehlernachricht, welche anschließend über die \jav{getMessage}-Funktion verfügbar ist.
+Der Anwendungsfall, dass eine benannte Bedingung in COBOL verwendet wird, um bestimmte Werte zu setzen, lässt sich in Java am elegantesten über Aufzählungstypen, also \jav{enum}s, realisieren. Wie der Typ \jav{ErrorMessage} in \autoref{88_java_value_set_listing} zeigt, setzt jeder einzelne konstante Wert des Aufzählungstypen eine eigene Fehlernachricht, welche anschließend über die \jav{getMessage}-Funktion verfügbar ist.

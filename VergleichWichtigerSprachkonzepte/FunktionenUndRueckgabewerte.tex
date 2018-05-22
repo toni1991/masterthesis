@@ -4,17 +4,19 @@ Wichtiger Bestandteil von Programmiersprachen sind Prozeduren und Funktionen. Da
 \subsubsection*{Java}
 In Java muss jede Anweisung Teil einer Funktion sein. Wie zuvor beschrieben startet ein Java-Programm mit der \jav{main}-Methode. Die Unterscheidung zwischen Methoden und Prozeduren wird in Java gängigerweise nicht getroffen. Oft findet sich auch die Bezeichnung Funktion. Java unterscheidet sich hier von manchen anderen modernen Sprachen, da es keine Methodenschachtelungen erlaubt.
 
-\mintedJava{MethodExample.java}{Methoden in Java}{javaMethods}
 \autoref{javaMethods} zeigt verschiedene Methoden. An diesem Beispiel sollen zwei wichtige Konzepte dargestellt werden: 
 \begin{itemize}
     \item \textbf{Übergabe von Parametern} -- Wie gezeigt, erhalten die Funktionen unterschiedliche Parameter. Die Methode \jav{process()} zum Beipiel erhält keinen Parameter. \jav{getGreeting(String, String)} erwartet hingegen zwei Parameter vom Typ \jav{String}.
     \item \textbf{Rückgabe eines Wertes} -- Eine Funktion muss stets den Typ ihres Rückgabewertes definieren. Soll kein Rückgabewert geliefert werden, ist der Typ als \jav{void} zu definieren. Im Gegensatz zu anderen Sprachen kann eine Methode in Java lediglich einen Wert zurückliefern.
 \end{itemize}
+
+\mintedJava{MethodExample.java}{Methoden in Java}{javaMethods}
+
 Der Aufruf einer Funktion erfolgt, wie in Zeile 12 gezeigt, mittels Methodenname und den zu übergebenen Parametern. Außerdem zeigt sich, dass Funktionen mithilfe des \jav{return}-Statements \textbf{einen} Rückgabewert an die aufrufende Funktion zurückgeben können. Ein \jav{return} kann auch dazu benutzt werden, um Funktionen an anderen Stellen als der letzten Zeile zu verlassen. Eine Funktion ohne Rückgabewert -- \jav{void} -- terminiert implizit in der letzten Zeile und benötigt kein explizites \jav{return}, kann dieses jedoch auch ohne Rückgabewert nutzen, um vorher den Funktionsablauf zu beenden. Eine Methode mit Rückgabewert muss stets einen Wert mit passendem Datentyp durch \jav{return} zurückgeben.
 
-\mintedJava{RecursionExample.java}{Rekursion in Java}{javaRecursion}
-
 Eine elegante Möglichkeit, die sich mit Funktionen in Java bietet, ist die Rekursion. Dabei handelt es sich um eine Funktion, die sich selbst aufruft. In Java begegnet man rekursiven Implementierungen selten, obwohl diese, im Gegensatz zu iterativen Ansätzen, oft eleganter und durch weniger Code formuliert werden könnten. Auf der anderen Seite ist die iterative Implementierung jedoch sicherer, da rekursive Varianten unter Umständen an die nicht fest definierte Grenze der maximalen Rekursionstiefe gelangt. Die Funktionen \jav{facultyRecursive} und \jav{facultyIterative} in \autoref{javaRecursion} berechnen die Fakultät einer übergebenen Zahl rekursiv \bzw iterativ.
+
+\mintedJava{RecursionExample.java}{Rekursion in Java}{javaRecursion}
 
 \subsubsection*{COBOL}
 Das Konzept einer Funktion existiert in COBOL nicht. Lediglich das Aufrufen einer Section oder eines Paragraphs mithilfe eines \cob{PERFORM} geben ansatzweise ähnliche Möglichkeiten und können daher als Vergleich herangezogen werden. Jedoch können dabei weder Parameter übergeben noch ein Wert zurückgeliefert werden. Darum ist es nötig, Werte, die innerhalb einer Section verwendet oder zurückgeliefert werden sollen, in Variablen zu kopieren. Wie in \autoref{sec:scope} beschrieben, sind diese Variablen jedoch immer global innerhalb eines Programms definiert.
@@ -30,11 +32,9 @@ Rekursive \cob{PERFORM}-Aufrufe sind zwar syntaktisch möglich, jedoch führt di
 In COBOL ist es möglich, eigenständige Unterprogramme aufzurufen. Wie bereits in \autoref{sec:structure} erläutert, dient die \cob{LINKAGE SECTION} dazu, im Unterprogramm zu definieren, welche Variablen übergeben werden. Mithilfe der \cob{CALL}-Anweisung, des Programmnamens und der Angabe von Variablennamen kann dieses Unterprogramm aufgerufen und die Werte übergeben werden. Wie in \autoref{wiederverwendbarkeit} kann die Angabe des Programmnamens auch pseudo-variabel geschehen, um ein statisches Linken der Programmteile zu vermeiden. 
 
 \begin{codeWithCaption}{Unterprogramme in COBOL}{subprogramsCobol}
-\cobol{CALLING_PROGRAM.cbl}
-\cobol{CALLED_PROGRAM.cbl}
+\cobol{CALLING_PROGRAM.cbl} \cFollow
+\cobol{CALLED_PROGRAM.cbl} \cFollow
 \begin{shellwindow}
-$ cobc -x -o CALLING_PROGRAM CALLING_PROGRAM.cbl 
-$ cobc -m CALLED_PROGRAM.cbl
 $ ./CALLING_PROGRAM
 22
 SUB-PROGRAM got passed: 0022

@@ -3,13 +3,12 @@ import java.io.Serializable;
 public class GenericExample {
 
     public static void main(String... args) {
-        GenericClass<Exception, Float> genericObject = new GenericClass<>();
+        GenericType<Exception, Float> generic = new GenericType<>();
 
-        genericObject.decorate(genericObject);
+        generic.decorate(generic);
     }
 
-    static class GenericClass<T extends Serializable, S extends Number> {
-
+    static class GenericType<T extends Serializable, S extends Number> {
         T serializableObject;
         S someNumber;
 
@@ -17,5 +16,4 @@ public class GenericExample {
             return "~" + someObject.toString() + "~";
         }
     }
-
 }

@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class ArrayListExample{
+public class ArrayListExample {
     
     public static void main(String[] args) {
         List<Integer> integerList = new ArrayList<>();
@@ -25,6 +25,5 @@ public class ArrayListExample{
                 "Elements: " + Arrays.toString(list.toArray()) + 
                 " - Size: " + list.size()
         );
-        
     }
 }
