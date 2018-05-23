@@ -5,7 +5,7 @@ In Java bildet das \jav{switch}-\jav{case}-Konstrukt eine Mehrfachverzweigung ab
 \mintedJava{switch_case.java}{Mehrfachverzweigungen in Java}{switch_case_java}
 Zum einen ist zu beachten, dass Werte nur mit Literalen und Konstanten verglichen werden können. Ein Vergleich einer Variablen mit einer weiteren ist hierbei nicht zulässig, solange diese nicht als \jav{final} deklariert ist. Auch der Vergleich auf bestimmte Wertebereiche oder nicht-primitive Datentypen ist nicht zulässig (Seit Java 7 sind Vergleiche mit String-Literalen möglich).
 
-Jedoch ist ein gewolltes \quotes{Durchfallen} möglich, um bei verschiedenen Werten die gleichen Programmzweige zu durchlaufen. Dabei spielt das Schlüsselwort \jav{break} eine entscheidende Rolle. Wird kein \jav{break} am Ende einer \jav{case}-Anweisung verwendet, so wird automatisch in den ausführbaren Block der darauffolgenden \jav{case}-Anweisung gesprungen. Dies zeigt sich in den Zeilen 6--9 und 17f. von \autoref{switch_case_java}. Die Verwendung der \jav{break}-Anweisung wird hingegen in den Zeilen 11, 15 und 20 genutzt, um den \jav{switch}-Block zu verlassen.
+Jedoch ist ein gewolltes \quotes{Durchfallen} möglich, um bei verschiedenen Werten die gleichen Programmzweige zu durchlaufen. Dabei spielt das Schlüsselwort \jav{break} eine entscheidende Rolle. Wird kein \jav{break} am Ende einer \jav{case}-Anweisung verwendet, so wird automatisch in den ausführbaren Block der darauffolgenden \jav{case}-Anweisung gesprungen. Dies zeigt sich in den Zeilen 6, 7, 10 und 13 von \autoref{switch_case_java}. Die Verwendung der \jav{break}-Anweisung wird hingegen in den Zeilen 9, 12 und 15 genutzt, um den \jav{switch}-Block zu verlassen.
  
 Das Fehlen eines \jav{break} kann in der Praxis schnell zu unerwünschtem und unerklärlichem Verhalten führen. Deshalb folgt in der Regel jedem \jav{case} ein \jav{break}. 
 
@@ -13,7 +13,7 @@ Das Pendant in COBOL stellt das Schlüsselwort \cob{EVALUATE} dar. Wenngleich es
 
 Das folgende \autoref{switch_case_cobol1} führt die Verwendungsmöglichkeit an, die dem \jav{switch}-\jav{case}-Konstrukt in Java am nächsten kommt. Nach dem \cob{EVALUATE}-Schlüsselwort werden Variablennamen angegeben, deren Werte anschließend in einer \cob{WHEN}-Bedingung betrachtet werden sollen.
 
-Auch hier sieht man in den Zeilen 14, 17, 20, 23 ein gewolltes \quotes{Durchfallen} wie in Java. Einziger Unterschied hierbei ist, dass in COBOL jeder ausführbare Block nach einem \cob{WHEN} eigenständig und somit kein \jav{break} notwendig ist. Ein \quotes{Durchfallen} ist nur möglich, wenn der komplette Anweisungsblock leer ist. 
+Auch hier sieht man in den Zeilen 12, 15, 18 und 21 ein gewolltes \quotes{Durchfallen} wie in Java. Einziger Unterschied hierbei ist, dass in COBOL jeder ausführbare Block nach einem \cob{WHEN} eigenständig und somit kein \jav{break} notwendig ist. Ein \quotes{Durchfallen} ist nur möglich, wenn der komplette Anweisungsblock leer ist. 
 
 Der \cob{OTHER}-Zweig entspricht in COBOL dem aus Java bekannten \jav{default}. Dieser Zweig wird ausgeführt, wenn die Kriterien keines anderen zutreffen.
 
@@ -25,6 +25,6 @@ Eine weitere Eigenheit zeigt sich in der Auswertung der Variable \mintinline{tex
 
 \mintedCobol{switch_case2.cbl}{Mehrfachverzweigungen in COBOL als EVALUATE TRUE}{switch_case_cobol2}
 
-\autoref{switch_case_cobol2} stellt weitere Unterschiede zu Mehrfachverzweigungen in Java dar. So ist diese \cob{EVALUATE TRUE}-Variante (auch als \cob{EVALUATE FALSE} möglich) mit geschachtelten \jav{if}-Abfragen in Java zu vergleichen. Jede Bedingung hinter dem \cob{WHEN}-Schlüsselwort entspricht hierbei einem vollständigen logischen Ausdruck. Daher ist es möglich, wie in Zeile 16 gezeigt, Rechenoperationen durchzuführen oder logische Operatoren wie in diesem Fall das \cob{OR} zu verwenden. 
+\autoref{switch_case_cobol2} stellt weitere Unterschiede zu Mehrfachverzweigungen in Java dar. So ist diese \cob{EVALUATE TRUE}-Variante (auch als \cob{EVALUATE FALSE} möglich) mit geschachtelten \jav{if}-Abfragen in Java zu vergleichen. Jede Bedingung hinter dem \cob{WHEN}-Schlüsselwort entspricht hierbei einem vollständigen logischen Ausdruck. Daher ist es möglich, wie in Zeile 14 gezeigt, Rechenoperationen durchzuführen oder logische Operatoren wie in diesem Fall das \cob{OR} zu verwenden. 
 
 Mithilfe des \cob{ALSO}-Schlüsselworts sind sowohl Variablen-Vergleiche wie in \autoref{switch_case_cobol1} als auch \cob{TRUE}-Vergleiche wie in \autoref{switch_case_cobol2} zusammen möglich.

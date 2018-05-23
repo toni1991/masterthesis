@@ -2,9 +2,10 @@
 %\index{COPY} \index{import} \index{COBOL Copybook}
 Sowohl zur Wiederverwendbarkeit als auch zur Erreichung einer gewissen Typsicherheit ist es in vielen Programmiersprachen möglich, Datenstrukturen extern in einer eigenen Datei zu deklarieren und an verschiedenen Stellen wieder zu verwenden. Dies ist auch in COBOL und Java möglich, wenngleich sich die Ansätze stark unterscheiden. In Java ist diese Deklaration ein entscheidendes Sprachkonzept und so muss -- wie bereits beschrieben -- jede Klasse in einer eigenen Datei angelegt werden. In COBOL bietet dieses Konzept lediglich einen gewissen komfortableren Umgang mit Datendeklarationen, ist jedoch nicht zwingend notwendig.
 
-In Java werden Klassen in sogenannten Packages organisiert. Um auf Klassen aus einem anderen Package zuzugreifen, ist ein Importieren der betreffenden Klasse notwendig. Dies geschieht wie in \autoref{importJava} mithilfe des \jav{import}-Statements.
+In Java werden Klassen in sogenannten Packages organisiert. Um auf Klassen aus einem anderen Package zuzugreifen, ist ein Importieren der betreffenden Klasse notwendig. Dies wird wie in \autoref{importJava} mithilfe des \jav{import}-Statements erreicht.
 
 \mintedJava{Import.java}{Import in Java}{importJava}
+
 Das Interface \mintinline{text}{MySystem} nutzt dabei die in Package \mintinline{text}{com.secondpackage} enthaltene Klasse \mintinline{text}{MySystemPart}. Bei der Verwendung einer Klasse aus dem selben Package ist kein zusätzliches \jav{import}-Statement notwendig. Das Importieren geschieht dabei implizit über das Setzen des Packagenamens wie in Zeile 1 gezeigt.
 
 COBOL bietet zur externen Deklaration von Daten das \mintinline{cobol}{COPY}-Schlüsselwort. Hiermit wird der Inhalt einer anderen Datei, eines sogenannten \textit{COBOL-Copybook}, durch den Compiler an die Stelle des \mintinline{cobol}{COPY} kopiert. Das Verhalten ist stark mit der Präprozessoranweisung \mintinline{c}{#include} in den Programmiersprachen C und C++ zu vergleichen.
@@ -13,7 +14,7 @@ COBOL bietet zur externen Deklaration von Daten das \mintinline{cobol}{COPY}-Sch
 
 \mintedCobol{copy.cbl}{Nutzung eines COBOL-Copybook}{copyCobol}
 
-\autoref{copyFileCobol} zeigt den Inhalt des Copybooks. Hier werden die Datenstrukturen definiert, die dann an anderer Stelle genutzt werden können. In \autoref{copyCobol} Zeile 6 wird das COBOL-Copybook in die \cob{WORKING-STORAGE SECTION} kopiert, sodass die deklarierten Daten im Programm genutzt werden können.
+\autoref{copyFileCobol} zeigt den Inhalt des Copybooks. Hier werden die Datenstrukturen definiert, die dann an anderer Stelle genutzt werden können. In \autoref{copyCobol} Zeile 5 wird das COBOL-Copybook in die \cob{WORKING-STORAGE SECTION} kopiert, sodass die deklarierten Daten im Programm genutzt werden können.
 
 In diesem speziellen Fall wird zusätzlich Gebrauch der Schlüsselwörter \cob{REPLACING} und \cob{BY} gemacht. Dieses kann dazu verwendet werden, um Variablennamen oder Strings im dem Copybook auszutauschen. Dieser Mechanismus führt zu einer höheren Wiederverwendbarkeit, sollte jedoch mit Bedacht genutzt werden, da eine Analyse des Programms erschwert wird, weil Variable durch die Namensersetzung im Quelltext schwerer zu finden sind.
 

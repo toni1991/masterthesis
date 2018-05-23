@@ -8,7 +8,6 @@
 $ java MainMethod
 Running main method!
 Running other method!
-Running return value method!
 Continue main method!
 \end{shellwindow}
 \end{codeWithCaption}
@@ -17,7 +16,7 @@ In COBOL gestaltet sich der Programmablauf ähnlich. Das Programm wird stets von
 
 Ein Unterprogramm wird mit \cob{CALL} aufgerufen und gibt mit \cob{GOBACK} die Kontrolle zurück an das aufrufende Programm. Die Ausführung eines COBOL-Programms endet beim Erreichen einer \cob{STOP RUN}-Anweisung oder mit dem Ende des Programms (\cob{END PROGRAM}). 
 
-Die beiden Ausführungen von \autoref{simpleControlFlowCobol} zeigen das angesprochene Verhalten eines COBOL-Programms. Beim ersten Durchlauf wird für die Variable \cob{INPUT-NUMBER} der Wert 0 eingegeben, was durch das Ausführen der \cob{STOP RUN}-Anweisung in Zeile 15 das Beenden des Programmes bewirkt. Beim zweiten Mal wird hingegen der Wert 1 eingegeben. Dieser Wert verhindert das Abschließen des Programms in Zeile 15, wodurch der Programmablauf in Zeile 17 fortgesetzt wird und somit erneut die Eingabeaufforderung erscheint.
+Die beiden Ausführungen von \autoref{simpleControlFlowCobol} zeigen das angesprochene Verhalten eines COBOL-Programms. Beim ersten Durchlauf wird für die Variable \cob{INPUT-NUMBER} der Wert 0 eingegeben, was durch das Ausführen der \cob{STOP RUN}-Anweisung das Beenden des Programmes bewirkt. Beim zweiten Mal wird hingegen der Wert 1 eingegeben. Dieser Wert verhindert das Abschließen des Programms mittels \cob{STOP RUN}, wodurch der Programmablauf in Zeile 16 fortgesetzt wird und somit erneut die Eingabeaufforderung erscheint.
 
 \begin{codeWithCaption}{Programmablauf in COBOL}{simpleControlFlowCobol}
 \cobol{simpleControlFlow.cbl} \cFollow
