@@ -1,19 +1,25 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. FILES.
-       ENVIRONMENT DIVISION.
-       INPUT-OUTPUT SECTION.
-       FILE-CONTROL.
-       SELECT RecordFile ASSIGN TO "recordFile.txt"
-          ORGANIZATION IS LINE SEQUENTIAL.
+       PROGRAM-ID. ENTITIES.
        DATA DIVISION.
-       FILE SECTION.
-       FD RecordFile.
-       COPY "PersonData".
+       WORKING-STORAGE SECTION.
+       01 PERSON OCCURS 4 TIMES INDEXED BY PE-IDX.
+           05 FNAME PIC X(6).
+           05 SNAME PIC X(6).
+           05 PA-IDX PIC 9.
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
-            PERFORM WRITE-FILE.
-            PERFORM READ-FILE.
+            PERFORM SET-PARTNER.
+            PERFORM PRINT-PARTNER.
             STOP RUN.
-       COPY "WRITE_FILE".
-       COPY "READ_FILE".
-       END PROGRAM FILES.
+       SET-PARTNER SECTION.
+           MOVE "  Anna  Wolf3" TO PERSON(1).
+           MOVE "Hubert Mayer4" TO PERSON(2).
+           MOVE "  Olaf  Wolf1" TO PERSON(3).
+           MOVE "Ursula Mayer2" TO PERSON(4).
+       PRINT-PARTNER SECTION.
+           PERFORM VARYING PE-IDX FROM 1 BY 1 UNTIL PE-IDX = 5
+               DISPLAY FNAME(PE-IDX)" "SNAME(PE-IDX)
+                   " is married with "
+                   FNAME(PA-IDX(PE-IDX))" "SNAME(PA-IDX(PE-IDX))
+           END-PERFORM.
+       END PROGRAM ENTITIES.
