@@ -10,7 +10,7 @@ public class MyCalendar {
             case 2:
                 System.out.println("This Month has 28 or 29 days.");
                 break;
-            case 4: case 5: case 9: case 11:
+            case 4: case 6: case 9: case 11:
                 System.out.println("This Month has 30 days.");
                 break;
             default:
