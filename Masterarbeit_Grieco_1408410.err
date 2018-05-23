@@ -1,0 +1,6 @@
+#<NoMethodError: undefined method `strip' for nil:NilClass>
+
+/home/toni/Temporary/ltx2any/lib/DaemonPrompt.rb:86:in `getCommand'
+/home/toni/Temporary/ltx2any/lib/DaemonPrompt.rb:22:in `run'
+/home/toni/Temporary/ltx2any/lib/FileListener.rb:178:in `waitForChanges'
+/home/toni/Temporary/ltx2any/ltx2any.rb:269:in `<main>'
